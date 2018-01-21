@@ -61,6 +61,7 @@ nav.navbar
   position relative
   display inline-block
   padding 8px
+  border-radius 6px
   transition background-color 0.2s ease-in-out
   &.active > .line
     left 0

@@ -10,7 +10,8 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Artificial Intelligence platform for Disasters' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' },
     ]
   },
   /*
