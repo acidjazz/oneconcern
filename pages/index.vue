@@ -1,13 +1,39 @@
 <template lang="pug">
 #Who
+  Carousel(:data="carousel")
 </template>
 
 <script>
+import Carousel from '~/components/modules/Carousel.vue'
+export default {
+  components: { Carousel },
+  data () {
+    return {
+      carousel: [
+        {
+          image: 'https://picsum.photos/1280/740?image=100',
+          title: 'Who We Are',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse convallis neque massa, ac pulvinar elit gravida sit amet. Mauris volutpat feugiat venenatis. Pellentesque quis ipsum eros. ',
+          cta: { name: 'LEARN MORE', link: 'who', },
+        },
+        {
+          image: 'https://picsum.photos/1280/740?image=10',
+          title: 'What We Believe',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse convallis neque massa, ac pulvinar elit gravida sit amet. Mauris volutpat feugiat venenatis. Pellentesque quis ipsum eros. ',
+          cta: { name: 'LEARN MORE', link: 'what', },
+        },
+        {
+          image: 'https://picsum.photos/1280/740?image=20',
+          title: 'Join the Team',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse convallis neque massa, ac pulvinar elit gravida sit amet. Mauris volutpat feugiat venenatis. Pellentesque quis ipsum eros. ',
+          cta: { name: 'LEARN MORE', link: 'join', },
+        }
+      ],
+    }
+  },
+
+}
 </script>
 
 <style lang="stylus">
-#Who
-  width 100vw
-  height 100vh
-  background-image url(https://picsum.photos/1280/740)
 </style>

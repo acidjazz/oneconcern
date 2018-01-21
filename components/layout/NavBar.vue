@@ -5,7 +5,7 @@ nav.navbar
     router-link.navbar-item(
       v-for="name, route in menu",
       :key="route",
-      :class="{active: $route.name === route || (route === '/' && $route.name === 'index')}"
+      :class="{active: $route.name === route}"
       :to="route")
       span {{ name }} 
       .line
@@ -18,14 +18,10 @@ nav.navbar
 <script>
 export default {
 
-  created () {
-    console.log(this.$route)
-  },
-
   data () {
     return {
       menu: {
-        '/': 'Who We Are',
+        who: 'Who We Are',
         what: 'What we Believe',
         join: 'Join the Team',
         updates: 'Recent Updates',
@@ -35,7 +31,6 @@ export default {
   },
 }
 </script>
-
 
 <style lang="stylus">
 @import '../../assets/stylus/guide/*'
