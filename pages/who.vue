@@ -1,5 +1,7 @@
 <template lang="pug">
-#Who Who We Are
+#Who.page
+  .hero
+    .hero-title Our long-term vision is for planetary-scale resilience where everyone lives in a safe, sustainable and equitable world. 
 </template>
 
 <script>
@@ -7,9 +9,6 @@
 
 <style lang="stylus">
 #Who
-  width 100vw
-  height 100vh
-  background-image url(https://picsum.photos/1280/740?image=218)
-  background-repeat no-repeat
-  background-size cover
+  .hero
+    background-image url(https://picsum.photos/1280/740?image=122)
 </style>

@@ -36,9 +36,13 @@ export default {
 @import '../../assets/stylus/guide/*'
 nav.navbar
   position fixed
-  top 20px
-  left 45px
-  right 45px
+  padding 20px 45px 30px 45px
+  top 0px
+  left 0px
+  right 0px
+  transition background-color 1s ease
+  &.dark
+    background-color cinder
 
 .navbar-logo
   background-image url(/logo.png)
@@ -61,12 +65,11 @@ nav.navbar
   position relative
   display inline-block
   padding 8px
-  border-radius 6px
-  transition background-color 0.2s ease-in-out
+  transition background-color 0.2s ease, color 0.1s ease
   &.active > .line
     left 0
     right 0
-  &:hover
+  &:not(.active):hover
     background-color rgba(white, 0.5)
   &.cta
     background-color white
@@ -80,6 +83,6 @@ nav.navbar
     right 50%
     bottom 0
     background-color white
-    transition all 0.2s ease-in-out
+    transition all 0.2s ease-in-out 0.3s
 
 </style>

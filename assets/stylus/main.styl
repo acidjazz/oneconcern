@@ -18,3 +18,32 @@ body, button, input, select, textarea
   zoom: 1 if support-for-ie
 
 
+.page-enter-active
+  transition opacity 0.3s ease 0s
+.page-leave-active
+  transition opacity 0.3s ease 0.1s
+.page-enter, .page-leave-to
+  opacity 0
+  > .hero > .hero-title
+    transform translate(-10px, -50%)
+    opacity 0
+
+.page-enter, .page-leave
+  position absolute
+
+.hero
+  width 100vw
+  height 100vh
+  background-repeat no-repeat
+  background-size cover
+  position relative
+  .hero-title
+    color white
+    font-h3()
+    position absolute
+    top 50%
+    left 50px
+    transform translate(0px, -50%)
+    width 780px
+    transition all 0.2s ease
+

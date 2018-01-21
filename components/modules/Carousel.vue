@@ -27,7 +27,7 @@ export default {
   },
   data () {
     return {
-      index: 0,
+      index: 1,
     }
   },
 }
@@ -91,6 +91,9 @@ export default {
   border 2px solid white
   border-radius 50%
   margin-bottom 15px
+  transition background-color 0.2s ease
+  &:hover
+    background-color rgba(white, 0.5)
   &.filled
     background-color white
   &:last-child

@@ -1,5 +1,7 @@
 <template lang="pug">
-#What What We Are
+#What 
+  .hero
+    .hero-title What ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada velit a lacus venenatis tempor. Integer eu consectetur metus. Nunc a volutpat tellus
 </template>
 
 <script>
@@ -7,9 +9,6 @@
 
 <style lang="stylus">
 #What
-  width 100vw
-  height 100vh
-  background-image url(https://picsum.photos/1280/740?image=10)
-  background-repeat no-repeat
-  background-size cover
+  .hero
+    background-image url(https://picsum.photos/1280/740?image=123)
 </style>

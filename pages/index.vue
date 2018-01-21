@@ -11,19 +11,19 @@ export default {
     return {
       carousel: [
         {
-          image: 'https://picsum.photos/1280/740?image=218',
+          image: 'https://picsum.photos/1280/740?image=221',
           title: 'Who We Are',
           description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse convallis neque massa, ac pulvinar elit gravida sit amet. Mauris volutpat feugiat venenatis. Pellentesque quis ipsum eros. ',
           cta: { name: 'LEARN MORE', link: 'who', },
         },
         {
-          image: 'https://picsum.photos/1280/740?image=10',
+          image: 'https://picsum.photos/1280/740?image=184',
           title: 'What We Believe',
           description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse convallis neque massa, ac pulvinar elit gravida sit amet. Mauris volutpat feugiat venenatis. Pellentesque quis ipsum eros. ',
           cta: { name: 'LEARN MORE', link: 'what', },
         },
         {
-          image: 'https://picsum.photos/1280/740?image=20',
+          image: 'https://picsum.photos/1280/740?image=306',
           title: 'Join the Team',
           description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse convallis neque massa, ac pulvinar elit gravida sit amet. Mauris volutpat feugiat venenatis. Pellentesque quis ipsum eros. ',
           cta: { name: 'LEARN MORE', link: 'join', },
