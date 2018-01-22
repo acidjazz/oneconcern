@@ -16,7 +16,8 @@
     "nuxt": "^1.0.0",
     "pug": "^2.0.0-rc.4",
     "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.1"
+    "stylus-loader": "^3.0.1",
+    "vue-in-viewport-directive": "^1.1.4"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",

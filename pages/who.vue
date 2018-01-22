@@ -15,7 +15,6 @@
 import ContentBlock from '~/components/modules/ContentBlock'
 export default {
   components: { ContentBlock },
-
   data () {
     return {
       contents: [
@@ -27,7 +26,7 @@ export default {
         },
         {
           order: "copy",
-          theme: "charcoal",
+          theme: "fire",
           copy: "Who ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada velit a lacus venenatis tempor. Integer eu consectetur metus. Nunc a volutpat tellus",
           image: "https://picsum.photos/1280/740?image=129",
         },
@@ -39,7 +38,7 @@ export default {
         },
         {
           order: "copy",
-          theme: "charcoal",
+          theme: "fire",
           copy: "Who ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada velit a lacus venenatis tempor. Integer eu consectetur metus. Nunc a volutpat tellus",
           image: "https://picsum.photos/1280/740?image=155",
         },
