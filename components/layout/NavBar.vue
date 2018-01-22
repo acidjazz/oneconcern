@@ -9,15 +9,14 @@ nav.navbar
       :to="route")
       span {{ name }} 
       .line
-    router-link.navbar-item.cta(to="/")
-      .back
-      .cover
-      .text REQUEST A DEMO
+    CtaButton(link="/",name="REQUEST A DEMO",theme="white")
   .clear
 </template>
 
 <script>
+import CtaButton from '~/components/button/CtaButton'
 export default {
+  components: { CtaButton },
   data () {
     return {
       menu: {
@@ -73,38 +72,6 @@ nav.navbar
     right 0
   &:not(.active):hover
     background-color rgba(white, 0.5)
-  &.cta
-    color blue-charcoal
-    border-radius 20px 
-    position relative
-    overflow hidden
-    margin-bottom -10px
-    width 173px
-    height 22px
-    &:hover .cover
-      transform translate(-10px, 0) skewX(-20deg)
-    &:hover .text
-      color white
-    .text
-      tplr()
-      text-align center
-      position absolute
-      line-height 42px
-      transition 0.15s ease
-    .cover
-      top 0
-      left 0
-      bottom 0
-      width 220px
-      position absolute
-      background-color fire-bush
-      transform translate(-220px, 0) skewX(-15deg)
-      transition 0.2s ease
-    .back
-      tplr()
-      position absolute
-      background-color white
-
   .line
     position absolute
     height 1px

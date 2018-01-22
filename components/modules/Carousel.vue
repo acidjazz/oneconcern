@@ -31,14 +31,12 @@ export default {
   methods: {
     dot (index) {
       this.index = index
-      clearInteravl(this.timer)
+      clearInterval(this.timer)
     },
   },
 
   created () {
-    this.timer = setInterval(() => {
-      (this.index === this.data.length - 1) ? this.index = 0 : this.index++
-    }, this.interval*1000)
+    // this.timer = setInterval(() => { (this.index === this.data.length - 1) ? this.index = 0 : this.index++ }, this.interval*1000)
   },
 
   destroyed () {
