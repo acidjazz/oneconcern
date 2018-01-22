@@ -1,5 +1,5 @@
 <template lang="pug">
-nav.navbar
+nav.navbar(:class="{dark: darken}")
   router-link.navbar-logo(to="/")
   .navbar-menu
     router-link.navbar-item(
@@ -17,8 +17,29 @@ nav.navbar
 import CtaButton from '~/components/button/CtaButton'
 export default {
   components: { CtaButton },
+  created () {
+    if (process.browser) {
+      window.addEventListener('scroll', this.scroll)
+    }
+  },
+  destroyed () {
+    if (process.browser) {
+      window.removeEventListener('scroll', this.scroll)
+    }
+  },
+  methods: {
+    scroll (event) {
+      if (window.scrollY >= 100 && this.darken === false) {
+        this.darken = true
+      }
+      if (window.scrollY <= 60 && this.darken === true) {
+        this.darken = false
+      }
+    },
+  },
   data () {
     return {
+      darken: false,
       menu: {
         who: 'Who We Are',
         what: 'What we Believe',
@@ -41,9 +62,13 @@ nav.navbar
   top 0px
   left 0px
   right 0px
-  transition background-color 1s ease
+  transition 0.6s linear
   &.dark
+    padding 20px 45px 20px 45px
     background-color cinder
+    .navbar-logo
+      width 118px
+      height 50px
 
 .navbar-logo
   background-image url(/logo.png)
@@ -52,6 +77,7 @@ nav.navbar
   width 146px
   height 62px
   float left
+  transition 0.6s ease
 
 .navbar-menu
   float right

@@ -16,6 +16,7 @@
       @click="dot(cindex)",
       v-for="carousel, cindex in data"
       :class="{filled: cindex === index}")
+      .carousel-dot-inner
 </template>
 <script>
 import CtaButton from '~/components/button/CtaButton.vue'
@@ -36,7 +37,9 @@ export default {
   },
 
   created () {
-    // this.timer = setInterval(() => { (this.index === this.data.length - 1) ? this.index = 0 : this.index++ }, this.interval*1000)
+    this.timer = setInterval(() => { 
+      (this.index === this.data.length - 1) ? this.index = 0 : this.index++ 
+    }, this.interval*1000)
   },
 
   destroyed () {
@@ -100,11 +103,20 @@ export default {
   border 2px solid white
   border-radius 50%
   margin-bottom 15px
-  transition background-color 0.2s ease
-  &:hover
-    background-color rgba(white, 0.5)
-  &.filled
+  overflow hidden
+  .carousel-dot-inner
+    // border-radius 50%
     background-color white
+    width 100%
+    height 100%
+    transform translate(0px, 15px)
+    // transform scale(0)
+    transition transform 1.6s ease
+  &:hover
+    background-color rgba(white, 0.2)
+  &.filled .carousel-dot-inner
+    transform translate(0px, 0px)
+    //transform scale(1)
   &:last-child
     margin-bottom 0
 
