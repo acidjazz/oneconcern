@@ -57,6 +57,7 @@ export default {
 @import '../../assets/stylus/guide/*'
 
 nav.navbar
+  z-index 100
   position fixed
   padding 20px 45px 30px 45px
   top 0px

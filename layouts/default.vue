@@ -1,6 +1,7 @@
 <template lang="pug">
 #OneConcern
-  nuxt
+  .pages
+    nuxt
   NavBar
   BottomBar
 </template>

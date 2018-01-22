@@ -18,11 +18,14 @@ body, button, input, select, textarea
     clear: both
   zoom: 1 if support-for-ie
 
+
+.pages
+  min-height 100vh
 .page-enter-active
-  transition opacity 0.3s ease 0s
+  transition 0.4s ease-in 
 .page-leave-active
-  transition opacity 0.3s ease 0.1s
-.page-enter, .page-leave-to
+  transition 0.4s ease-in 0.2s
+.page-enter, .page-leave, .page-leave-to
   opacity 0
   > .hero > .hero-title
     transform translate(-20px, -50%)

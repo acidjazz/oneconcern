@@ -1,5 +1,5 @@
 <template lang="pug">
-footer.footer(:class="{solid: $route.name !== 'index'}")
+footer.footer(:class="{solid: $route.name !== 'index'}",v-in-viewport)
   .footer-left &copy;2018 One Concern, Inc.  All Rights Reserved
   .footer-right
     .footer-item Contact Us
@@ -10,6 +10,13 @@ footer.footer(:class="{solid: $route.name !== 'index'}")
     a.footer-item(href="#")
       span.fa.fa-linkedin.fa-inverse
 </template>
+
+<script>
+import inViewportDirective from 'vue-in-viewport-directive'
+export default {
+  directives: { 'in-viewport': inViewportDirective },
+}
+</script>
 
 
 <style lang="stylus">
@@ -31,6 +38,16 @@ footer.footer
         background-color blue-charcoal
         &:hover
           background-color fire-bush
+  &.below-viewport
+    .footer-left
+      transform translate(-20px, 0)
+    .footer-right
+      transform translate(20px, 0)
+  &.in-viewport
+    .footer-left
+      transform translate(0px, 0)
+    .footer-right
+      transform translate(0px, 0)
 
 .footer-left
   float left
@@ -39,6 +56,8 @@ footer.footer
 .footer-right
   float right
   font-s2()
+.footer-left, .footer-right
+  transition transform 2s ease
 
 .footer-item
   display inline-block
