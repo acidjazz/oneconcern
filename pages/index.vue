@@ -27,7 +27,13 @@ export default {
           title: 'Join the Team',
           description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse convallis neque massa, ac pulvinar elit gravida sit amet. Mauris volutpat feugiat venenatis. Pellentesque quis ipsum eros. ',
           cta: { name: 'LEARN MORE', link: 'join', },
-        }
+        },
+        {
+          image: 'https://picsum.photos/1280/740?image=249',
+          title: 'Recent Updates',
+          description: 'Recent Updates dolor sit amet, consectetur adipiscing elit. Suspendisse convallis neque massa, ac pulvinar elit gravida sit amet. Mauris volutpat feugiat venenatis. Pellentesque quis ipsum eros. ',
+          cta: { name: 'LEARN MORE', link: 'updates', },
+        },
       ],
     }
   },

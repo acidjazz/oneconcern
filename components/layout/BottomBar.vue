@@ -47,4 +47,5 @@ footer.footer
     &:hover
       background-color fire-bush
       color white
+
 </style>

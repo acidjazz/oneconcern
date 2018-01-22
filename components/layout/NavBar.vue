@@ -10,14 +10,14 @@ nav.navbar
       span {{ name }} 
       .line
     router-link.navbar-item.cta(to="/")
-      span REQUEST A DEMO
-      .line
+      .back
+      .cover
+      .text REQUEST A DEMO
   .clear
 </template>
 
 <script>
 export default {
-
   data () {
     return {
       menu: {
@@ -33,7 +33,9 @@ export default {
 </script>
 
 <style lang="stylus">
+
 @import '../../assets/stylus/guide/*'
+
 nav.navbar
   position fixed
   padding 20px 45px 30px 45px
@@ -72,10 +74,37 @@ nav.navbar
   &:not(.active):hover
     background-color rgba(white, 0.5)
   &.cta
-    background-color white
     color blue-charcoal
-    padding 11px 22px 8px 22px
     border-radius 20px 
+    position relative
+    overflow hidden
+    margin-bottom -10px
+    width 173px
+    height 22px
+    &:hover .cover
+      transform translate(-10px, 0) skewX(-20deg)
+    &:hover .text
+      color white
+    .text
+      tplr()
+      text-align center
+      position absolute
+      line-height 42px
+      transition 0.15s ease
+    .cover
+      top 0
+      left 0
+      bottom 0
+      width 220px
+      position absolute
+      background-color fire-bush
+      transform translate(-220px, 0) skewX(-15deg)
+      transition 0.2s ease
+    .back
+      tplr()
+      position absolute
+      background-color white
+
   .line
     position absolute
     height 1px
