@@ -1,5 +1,5 @@
 <template lang="pug">
-footer.footer
+footer.footer(:class="{solid: $route.name !== 'index'}")
   .footer-left &copy;2018 One Concern, Inc.  All Rights Reserved
   .footer-right
     .footer-item Contact Us
@@ -15,13 +15,22 @@ footer.footer
 <style lang="stylus">
 @import '../../assets/stylus/guide/*'
 footer.footer
-
   position fixed
   bottom 20px
   left 45px
   right 45px
-
   color white
+  &.solid
+    position static
+    background-color not-white
+    padding 60px 45px 200px 45px
+    color blue-charcoal
+    .footer-item
+      span
+        color white
+        background-color blue-charcoal
+        &:hover
+          background-color fire-bush
 
 .footer-left
   float left
@@ -33,7 +42,7 @@ footer.footer
 
 .footer-item
   display inline-block
-  margin-right 10px
+  margin-right 20px
   span
     text-align center
     padding 4px

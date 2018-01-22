@@ -11,7 +11,7 @@ export default {
     return {
       carousel: [
         {
-          image: 'https://picsum.photos/1280/740?image=221',
+          image: 'https://picsum.photos/1280/740?image=82',
           title: 'Who We Are',
           description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse convallis neque massa, ac pulvinar elit gravida sit amet. Mauris volutpat feugiat venenatis. Pellentesque quis ipsum eros. ',
           cta: { name: 'LEARN MORE', link: 'who', },

@@ -37,6 +37,9 @@ export default {
   },
 
   created () {
+    setTimeout(() => {
+      this.index = 0
+    }, 20)
     this.timer = setInterval(() => { 
       (this.index === this.data.length - 1) ? this.index = 0 : this.index++ 
     }, this.interval*1000)
@@ -48,7 +51,7 @@ export default {
 
   data () {
     return {
-      index: 0,
+      index: false,
       timer: false,
       interval: 6,
     }
@@ -71,6 +74,7 @@ export default {
   height 100vh
   background-repeat no-repeat
   background-size cover
+  overflow hidden
 
 .carousel-background
   width 100vw
