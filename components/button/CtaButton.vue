@@ -53,7 +53,7 @@ export default {
   &.theme-white:hover
     background-image linear-gradient(-90deg, white 50%, fire-bush 50%)
     background-position 0% 0%
-  font-s2()
+  font-s4()
 
 .cta-button[data-text]::after
   content attr(data-text)

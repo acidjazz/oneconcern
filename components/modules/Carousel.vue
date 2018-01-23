@@ -22,6 +22,7 @@
 import CtaButton from '~/components/button/CtaButton.vue'
 export default {
   components: { CtaButton },
+
   props: {
     data: {
       required: true,
@@ -37,9 +38,6 @@ export default {
   },
 
   created () {
-    setTimeout(() => {
-      this.index = 0
-    }, 20)
     this.timer = setInterval(() => { 
       (this.index === this.data.length - 1) ? this.index = 0 : this.index++ 
     }, this.interval*1000)
@@ -51,7 +49,7 @@ export default {
 
   data () {
     return {
-      index: false,
+      index: 0,
       timer: false,
       interval: 6,
     }
@@ -125,15 +123,15 @@ export default {
     margin-bottom 0
 
 .carousel-enter-active
-  transition all 1.4s ease 0.1s
+  transition all 1.4s ease 0s
   > .carousel-background
-    transition all 1.4s ease 0.1s
+    transition all 1.4s ease 0s
   > .carousel-copy > .carousel-title
-    transition all 1s ease 0.3s
+    transition all 1s ease 0.8s
   > .carousel-copy > .carousel-description
-    transition all 1s ease 0.35s
+    transition all 1s ease 0.9s
   > .carousel-copy > .carousel-cta
-    transition all 1s ease 0.4s
+    transition all 1s ease 1s
 
 .carousel-leave-active
   transition all 1.4s ease 0s
@@ -148,7 +146,7 @@ export default {
 
 .carousel-enter
   > .carousel-background
-    transform scale(1.05)
+    transform translate(0, 100%)
   opacity 0
   > .carousel-copy > .carousel-title,
   > .carousel-copy > .carousel-description,
@@ -158,8 +156,7 @@ export default {
 
 .carousel-leave-to
   > .carousel-background
-    transform scale(1.05)
-  opacity 0
+    transform translate(0, -100%)
   > .carousel-copy > .carousel-title,
   > .carousel-copy > .carousel-description,
   > .carousel-copy > .carousel-cta,
@@ -168,8 +165,6 @@ export default {
 
 .carousel-enter, .carousel-leave, .carousel-leave-to
   position absolute
-
-
 
 </style>
 

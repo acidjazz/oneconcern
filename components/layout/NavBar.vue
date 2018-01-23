@@ -42,7 +42,7 @@ export default {
       darken: false,
       menu: {
         who: 'Who We Are',
-        what: 'What we Believe',
+        what: 'What We Believe',
         join: 'Join the Team',
         updates: 'Recent Updates',
         customer: 'Become a Customer',
@@ -75,8 +75,8 @@ nav.navbar
   background-image url(/logo.png)
   background-size cover
   background-repeat no-repeat
-  width 146px
-  height 62px
+  width 200px
+  height 85px
   float left
   transition 0.6s ease
 
@@ -93,12 +93,12 @@ nav.navbar
   position relative
   display inline-block
   padding 8px
-  transition background-color 0.2s ease, color 0.1s ease
+  transition color 0.2s ease, color 0.1s ease
   &.active > .line
     left 0
     right 0
   &:not(.active):hover
-    background-color rgba(white, 0.5)
+    color fire-bush
   .line
     position absolute
     height 1px
