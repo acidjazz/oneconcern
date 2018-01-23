@@ -10,9 +10,9 @@
 
 ## Branch Status
 
-master | staging 
---- | --- 
-[![CircleCI](https://circleci.com/gh/acidjazz/oneconcern/tree/master.svg?style=shield)](https://circleci.com/gh/acidjazz/oneconcern/tree/master) | [![CircleCI](https://circleci.com/gh/acidjazz/oneconcern/tree/staging.svg?style=shield)](https://circleci.com/gh/acidjazz/oneconcern/tree/staging)
+master | staging | dev
+--- | --- | ---
+[![CircleCI](https://circleci.com/gh/acidjazz/oneconcern/tree/master.svg?style=shield)](https://circleci.com/gh/acidjazz/oneconcern/tree/master) | [![CircleCI](https://circleci.com/gh/acidjazz/oneconcern/tree/staging.svg?style=shield)](https://circleci.com/gh/acidjazz/oneconcern/tree/staging) | [![CircleCI](https://circleci.com/gh/acidjazz/oneconcern/tree/dev.svg?style=shield)](https://circleci.com/gh/acidjazz/oneconcern/tree/dev)
 
 ## Local Build Setup
 * Clone this repository 
