@@ -13,9 +13,12 @@
     "precommit": "npm run lint",
     "production": "yarn generate; node operations/aeonian.js production",
     "staging": "yarn generate; node operations/aeonian.js staging",
-    "dev": "yarn generate; node operations/aeonian.js dev"
+    "development": "yarn generate; node operations/aeonian.js dev"
   },
   "dependencies": {
+    "aeonian": "^1.0.9",
+    "contentful": "^5.0.5",
+    "dotenv": "^4.0.0",
     "nuxt": "^1.0.0",
     "pug": "^2.0.0-rc.4",
     "stylus": "^0.54.5",

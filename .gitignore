@@ -13,3 +13,5 @@ dist
 .DS_Store
 
 *.swp
+
+.env
