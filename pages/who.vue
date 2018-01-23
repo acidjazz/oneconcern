@@ -2,13 +2,6 @@
 #Who.page
   .hero
     .hero-title Who ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada velit a lacus venenatis tempor. Integer eu consectetur metus. Nunc a volutpat tellus
-  ContentBlock(
-    v-for="content, index in contents",
-    :key="index",
-    :order="content.order",
-    :theme="content.theme",
-    :copy="content.copy",
-    :image="content.image")
 </template>
 
 <script>

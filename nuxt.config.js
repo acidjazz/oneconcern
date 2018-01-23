@@ -1,4 +1,12 @@
+require('dotenv').config()
+
 module.exports = {
+
+  env: {
+    CTF_SPACE_ID: process.env.CTF_SPACE_ID,
+    CTF_CDA_ACCESS_TOKEN: process.env.CTF_CDA_ACCESS_TOKEN,
+  },
+
   /*
   ** Headers of the page
   */
@@ -22,15 +30,7 @@ module.exports = {
   ** css frameowrk
   */
   css: [{ src: '~assets/stylus/main.styl', lang: 'stylus' }],
-  /*
-  render: {
-    bundleRenderer: {
-      shouldPreload: (file, type) => {
-        return ['script', 'style', 'font'].includes(type)
-      }
-    },
-  },
-  */
+  plugins: ['~/plugins/contentful.js'],
   /*
   ** Build configuration
   */
