@@ -68,7 +68,7 @@ module.exports = {
   css: [{ src: '~assets/stylus/main.styl', lang: 'stylus' }],
   plugins: [
     '~/plugins/contentful.js',
-    '~/plugins/ga.js',
+    {src: '~plugins/ga.js', ssr: false},
   ],
   /*
   ** Build configuration
