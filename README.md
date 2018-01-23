@@ -1,20 +1,36 @@
-# oneconcern
+<p align="center">
+  <img src="https://github.com/acidjazz/oneconcern/blob/master/static/logo.png" alt="1C PNG"/>
+</p>
 
 > Artificial Intelligence platform for Disasters
 
-## Build Setup
+[![CircleCI](https://img.shields.io/circleci/project/github/acidjazz/oneconcern.svg)](https://circleci.com/gh/acidjazz/oneconcern/)
+[![aeonian status](https://img.shields.io/badge/%C3%A6onian-deployed-green.svg)](https://github.com/acidjazz/aeonian)
 
-``` bash
-# install dependencies
-$ npm install # Or yarn install
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+## Branch Status
 
-# build for production and launch server
-$ npm run build
-$ npm start
+master | staging 
+--- | --- 
+[![CircleCI](https://circleci.com/gh/acidjazz/oneconcern/tree/master.svg?style=shield)](https://circleci.com/gh/acidjazz/oneconcern/tree/master) | [![CircleCI](https://circleci.com/gh/acidjazz/oneconcern/tree/staging.svg?style=shield)](https://circleci.com/gh/acidjazz/oneconcern/tree/staging)
 
-# generate static project
-$ npm run generate
+## Local Build Setup
+* Clone this repository 
+```bash
+git clone git@github.com:acidjazz/oneconcern.git
 ```
+* Install dependencies
+```bash
+yarn install
+```
+* Serve your dev environment with [HMR](https://webpack.github.io/docs/hot-module-replacement.html) at http://localhost:3000
+```bash
+yarn dev
+```
+> To serve to other machines via your IP address run `yarn dev-public`
+
+## Deployment
+Continuous Deployment is setup using the [git-flow](http://nvie.com/posts/a-successful-git-branching-model/) workflow with [aeonian](https://github.com/acidjazz/aeonian) via [Circle-CI](https://circleci.com/gh/acidjazz/oneconcern)
+* Branch [dev](https://github.com/acidjazz/oneconcern/tree/dev) merges deploy to http://dev.oneconcern.com/
+* Branch [staging](https://github.com/acidjazz/oneconcern/tree/staging) merges deploy to http://staging.oneconcern.com/
+* Branch [master](https://github.com/acidjazz/oneconcern/tree/master) merges deploy to https://oneconcern.com/
