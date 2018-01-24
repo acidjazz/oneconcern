@@ -19,7 +19,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'oneconcern',
+    title: config.title,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

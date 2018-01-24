@@ -12,7 +12,7 @@
     :ctaName="content.ctaName",
     :ctaLink="content.ctaLink")
 
-  .section.section-openings(:style="`--bg: url(${dimage});`")
+  .section.section-openings(:style="`background-image: url(${dimage});`")
     .title We’re assembling a team
     .title of world class individuals.
     .title Interested in joining our team? 

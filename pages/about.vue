@@ -43,7 +43,7 @@
       link="https://www.linkedin.com/search/results/people/?facetCurrentCompany=%5B%226441806%22%5D"
     )
 
-  .section.section-openings(:style="`--bg: url(${image});`")
+  .section.section-openings(:style="`background-image: url(${image});`")
     .title We’re assembling a team
     .title of world class individuals.
     .title Interested in joining our team? 
@@ -228,16 +228,16 @@ export default {
     background-color rgba(white, 0)
 
     a
-      opacity 0
+      opacity 1
       transition opacity 0.3s ease
-      width 35px
-      height 35px
-      line-height 35px
+      width 36px
+      height 36px
+      line-height 36px
       position absolute
       top 50%
       left 50%
-      margin-top -17.5px
-      margin-left -17.5px
+      margin-top -23px
+      margin-left -23px
       color blue-charcoal
       background-color white
       padding 5px
