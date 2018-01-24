@@ -117,4 +117,12 @@ export default {
 
 .content-block-image, .content-block-copy
   transition width 1s ease
+
+@media all and (min-width: 1px) and (max-width: 1000px)
+  .content-block
+    flex-direction column !important
+    height auto
+  .content-block-image,
+  .content-block-copy
+    width 100% !important
 </style>

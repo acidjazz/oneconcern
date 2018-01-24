@@ -181,16 +181,16 @@ nav.navbar
 
   .navbar-item
     display none
-    margin 30px 60px
+    margin 30px 60px 30px 45px
     width 200px
     animation fadeInLeft 0.3s ease 0s alternate both
     for i in 1..10
       &:nth-child({i})
         animation-delay unit((0.1*i), 's')
 
-  .cta-button
+  .navbar-menu .cta-button
     display none
-    margin 30px 0 30px 60px
+    margin 30px 0 30px 45px
     width 140px
 
   .navbar-burger.is-active + .navbar-menu,

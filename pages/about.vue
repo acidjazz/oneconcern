@@ -294,4 +294,13 @@ export default {
   margin-left auto
   margin-right auto
 
+@media all and (min-width: 1px) and (max-width: 1000px)
+  .subsections
+    flex-direction column
+    .subsection
+      align-self flex-start
+      width calc(100% - 40px)
+      padding 20px
+      margin-left 0px !important
+
 </style>
