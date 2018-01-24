@@ -228,7 +228,7 @@ export default {
     background-color rgba(white, 0)
 
     a
-      opacity 1
+      opacity 0
       transition opacity 0.3s ease
       width 36px
       height 36px
