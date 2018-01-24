@@ -8,7 +8,7 @@
     .title(v-in-viewport) Our Story
     .subsections
       .subsection(v-in-viewport)
-        video
+        video(controls)
           source(:src="story.video",type="video/mp4")
       .subsection(v-in-viewport)
         p(v-for="block in storyCopy") {{ block }}
