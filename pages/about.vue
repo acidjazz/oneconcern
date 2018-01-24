@@ -40,7 +40,7 @@
     CtaButton(
       name="LinkedIn",
       theme="white-border",
-      link="https://www.linkedin.com/search/results/people/?facetCurrentCompany%3D%255B%25226441806%2522%255D&sa=D&ust=1516851969619000&usg=AFQjCNESE_x1rW85TtC8FeAIJPjc4V7AiQ"
+      link="https://www.linkedin.com/search/results/people/?facetCurrentCompany=%5B%226441806%22%5D"
     )
 
   .section.section-openings(:style="`--bg: url(${image});`")
@@ -295,6 +295,7 @@ export default {
   margin-right auto
 
 @media all and (min-width: 1px) and (max-width: 1000px)
+
   .subsections
     flex-direction column
     .subsection
@@ -302,5 +303,20 @@ export default {
       width calc(100% - 40px)
       padding 20px
       margin-left 0px !important
+
+  .team-filters
+    width auto
+    .team-filter
+      font-s2()
+      padding 10px
+  .team-members
+    width auto
+    .team-member
+      .team-member-image
+        width 100px
+        height 100px
+      .team-member-position
+        font-s3()
+        line-height 12px
 
 </style>

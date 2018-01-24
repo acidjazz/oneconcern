@@ -2,14 +2,14 @@
 footer.footer(:class="{solid: $route.name !== 'index'}")
   .footer-left &copy;2018 One Concern, Inc.  All Rights Reserved
   .footer-right
-    .footer-item Contact Us
-    a.footer-item(href="#")
+    a.footer-item.footer-item-contact(href="mailto:contact@oneconcern.com") Contact Us
+    a.footer-item(href="https://www.facebook.com/oneconcern",target="_new")
       span.fa.fa-facebook
-    a.footer-item(href="#")
+    a.footer-item(href="https://twitter.com/oneconcerninc",target="_new")
       span.fa.fa-twitter
-    a.footer-item(href="#")
+    a.footer-item(href="https://www.linkedin.com/company/oneconcern/",target="_new")
       span.fa.fa-linkedin
-    a.footer-item(href="#")
+    a.footer-item(href="https://angel.co/one-concern",target="_new")
       span.fa.fa-angellist
 </template>
 
@@ -66,5 +66,22 @@ footer.footer
     &:hover
       background-color fire-bush
       color white
+
+@media all and (min-width: 1px) and (max-width: 1000px)
+  .footer-left
+    width 120px
+    line-height 12px
+    margin-top 0px
+  footer.footer
+    bottom 20px
+    left 20px
+    right 20px
+  footer.footer.solid
+    padding 20px 20px 100px 20px
+  .footer-item-contact
+    display none
+  .footer-item
+    margin-right 10px
+
 
 </style>
