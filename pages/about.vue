@@ -234,7 +234,7 @@ export default {
 .team-member
   margin 10px
   flex 0 0 calc( 33% - 20px )
-  animation fadeIn 1s ease 0s alternate both
+  animation fadeInBottom 1s ease 0s alternate both
   for i in 1..20
     &:nth-child({i})
       animation-delay unit(((0.1*i) + 0.3), 's')
