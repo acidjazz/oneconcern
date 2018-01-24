@@ -14,7 +14,12 @@ export default {
   components: { Carousel },
 
   async asyncData () {
-    let entries = await client.getEntries({'content_type': 'carousel'})
+
+    let entries = await client.getEntries({
+      'content_type': 'carousel',
+      order: 'fields.order',
+    })
+
     let carousel = []
     for (let item of entries.items) { 
       carousel.push({
@@ -37,6 +42,3 @@ export default {
 
 }
 </script>
-
-<style lang="stylus">
-</style>

@@ -41,7 +41,7 @@ export default {
     return {
       darken: false,
       menu: {
-        who: 'Who We Are',
+        about: 'Who We Are',
         what: 'What We Believe',
         join: 'Join the Team',
         updates: 'Recent Updates',
@@ -70,6 +70,8 @@ nav.navbar
     .navbar-logo
       width 118px
       height 50px
+    .navbar-menu
+      margin 10px 0 0 0
 
 .navbar-logo
   background-image url(/logo.png)
@@ -84,6 +86,7 @@ nav.navbar
   float right
   border 1px solid right
   margin 20px 0 0 0
+  transition margin 0.6s linear
 
 .navbar-item
   text-decoration none

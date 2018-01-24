@@ -56,16 +56,16 @@ export default {
   // &.above-viewport, &.below-viewport
   &.below-viewport
     .content-block-image
-      width 70%
+      width 65%
     .content-block-copy
-      width 30%
+      width 35%
       .content-block-title
         opacity 0
   &.above-viewport
     .content-block-image
       width 65%
     .content-block-copy
-      width 34%
+      width 35%
       .content-block-title
         opacity 0.5
 
@@ -97,5 +97,5 @@ export default {
     transition opacity 2s ease 0.2s
 
 .content-block-image, .content-block-copy
-  transition width 2s ease
+  transition width 1s ease
 </style>

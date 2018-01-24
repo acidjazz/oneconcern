@@ -5,6 +5,18 @@
 </template>
 
 <script>
+import { createClient } from '~/plugins/contentful.js'
+const client = createClient()
+export default {
+  async asyncData () {
+    let entry = await client.getEntries({
+      'content_type': 'hero',
+      'fields.name': 'about'
+    })
+
+    return entry
+  },
+}
 </script>
 
 <style lang="stylus">

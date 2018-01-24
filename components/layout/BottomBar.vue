@@ -1,14 +1,16 @@
 <template lang="pug">
-footer.footer(:class="{solid: $route.name !== 'index'}",v-in-viewport)
+footer.footer(:class="{solid: $route.name !== 'index'}")
   .footer-left &copy;2018 One Concern, Inc.  All Rights Reserved
   .footer-right
     .footer-item Contact Us
     a.footer-item(href="#")
-      span.fa.fa-facebook.fa-inverse
+      span.fa.fa-facebook
     a.footer-item(href="#")
-      span.fa.fa-twitter.fa-inverse
+      span.fa.fa-twitter
     a.footer-item(href="#")
-      span.fa.fa-linkedin.fa-inverse
+      span.fa.fa-linkedin
+    a.footer-item(href="#")
+      span.fa.fa-angellist
 </template>
 
 <script>
@@ -38,16 +40,6 @@ footer.footer
         background-color blue-charcoal
         &:hover
           background-color fire-bush
-  &.below-viewport
-    .footer-left
-      transform translate(-20px, 0)
-    .footer-right
-      transform translate(20px, 0)
-  &.in-viewport
-    .footer-left
-      transform translate(0px, 0)
-    .footer-right
-      transform translate(0px, 0)
 
 .footer-left
   float left
@@ -56,13 +48,12 @@ footer.footer
 .footer-right
   float right
   font-s2()
-.footer-left, .footer-right
-  transition transform 2s ease
 
 .footer-item
   display inline-block
   margin-right 20px
   span
+    margin-right -5px
     text-align center
     padding 4px
     width 20px
