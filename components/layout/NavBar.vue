@@ -1,4 +1,4 @@
-<template lang="pug">
+ <template lang="pug">
 nav.navbar(:class="{dark: darken}")
   router-link.navbar-logo(to="/")
   .navbar-menu
@@ -9,7 +9,10 @@ nav.navbar(:class="{dark: darken}")
       :to="route")
       span {{ name }} 
       .line
+    a.navbar-item(href="https://medium.com/@oneconcerninc",target="_new") Recent Updates
+    a.navbar-item(href="https://jobs.lever.co/oneconcern",target="_new") Join The Team
     CtaButton(link="/",name="REQUEST A DEMO",theme="white")
+
   .clear
 </template>
 
@@ -43,9 +46,9 @@ export default {
       menu: {
         about: 'Who We Are',
         what: 'What We Believe',
-        join: 'Join the Team',
-        updates: 'Recent Updates',
-        customer: 'Become a Customer',
+        // join: 'Join the Team',
+        // updates: 'Recent Updates',
+        // customer: 'Become a Customer',
       },
     }
   },
