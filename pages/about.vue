@@ -11,7 +11,7 @@ export default {
   async asyncData () {
     const entry = await client.getEntries({
       'content_type': 'hero',
-      'fields.name': 'about'
+      'fields.page': 'about'
     })
     return {
       image: entry.items[0].fields.image.fields.file.url,

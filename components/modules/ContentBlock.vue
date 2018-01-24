@@ -1,20 +1,25 @@
 <template lang="pug">
 .content-block(
   v-in-viewport
-  :class="`content-block-theme-${theme} content-block-order-${order}`")
+  :class="`content-block-theme-${theme} content-block-direction-${direction}`")
   .content-block-image(:style="`background-image: url(${image})`")
   .content-block-copy
-    .content-block-title {{ copy }}
+    .content-block-title
+      | {{ copy }}
+      .content-block-cta(v-if="ctaName")
+        CtaButton(:link="ctaLink",:name="ctaName",theme="white-border")
 </template>
 
 <script>
+import CtaButton from '~/components/button/CtaButton'
 import inViewportDirective from 'vue-in-viewport-directive'
 export default {
+  components: { CtaButton },
   directives: { 'in-viewport': inViewportDirective },
   props: {
-    order: {
+    direction: {
       type: String,
-      default: 'row',
+      default: 'image-first',
     },
     copy: {
       required: true,
@@ -29,6 +34,14 @@ export default {
       type: String,
       default: 'charcoal',
     },
+    ctaName: {
+      required: false,
+      type: String,
+    },
+    ctaLink: {
+      required: false,
+      type: String,
+    },
   },
 }
 </script>
@@ -42,9 +55,9 @@ export default {
   display flex
   overflow hidden
 
-  &.content-block-order-image
+  &.content-block-direction-image-first
     flex-direction row
-  &.content-block-order-copy
+  &.content-block-direction-copy-first
     flex-direction row-reverse
   &.content-block-theme-charcoal,
   &.content-block-theme-charcoal .content-block-copy,
@@ -59,24 +72,25 @@ export default {
       width 65%
     .content-block-copy
       width 35%
-      .content-block-title
+      .content-block-title,
+      .content-block-cta
         opacity 0
   &.above-viewport
     .content-block-image
       width 65%
     .content-block-copy
       width 35%
-      .content-block-title
+      .content-block-title,
+      .content-block-cta
         opacity 0.5
-
-
 
   &.in-viewport 
     .content-block-image
       width 60%
     .content-block-copy
       width 40%
-      .content-block-title
+      .content-block-title,
+      .content-block-cta
         opacity 1
 
 .content-block-image
@@ -94,7 +108,12 @@ export default {
     flex-shrink 0
     padding 50px
     max-width 300px
-    transition opacity 2s ease 0.2s
+    transition opacity 2s ease 0.3s
+    > .content-block-cta
+      margin 60px 0 0 0
+      transition opacity 2s ease 0.6s
+      > a
+        width 180px
 
 .content-block-image, .content-block-copy
   transition width 1s ease
