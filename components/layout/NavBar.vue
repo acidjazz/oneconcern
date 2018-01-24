@@ -45,7 +45,7 @@ export default {
       darken: false,
       menu: {
         about: 'Who We Are',
-        what: 'What We Believe',
+        mission: 'What We Believe',
         // join: 'Join the Team',
         // updates: 'Recent Updates',
         // customer: 'Become a Customer',
