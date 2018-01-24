@@ -7,7 +7,7 @@ router-link.cta-button(
 a.cta-button(
   v-else,
   :href="link",
-  target="_new",
+  :target="target"
   :class="`theme-${theme}`",
   :data-text="name") {{ name }} 
 </template>
@@ -30,7 +30,14 @@ export default {
       type: String,
       default: 'white',
     },
-  }
+  },
+
+  computed: {
+    target () {
+      return this.link.indexOf('mailto') === -1 ? '_new' : '_self'
+    },
+  },
+
 }
 </script>
 

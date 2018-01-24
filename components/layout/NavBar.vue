@@ -6,7 +6,7 @@ nav.navbar(:class="{dark: darken}")
       v-for="name, route in menu",
       :key="route",
       :class="{active: $route.name === route}"
-      :to="route")
+      :to="`/${route}`")
       span {{ name }} 
       .line
     a.navbar-item(href="https://medium.com/@oneconcerninc",target="_new") Recent Updates
