@@ -17,7 +17,7 @@ nav.navbar(:class="{dark: darken}")
 </template>
 
 <script>
-import CtaButton from '~/components/button/CtaButton'
+import CtaButton from '~/components/buttons/CtaButton'
 export default {
   components: { CtaButton },
   created () {

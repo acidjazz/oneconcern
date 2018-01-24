@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import CtaButton from '~/components/button/CtaButton'
+import CtaButton from '~/components/buttons/CtaButton'
 import inViewportDirective from 'vue-in-viewport-directive'
 export default {
   components: { CtaButton },

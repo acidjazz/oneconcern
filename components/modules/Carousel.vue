@@ -19,7 +19,7 @@
       .carousel-dot-inner
 </template>
 <script>
-import CtaButton from '~/components/button/CtaButton.vue'
+import CtaButton from '~/components/buttons/CtaButton.vue'
 export default {
   components: { CtaButton },
 

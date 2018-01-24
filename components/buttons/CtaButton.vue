@@ -62,10 +62,14 @@ export default {
   &.theme-orange-border
     border 3px solid fire-bush
     background-image linear-gradient(-75deg, transparent 50%, fire-bush 50%)
-  &.theme-white-border
+  &.theme-white-border,
+  &.theme-white-border-black
     border 3px solid white
     color white
     background-image linear-gradient(-75deg, transparent 50%, fire-bush 50%)
+  &.theme-white-border-black
+    color black
+    background-image linear-gradient(-75deg, transparent 50%, blue-charcoal 50%)
   &.theme-white
     border 0px solid transparent
     background-image linear-gradient(-75deg, white 50%, fire-bush 50%)
@@ -75,9 +79,12 @@ export default {
   &.theme-white:hover
     background-image linear-gradient(-90deg, white 50%, fire-bush 50%)
     background-position 0% 0%
-  &.theme-white-border:hover
+  &.theme-white-border:hover,
+  &.theme-white-border-black:hover
     background-image linear-gradient(-90deg, transparent 50%, fire-bush 50%)
     background-position 0% 0%
+  &.theme-white-border-black:hover
+    background-image linear-gradient(-75deg, transparent 50%, blue-charcoal 50%)
   font-s4()
 
 .cta-button[data-text]::after
