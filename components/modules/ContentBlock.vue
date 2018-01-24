@@ -107,7 +107,7 @@ export default {
     color white
     flex-shrink 0
     padding 50px
-    max-width 300px
+    max-width 350px
     transition opacity 2s ease 0.3s
     > .content-block-cta
       margin 60px 0 0 0

@@ -125,52 +125,9 @@ export default {
 }
 </script>
 
-
 <style lang="stylus">
 
 @import '../assets/stylus/guide/*'
-
-.section
-  padding 90px 0
-  &.section-story
-    background-color not-white
-    .title
-      margin 0 0 60px 0
-  &.section-team
-    background-color blue-charcoal
-    .title
-      color white
-      margin 0 0 60px 0
-  &.section-openings
-    padding 60px 0 0 0
-    color white
-    background-repeat no-repeat
-    background-size cover
-    background-position 65% 65%
-    background-size 240%
-    background-color fire-bush
-    background-image var(--bg)
-    backgorund-color fire-bush
-    background-blend-mode soft-light
-    .cta-button
-      margin-top 60px
-      margin-bottom 60px
-  &.section-team,
-  &.section-openings,
-    text-align center
-    position relative
-
-    .cta-button
-      width 220px
-      padding-top 20px
-      padding-bottom 18px
-      &[data-text]::after
-        padding-top 20px
-        padding-bottom 18px
-  .title
-    font-h4()
-    text-align center
-    inViewport(0)
 
 .subsections
   display flex

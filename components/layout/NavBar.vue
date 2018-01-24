@@ -16,7 +16,7 @@ nav.navbar(:class="{dark: darken}")
       span {{ name }} 
       .line
     a.navbar-item(href="https://medium.com/@oneconcerninc",target="_new") Recent Updates
-    a.navbar-item(href="https://jobs.lever.co/oneconcern",target="_new") Join The Team
+    a.navbar-item(href="https://jobs.lever.co/oneconcern",target="_new") Join the Team
     CtaButton(link="mailto:contact@oneconcern.com",name="REQUEST A DEMO",theme="white")
   .clear
 </template>

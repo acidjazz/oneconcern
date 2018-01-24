@@ -52,7 +52,7 @@ export default {
   text-decoration none
   display inline-block
   padding 10px 22px 8px 22px
-  background-size 220% 220%
+  background-size 235% 235%
   background-position 100% 0%
   transition background 0.2s linear 0s
   &.theme-orange-border
@@ -68,7 +68,7 @@ export default {
     color white
     background-image linear-gradient(-75deg, transparent 50%, fire-bush 50%)
   &.theme-white-border-black
-    color black
+    color white
     background-image linear-gradient(-75deg, transparent 50%, blue-charcoal 50%)
   &.theme-white
     border 0px solid transparent

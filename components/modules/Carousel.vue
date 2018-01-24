@@ -84,7 +84,7 @@ export default {
   bottom 80px
   left 45px
   color white
-  width 600px
+  width 480px
 
 .carousel-title
   font-h1()
