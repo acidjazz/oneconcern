@@ -24,7 +24,7 @@ module.exports = {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'Artificial Intelligence platform for Disasters' },
-      { name: 'theme-color', content: '#262d33' },
+      { name: 'theme-color', content: '#212733' },
 
       // Schema.org
       { hid: 'itemprop:name', itemprop: 'name', content: config.title },

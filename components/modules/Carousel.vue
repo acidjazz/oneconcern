@@ -6,6 +6,7 @@
       :key="cindex",
       v-if="cindex === index")
       .carousel-background(:style="`background-image: url(${carousel.image})`")
+      .carousel-gradient
       .carousel-copy
         .carousel-title {{ carousel.title }}
         .carousel-description {{ carousel.description }}
@@ -63,6 +64,13 @@ export default {
   width 100vw
   height 100vh
   overflow hidden
+
+.carousel-gradient
+  width 100vw
+  height 100vh
+  position absolute
+  background linear-gradient(90deg, rgba(black, 0.5), transparent)
+  tplr()
 
 .carousel-background
   width 100vw
@@ -161,7 +169,7 @@ export default {
   .carousel-copy
     width auto
     left 20px
-    right 20px
+    right 60px
     .carousel-title
       font-h4()
       margin-bottom 10px

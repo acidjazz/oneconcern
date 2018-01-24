@@ -8,7 +8,7 @@
     .title(v-in-viewport) Our Story
     .subsections
       .subsection(v-in-viewport)
-        video(controls)
+        video(controls,:poster="story.poster")
           source(:src="story.video",type="video/mp4")
       .subsection(v-in-viewport)
         p(v-for="block in storyCopy") {{ block }}
@@ -36,7 +36,7 @@
           .team-member-name {{ member.name }}
           .team-member-position {{ member.position }}
 
-    .title(v-in-viewport) Get to know the rest of the team
+    .title(v-in-viewport) Get to know the team
     CtaButton(
       name="LinkedIn",
       theme="white-border",
@@ -44,7 +44,8 @@
     )
 
   .section.section-openings(:style="`--bg: url(${image});`")
-    .title We’re assembling a team of world class individuals.
+    .title We’re assembling a team
+    .title of world class individuals.
     .title Interested in joining our team? 
     CtaButton(
       name="VIEW OPENINGS",
@@ -88,6 +89,7 @@ export default {
       story: {
         copy: story.items[0].fields.storyCopy,
         video: story.items[0].fields.storyVideo.fields.file.url,
+        poster: story.items[0].fields.storyPoster.fields.file.url,
       },
       team: team,
       types: types,
@@ -111,7 +113,7 @@ export default {
   },
 
   created () {
-    this.filter = this.filters[1]
+    this.filter = this.filters[0]
   },
 
   data () {
@@ -231,6 +233,7 @@ export default {
   color white
   padding 10px
   overflow hidden
+  justify-content center
 .team-member
   margin 10px
   flex 0 0 calc( 33% - 20px )
@@ -258,14 +261,18 @@ export default {
   overflow hidden
   &:hover
     .team-member-link
-      opacity 1
+      background-color rgba(white, 0.3)
+      a
+        opacity 1
   .team-member-link
-    opacity 0
-    transition opacity 0.3s ease
+    transition background 0.3s ease
     position absolute
     tplr()
-    background-color rgba(white, 0.3)
+    background-color rgba(white, 0)
+
     a
+      opacity 0
+      transition opacity 0.3s ease
       width 35px
       height 35px
       line-height 35px
@@ -312,6 +319,7 @@ export default {
   .team-members
     width auto
     .team-member
+      margin 8px
       .team-member-image
         width 100px
         height 100px

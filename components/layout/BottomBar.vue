@@ -49,9 +49,12 @@ footer.footer
   float right
   font-s2()
 
+
 .footer-item
   display inline-block
   margin-right 20px
+  color white
+  text-decoration none
   span
     margin-right -5px
     text-align center
@@ -66,6 +69,9 @@ footer.footer
     &:hover
       background-color fire-bush
       color white
+
+footer.footer.solid .footer-item
+  color blue-charcoal
 
 @media all and (min-width: 1px) and (max-width: 1000px)
   .footer-left
