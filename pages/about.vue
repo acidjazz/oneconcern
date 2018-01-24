@@ -31,12 +31,14 @@
           v-in-viewport
           :key="index")
           .team-member-image(:style="`background-image: url(${member.image})`")
+            .team-member-link
+              a(:href="member.linkedin",target="_new").fa.fa-linkedin
           .team-member-name {{ member.name }}
           .team-member-position {{ member.position }}
 
     .title(v-in-viewport) Get to know the rest of the team
     CtaButton(
-      name="Linked In",
+      name="LinkedIn",
       theme="white-border",
       link="https://www.linkedin.com/search/results/people/?facetCurrentCompany%3D%255B%25226441806%2522%255D&sa=D&ust=1516851969619000&usg=AFQjCNESE_x1rW85TtC8FeAIJPjc4V7AiQ"
     )
@@ -63,7 +65,7 @@ export default {
 
     const hero = await client.getEntries({'content_type': 'hero','fields.page': 'about'})
     const story = await client.getEntries({'content_type': 'aboutContent'})
-    const members = await client.getEntries({ 'content_type': 'team'})
+    const members = await client.getEntries({ 'content_type': 'team', order: 'fields.order'})
 
     let team = []
     let types = []
@@ -109,7 +111,7 @@ export default {
   },
 
   created () {
-    this.filter = this.filters[0]
+    this.filter = this.filters[1]
   },
 
   data () {
@@ -142,8 +144,8 @@ export default {
     color white
     background-repeat no-repeat
     background-size cover
-    background-position 50% 80%
-    background-size 200%
+    background-position 65% 65%
+    background-size 240%
     background-color fire-bush
     background-image var(--bg)
     backgorund-color fire-bush
@@ -252,6 +254,35 @@ export default {
   background-repeat no-repeat
   background-size cover
   margin-bottom 20px
+  position relative
+  overflow hidden
+  &:hover
+    .team-member-link
+      opacity 1
+  .team-member-link
+    opacity 0
+    transition opacity 0.3s ease
+    position absolute
+    tplr()
+    background-color rgba(white, 0.3)
+    a
+      width 35px
+      height 35px
+      line-height 35px
+      position absolute
+      top 50%
+      left 50%
+      margin-top -17.5px
+      margin-left -17.5px
+      color blue-charcoal
+      background-color white
+      padding 5px
+      border-radius 50%
+      text-decoration none
+      transition 0.3s ease
+      &:hover
+        color white
+        background-color fire-bush
 
 
 .team-member-name
