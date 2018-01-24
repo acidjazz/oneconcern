@@ -73,11 +73,9 @@ nav.navbar
   &.dark
     padding 20px 45px 20px 45px
     background-color cinder
-    .navbar-logo, .navbar-logo-mobile
+    .navbar-logo
       width 118px
       height 50px
-    .navbar-logo-mobile
-      margin 30px 0 0 45px
     .navbar-menu
       margin 10px 0 0 0
 
@@ -96,10 +94,8 @@ nav.navbar
   background-image url(/logo.png)
   background-size cover
   background-repeat no-repeat
-  width 200px
-  height 85px
-  //width 118px
-  //height 50px
+  width 118px
+  height 50px
 
 .navbar-menu
   float right
@@ -163,6 +159,9 @@ nav.navbar
       transform translateY(-6px) rotate(-45deg)
 
 @media all and (min-width: 1px) and (max-width: 1000px)
+  .navbar-logo
+    width 118px
+    height 50px
   .navbar-burger
     display block
     z-index 10
@@ -199,7 +198,5 @@ nav.navbar
   .navbar-burger.is-active + .navbar-menu .navbar-item,
   .navbar-burger.is-active + .navbar-menu .cta-button
     display block
-
-
 
 </style>

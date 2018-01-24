@@ -22,56 +22,46 @@
 import CtaButton from '~/components/buttons/CtaButton.vue'
 export default {
   components: { CtaButton },
-
   props: {
     data: {
       required: true,
       type: Array,
     }
   },
-
   methods: {
     dot (index) {
       this.index = index
       clearInterval(this.timer)
     },
   },
-
   created () {
     this.timer = setInterval(() => { 
       (this.index === this.data.length - 1) ? this.index = 0 : this.index++ 
     }, this.interval*1000)
   },
-
   destroyed () {
     this.timer = false
   },
-
   data () {
     return {
       index: 0,
       timer: false,
       interval: 6,
     }
-  },
+  }
 }
 </script>
 
 <style lang="stylus">
-
 @import '../../assets/stylus/guide/*'
 
 #Carousel
   width 100vw
   height 100vh
-  background-repeat no-repeat
-  background-size cover
 
 .carousel
   width 100vw
   height 100vh
-  background-repeat no-repeat
-  background-size cover
   overflow hidden
 
 .carousel-background
@@ -79,6 +69,7 @@ export default {
   height 100vh
   background-repeat no-repeat
   background-size cover
+  background-position 50% 50%
 
 .carousel-copy
   position absolute
@@ -166,6 +157,27 @@ export default {
 .carousel-enter, .carousel-leave, .carousel-leave-to
   position absolute
 
+@media all and (min-width: 1px) and (max-width: 1000px)
+  .carousel-copy
+    width auto
+    left 20px
+    right 20px
+    .carousel-title
+      font-h4()
+      margin-bottom 10px
+    .carousel-description
+      font-s2()
+
+  .carousel-dots
+    right 20px
+
+  .carousel-enter
+    > .carousel-background
+      transform translate(0, 0)
+      opacity 0
+  .carousel-leave-to
+    > .carousel-background
+      transform translate(0, 0)
 </style>
 
 
