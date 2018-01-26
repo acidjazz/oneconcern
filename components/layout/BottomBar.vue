@@ -55,6 +55,9 @@ footer.footer
   margin-right 20px
   color white
   text-decoration none
+  transition color 0.2s linear
+  &:hover
+   color fire-bush
   span
     margin-right -5px
     text-align center
@@ -72,6 +75,8 @@ footer.footer
 
 footer.footer.solid .footer-item
   color blue-charcoal
+  &:hover
+   color fire-bush
 
 @media all and (min-width: 1px) and (max-width: 1000px)
   .footer-left
