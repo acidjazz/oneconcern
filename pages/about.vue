@@ -113,7 +113,7 @@ export default {
   },
 
   created () {
-    this.filter = this.filters[0]
+    this.filter = this.filters[1]
   },
 
   data () {

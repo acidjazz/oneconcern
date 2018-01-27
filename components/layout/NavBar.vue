@@ -134,6 +134,7 @@ nav.navbar
   margin 10px 0 10px 0
   width 40px
   height 40px
+  transition transform 0.6s ease-in-out 0s
   span
     display block
     position absolute
@@ -141,7 +142,7 @@ nav.navbar
     right 8px
     height 1px
     background-color white
-    transition transform 0.6s ease 0s
+    transition transform 0.6s ease-in-out 0s
     &:nth-child(1)
       top calc(50% - 6px)
     &:nth-child(2)
@@ -154,6 +155,8 @@ nav.navbar
   &.is-active span
     &:nth-child(2)
       opacity 0
+  &.is-active 
+    transform rotate(90deg)
   &.is-active span
     &:nth-child(3)
       transform translateY(-6px) rotate(-45deg)

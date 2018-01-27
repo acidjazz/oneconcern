@@ -122,9 +122,9 @@ export default {
     margin-bottom 0
 
 .carousel-enter-active
-  transition all 1.4s ease 0s
+  transition all 4s ease 0s
   > .carousel-background
-    transition all 1.4s ease 0s
+    transition all 4s ease 0s
   > .carousel-copy > .carousel-title
     transition all 1s ease 0.8s
   > .carousel-copy > .carousel-description
@@ -133,19 +133,19 @@ export default {
     transition all 1s ease 1s
 
 .carousel-leave-active
-  transition all 1.4s ease 0s
+  transition all 2s ease 0s
   > .carousel-background
-    transition all 1.4s ease 0s
+    transition all 0.6s linear 0s
   > .carousel-copy > .carousel-title
-    transition all 1s ease 0s
+    transition opacity 0.6s ease 0s
   > .carousel-copy > .carousel-description
-    transition all 1s ease 0s
+    transition opacity 0.6s ease 0.2s
   > .carousel-copy > .carousel-cta
-    transition all 1s ease 0s
+    transition opacity 0.6s ease 0.4s
 
 .carousel-enter
   > .carousel-background
-    transform translate(0, 100%)
+    transform scale(1.2)
   opacity 0
   > .carousel-copy > .carousel-title,
   > .carousel-copy > .carousel-description,
@@ -155,11 +155,10 @@ export default {
 
 .carousel-leave-to
   > .carousel-background
-    transform translate(0, -100%)
+    opacity 0
   > .carousel-copy > .carousel-title,
   > .carousel-copy > .carousel-description,
   > .carousel-copy > .carousel-cta,
-    transform translate(-20px, 0)
     opacity 0
 
 .carousel-enter, .carousel-leave, .carousel-leave-to
