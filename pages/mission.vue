@@ -11,17 +11,7 @@
     :image="content.image",
     :ctaName="content.ctaName",
     :ctaLink="content.ctaLink")
-
-  .section.section-openings(:style="`background-image: url(${dimage});`")
-    .title We’re assembling a team
-    .title of world class individuals.
-    .title Interested in joining our team? 
-    CtaButton(
-      name="VIEW OPENINGS",
-      theme="white-border-black",
-      link="https://jobs.lever.co/oneconcern"
-    )
-
+  ViewOpenings(:image="dimage",v-if="dimage")
 </template>
 
 <script>
@@ -29,8 +19,9 @@ import { createClient } from '~/plugins/contentful.js'
 const client = createClient()
 import ContentBlock from '~/components/modules/ContentBlock'
 import CtaButton from '~/components/buttons/CtaButton'
+import ViewOpenings from '~/components/modules/ViewOpenings'
 export default {
-  components: { ContentBlock, CtaButton },
+  components: { ContentBlock, CtaButton, ViewOpenings },
   async asyncData () {
     const dhero = await client.getEntries({'content_type': 'hero','fields.page': 'about'})
     const hero = await client.getEntries({
