@@ -7,7 +7,6 @@
 [![CircleCI](https://img.shields.io/circleci/project/github/acidjazz/oneconcern.svg)](https://circleci.com/gh/acidjazz/oneconcern/)
 [![aeonian status](https://img.shields.io/badge/%C3%A6onian-deployed-green.svg)](https://github.com/acidjazz/aeonian)
 
-
 ## Branch Status
 
 master | staging | dev
