@@ -5,7 +5,7 @@ require('aeonian').config({
   },
   environments: {
     production: 'CLOUDFRONTID',
-    staging: 'CLOUDFRONTID',
+    staging: 'E1C7VZR7WZRWBN',
     dev: 'CLOUDFRONTID',
   }
 }).deploy(process.argv[2])

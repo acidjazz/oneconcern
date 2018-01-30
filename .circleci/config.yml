@@ -34,12 +34,12 @@ jobs:
 
       - deploy:
           command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              yarn run production
-            fi
+            #if [ "${CIRCLE_BRANCH}" == "master" ]; then
+            #  yarn run production
+            #fi
             if [ "${CIRCLE_BRANCH}" == "staging" ]; then
               yarn run staging
             fi
-            if [ "${CIRCLE_BRANCH}" == "dev" ]; then
-              yarn run dev
-            fi
+            #if [ "${CIRCLE_BRANCH}" == "dev" ]; then
+            #  yarn run dev
+            #fi

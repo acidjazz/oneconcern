@@ -112,15 +112,11 @@ export default {
   animation fadeInBottom 1s ease 0s alternate both
   for i in 1..3
     &:nth-child(3n+{i})
-      animation-delay unit(((0.2*i)), 's')
+      animation-delay unit(((0.1*i)), 's')
   &.below-viewport
     display none
   &.in-viewport
     display block
-  &.above-viewport
-    display block
-    opacity 0.5
-    transform translate(0, -10px)
 
 .team-member-name
   margin-bottom 5px
