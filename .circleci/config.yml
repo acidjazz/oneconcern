@@ -41,5 +41,5 @@ jobs:
               yarn run staging
             fi
             #if [ "${CIRCLE_BRANCH}" == "dev" ]; then
-            #  yarn run dev
+            #  yarn run development
             #fi

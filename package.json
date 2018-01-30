@@ -13,7 +13,8 @@
     "precommit": "npm run lint",
     "production": "yarn generate; node operations/aeonian.js production",
     "staging": "yarn generate; node operations/aeonian.js staging",
-    "development": "yarn generate; node operations/aeonian.js dev"
+    "development": "yarn generate; node operations/aeonian.js dev",
+    "test": "echo No tests yet"
   },
   "dependencies": {
     "aeonian": "^1.0.9",
