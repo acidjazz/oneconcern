@@ -4,7 +4,7 @@ require('aeonian').config({
     prefix: '1c-'
   },
   environments: {
-    production: 'CLOUDFRONTID',
+    production: 'E26T22R6AY0TYO',
     staging: 'E1C7VZR7WZRWBN',
     development: 'CLOUDFRONTID',
   }
