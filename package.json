@@ -17,6 +17,7 @@
     "test": "echo No tests yet"
   },
   "dependencies": {
+    "@nuxtjs/axios": "^5.0.0-rc.2",
     "aeonian": "^1.0.9",
     "contentful": "^5.0.5",
     "dotenv": "^4.0.0",

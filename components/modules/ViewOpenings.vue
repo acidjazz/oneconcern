@@ -2,7 +2,7 @@
 .section.section-openings(:style="`background-image: url(${image});`")
   .title(v-in-viewport) We’re assembling a team
   .title(v-in-viewport) of world class individuals.
-  .title(v-in-viewport) Interested in joining our team? 
+  .title(v-in-viewport) Interested in joining us? 
   CtaButton(
     v-in-viewport
     name="VIEW OPENINGS",
