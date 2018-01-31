@@ -55,7 +55,7 @@ export default {
   data () {
     return {
       filter: 'Team',
-      types: [],
+      types: ['Team', 'Board of Directors', 'Advisors & Investors'],
     }
   },
 
@@ -76,6 +76,7 @@ export default {
   flex-grow 1
   margin-bottom 60px
   .team-filter
+    width 33%
     cursor pointer
     color not-white
     text-align center
