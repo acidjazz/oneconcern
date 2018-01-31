@@ -11,7 +11,7 @@
   .title(v-in-viewport) Don't see the position you're looking for? We'd still love to hear from you!
   .copy(v-in-viewport) 
     | Contact us at 
-    a(href="mailto:careers@oneconcern.com") careers@oneconcern.com.
+    a(href="mailto:careers@oneconcern.com") careers@oneconcern.com. 
     | We are always on the look out for amazing people.
 </template>
 
@@ -60,7 +60,7 @@ export default {
     font-h4()
     inViewportBottom()
   .copy
-    padding 6px 0 0 0
+    padding 10px 0 0 0
     text-transform uppercase
     inViewportBottom()
     font-s4()
@@ -71,6 +71,7 @@ export default {
 .open-positions-teams
   max-width 800px
   margin 60px auto
+
 .open-positions-team
   background-color white
   padding 40px
@@ -94,5 +95,4 @@ export default {
       padding 0 0 20px 0
       flex 0
       justify-content center
-
 </style>
