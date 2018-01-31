@@ -143,6 +143,12 @@ export default {
       width auto
       padding 20px 0 0 0
 
+  .careers-copy-1
+    inViewpor(0)
+  .careers-copy-2
+    inViewport(0)
+
+
   .careers-image
     align-self center !important
     width 95% !important

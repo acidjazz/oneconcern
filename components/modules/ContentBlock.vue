@@ -125,4 +125,6 @@ export default {
   .content-block-image,
   .content-block-copy
     width 100% !important
+  .content-block-cta
+    text-align center
 </style>
