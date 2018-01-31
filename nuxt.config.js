@@ -73,6 +73,9 @@ module.exports = {
   /*
   ** Build configuration
   */
+  modules: [
+    '@nuxtjs/axios',
+  ],
   build: {
     /*
     ** Run ESLint on save

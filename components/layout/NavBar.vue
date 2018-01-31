@@ -176,9 +176,10 @@ nav.navbar
     display none
     position absolute
     z-index 1
-    top -20px
+    top 0px
     right 0px
     left 0px
+    margin 0 !important
     background-color cinder
     padding-right 90px
     animation fadeIn 0.6s linear 0s alternate both
@@ -186,7 +187,7 @@ nav.navbar
   .navbar-item
     display none
     margin 30px 60px 30px 45px
-    width 200px
+    width 140px
     animation fadeInLeft 0.3s ease 0s alternate both
     for i in 1..10
       &:nth-child({i})
@@ -202,5 +203,7 @@ nav.navbar
   .navbar-burger.is-active + .navbar-menu .navbar-item,
   .navbar-burger.is-active + .navbar-menu .cta-button
     display block
+  .navbar-burger.is-active + .navbar-menu
+    height 100vh
 
 </style>

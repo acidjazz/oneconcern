@@ -15,7 +15,7 @@ export default {
   directives: { 'in-viewport': inViewportDirective },
   props: {
     perks: {
-      type: Object,
+      type: Array,
     },
   }
 }
@@ -62,5 +62,9 @@ export default {
   font-s2()
   line-height 20px
   color not-white
+
+@media all and (min-width: 1px) and (max-width: 1000px)
+  .perks-benefits-item
+    width 100%
 
 </style>

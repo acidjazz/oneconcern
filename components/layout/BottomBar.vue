@@ -1,5 +1,5 @@
 <template lang="pug">
-footer.footer(:class="{solid: $route.name !== 'index'}")
+footer.footer(:class="{solid: $route.name !== 'index', white: $route.name === 'careers'}")
   .footer-left &copy;2018 One Concern, Inc.  All Rights Reserved
   .footer-right
     a.footer-item.footer-item-contact(href="mailto:contact@oneconcern.com") Contact Us
@@ -34,6 +34,8 @@ footer.footer
     background-color not-white
     padding 60px 45px 200px 45px
     color blue-charcoal
+    &.white
+      background-color white
     .footer-item
       span
         color white
