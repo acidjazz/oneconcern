@@ -1,4 +1,13 @@
 inViewport(delay)
+  transition opacity 1s ease-in-out unit(delay, 's')
+  &.below-viewport
+    opacity 0
+  &.above-viewport
+    opacity 0.6
+  &.in-viewport
+    opacity 1
+
+inViewportBottom(delay)
   transition opacity 1s ease-in-out unit(delay, 's'), transform 1s ease-in-out unit(delay, 's')
   &.below-viewport
     opacity 0
@@ -6,6 +15,30 @@ inViewport(delay)
   &.above-viewport
     opacity 0.6
     transform translate(0, -5px)
+  &.in-viewport
+    opacity 1
+    transform translate(0, 0)
+
+inViewportLeft(delay)
+  transition opacity 1s ease-in-out unit(delay, 's'), transform 1s ease-in-out unit(delay, 's')
+  &.below-viewport
+    opacity 0
+    transform translate(-20px, 0px) 
+  &.above-viewport
+    opacity 0.6
+    transform translate(-5, 0px)
+  &.in-viewport
+    opacity 1
+    transform translate(0, 0)
+
+inViewportRight(delay)
+  transition opacity 1s ease-in-out unit(delay, 's'), transform 1s ease-in-out unit(delay, 's')
+  &.below-viewport
+    opacity 0
+    transform translate(20px, 0px) 
+  &.above-viewport
+    opacity 0.6
+    transform translate(5, 0px)
   &.in-viewport
     opacity 1
     transform translate(0, 0)

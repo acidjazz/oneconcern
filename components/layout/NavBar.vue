@@ -16,7 +16,6 @@ nav.navbar(:class="{dark: darken}")
       span {{ name }} 
       .line
     a.navbar-item(href="https://medium.com/@oneconcerninc",target="_new") Recent Updates
-    a.navbar-item(href="https://jobs.lever.co/oneconcern",target="_new") Join the Team
     CtaButton(link="mailto:contact@oneconcern.com",name="REQUEST A DEMO",theme="white")
   .clear
 </template>
@@ -28,7 +27,8 @@ export default {
   created () {
     if (process.browser) {
       window.addEventListener('scroll', this.scroll)
-    }
+      this.scroll()
+   }
   },
   destroyed () {
     if (process.browser) {
@@ -37,10 +37,10 @@ export default {
   },
   methods: {
     scroll (event) {
-      if (window.scrollY >= 100 && this.darken === false) {
+      if (window.scrollY >= 100 && this.darken == false) {
         this.darken = true
       }
-      if (window.scrollY <= 60 && this.darken === true) {
+      if (window.scrollY <= 60 && this.darken == true) {
         this.darken = false
       }
     },
@@ -52,6 +52,7 @@ export default {
       menu: {
         about: 'Who We Are',
         mission: 'What We Believe',
+        careers: 'Join the Team',
       },
     }
   },

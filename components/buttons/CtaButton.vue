@@ -97,6 +97,7 @@ export default {
   color white
   clip rect(auto, 0px, auto, 0)
   transition clip 0.2s linear 0s
+  line-height 13px
   &:hover::after
     clip rect(auto, 0px, auto, 0)
 
