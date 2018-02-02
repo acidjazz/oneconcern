@@ -98,26 +98,26 @@ export default {
   transform translateY(-50%)
   right 45px
 .carousel-dot
+  backface-visibility hidden
+  transform translate3d(0,0,0)
+  z-index 1
   cursor pointer
   width 15px
   height 15px
   border 2px solid white
-  border-radius 50%
+  border-radius 15px
   margin-bottom 15px
   overflow hidden
   .carousel-dot-inner
-    // border-radius 50%
     background-color white
     width 100%
     height 100%
     transform translate(0px, 15px)
-    // transform scale(0)
     transition transform 1.6s ease
   &:hover
     background-color rgba(white, 0.2)
   &.filled .carousel-dot-inner
-    transform translate(0px, 0px)
-    //transform scale(1)
+    transform translate(0px, 0.1px)
   &:last-child
     margin-bottom 0
 
