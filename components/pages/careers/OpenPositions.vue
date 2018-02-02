@@ -95,4 +95,6 @@ export default {
       padding 0 0 20px 0
       flex 0
       justify-content center
+    .cta-button
+      align-self center
 </style>
