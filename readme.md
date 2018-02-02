@@ -30,6 +30,3 @@ yarn dev
 
 ## Deployment
 Continuous Deployment is setup using the [git-flow](http://nvie.com/posts/a-successful-git-branching-model/) workflow with [aeonian](https://github.com/acidjazz/aeonian) via [Circle-CI](https://circleci.com/gh/acidjazz/oneconcern)
-* Branch [dev](https://github.com/acidjazz/oneconcern/tree/dev) merges deploy to http://dev.oneconcern.com/
-* Branch [staging](https://github.com/acidjazz/oneconcern/tree/staging) merges deploy to http://staging.oneconcern.com/
-* Branch [master](https://github.com/acidjazz/oneconcern/tree/master) merges deploy to https://oneconcern.com/
