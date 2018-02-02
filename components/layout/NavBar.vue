@@ -77,8 +77,6 @@ nav.navbar
     .navbar-logo
       width 118px
       height 50px
-    .navbar-menu
-      margin 10px 0 0 0
 
 .navbar-logo
   background-image url(/logo.png)
@@ -101,7 +99,7 @@ nav.navbar
 .navbar-menu
   float right
   border 1px solid right
-  margin 20px 0 0 0
+  margin 10px 0 10px 0
   transition margin 0.6s linear
 
 .navbar-item
@@ -126,6 +124,9 @@ nav.navbar
     bottom 0
     background-color white
     transition all 0.2s ease-in-out 0.3s
+
+.navbar-menu .cta-button
+  margin-bottom -10px
 
 .navbar-burger
   display none

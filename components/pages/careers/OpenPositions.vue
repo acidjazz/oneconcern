@@ -59,7 +59,7 @@ export default {
   .title
     font-h4()
     inViewportBottom()
-  .copy
+  > .copy
     padding 10px 0 0 0
     text-transform uppercase
     inViewportBottom()

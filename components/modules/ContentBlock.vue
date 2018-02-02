@@ -6,8 +6,8 @@
   .content-block-copy
     .content-block-title
       | {{ copy }}
-      .content-block-cta(v-if="ctaName")
-        CtaButton(:link="ctaLink",:name="ctaName",theme="white-border")
+    .content-block-cta(v-if="ctaName")
+      CtaButton(:link="ctaLink",:name="ctaName",theme="white-border")
 </template>
 
 <script>
@@ -102,6 +102,7 @@ export default {
   align-items center
   justify-content center
   overflow hidden
+  flex-direction column
   > .content-block-title
     font-h4()
     color white
