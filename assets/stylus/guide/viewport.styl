@@ -16,13 +16,15 @@ inViewportBottom(delay = 0, speed = 1)
     transform translate(0, 20px) 
   &.above-viewport
     opacity 0.6
-    transform translate(0, -10px)
+    transform translate(0, 0)
   &.in-viewport
     opacity 1
     transform translate(0, 0)
 
 inViewportLeft(delay = 0, speed = 1)
   transition opacity unit(speed, 's') ease-in-out unit(delay, 's'), transform unit(speed, 's') ease-in-out unit(delay, 's')
+  opacity 0
+  transform translate(-20px, 0px) 
   &.below-viewport
     opacity 0
     transform translate(-20px, 0px) 
@@ -35,6 +37,8 @@ inViewportLeft(delay = 0, speed = 1)
 
 inViewportRight(delay = 0, speed = 1)
   transition opacity unit(speed, 's') ease-in-out unit(delay, 's'), transform unit(speed, 's') ease-in-out unit(delay, 's')
+  opacity 0
+  transform translate(20px, 0px) 
   &.below-viewport
     opacity 0
     transform translate(20px, 0px) 
@@ -79,7 +83,7 @@ inViewportWidth(delay = 0, speed = 1)
     width 0%
     opacity 0
   &.above-viewport
-    width 60%
+    width 100%
     opacity 0.5
   &.in-viewport
     opacity 1

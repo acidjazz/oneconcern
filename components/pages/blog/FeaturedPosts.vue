@@ -1,6 +1,6 @@
 <template lang="pug">
 .featured
-  .title Featured
+  .title(v-in-viewport) Featured
   .featured-posts
     .featured-post(v-for="post in posts")
       a.featured-post-image(
@@ -39,6 +39,7 @@ export default {
     text-align center
     font-h4()
     padding 0 0 60px 0
+    inViewportBottom()
 .featured-posts
   max-width 1000px
   margin auto
@@ -84,5 +85,9 @@ export default {
 .featured-post-date
   padding 0 0 0 30px
   inViewportBottom(0.3)
+
+@media all and (min-width: 1px) and (max-width: 1000px)
+  .featured-post
+    width 100%
 
 </style>
