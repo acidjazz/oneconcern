@@ -30,7 +30,15 @@ export default {
       required: true,
       type: Array,
     }
-  }
+  },
+  filters: {
+    moment: function(date, format) {
+      if (process.browser) {
+        return window.moment(date).format(format)
+      }
+      return date
+    },
+  },
 }
 </script>
 

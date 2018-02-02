@@ -23,6 +23,7 @@ export default {
     let carousel = []
     for (let item of entries.items) { 
       carousel.push({
+        lowres: item.fields.lowres.fields.file.url,
         image: item.fields.image.fields.file.url,
         title: item.fields.title,
         description: item.fields.description,
