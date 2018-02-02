@@ -3,6 +3,7 @@ router-link.cta-button(
   v-if="link.indexOf(':') === -1",
   :to="link",
   :class="`theme-${theme}`",
+  :style="`width: ${width}px`",
   :data-text="name")
     .before: .copy {{ name }}
     .after: .copy {{ name }}
@@ -34,6 +35,11 @@ export default {
       type: String,
       default: 'white',
       validate: (value) => { return this.themees.indexOf(value) },
+    },
+    width: {
+      required: false,
+      type: Number,
+      default: 200,
     },
   },
 
@@ -69,6 +75,7 @@ export default {
   line-height 33px
   border-radius 33px
   text-decoration none
+  text-transform uppercase
   overflow hidden
   z-index 1
   font-s4()
