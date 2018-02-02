@@ -68,6 +68,7 @@ module.exports = {
   css: [{ src: '~assets/stylus/main.styl', lang: 'stylus' }],
   plugins: [
     '~/plugins/contentful.js',
+    '~/plugins/vue-moment.js',
     {src: '~plugins/ga.js', ssr: false},
   ],
   /*

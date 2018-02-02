@@ -9,18 +9,22 @@ inViewport(delay = 0, speed = 1)
 
 inViewportBottom(delay = 0, speed = 1)
   transition opacity unit(speed, 's') ease-in-out unit(delay, 's'), transform unit(speed, 's') ease-in-out unit(delay, 's')
+  transform translate(0, 20px) 
+  opacity 0
   &.below-viewport
     opacity 0
     transform translate(0, 20px) 
   &.above-viewport
     opacity 0.6
-    transform translate(0, -10px)
+    transform translate(0, 0)
   &.in-viewport
     opacity 1
     transform translate(0, 0)
 
 inViewportLeft(delay = 0, speed = 1)
   transition opacity unit(speed, 's') ease-in-out unit(delay, 's'), transform unit(speed, 's') ease-in-out unit(delay, 's')
+  opacity 0
+  transform translate(-20px, 0px) 
   &.below-viewport
     opacity 0
     transform translate(-20px, 0px) 
@@ -33,6 +37,8 @@ inViewportLeft(delay = 0, speed = 1)
 
 inViewportRight(delay = 0, speed = 1)
   transition opacity unit(speed, 's') ease-in-out unit(delay, 's'), transform unit(speed, 's') ease-in-out unit(delay, 's')
+  opacity 0
+  transform translate(20px, 0px) 
   &.below-viewport
     opacity 0
     transform translate(20px, 0px) 
@@ -56,4 +62,30 @@ inViewportScale(delay = 0, speed = 1)
   &.in-viewport
     opacity 1
     transform scale(1)
+
+inViewportBlurBottom(delay = 0, speed = 1)
+  transition filter unit(speed, 's') ease-in-out unit(delay, 's'), transform unit(speed, 's') ease-in-out unit(delay, 's')
+  &.below-viewport
+    filter blur(10px)
+    transform translate(0, 20px) 
+  &.above-viewport
+    filter blur(5px)
+    transform translate(0, -10px)
+  &.in-viewport
+    filter blur(0px)
+    transform translate(0, 0)
+
+inViewportWidth(delay = 0, speed = 1)
+  width 0%
+  opacity 0
+  transition width unit(speed, 's') ease-in-out unit(delay, 's'), opacity unit(speed, 's') ease-in-out unit(delay, 's')
+  &.below-viewport
+    width 0%
+    opacity 0
+  &.above-viewport
+    width 100%
+    opacity 0.5
+  &.in-viewport
+    opacity 1
+    width 100%
 

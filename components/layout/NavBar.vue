@@ -15,7 +15,6 @@ nav.navbar(:class="{dark: darken}")
       :to="`/${route}`")
       span {{ name }} 
       .line
-    a.navbar-item(href="https://medium.com/@oneconcerninc",target="_new") Recent Updates
     CtaButton(link="mailto:contact@oneconcern.com",name="REQUEST A DEMO",theme="white")
   .clear
 </template>
@@ -53,6 +52,7 @@ export default {
         about: 'Who We Are',
         mission: 'What We Believe',
         careers: 'Join the Team',
+        blog: 'Recent Updates',
       },
     }
   },
