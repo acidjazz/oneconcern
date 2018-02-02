@@ -1,6 +1,7 @@
 <template lang="pug">
 #Careers.page
-  .hero(:style="`background-image: url(${image})`")
+  .hero(:style="`background-image: url(${lowres})`")
+    img.hero-background(:src="image")
     .hero-gradient
     .hero-title  {{ copy }}
     .hero-cta
@@ -45,6 +46,7 @@ export default {
 
     return {
       image: hero.items[0].fields.image.fields.file.url,
+      lowres: hero.items[0].fields.lowres.fields.file.url,
       copy: hero.items[0].fields.copy,
       perks: perks,
       jobs: jobs,
