@@ -149,7 +149,6 @@ export default {
 .carousel-enter
   > .carousel-background
     transform scale(1.2)
-    filter blur(10px)
   opacity 0
   > .carousel-copy > .carousel-title,
   > .carousel-copy > .carousel-description,
