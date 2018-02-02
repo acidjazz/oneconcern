@@ -25,6 +25,7 @@ import PerksBenefits from '~/components/pages/careers/PerksBenefits'
 import OpenPositions from '~/components/pages/careers/OpenPositions'
 import CtaButton from '~/components/buttons/CtaButton'
 const client = createClient()
+import jobs from '~/static/cache/lever.json'
 export default {
   components: { CareersGallery, PerksBenefits, OpenPositions, CtaButton },
   directives: { 'in-viewport': inViewportDirective },
@@ -32,7 +33,6 @@ export default {
 
     const hero = await client.getEntries({'content_type': 'hero','fields.page': 'careers'})
     const perksBenefits = await client.getEntries({'content_type': 'perksBenefits'})
-    const jobs = await app.$axios.$get('https://api.lever.co/v0/postings/oneconcern?mode=json')
 
     let perks = []
 
@@ -49,9 +49,14 @@ export default {
       lowres: hero.items[0].fields.lowres.fields.file.url,
       copy: hero.items[0].fields.copy,
       perks: perks,
-      jobs: jobs,
     }
 
+  },
+
+  data () {
+    return {
+      jobs: jobs,
+    }
   },
 }
 </script>

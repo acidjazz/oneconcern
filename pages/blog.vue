@@ -1,6 +1,6 @@
 <template lang="pug">
 #Blog.page
-  .hero
+  .hero.hero-above-fold
     .hero-svg
       include ../static/watermark.svg
     .hero-title {{ copy }}
