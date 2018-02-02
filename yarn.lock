@@ -84,6 +84,12 @@
     chalk "^2.3.0"
     debug "^3.1.0"
 
+"@nuxtjs/component-cache@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/component-cache/-/component-cache-1.1.1.tgz#d94aa450e1b0df0451a2e938262234b534df9dfd"
+  dependencies:
+    lru-cache "^4.1.1"
+
 "@nuxtjs/proxy@^1.1.4":
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/@nuxtjs/proxy/-/proxy-1.1.4.tgz#71056d402d57c825a098c1651138a878ee6c0d23"

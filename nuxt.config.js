@@ -80,6 +80,8 @@ module.exports = {
   */
   modules: [
     '@nuxtjs/axios',
+    '@nuxtjs/proxy',
+    '@nuxtjs/component-cache',
   ],
   build: {
     /*
