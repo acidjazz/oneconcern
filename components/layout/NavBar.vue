@@ -8,12 +8,12 @@ nav.navbar(:class="{dark: darken}")
   .navbar-menu
     router-link.navbar-logo-mobile(to="/")
     router-link.navbar-item(
-      v-for="name, route in menu"
+      v-for="item, route in menu"
       :key="route"
-      :class="{active: $route.name === route}"
-      @click.native="burger = false"
+      :class="{active: $route.name === route, loading: route !== 'index' && menu[route].loading}"
+      @click.native="burger = false; load(route)"
       :to="`/${route}`")
-      span {{ name }} 
+      span {{ item.copy }} 
       .line
     CtaButton(link="mailto:contact@oneconcern.com",name="REQUEST A DEMO",theme="white")
   .clear
@@ -24,10 +24,12 @@ import CtaButton from '~/components/buttons/CtaButton'
 export default {
   components: { CtaButton },
   created () {
+
     if (process.browser) {
       window.addEventListener('scroll', this.scroll)
       this.scroll()
    }
+
   },
   destroyed () {
     if (process.browser) {
@@ -35,6 +37,12 @@ export default {
     }
   },
   methods: {
+
+    load (route) {
+      if (route !== 'index') {
+        this.menu[route].loading = true
+      }
+    },
     scroll (event) {
       if (window.scrollY >= 100 && this.darken == false) {
         this.darken = true
@@ -44,15 +52,25 @@ export default {
       }
     },
   },
+  watch: {
+    '$route' (to, from) {
+      if (to.name === 'index') {
+        return true
+      }
+      setTimeout(() => {
+        this.menu[to.name].loading = false
+      }, 200)
+    }
+  },
   data () {
     return {
       burger: false,
       darken: false,
       menu: {
-        about: 'Who We Are',
-        mission: 'What We Believe',
-        careers: 'Join the Team',
-        blog: 'Recent Updates',
+        about: { copy: 'Who We Are', loading: false, },
+        mission: { copy: 'What We Believe', loading: false, },
+        careers: { copy: 'Join the Team', loading: false, },
+        blog: { copy: 'Recent Updates', loading: false, },
       },
     }
   },
@@ -111,6 +129,9 @@ nav.navbar
   display inline-block
   padding 8px
   transition color 0.2s ease, color 0.1s ease
+  &.loading
+    background-color rgba(white, 0.2)
+    transition background 0.1s ease-in
   &.active > .line
     left 0
     right 0
