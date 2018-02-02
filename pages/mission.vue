@@ -1,6 +1,7 @@
 <template lang="pug">
 #What 
-  .hero(:style="`background-image: url(${image})`")
+  .hero(:style="`background-image: url(${lowres})`")
+    img.hero-background(:src="image")
     .hero-title {{ copy }}
   ContentBlock(
     v-for="content, index in contents",
@@ -47,6 +48,7 @@ export default {
     }
 
     return {
+      lowres: hero.items[0].fields.lowres.fields.file.url,
       image: hero.items[0].fields.image.fields.file.url,
       dimage: dhero.items[0].fields.image.fields.file.url,
       copy: hero.items[0].fields.copy,

@@ -5,7 +5,9 @@
       v-for="carousel, cindex in data",
       :key="cindex",
       v-if="cindex === index")
-      .carousel-background(:style="`background-image: url(${carousel.image})`")
+      img.carousel-background(
+        :src="carousel.image",
+        :style="`background-image: url(${carousel.lowres})`")
       .carousel-gradient
       .carousel-copy
         .carousel-title {{ carousel.title }}
@@ -78,6 +80,7 @@ export default {
   background-repeat no-repeat
   background-size cover
   background-position 50% 50%
+  object-fit cover
 
 .carousel-copy
   position absolute
@@ -146,6 +149,7 @@ export default {
 .carousel-enter
   > .carousel-background
     transform scale(1.2)
+    filter blur(10px)
   opacity 0
   > .carousel-copy > .carousel-title,
   > .carousel-copy > .carousel-description,
