@@ -61,15 +61,6 @@ export default {
   justify-content flex-start
   flex-direction column
   height 400px
-  &:nth-child(odd)
-    > .featured-post-image
-      inViewportBOttom(0.1)
-    > .featured-post-copy > .featured-post-title
-      inViewportBottom(0.2)
-    > .featured-post-copy > .featured-post-author
-      inViewportBottom(0.3)
-    > .featured-post-copy > .featured-post-date
-      inViewportBottom(0.4)
 
 .featured-post-image
   height 220px
@@ -93,6 +84,17 @@ export default {
 .featured-post-date
   padding 0 0 0 30px
   inViewportBottom(0.3)
+
+.featured-post:nth-child(even)
+  .featured-post-image
+    inViewportBottom(0.1)
+  .featured-post-title
+    inViewportBottom(0.2)
+  .featured-post-author
+    inViewportBottom(0.3)
+  .featured-post-date
+    inViewportBottom(0.4)
+
 
 @media all and (min-width: 1px) and (max-width: 1000px)
   .featured-post

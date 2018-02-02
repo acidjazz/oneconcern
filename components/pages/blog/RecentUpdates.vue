@@ -67,17 +67,17 @@ export default {
   for i in 1..4
     &:nth-child({i})
       .recent-update-image
-        inViewportBottom((i*0.2) + 0.1)
+        inViewportBottom((i*0.1) + 0.1)
       .recent-update-title
-        inViewportBottom((i*0.2) + 0.2)
+        inViewportBottom((i*0.1) + 0.2)
       .recent-update-author
-        inViewportBottom((i*0.2) + 0.3)
+        inViewportBottom((i*0.1) + 0.3)
       .recent-update-date
-        inViewportBottom((i*0.2) + 0.4)
+        inViewportBottom((i*0.1) + 0.4)
       .recent-update-cta
-        inViewportRight((i*0.2) + 0.5)
+        inViewportRight((i*0.1) + 0.5)
       .recent-update-border
-        inViewportWidth((i*0.2) + 0.6, 0.5)
+        inViewportWidth((i*0.1) + 0.6, 0.5)
 
 .recent-update-inner
   height 120px

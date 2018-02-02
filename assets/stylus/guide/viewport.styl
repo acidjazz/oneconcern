@@ -1,14 +1,13 @@
 inViewport(delay = 0, speed = 1)
-  transition opacity unit(speed, 's') ease-in-out unit(delay, 's')
   &.below-viewport
     opacity 0
   &.above-viewport
     opacity 0.6
   &.in-viewport
+    transition opacity unit(speed, 's') ease-in-out unit(delay, 's')
     opacity 1
 
 inViewportBottom(delay = 0, speed = 1)
-  transition opacity unit(speed, 's') ease-in-out unit(delay, 's'), transform unit(speed, 's') ease-in-out unit(delay, 's')
   &.below-viewport
     opacity 0
     transform translate(0, 20px) 
@@ -16,12 +15,11 @@ inViewportBottom(delay = 0, speed = 1)
     opacity 0.6
     transform translate(0, 0)
   &.in-viewport
+    transition opacity unit(speed, 's') ease-in-out unit(delay, 's'), transform unit(speed, 's') ease-in-out unit(delay, 's')
     opacity 1
     transform translate(0, 0)
 
 inViewportLeft(delay = 0, speed = 1)
-  transition opacity unit(speed, 's') ease-in-out unit(delay, 's'), transform unit(speed, 's') ease-in-out unit(delay, 's')
-  transform translate(-20px, 0px) 
   &.below-viewport
     opacity 0
     transform translate(-20px, 0px) 
@@ -31,10 +29,9 @@ inViewportLeft(delay = 0, speed = 1)
   &.in-viewport
     opacity 1
     transform translate(0, 0)
+    transition opacity unit(speed, 's') ease-in-out unit(delay, 's'), transform unit(speed, 's') ease-in-out unit(delay, 's')
 
 inViewportRight(delay = 0, speed = 1)
-  transition opacity unit(speed, 's') ease-in-out unit(delay, 's'), transform unit(speed, 's') ease-in-out unit(delay, 's')
-  transform translate(20px, 0px) 
   &.below-viewport
     opacity 0
     transform translate(20px, 0px) 
@@ -44,9 +41,9 @@ inViewportRight(delay = 0, speed = 1)
   &.in-viewport
     opacity 1
     transform translate(0, 0)
+    transition opacity unit(speed, 's') ease-in-out unit(delay, 's'), transform unit(speed, 's') ease-in-out unit(delay, 's')
 
 inViewportScale(delay = 0, speed = 1)
-  transition opacity unit(speed, 's') ease-in-out unit(delay, 's'), transform unit(speed, 's') ease-in-out unit(delay, 's')
   &.below-viewport
     opacity 0
     transform scale(1.1)
@@ -56,9 +53,9 @@ inViewportScale(delay = 0, speed = 1)
   &.in-viewport
     opacity 1
     transform scale(1)
+    transition opacity unit(speed, 's') ease-in-out unit(delay, 's'), transform unit(speed, 's') ease-in-out unit(delay, 's')
 
 inViewportBlurBottom(delay = 0, speed = 1)
-  transition filter unit(speed, 's') ease-in-out unit(delay, 's'), transform unit(speed, 's') ease-in-out unit(delay, 's')
   &.below-viewport
     filter blur(10px)
     transform translate(0, 20px) 
@@ -68,9 +65,9 @@ inViewportBlurBottom(delay = 0, speed = 1)
   &.in-viewport
     filter blur(0px)
     transform translate(0, 0)
+    transition filter unit(speed, 's') ease-in-out unit(delay, 's'), transform unit(speed, 's') ease-in-out unit(delay, 's')
 
 inViewportWidth(delay = 0, speed = 1)
-  transition width unit(speed, 's') ease-in-out unit(delay, 's'), opacity unit(speed, 's') ease-in-out unit(delay, 's')
   &.below-viewport
     width 0%
     opacity 0
@@ -80,4 +77,5 @@ inViewportWidth(delay = 0, speed = 1)
   &.in-viewport
     opacity 1
     width 100%
+    transition width unit(speed, 's') ease-in-out unit(delay, 's'), opacity unit(speed, 's') ease-in-out unit(delay, 's')
 
