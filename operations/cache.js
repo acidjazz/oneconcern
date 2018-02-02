@@ -1,4 +1,3 @@
-
 const axios = require('axios')
 const fs = require('fs')
 
@@ -12,4 +11,3 @@ exports.store = function (file, data) {
 
 this.get('https://api.lever.co/v0/postings/oneconcern?mode=json')
   .then(result => this.store('lever', result.data))
-

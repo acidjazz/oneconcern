@@ -7,7 +7,7 @@
     v-in-viewport
     name="VIEW OPENINGS",
     theme="white-border-black",
-    link="https://jobs.lever.co/oneconcern"
+    link="careers"
   )
 </template>
 
