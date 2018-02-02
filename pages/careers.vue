@@ -52,7 +52,6 @@ export default {
     }
 
   },
-
   data () {
     return {
       jobs: jobs,

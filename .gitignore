@@ -15,4 +15,4 @@ dist
 *.swp
 
 .env
-static/cache/*
+static/cache/*.json
