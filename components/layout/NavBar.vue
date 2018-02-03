@@ -8,15 +8,13 @@ nav.navbar(:class="{dark: darken}")
   .navbar-menu
     router-link.navbar-logo-mobile(to="/")
     router-link.navbar-item(
-      v-for="name, route in menu"
+      v-for="item, route in menu"
       :key="route"
-      :class="{active: $route.name === route}"
-      @click.native="burger = false"
+      :class="{active: $route.name === route, loading: route !== 'index' && menu[route].loading}"
+      @click.native="burger = false; load(route)"
       :to="`/${route}`")
-      span {{ name }} 
+      span {{ item.copy }} 
       .line
-    a.navbar-item(href="https://medium.com/@oneconcerninc",target="_new") Recent Updates
-    a.navbar-item(href="https://jobs.lever.co/oneconcern",target="_new") Join the Team
     CtaButton(link="mailto:contact@oneconcern.com",name="REQUEST A DEMO",theme="white")
   .clear
 </template>
@@ -26,9 +24,12 @@ import CtaButton from '~/components/buttons/CtaButton'
 export default {
   components: { CtaButton },
   created () {
+
     if (process.browser) {
       window.addEventListener('scroll', this.scroll)
-    }
+      this.scroll()
+   }
+
   },
   destroyed () {
     if (process.browser) {
@@ -36,22 +37,40 @@ export default {
     }
   },
   methods: {
+
+    load (route) {
+      if (route !== 'index') {
+        this.menu[route].loading = true
+      }
+    },
     scroll (event) {
-      if (window.scrollY >= 100 && this.darken === false) {
+      if (window.scrollY >= 100 && this.darken == false) {
         this.darken = true
       }
-      if (window.scrollY <= 60 && this.darken === true) {
+      if (window.scrollY <= 60 && this.darken == true) {
         this.darken = false
       }
     },
+  },
+  watch: {
+    '$route' (to, from) {
+      if (to.name === 'index') {
+        return true
+      }
+      setTimeout(() => {
+        this.menu[to.name].loading = false
+      }, 200)
+    }
   },
   data () {
     return {
       burger: false,
       darken: false,
       menu: {
-        about: 'Who We Are',
-        mission: 'What We Believe',
+        about: { copy: 'Who We Are', loading: false, },
+        mission: { copy: 'What We Believe', loading: false, },
+        careers: { copy: 'Join the Team', loading: false, },
+        blog: { copy: 'Recent Updates', loading: false, },
       },
     }
   },
@@ -76,8 +95,6 @@ nav.navbar
     .navbar-logo
       width 118px
       height 50px
-    .navbar-menu
-      margin 10px 0 0 0
 
 .navbar-logo
   background-image url(/logo.png)
@@ -100,7 +117,7 @@ nav.navbar
 .navbar-menu
   float right
   border 1px solid right
-  margin 20px 0 0 0
+  margin 10px 0 10px 0
   transition margin 0.6s linear
 
 .navbar-item
@@ -112,6 +129,9 @@ nav.navbar
   display inline-block
   padding 8px
   transition color 0.2s ease, color 0.1s ease
+  &.loading
+    background-color rgba(white, 0.2)
+    transition background 0.1s ease-in
   &.active > .line
     left 0
     right 0
@@ -125,6 +145,9 @@ nav.navbar
     bottom 0
     background-color white
     transition all 0.2s ease-in-out 0.3s
+
+.navbar-menu .cta-button
+  margin-bottom -10px
 
 .navbar-burger
   display none
@@ -175,9 +198,10 @@ nav.navbar
     display none
     position absolute
     z-index 1
-    top -20px
+    top 0px
     right 0px
     left 0px
+    margin 0 !important
     background-color cinder
     padding-right 90px
     animation fadeIn 0.6s linear 0s alternate both
@@ -185,7 +209,7 @@ nav.navbar
   .navbar-item
     display none
     margin 30px 60px 30px 45px
-    width 200px
+    width 140px
     animation fadeInLeft 0.3s ease 0s alternate both
     for i in 1..10
       &:nth-child({i})
@@ -201,5 +225,7 @@ nav.navbar
   .navbar-burger.is-active + .navbar-menu .navbar-item,
   .navbar-burger.is-active + .navbar-menu .cta-button
     display block
+  .navbar-burger.is-active + .navbar-menu
+    height 100vh
 
 </style>

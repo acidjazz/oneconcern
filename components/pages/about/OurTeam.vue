@@ -18,6 +18,7 @@
           a(:href="member.linkedin",target="_new").fa.fa-linkedin
       .team-member-name {{ member.name }}
       .team-member-position {{ member.position }}
+
 </template>
 
 <script>
@@ -54,7 +55,7 @@ export default {
   data () {
     return {
       filter: 'Team',
-      types: [],
+      types: ['Team', 'Board of Directors', 'Advisors & Investors'],
     }
   },
 
@@ -75,19 +76,20 @@ export default {
   flex-grow 1
   margin-bottom 60px
   .team-filter
+    width 33%
     cursor pointer
     color not-white
     text-align center
     flex-grow 1
     padding 10px
-    inViewport(0.2)
+    inViewportBottom(0.2)
     &:nth-child(2)
-      inViewport(0.4)
+      inViewportBottom(0.4)
     &:nth-child(3)
-      inViewport(0.6)
+      inViewportBottom(0.6)
     for i in 1..3
       &:nth-child({i})
-        inViewport(0.1*i)
+        inViewportBottom(0.1*i)
     &:not(:last-child)
       border-right 2px solid not-white
     &:hover:not(.active)

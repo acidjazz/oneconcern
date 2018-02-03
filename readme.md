@@ -1,9 +1,10 @@
 <p align="center">
-  <img src="https://github.com/acidjazz/oneconcern/blob/master/static/logo.png" alt="1C PNG"/>
+  <img src="https://github.com/acidjazz/oneconcern/blob/master/static/logo.png" width="300" alt="1C PNG"/>
 </p>
 
 > Artificial Intelligence platform for Disasters
 
+[![GitHub issues](https://img.shields.io/github/issues/acidjazz/oneconcern.svg)](https://github.com/acidjazz/oneconcern/issues)
 [![CircleCI](https://img.shields.io/circleci/project/github/acidjazz/oneconcern.svg)](https://circleci.com/gh/acidjazz/oneconcern/)
 [![aeonian status](https://img.shields.io/badge/%C3%A6onian-deployed-green.svg)](https://github.com/acidjazz/aeonian)
 
@@ -30,6 +31,3 @@ yarn dev
 
 ## Deployment
 Continuous Deployment is setup using the [git-flow](http://nvie.com/posts/a-successful-git-branching-model/) workflow with [aeonian](https://github.com/acidjazz/aeonian) via [Circle-CI](https://circleci.com/gh/acidjazz/oneconcern)
-* Branch [dev](https://github.com/acidjazz/oneconcern/tree/dev) merges deploy to http://dev.oneconcern.com/
-* Branch [staging](https://github.com/acidjazz/oneconcern/tree/staging) merges deploy to http://staging.oneconcern.com/
-* Branch [master](https://github.com/acidjazz/oneconcern/tree/master) merges deploy to https://oneconcern.com/

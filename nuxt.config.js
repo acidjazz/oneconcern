@@ -56,7 +56,12 @@ module.exports = {
       { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
 
       { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' },
-    ]
+    ],
+
+    script: [
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js' },
+    ],
+
   },
   /*
   ** Customize the progress bar color
@@ -73,6 +78,11 @@ module.exports = {
   /*
   ** Build configuration
   */
+  modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy',
+    '@nuxtjs/component-cache',
+  ],
   build: {
     /*
     ** Run ESLint on save

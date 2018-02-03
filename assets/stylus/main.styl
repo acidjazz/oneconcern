@@ -40,16 +40,49 @@ body, button, input, select, textarea
   background-size cover
   background-position 50% 50%
   position relative
+  overflow hidden
   transition all 0.6s ease
-  .hero-title
-    color white
-    font-h3()
-    position absolute
-    top 50%
-    left 50px
-    transform translate(0px, -50%)
-    width 780px
-    transition all 0.3s ease-in
+  &.hero-above-fold
+    height 50vh
+    min-height 400px
+
+.hero-background
+  position absolute
+  width 100vw
+  height 100vh
+  object-fit cover
+
+.hero-title
+  color white
+  font-h3()
+  position absolute
+  top 50%
+  left 50px
+  transform translate(0px, -50%)
+  width 780px
+  transition all 0.3s ease-in
+
+.hero-cta
+  position absolute
+  bottom 10%
+  left 50px
+
+.hero-gradient
+  width 100vw
+  height 100vh
+  position absolute
+  background linear-gradient(65deg, rgba(black, 0.7), transparent)
+  tplr()
+
+.hero-svg
+  position absolute
+  left -200px
+  bottom -320px
+  width 600px
+  height 600px
+  path
+    fill vulcan
+
 
 @media all and (min-width: 1px) and (max-width: 1000px)
   .hero
@@ -86,19 +119,11 @@ body, button, input, select, textarea
   &.section-openings,
     text-align center
     position relative
-
-    .cta-button
-      width 220px
-      padding-top 20px
-      padding-bottom 18px
-      &[data-text]::after
-        padding-top 20px
-        padding-bottom 18px
   .title
     font-h4()
     text-align center
-    inViewport(0)
+    inViewportBottom(0)
   .cta-button
-    inViewport(0.1)
+    inViewportBottom(0.1)
 
 

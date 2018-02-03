@@ -1,6 +1,7 @@
 <template lang="pug">
 #Who.page
-  .hero(:style="`background-image: url(${image})`")
+  .hero(:style="`background-image: url(${lowres})`")
+    img.hero-background(:src="image")
     .hero-title {{ copy }}
 
   .section.section-story(v-if="story")
@@ -57,6 +58,7 @@ export default {
 
     return {
       image: hero.items[0].fields.image.fields.file.url,
+      lowres: hero.items[0].fields.lowres.fields.file.url,
       copy: hero.items[0].fields.copy,
       story: {
         copy: story.items[0].fields.storyCopy,

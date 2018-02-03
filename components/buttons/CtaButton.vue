@@ -3,13 +3,18 @@ router-link.cta-button(
   v-if="link.indexOf(':') === -1",
   :to="link",
   :class="`theme-${theme}`",
-  :data-text="name") {{ name }} 
+  :style="`width: ${width}px`",
+  :data-text="name")
+    .before: .copy {{ name }}
+    .after: .copy {{ name }}
 a.cta-button(
   v-else,
   :href="link",
   :target="target"
   :class="`theme-${theme}`",
-  :data-text="name") {{ name }} 
+  :data-text="name")
+    .before: .copy {{ name }}
+    .after: .copy {{ name }}
 </template>
 
 <script>
@@ -29,6 +34,12 @@ export default {
       required: false,
       type: String,
       default: 'white',
+      validate: (value) => { return this.themees.indexOf(value) },
+    },
+    width: {
+      required: false,
+      type: Number,
+      default: 200,
     },
   },
 
@@ -38,6 +49,17 @@ export default {
     },
   },
 
+  data () {
+    return {
+      themes: [
+        'white',
+        'white-border',
+        'white-border-black',
+        'orange-border',
+      ]
+    }
+  },
+
 }
 </script>
 
@@ -45,22 +67,72 @@ export default {
 @import '../../assets/stylus/guide/*'
 
 .cta-button
+  display inline-block
   text-align center
   position relative
-  border-radius 30px 
-  color fire-bush
+  width 200px
+  height 33px
+  line-height 33px
+  border-radius 33px
   text-decoration none
-  display inline-block
-  padding 10px 22px 8px 22px
-  background-size 235% 235%
-  background-position 100% 0%
-  transition background 0.2s linear 0s
-  &.theme-orange-border
-    color fire-bush
+  text-transform uppercase
+  overflow hidden
+  z-index 1
+  font-s4()
+  > .before, > .after
+    position absolute
+    overflow hidden
+    tplr()
+  > .after
+    left -20px
+    right -20px
+    transition transform 0.1s ease-in 0.05s
+    transform translate(-220px, 0) skewX(-5deg)
+  > .after > .copy
+    transform translate(220px, 0) skewX(5deg)
+    transition transform 0.1s ease-in 0.05s
+  &:hover, &:active
+    > .after
+      transform translate(0px, 0) skewX(-20deg)
+      transition transform 0.1s ease-in 0s
+    > .after > .copy
+      transform translate(0px, 0) skewX(20deg)
+      transition transform 0.1s ease-in 0s
+
   &.theme-white
-    color blue-charcoal
+    > .before
+      color blue-charcoal
+      background-color white
+    > .after
+      color white
+      background-color fire-bush
+  &.theme-white-border
+    border 3px solid white
+    > .before
+      color white
+      background-color transparent
+    > .after
+      color white
+      background-color fire-bush
+  &.theme-white-border-black
+    border 3px solid white
+    > .before
+      color blue-charcoal
+      background-color transparent
+    > .after
+      color white
+      background-color blue-charcoal
+
   &.theme-orange-border
     border 3px solid fire-bush
+    > .before
+      color fire-bush
+    > .after
+      color white
+      background-color fire-bush
+
+  /*
+  &.theme-orange-border
     background-image linear-gradient(-75deg, transparent 50%, fire-bush 50%)
   &.theme-white-border,
   &.theme-white-border-black
@@ -85,22 +157,6 @@ export default {
     background-position 0% 0%
   &.theme-white-border-black:hover
     background-image linear-gradient(-75deg, transparent 50%, blue-charcoal 50%)
-  font-s4()
-
-.cta-button[data-text]::after
-  position absolute
-  content attr(data-text)
-  top 0
-  left 0
-  right 0
-  padding 10px 22px 8px 22px
-  color white
-  clip rect(auto, 0px, auto, 0)
-  transition clip 0.2s linear 0s
-  &:hover::after
-    clip rect(auto, 0px, auto, 0)
-
-.cta-button:hover::after
-  clip rect(auto, 200px, auto, 0)
+  */
 
 </style>
