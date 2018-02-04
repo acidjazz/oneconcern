@@ -130,7 +130,7 @@ nav.navbar
   padding 8px
   transition color 0.2s ease, color 0.1s ease
   &.loading
-    background-color rgba(white, 0.2)
+    background-color rgba(white, 0.1)
     transition background 0.1s ease-in
   &.active > .line
     left 0

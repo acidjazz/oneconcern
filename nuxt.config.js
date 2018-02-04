@@ -81,8 +81,12 @@ module.exports = {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/proxy',
+    '@nuxtjs/markdownit',
     '@nuxtjs/component-cache',
   ],
+  markdownit: {
+    injected: true,
+  },
   build: {
     /*
     ** Run ESLint on save

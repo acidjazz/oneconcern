@@ -14,13 +14,17 @@
           .recent-update-author(v-in-viewport) by {{ post.author.name }}, {{ post.author.position }}
           .recent-update-date(v-in-viewport) {{ post.date | moment("dddd, MMM Do, YYYY") }}
         .recent-update-cta(v-in-viewport)
-          CtaButton(:link="post.link",name="view article",theme="orange-border", :width=140)
+          CtaButton(v-if="post.type === 'link'",
+            :link="post.link",name="view article",theme="orange-border", :width=140)
+          CtaButton(v-else,
+            :link="`/blog/${slug(post.title)}-${post.id}`",name="view article",theme="orange-border", :width=140)
       .recent-update-border(v-in-viewport)
 
 </template>
 
 <script>
 import inViewportDirective from 'vue-in-viewport-directive'
+const getSlug = require('speakingurl')
 import CtaButton from '~/components/buttons/CtaButton'
 export default {
   components: { CtaButton },
@@ -30,6 +34,11 @@ export default {
       required: true,
       type: Array,
     }
+  },
+  methods: {
+    slug (title) {
+      return getSlug(title)
+    },
   },
   filters: {
     moment: function(date, format) {

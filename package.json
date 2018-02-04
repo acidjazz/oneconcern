@@ -20,12 +20,14 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.0.0-rc.2",
     "@nuxtjs/component-cache": "^1.1.1",
+    "@nuxtjs/markdownit": "^1.2.0",
     "@nuxtjs/proxy": "^1.1.4",
     "aeonian": "^1.0.9",
     "contentful": "^5.0.5",
     "dotenv": "^4.0.0",
     "nuxt": "^1.0.0",
     "pug": "^2.0.0-rc.4",
+    "speakingurl": "^14.0.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
     "vue-in-viewport-directive": "^1.1.4"
