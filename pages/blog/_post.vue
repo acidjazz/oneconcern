@@ -6,20 +6,24 @@
     .hero-title {{ post.title }}
 
   BlogPost(:post="post")
+  ViewOpenings(:image="dimage",v-if="dimage")
 
 </template>
 
 <script>
 import { createClient } from '~/plugins/contentful.js'
 import BlogPost from '~/components/pages/blog/BlogPost'
+import ViewOpenings from '~/components/modules/ViewOpenings'
 const client = createClient()
 export default {
-  components: { BlogPost },
+  components: { BlogPost, ViewOpenings },
   async asyncData (context) {
     let params = context.route.params.post.split('-')
     let id = params[params.length-1]
+    const dhero = await client.getEntries({'content_type': 'hero','fields.page': 'about'})
     const post = (await client.getEntries({'content_type': 'blog', 'sys.id': id})).items[0]
     return {
+      dimage: dhero.items[0].fields.image.fields.file.url,
       post: {
         title: post.fields.title,
         description: post.fields.description,

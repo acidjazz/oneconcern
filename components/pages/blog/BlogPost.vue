@@ -43,7 +43,9 @@ export default {
   padding 60px 0
 .blog-post-inner
   max-width 1000px
-  margin 0 auto 0 auto
+  margin auto
+  position relative
+  left -100px
 
 .blog-post-left
   float left
@@ -84,6 +86,8 @@ export default {
 @media all and (min-width: 1px) and (max-width: 1000px)
   .blog-post
     padding 10px 0
+  .blog-post-inner
+    left auto
 
   .blog-post-left
     float none
