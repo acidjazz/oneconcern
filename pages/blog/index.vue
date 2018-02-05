@@ -2,7 +2,7 @@
 #Blog.page
   .hero.hero-above-fold
     .hero-svg
-      include ../static/watermark.svg
+      include ../../static/watermark.svg
     .hero-title {{ copy }}
   FeaturedPosts(:posts="featured")
   RecentUpdates(:posts="posts")
@@ -29,8 +29,11 @@ export default {
     let tags = {}
 
     for (let entry of entries.items) {
+
       let post = {
+        id: entry.sys.id,
         featured: entry.fields.featured,
+        type: entry.fields.type,
         date: entry.fields.created,
         image: entry.fields.image ? entry.fields.image.fields.file.url : false,
         title: entry.fields.title,

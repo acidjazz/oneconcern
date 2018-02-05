@@ -8,6 +8,8 @@ let config = {
   keywords: 'key, words'
 }
 
+let routes = require('./static/cache/routes.json')
+
 module.exports = {
 
   env: {
@@ -81,8 +83,14 @@ module.exports = {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/proxy',
+    '@nuxtjs/markdownit',
     '@nuxtjs/component-cache',
   ],
+  markdownit: {
+    injected: true,
+  },
+
+  generate: { routes },
   build: {
     /*
     ** Run ESLint on save

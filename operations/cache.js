@@ -1,13 +1,7 @@
-const axios = require('axios')
-const fs = require('fs')
 
-exports.get = async function (url) {
-  return await axios(url)
-}
+const routes = require('./routes.js')
+const lever = require('./lever.js')
 
-exports.store = function (file, data) {
-  fs.writeFileSync('./static/cache/' + file + '.json', JSON.stringify(data, null, 2))
-}
+routes.cache()
+lever.cache()
 
-this.get('https://api.lever.co/v0/postings/oneconcern?mode=json')
-  .then(result => this.store('lever', result.data))
