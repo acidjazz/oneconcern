@@ -8,6 +8,8 @@ let config = {
   keywords: 'key, words'
 }
 
+let routes = require('./static/cache/routes.json')
+
 module.exports = {
 
   env: {
@@ -87,6 +89,8 @@ module.exports = {
   markdownit: {
     injected: true,
   },
+
+  generate: { routes },
   build: {
     /*
     ** Run ESLint on save
