@@ -15,7 +15,7 @@ nav.navbar(:class="{dark: darken}")
       :to="`/${route}`")
       span {{ item.copy }} 
       .line
-    CtaButton(link="mailto:contact@oneconcern.com",name="REQUEST A DEMO",theme="white")
+    CtaButton(link="mailto:contact@oneconcern.com",name="REQUEST A DEMO",theme="white",:width=160)
   .clear
 </template>
 
@@ -71,6 +71,7 @@ export default {
         mission: { copy: 'What We Believe', loading: false, },
         careers: { copy: 'Join the Team', loading: false, },
         blog: { copy: 'Recent Updates', loading: false, },
+        product: { copy: 'Become a Customer', loading: false, },
       },
     }
   },
@@ -89,6 +90,8 @@ nav.navbar
   left 0px
   right 0px
   transition 0.6s linear
+  display flex
+  justify-content flex-start
   &.dark
     padding 20px 45px 20px 45px
     background-color cinder
@@ -102,7 +105,6 @@ nav.navbar
   background-repeat no-repeat
   width 200px
   height 85px
-  float left
   transition 0.6s ease
 
 .navbar-logo-mobile
@@ -115,10 +117,10 @@ nav.navbar
   height 50px
 
 .navbar-menu
-  float right
   border 1px solid right
   margin 10px 0 10px 0
   transition margin 0.6s linear
+  margin-left auto
 
 .navbar-item
   text-decoration none
@@ -153,8 +155,8 @@ nav.navbar
   display none
   cursor pointer
   position relative
-  float right
   margin 10px 0 10px 0
+  margin-left auto
   width 40px
   height 40px
   transition transform 0.6s ease-in-out 0s
@@ -183,6 +185,17 @@ nav.navbar
   &.is-active span
     &:nth-child(3)
       transform translateY(-6px) rotate(-45deg)
+
+@media all and (min-width: 1225px) and (max-width: 1181px)
+  .navbar-item
+    margin-right 15px
+@media all and (min-width: 1001px) and (max-width: 1180px)
+  .navbar-item
+    font-size 12px !important
+    margin-right 15px
+  .cta-button
+    font-size 12px !important
+
 
 @media all and (min-width: 1px) and (max-width: 1000px)
   .navbar-logo
