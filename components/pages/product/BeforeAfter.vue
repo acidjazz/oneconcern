@@ -76,6 +76,7 @@ export default {
   font-h4()
   padding 10px 0
   color white
+  transition color 0.5s ease 0s
 
 .ba-selection-vector
   width 80px
@@ -88,9 +89,11 @@ export default {
     stroke-width 2
     stroke-linejoin round
     stroke-miterlimit 10
+    transition stroke 0.5s ease 0.2s
 
 .ba-selection:nth-child(2) .ba-selection-vector > svg
   fill white
+  transition fill 0.5s ease 0.2s
 
 .ba-selection.active
   .ba-selection-title

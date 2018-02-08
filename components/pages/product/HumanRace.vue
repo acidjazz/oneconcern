@@ -56,6 +56,7 @@ export default {
       display inline-block
       cursor pointer
       width 200px
+      transition color 0.5s ease
       &:nth-child(1)
         border-right 1px solid white
         padding 0 10px 0 0
