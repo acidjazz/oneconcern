@@ -108,7 +108,25 @@ export default {
       &:nth-child({i})
         inViewportBottom((i * 0.1) + 0.4)
 
-// .st0{fill:none;stroke:#505050;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;}
-// .st0{fill:none;stroke:#505050;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;}
+@media all and (min-width: 1px) and (max-width: 1000px)
+  #BeforeAfter
+    .before-after
+      width auto
+    .ba-line
+      display none
+    .ba-selection-vector
+      width 60px
+      height 60px
+    .ba-selection-title
+      border-bottom 1px solid transparent
+    .ba-selection.active
+      .ba-selection-title
+        border-bottom 1px solid blue-charcoal
+    .ba-content
+      font-s2()
+      padding 20px
+
+
+
 </style>
  

@@ -120,15 +120,16 @@ nav.navbar
   border 1px solid right
   margin 10px 0 10px 0
   transition margin 0.6s linear
-  margin-left auto
+  display flex
+  justify-content space-around
+  align-items center
+  flex-grow 1
 
 .navbar-item
   text-decoration none
-  margin-right 25px
   font-s2()
   color white
   position relative
-  display inline-block
   padding 8px
   transition color 0.2s ease, color 0.1s ease
   &.loading
@@ -147,9 +148,6 @@ nav.navbar
     bottom 0
     background-color white
     transition all 0.2s ease-in-out 0.3s
-
-.navbar-menu .cta-button
-  margin-bottom -10px
 
 .navbar-burger
   display none
@@ -185,17 +183,6 @@ nav.navbar
   &.is-active span
     &:nth-child(3)
       transform translateY(-6px) rotate(-45deg)
-
-@media all and (min-width: 1225px) and (max-width: 1181px)
-  .navbar-item
-    margin-right 15px
-@media all and (min-width: 1001px) and (max-width: 1180px)
-  .navbar-item
-    font-size 12px !important
-    margin-right 15px
-  .cta-button
-    font-size 12px !important
-
 
 @media all and (min-width: 1px) and (max-width: 1000px)
   .navbar-logo

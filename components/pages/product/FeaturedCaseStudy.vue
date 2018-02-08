@@ -67,4 +67,19 @@ export default {
   text-align center
   inViewportBottom(0.4)
 
+@media all and (min-width: 1px) and (max-width: 1000px)
+  #FeaturedCaseStudy
+    .case-study-case
+      width auto
+    .case-study-image
+      float none
+      margin auto
+    .case-study-copy
+      padding 20px
+      text-align center
+    .case-study-quote
+      font-s2()
+    .case-study-cta
+      padding 30px 0 0 0
+
 </style>

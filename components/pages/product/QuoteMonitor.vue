@@ -2,12 +2,12 @@
 #QuoteMonitor
   .copy(v-in-viewport)
     | One Concern currently monitors
-    i-count-up.value(:startVal=0,:endVal="numbers.residential")
+    i-count-up.value(:startVal=0,:endVal="numbers.residential",:duration="4")
     | residential and
-    i-count-up.value(:startVal=0,:endVal="numbers.commercial")
+    i-count-up.value(:startVal=0,:endVal="numbers.commercial",:duration="4")
     | commercial buildings. We monitor earthquakes for 
-    i-count-up.value(:startVal=0,:endVal="numbers.people/1000000",:options="{suffix: 'M'}")
-    |  people
+    i-count-up.value(:startVal=0,:endVal="numbers.people/1000000",:duration="4",:options="{suffix: 'M'}")
+    |  people.
 </template>
 <script>
 import ICountUp from 'vue-countup-v2'
@@ -71,4 +71,13 @@ export default {
     span
       padding 0 4px
       color blue-charcoal
+
+@media all and (min-width: 1px) and (max-width: 1000px)
+  #QuoteMonitor
+    height auto
+    .copy
+      padding 0 20px
+      width auto
+      font-s1()
+
 </style>

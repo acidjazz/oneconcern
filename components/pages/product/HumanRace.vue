@@ -80,4 +80,24 @@ export default {
       p
         font-s2()
         inViewportBottom(0.4)
+
+@media all and (min-width: 1px) and (max-width: 1000px)
+  #HumanRace
+    .labels
+      padding 20px 0
+      .label
+        font-s2()
+        width 40%
+
+    .body
+      width auto
+      .image
+        display none
+        width 50%
+        > img
+          width 100%
+      .copy
+        width auto
+        padding 20px
+
 </style>

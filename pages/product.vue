@@ -81,4 +81,9 @@ export default {
     width 700px
     margin auto
     inViewportBottom()
+@media all and (min-width: 1px) and (max-width: 1000px)
+  .quote > .copy
+    width auto
+    padding 0 20px
+    font-s2()
 </style>

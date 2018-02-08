@@ -1,7 +1,7 @@
 <template lang="pug">
 router-link.cta-button(
   v-if="link.indexOf(':') === -1",
-  :to="link",
+  :to="`/${link}`",
   :class="`theme-${theme}`",
   :style="`width: ${width}px`",
   :data-text="name")
@@ -74,7 +74,7 @@ export default {
   position relative
   width 200px
   height 33px
-  line-height 33px
+  line-height 36px
   border-radius 33px
   text-decoration none
   text-transform uppercase
