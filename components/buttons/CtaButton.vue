@@ -88,18 +88,20 @@ export default {
   > .after
     left -20px
     right -20px
-    transition transform 0.1s ease-in 0.05s
+    transition 0.2s ease-in 0.2s
     transform translate(-220px, 0) skewX(-5deg)
   > .after > .copy
-    transform translate(220px, 0) skewX(5deg)
-    transition transform 0.1s ease-in 0.05s
+    transform translate(0px, 5px) skewX(5deg)
+    opacity 0
+    transition 0.2s ease-in 0s
   &:hover, &:active
     > .after
-      transform translate(0px, 0) skewX(-20deg)
+      transform translate(0, 0) skewX(-20deg)
       transition transform 0.1s ease-in 0s
     > .after > .copy
-      transform translate(0px, 0) skewX(20deg)
-      transition transform 0.1s ease-in 0s
+      transform translate(0, 0) skewX(20deg)
+      opacity 1
+      transition 0.2s ease-in 0.1s
 
   &.theme-white
     > .before
