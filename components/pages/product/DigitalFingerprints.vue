@@ -28,7 +28,7 @@ export default {
 .fingerprints
   width 600px
   margin auto
-  padding 60px 0
+  padding 120px 0
 .fingerprints-inner
   width 240px
   float right

@@ -12,6 +12,7 @@
     :residential="copys.monitorResidential"
     :commercial="copys.monitorCommercial"
     :people="copys.monitorPeople")
+  BeforeAfter(:items="copys.BeforeAfter")
 </template>
 
 <script>
@@ -20,14 +21,22 @@ import HumanRace from '~/components/pages/product/HumanRace'
 import FeaturedCaseStudy from '~/components/pages/product/FeaturedCaseStudy'
 import DigitalFingerprints from '~/components/pages/product/DigitalFingerprints'
 import QuoteMonitor from '~/components/pages/product/QuoteMonitor'
+import BeforeAfter from '~/components/pages/product/BeforeAfter'
 const client = createClient()
 export default {
-  components: { HumanRace, FeaturedCaseStudy, DigitalFingerprints, QuoteMonitor },
+  components: { 
+    HumanRace,
+    FeaturedCaseStudy,
+    DigitalFingerprints,
+    QuoteMonitor,
+    BeforeAfter
+  },
 
   async asyncData () {
     const hero = await client.getEntries({ 'content_type': 'hero', 'fields.page': 'product'})
     const text = await client.getEntries({ 'content_type': 'productCopy'})
     const HumanRaceEntries = await client.getEntries({ 'content_type': 'humanRace'})
+    const BeforeAfterEntries = await client.getEntries({ 'content_type': 'beforeAfter', order: 'fields.order'})
 
     let copys = {}
     for (let entry of text.items) {
@@ -39,6 +48,14 @@ export default {
         title: entry.fields.title,
         image: entry.fields.image.fields.file.url,
         body: entry.fields.body,
+      })
+    }
+    copys.BeforeAfter = []
+    for (let entry of BeforeAfterEntries.items) {
+      copys.BeforeAfter.push({
+        title: entry.fields.title,
+        vector: entry.fields.vector,
+        copy: entry.fields.copy,
       })
     }
     return {
