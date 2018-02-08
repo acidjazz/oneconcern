@@ -13,6 +13,9 @@
     :commercial="copys.monitorCommercial"
     :people="copys.monitorPeople")
   BeforeAfter(:items="copys.BeforeAfter")
+  .demo-cta
+    .cta(v-in-viewport)
+      CtaButton(link="mailto:contact@oneconcern.com",name="REQUEST A DEMO",theme="white")
 </template>
 
 <script>
@@ -23,6 +26,7 @@ import FeaturedCaseStudy from '~/components/pages/product/FeaturedCaseStudy'
 import DigitalFingerprints from '~/components/pages/product/DigitalFingerprints'
 import QuoteMonitor from '~/components/pages/product/QuoteMonitor'
 import BeforeAfter from '~/components/pages/product/BeforeAfter'
+import CtaButton from '~/components/buttons/CtaButton'
 const client = createClient()
 export default {
   components: { 
@@ -30,7 +34,8 @@ export default {
     FeaturedCaseStudy,
     DigitalFingerprints,
     QuoteMonitor,
-    BeforeAfter
+    BeforeAfter,
+    CtaButton,
   },
   directives: { 'in-viewport': inViewportDirective },
   async asyncData () {
@@ -93,6 +98,12 @@ export default {
     width 700px
     margin auto
     inViewportBottom()
+.demo-cta
+  background-color blue-charcoal
+  padding 60px 0
+  .cta
+    text-align center
+    inViewportBottom(0.1)
 @media all and (min-width: 1px) and (max-width: 1000px)
   .quote > .copy
     width auto

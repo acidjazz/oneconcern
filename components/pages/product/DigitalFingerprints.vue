@@ -37,7 +37,7 @@ export default {
   bottom 0
   background linear-gradient(90deg, rgba(black, 0.5), transparent)
 .fingerprints
-  width 600px
+  width 800px
   margin auto
   padding 120px 0
   position relative
