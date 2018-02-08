@@ -113,4 +113,9 @@ input.input
   &:active
     color white
 
+@media all and (min-width: 1px) and (max-width: 1000px)
+  .demo-content
+    width auto
+
+
 </style>
