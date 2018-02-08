@@ -1,0 +1,70 @@
+<template lang="pug">
+#FeaturedCaseStudy
+  .case-study-title(v-in-viewport) Featured Case Study
+  .case-study-case
+    .case-study-image(v-in-viewport)
+    .case-study-copy
+      .case-study-quote(v-in-viewport) "Seismic Concern has been an eye-opener for us to holistically understand our risks, plan mitigations, and build resilience in our communities."
+      .case-study-author(v-in-viewport) Mr. Daniel Ghiorso, Fire Chief at Woodside Fire Protection District
+  .case-study-cta(v-in-viewport)
+    CtaButton(name="see full case study",theme="dark-border")
+</template>
+<script>
+import CtaButton from '~/components/buttons/CtaButton'
+import inViewportDirective from 'vue-in-viewport-directive'
+export default {
+  components: { CtaButton },
+  directives: { 'in-viewport': inViewportDirective },
+
+  props: {
+  },
+
+  data () {
+    return {
+    }
+  }
+}
+</script>
+
+<style lang="stylus">
+@import '../../../assets/stylus/guide/*'
+#FeaturedCaseStudy
+  background-color not-white
+  padding 60px 0
+
+.case-study-title
+  text-align center
+  color fire-bush
+  font-h4()
+  padding 0 0 30px 0
+  inViewportBottom(0)
+
+.case-study-case
+  width 620px
+  margin auto
+
+.case-study-image
+  float left
+  width 140px
+  height 140px
+  background-color fire-bush
+  border-radius 70px
+  inViewportBottom(0.1)
+
+.case-study-copy
+  padding 0px 0 0 160px
+
+.case-study-quote
+  font-s1()
+  inViewportBottom(0.2)
+.case-study-author
+  padding 10px 0 0 0
+  font-s5()
+  inViewportBottom(0.3)
+
+.case-study-cta
+  padding 60px 0 0 0
+  text-align center
+  inViewportBottom(0.4)
+
+</style>

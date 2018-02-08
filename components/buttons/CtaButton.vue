@@ -12,6 +12,7 @@ a.cta-button(
   :href="link",
   :target="target"
   :class="`theme-${theme}`",
+  :style="`width: ${width}px`",
   :data-text="name")
     .before: .copy {{ name }}
     .after: .copy {{ name }}
@@ -56,6 +57,7 @@ export default {
         'white-border',
         'white-border-black',
         'orange-border',
+        'dark-border',
       ]
     }
   },
@@ -130,6 +132,14 @@ export default {
     > .after
       color white
       background-color fire-bush
+  &.theme-dark-border
+    border 3px solid blue-charcoal
+    > .before
+      color blue-charcoal
+    > .after
+      color white
+      background-color fire-bush
+
 
   /*
   &.theme-orange-border

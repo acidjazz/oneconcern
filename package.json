@@ -24,13 +24,16 @@
     "@nuxtjs/proxy": "^1.1.4",
     "aeonian": "^1.0.9",
     "contentful": "^5.0.5",
+    "countup.js": "^1.9.3",
     "dotenv": "^4.0.0",
     "nuxt": "^1.0.0",
     "pug": "^2.0.0-rc.4",
     "speakingurl": "^14.0.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
-    "vue-in-viewport-directive": "^1.1.4"
+    "vue-countup-v2": "^1.0.3",
+    "vue-in-viewport-directive": "^1.1.4",
+    "vue-in-viewport-mixin": "^1.0.3"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
