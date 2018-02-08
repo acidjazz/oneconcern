@@ -9,11 +9,11 @@ transition(name="animodal")
       .title Request a Demonstration
       form#form(action="https://oneconcern.us17.list-manage.com/subscribe/post?u=8058a1203b676d0c0e54b5e4e&amp;id=69ae0b1ba8",method="post")
         .field
-          input.input#Name(type="text",name="NAME",placeholder="First and Last name")
+          input.input#Name(type="text",name="NAME",placeholder="First and last name")
         .field
           input.input(type="email",name="EMAIL",placeholder="E-mail")
         .field
-          input.input(type="tel",name="PHONE",placeholder="Phone Number")
+          input.input(type="tel",name="PHONE",placeholder="Phone number")
         .field
           input.input(type="text",name="TITLE",placeholder="Title")
         .field
