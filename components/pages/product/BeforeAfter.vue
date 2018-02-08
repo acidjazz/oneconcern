@@ -104,7 +104,7 @@ export default {
 
 .ba-content
   p
-    for i in 1..4
+    for i in 1..6
       &:nth-child({i})
         inViewportBottom((i * 0.1) + 0.4)
 

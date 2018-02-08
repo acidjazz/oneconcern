@@ -35,13 +35,11 @@ export default {
         this.numbers.commercial = parseInt(this.commercial)
         this.numbers.people = parseInt(this.people)
       }
-      /*
       if (!visible && this.numbers.residential !== 0) {
         this.numbers.residential = 0
         this.numbers.commercial = 0
         this.numbers.people = 0
       }
-      */
     }
   },
   data () {
