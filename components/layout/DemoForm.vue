@@ -5,20 +5,21 @@ transition(name="animodal")
     .demo-close(@click="$store.commit('demo', false)")
       .fa.fa-times
     .demo-content
-      .field
-        input.input#Name(type="text",placeholder="First and Last name")
-      .field
-        input.input(type="email",placeholder="E-mail address")
-      .field
-        input.input(type="tel",placeholder="Phone Number")
-      .field
-        input.input(type="text",placeholder="Title")
-      .field
-        input.input(type="text",placeholder="Company")
-      .field
-        input.input(type="text",placeholder="How did you hear about One Concern?")
-      .field.is-right
-        CtaButton(name="Submit",:callback="submit",@click="console.log('well lest see')")
+      form#form(action="https://oneconcern.us17.list-manage.com/subscribe/post?u=8058a1203b676d0c0e54b5e4e&amp;id=69ae0b1ba8",method="post")
+        .field
+          input.input#Name(type="text",name="NAME",placeholder="First and Last name")
+        .field
+          input.input(type="email",name="EMAIL",placeholder="E-mail")
+        .field
+          input.input(type="tel",name="PHONE",placeholder="Phone Number")
+        .field
+          input.input(type="text",name="TITLE",placeholder="Title")
+        .field
+          input.input(type="text",name="COMPANY",placeholder="Company")
+        .field
+          input.input(type="text",name="ORIGIN",placeholder="How did you hear about One Concern?")
+        .field.is-right
+          CtaButton(name="Submit",:callback="submit")
 </template>
 
 <script>
@@ -28,6 +29,7 @@ export default {
   methods: {
     submit () {
       console.log('we submittin yo')
+      document.getElementById('form').submit()
     },
   },
 
@@ -72,7 +74,7 @@ export default {
   z-index 120
   margin 0 20px
   max-height calc(100vh - 160px)
-  width 600px
+  width 500px
   overflow auto
   posiiton relative
   padding 30px
@@ -80,7 +82,7 @@ export default {
   background-color blue-charcoal
 
 .field
-  margin 0 0 20px 0
+  margin 0 0 30px 0
   &:last-child
     margin 0 0 0 0
   &.is-right
