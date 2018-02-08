@@ -1,6 +1,14 @@
 <template lang="pug">
+.cta-button(
+  v-if="callback",
+  @click="callback()",
+  :class="`theme-${theme}`",
+  :style="`width: ${width}px`",
+  :data-text="name")
+    .before: .copy {{ name }}
+    .after: .copy {{ name }}
 router-link.cta-button(
-  v-if="link.indexOf(':') === -1",
+  v-else-if="link.indexOf(':') === -1",
   :to="`/${link}`",
   :class="`theme-${theme}`",
   :style="`width: ${width}px`",
@@ -21,6 +29,10 @@ a.cta-button(
 <script>
 export default {
   props: {
+    callback: {
+      required: false,
+      type: Function,
+    },
     link: {
       required: false,
       type: String,
@@ -69,9 +81,10 @@ export default {
 @import '../../assets/stylus/guide/*'
 
 .cta-button
-  display inline-block
-  text-align center
+  cursor pointer
   position relative
+  text-align center
+  display inline-block
   width 200px
   height 33px
   line-height 36px
