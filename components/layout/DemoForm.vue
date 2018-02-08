@@ -5,6 +5,8 @@ transition(name="animodal")
     .demo-close(@click="$store.commit('demo', false)")
       .fa.fa-times
     .demo-content
+
+      .title Request a Demonstration
       form#form(action="https://oneconcern.us17.list-manage.com/subscribe/post?u=8058a1203b676d0c0e54b5e4e&amp;id=69ae0b1ba8",method="post")
         .field
           input.input#Name(type="text",name="NAME",placeholder="First and Last name")
@@ -80,6 +82,12 @@ export default {
   padding 30px
   border-radius 5px
   background-color blue-charcoal
+
+.title
+  color white
+  font-h4()
+  padding 0 0 30px 0
+  text-align center
 
 .field
   margin 0 0 30px 0
