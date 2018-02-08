@@ -6,7 +6,7 @@
   .quote
     .copy(v-in-viewport) {{ copys.quoteTop }}
   HumanRace(:title="copys.titleHumanRace",:copy="copys.HumanRace")
-  FeaturedCaseStudy
+  FeaturedCaseStudy(:copy="copys.CaseStudy")
   DigitalFingerprints(:title="copys.fingerprintsTitle",:copy="copys.fingerprintsCopy")
   QuoteMonitor(
     :residential="copys.monitorResidential"
@@ -38,6 +38,8 @@ export default {
     const text = await client.getEntries({ 'content_type': 'productCopy'})
     const HumanRaceEntries = await client.getEntries({ 'content_type': 'humanRace'})
     const BeforeAfterEntries = await client.getEntries({ 'content_type': 'beforeAfter', order: 'fields.order'})
+    const CaseStudyEntry = await client.getEntries({ 'content_type': 'caseStudy'})
+    const CaseStudyBlogEntry = await client.getEntry(CaseStudyEntry.items[0].fields.blog.sys.id)
 
     let copys = {}
     for (let entry of text.items) {
@@ -58,6 +60,16 @@ export default {
         vector: entry.fields.vector,
         copy: entry.fields.copy,
       })
+    }
+    copys.CaseStudy = {
+      title: CaseStudyEntry.items[0].fields.title,
+      image: CaseStudyEntry.items[0].fields.image.fields.file.url,
+      quote: CaseStudyEntry.items[0].fields.quote,
+      author: CaseStudyEntry.items[0].fields.author,
+      blog: {
+        title: CaseStudyBlogEntry.fields.title,
+        id: CaseStudyBlogEntry.sys.id,
+      }
     }
     return {
       lowres: hero.items[0].fields.lowres.fields.file.url,

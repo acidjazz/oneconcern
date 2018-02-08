@@ -10,8 +10,8 @@ nav.navbar(:class="{dark: darken}")
     router-link.navbar-item(
       v-for="item, route in menu"
       :key="route"
-      :class="{active: $route.name === route, loading: route !== 'index' && menu[route].loading}"
-      @click.native="burger = false; load(route)"
+      :class="{active: $route.name === route}"
+      @click.native="burger = false"
       :to="`/${route}`")
       span {{ item.copy }} 
       .line
@@ -37,12 +37,6 @@ export default {
     }
   },
   methods: {
-
-    load (route) {
-      if (route !== 'index') {
-        this.menu[route].loading = true
-      }
-    },
     scroll (event) {
       if (window.scrollY >= 100 && this.darken == false) {
         this.darken = true
@@ -57,9 +51,6 @@ export default {
       if (to.name === 'index') {
         return true
       }
-      setTimeout(() => {
-        this.menu[to.name].loading = false
-      }, 200)
     }
   },
   data () {
@@ -67,11 +58,11 @@ export default {
       burger: false,
       darken: false,
       menu: {
-        about: { copy: 'Who We Are', loading: false, },
-        mission: { copy: 'What We Believe', loading: false, },
-        careers: { copy: 'Join the Team', loading: false, },
-        blog: { copy: 'Recent Updates', loading: false, },
-        product: { copy: 'Become a Customer', loading: false, },
+        about: { copy: 'Who We Are', },
+        mission: { copy: 'What We Believe', },
+        careers: { copy: 'Join the Team', },
+        blog: { copy: 'Recent Updates' },
+        product: { copy: 'Become a Customer' },
       },
     }
   },
@@ -132,9 +123,6 @@ nav.navbar
   position relative
   padding 8px
   transition color 0.2s ease, color 0.1s ease
-  &.loading
-    background-color rgba(white, 0.02)
-    transition background 0.1s ease-in
   &.active > .line
     left 0
     right 0

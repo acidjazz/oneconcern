@@ -1,22 +1,34 @@
 <template lang="pug">
 #FeaturedCaseStudy
-  .case-study-title(v-in-viewport) Featured Case Study
+  .case-study-title(v-in-viewport) {{ copy.title }}
   .case-study-case
-    .case-study-image(v-in-viewport)
+    .case-study-image(v-in-viewport,:style="`background-image: url(${copy.image})`")
     .case-study-copy
-      .case-study-quote(v-in-viewport) "Seismic Concern has been an eye-opener for us to holistically understand our risks, plan mitigations, and build resilience in our communities."
-      .case-study-author(v-in-viewport) Mr. Daniel Ghiorso, Fire Chief at Woodside Fire Protection District
+      .case-study-quote(v-in-viewport) "{{ copy.quote }}"
+      .case-study-author(v-in-viewport) {{ copy.author }}
   .case-study-cta(v-in-viewport)
-    CtaButton(name="see full case study",theme="dark-border")
+    CtaButton(
+      :link="`blog/${slug(copy.blog.title)}-${copy.blog.id}`",
+      name="see full case study",
+      theme="dark-border")
 </template>
 <script>
 import CtaButton from '~/components/buttons/CtaButton'
 import inViewportDirective from 'vue-in-viewport-directive'
+const getSlug = require('speakingurl')
 export default {
   components: { CtaButton },
   directives: { 'in-viewport': inViewportDirective },
 
   props: {
+    copy: {
+      type: Object,
+    },
+  },
+  methods: {
+    slug (title) {
+      return getSlug(title)
+    },
   },
 
   data () {
@@ -48,14 +60,16 @@ export default {
   width 140px
   height 140px
   background-color fire-bush
+  background-size cover
+  background-position 50% 50%
   border-radius 70px
   inViewportBottom(0.1)
 
 .case-study-copy
-  padding 0px 0 0 160px
+  padding 20px 0 0 180px
 
 .case-study-quote
-  font-s1()
+  font-s2b()
   inViewportBottom(0.2)
 .case-study-author
   padding 10px 0 0 0
