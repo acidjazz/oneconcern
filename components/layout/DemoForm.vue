@@ -1,0 +1,106 @@
+<template lang="pug">
+transition(name="animodal")
+  .demo
+    .demo-background(@click="$store.commit('demo', false)")
+    .demo-close(@click="$store.commit('demo', false)")
+      .fa.fa-times
+    .demo-content
+      .field
+        input.input#Name(type="text",placeholder="First and Last name")
+      .field
+        input.input(type="email",placeholder="E-mail address")
+      .field
+        input.input(type="tel",placeholder="Phone Number")
+      .field
+        input.input(type="text",placeholder="Title")
+      .field
+        input.input(type="text",placeholder="Company")
+      .field
+        input.input(type="text",placeholder="How did you hear about One Concern?")
+      .field.is-right
+        CtaButton(name="Submit",:callback="submit",@click="console.log('well lest see')")
+</template>
+
+<script>
+import CtaButton from '~/components/buttons/CtaButton'
+export default {
+  components: { CtaButton },
+  methods: {
+    submit () {
+      console.log('we submittin yo')
+    },
+  },
+
+  created () {
+    if (process.browser) {
+      setTimeout(() => {
+        document.getElementById('Name').focus()
+      }, 400)
+    }
+  },
+}
+</script>
+
+<style lang="stylus">
+@import '../../assets/stylus/guide/*'
+
+.demo
+  z-index 110
+  align-items center
+  overflow hidden
+  position fixed
+  display flex
+  justify-content center
+  align-items center
+  tplr()
+
+.demo-background
+  position absolute
+  tplr()
+  background-color rgba(10, 10, 10, 0.86)
+
+.demo-close
+  cursor pointer
+  position fixed
+  top 20px
+  right 20px
+  width 40px
+  height 40px
+  color white
+
+.demo-content
+  z-index 120
+  margin 0 20px
+  max-height calc(100vh - 160px)
+  width 600px
+  overflow auto
+  posiiton relative
+  padding 30px
+  border-radius 5px
+  background-color blue-charcoal
+
+.field
+  margin 0 0 20px 0
+  &:last-child
+    margin 0 0 0 0
+  &.is-right
+    text-align right
+
+input.input
+  width calc(100% - 12px)
+  background-color transparent
+  border none
+  outline none
+  border-bottom 1px solid mountain-mist
+  color white
+  padding 6px
+  font-s2()
+  &:focus
+    border-bottom 1px solid not-white
+
+::-webkit-input-placeholder
+  color mountain-mist
+  &:active
+    color white
+
+</style>

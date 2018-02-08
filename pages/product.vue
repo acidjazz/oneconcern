@@ -15,7 +15,7 @@
   BeforeAfter(:items="copys.BeforeAfter")
   .demo-cta
     .cta(v-in-viewport)
-      CtaButton(link="mailto:contact@oneconcern.com",name="REQUEST A DEMO",theme="white")
+      CtaButton(name="REQUEST A DEMO",theme="white",:callback="demo")
 </template>
 
 <script>
@@ -82,7 +82,12 @@ export default {
       copy: hero.items[0].fields.copy,
       copys: copys,
     }
-  }
+  },
+  methods: {
+    demo () {
+      this.$store.commit('demo', true)
+    },
+  },
 }
 </script>
 
