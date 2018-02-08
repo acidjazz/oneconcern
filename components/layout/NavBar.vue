@@ -209,7 +209,7 @@ nav.navbar
   .navbar-item
     display none
     margin 30px 60px 30px 45px
-    width 140px
+    width 150px
     animation fadeInLeft 0.3s ease 0s alternate both
     for i in 1..10
       &:nth-child({i})
