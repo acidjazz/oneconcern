@@ -1,6 +1,6 @@
 <template lang="pug">
 #QuoteMonitor
-  .copy
+  .copy(v-in-viewport)
     | One Concern currently monitors
     i-count-up.value(:startVal=0,:endVal="numbers.residential")
     | residential and
@@ -66,9 +66,11 @@ export default {
   padding 60px 0
   height 96px
   .copy
+    inViewport(0)
     width 610px
     margin auto
     font-h4()
     span
       padding 0 4px
+      color blue-charcoal
 </style>

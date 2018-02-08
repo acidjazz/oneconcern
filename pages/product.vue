@@ -4,7 +4,7 @@
     img.hero-background(:src="image")
     .hero-title {{ copy }}
   .quote
-    .copy {{ copys.quoteTop }}
+    .copy(v-in-viewport) {{ copys.quoteTop }}
   HumanRace(:title="copys.titleHumanRace",:copy="copys.HumanRace")
   FeaturedCaseStudy
   DigitalFingerprints(:title="copys.fingerprintsTitle",:copy="copys.fingerprintsCopy")
@@ -17,6 +17,7 @@
 
 <script>
 import { createClient } from '~/plugins/contentful.js'
+import inViewportDirective from 'vue-in-viewport-directive'
 import HumanRace from '~/components/pages/product/HumanRace'
 import FeaturedCaseStudy from '~/components/pages/product/FeaturedCaseStudy'
 import DigitalFingerprints from '~/components/pages/product/DigitalFingerprints'
@@ -31,7 +32,7 @@ export default {
     QuoteMonitor,
     BeforeAfter
   },
-
+  directives: { 'in-viewport': inViewportDirective },
   async asyncData () {
     const hero = await client.getEntries({ 'content_type': 'hero', 'fields.page': 'product'})
     const text = await client.getEntries({ 'content_type': 'productCopy'})
@@ -79,4 +80,5 @@ export default {
     text-align center
     width 700px
     margin auto
+    inViewportBottom()
 </style>

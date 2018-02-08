@@ -2,12 +2,14 @@
 #DigitalFingerprints
   .fingerprints
     .fingerprints-inner
-      .fingerprints-title {{ title }}
-      .fingerprints-copy {{ copy }}
+      .fingerprints-title(v-in-viewport) {{ title }}
+      .fingerprints-copy(v-in-viewport) {{ copy }}
     .clear
 </template>
 <script>
+import inViewportDirective from 'vue-in-viewport-directive'
 export default {
+  directives: { 'in-viewport': inViewportDirective },
   props: {
     title: {
       type: String,
@@ -35,7 +37,9 @@ export default {
 .fingerprints-title
   color fire-bush
   padding 0 0 20px 0
+  inViewportBottom(0)
 .fingerprints-copy
   color white
   font-s2()
+  inViewportBottom(0.1)
 </style>

@@ -67,15 +67,15 @@ inViewportBlurBottom(delay = 0, speed = 1)
     transform translate(0, 0)
     transition filter unit(speed, 's') ease-in-out unit(delay, 's'), transform unit(speed, 's') ease-in-out unit(delay, 's')
 
-inViewportWidth(delay = 0, speed = 1)
+inViewportWidth(delay = 0, speed = 1,from = 0%, to = 100%)
   &.below-viewport
-    width 0%
+    width from
     opacity 0
   &.above-viewport
-    width 100%
+    width to
     opacity 0.5
   &.in-viewport
     opacity 1
-    width 100%
+    width to
     transition width unit(speed, 's') ease-in-out unit(delay, 's'), opacity unit(speed, 's') ease-in-out unit(delay, 's')
 

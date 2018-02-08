@@ -1,23 +1,26 @@
 <template lang="pug">
 #HumanRace
 
-  .title {{ title }}
+  .title(v-in-viewport) {{ title }}
 
   .labels
     .label(
+      v-in-viewport
       v-for="entry, index in copy",
       :class="{active: index === active}"
       @click="active = index") {{ entry.title }}
   .body
-    .image
+    .image(v-in-viewport)
       img(:src="copy[active].image")
     .copy
-      .subtitle {{ copy[active].title }}
-      p {{ copy[active].body }}
+      .subtitle(v-in-viewport) {{ copy[active].title }}
+      p(v-in-viewport) {{ copy[active].body }}
 </template>
 
 <script>
+import inViewportDirective from 'vue-in-viewport-directive'
 export default {
+  directives: { 'in-viewport': inViewportDirective },
   props: {
     title: {
       type: String,
@@ -44,9 +47,11 @@ export default {
   color white
   .title
     font-h4()
+    inViewportBottom()
   .labels
     padding 30px
     .label
+      inViewportBottom(0.1)
       font-s1()
       display inline-block
       cursor pointer
@@ -63,6 +68,7 @@ export default {
     margin auto
     display flex
     .image
+      inViewportBottom(0.2)
       img
         width auto
     .copy
@@ -70,6 +76,8 @@ export default {
       text-align left
       .subtitle
         color fire-bush
+        inViewportBottom(0.3)
       p
         font-s2()
+        inViewportBottom(0.4)
 </style>
