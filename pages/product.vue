@@ -7,15 +7,22 @@
     .copy {{ copys.quoteTop }}
   HumanRace(:title="copys.titleHumanRace",:copy="copys.HumanRace")
   FeaturedCaseStudy
+  DigitalFingerprints(:title="copys.fingerprintsTitle",:copy="copys.fingerprintsCopy")
+  QuoteMonitor(
+    :residential="copys.monitorResidential"
+    :commercial="copys.monitorCommercial"
+    :people="copys.monitorPeople")
 </template>
 
 <script>
 import { createClient } from '~/plugins/contentful.js'
 import HumanRace from '~/components/pages/product/HumanRace'
 import FeaturedCaseStudy from '~/components/pages/product/FeaturedCaseStudy'
+import DigitalFingerprints from '~/components/pages/product/DigitalFingerprints'
+import QuoteMonitor from '~/components/pages/product/QuoteMonitor'
 const client = createClient()
 export default {
-  components: { HumanRace, FeaturedCaseStudy },
+  components: { HumanRace, FeaturedCaseStudy, DigitalFingerprints, QuoteMonitor },
 
   async asyncData () {
     const hero = await client.getEntries({ 'content_type': 'hero', 'fields.page': 'product'})

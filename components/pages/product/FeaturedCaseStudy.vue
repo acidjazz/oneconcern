@@ -56,7 +56,7 @@ export default {
   font-s5()
 
 .case-study-cta
-  padding 60px 0
+  padding 60px 0 0 0
   text-align center
 
 
