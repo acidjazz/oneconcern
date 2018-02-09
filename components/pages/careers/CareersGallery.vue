@@ -29,7 +29,7 @@ export default {
 
 <style lang="stylus">
 
-@import '../../../assets/stylus/guide/*'
+@import '../../../assets/stylus/guide/includes/*'
 
 .careers-gallery
   background-color not-white

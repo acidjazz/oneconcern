@@ -23,7 +23,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@import '../../../assets/stylus/guide/*'
+@import '../../../assets/stylus/guide/includes/*'
 #DigitalFingerprints
   background-image url(/digitalFingerprints.jpg)
   background-size cover

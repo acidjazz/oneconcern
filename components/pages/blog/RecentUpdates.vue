@@ -52,7 +52,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@import '../../../assets/stylus/guide/*'
+@import '../../../assets/stylus/guide/includes/*'
 
 .recent-updates
   background-color blue-charocal

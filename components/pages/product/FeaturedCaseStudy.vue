@@ -39,7 +39,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@import '../../../assets/stylus/guide/*'
+@import '../../../assets/stylus/guide/includes/*'
 #FeaturedCaseStudy
   background-color not-white
   padding 60px 0

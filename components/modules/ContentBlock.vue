@@ -47,8 +47,6 @@ export default {
 </script>
 
 <style lang="stylus">
-@import '../../assets/stylus/guide/*'
-
 .content-block
   width 100vw
   height 640px

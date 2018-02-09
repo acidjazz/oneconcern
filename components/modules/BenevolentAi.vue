@@ -37,7 +37,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@import '../../assets/stylus/guide/*'
+@import '../../assets/stylus/guide/includes/*'
 #BenevolentAi
   width 630px
   position absolute

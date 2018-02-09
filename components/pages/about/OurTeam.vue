@@ -64,7 +64,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@import '../../../assets/stylus/guide/*'
+@import '../../../assets/stylus/guide/includes/*'
 
 .team
   padding 0 0 60px 0

@@ -74,7 +74,7 @@ export default {
 
 <style lang="stylus">
 
-@import '../../assets/stylus/guide/*'
+@import '../../assets/stylus/guide/includes/*'
 
 nav.navbar
   z-index 100

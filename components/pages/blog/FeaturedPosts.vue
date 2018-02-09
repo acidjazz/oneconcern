@@ -49,7 +49,7 @@ export default {
 
 <style lang="stylus">
 
-@import '../../../assets/stylus/guide/*'
+@import '../../../assets/stylus/guide/includes/*'
 
 .featured
   padding 60px 0

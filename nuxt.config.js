@@ -72,7 +72,7 @@ module.exports = {
   /* 
   ** css frameowrk
   */
-  css: [{ src: '~assets/stylus/main.styl', lang: 'stylus' }],
+  // css: [{ src: '~assets/stylus/main.styl', lang: 'stylus' }],
   plugins: [
     '~/plugins/contentful.js',
     {src: '~plugins/ga.js', ssr: false},
@@ -93,20 +93,11 @@ module.exports = {
   generate: { routes },
   build: {
     vendor: [
-      'babel',
+      'babel-polyfill',
     ],
     /*
     ** Run ESLint on save
     */
-    babel: {
-      presets: [
-        ['vue-app', {
-          useBuiltIns: true,
-          targets: { ie: 9, uglify: true }
-          }
-        ]
-      ]
-    },
     extend (config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({
