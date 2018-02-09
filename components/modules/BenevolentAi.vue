@@ -10,9 +10,11 @@
         :class="{active: index === active}") {{ item.title }}
     .ai-line
       .ai-cursor(:class="`active-${active}`")
-    .ai-body(
-      v-for="item, index in carousel"
-      v-if="index === active") {{ item.description }}
+    transition(name="fade")
+      .ai-body(
+        :key="index",
+        v-for="item, index in carousel"
+        v-if="index === active") {{ item.description }}
 </template>
 
 <script>
@@ -45,6 +47,8 @@ export default {
   margin-left -300px
   color white
   text-align center
+  transition 1s ease
+  height 380px
 .ai-title
   text-align center
   color fire-bush
@@ -64,8 +68,6 @@ export default {
   text-transform uppercase
   width 100px
   transition color .2s ease
-  &:hover:not(.active)
-    color rgba(fire-bush, 0.6)
   &.active
     color fire-bush
 
@@ -87,5 +89,31 @@ export default {
     transform translate(575px, 0)
 .ai-body
   font-s2()
+
+.fade-enter-active, .fade-leave-active 
+  transition opacity .5s
+
+.fade-enter, .fade-leave-to
+  opacity 0
+
+@media all and (min-width: 1px) and (max-width: 1000px)
+  #BenevolentAi
+    top 50%
+    left 50%
+    width 90vw
+    max-width 630px
+    height auto
+    overflow auto
+    margin auto
+    transform translateX(-50%) translateY(-50%)
+    .ai-label
+      font-s3()
+      width 60px
+    .ai-title
+      padding-bottom 10px
+    .ai-carousel
+      padding-top 10px
+    .ai-cursor
+      display none
 
 </style>

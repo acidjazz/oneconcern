@@ -116,8 +116,13 @@ nav.navbar
   transition margin 0.6s linear
   display flex
   justify-content space-around
+  max-width 900px
+  margin-left auto
   align-items center
   flex-grow 1
+
+.cta-button
+  margin-top -5px
 
 .navbar-item
   text-decoration none
@@ -134,8 +139,8 @@ nav.navbar
   .line
     position absolute
     height 1px
-    left 50%
-    right 50%
+    left 51%
+    right 51%
     bottom 0
     background-color white
     transition all 0.2s ease-in-out 0.3s
@@ -174,6 +179,13 @@ nav.navbar
   &.is-active span
     &:nth-child(3)
       transform translateY(-6px) rotate(-45deg)
+
+@media all and (min-width: 1001px) and (max-width: 1155px)
+  .navbar-logo
+    width 118px
+    height 50px
+  .navbar-item
+    font-s5()
 
 @media all and (min-width: 1px) and (max-width: 1000px)
   .navbar-logo
