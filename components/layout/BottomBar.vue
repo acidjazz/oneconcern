@@ -1,5 +1,5 @@
 <template lang="pug">
-footer.footer(:class="{solid: $route.name !== 'index' && $route.name !== 'ai', white: $route.name === 'careers'}")
+footer.footer(:class="{solid: fixed.indexOf($route.name) !== -1, white: $route.name === 'careers'}")
   .footer-left &copy;2018 One Concern, Inc.  All Rights Reserved
   .footer-right
     a.footer-item.footer-item-contact(href="mailto:contact@oneconcern.com") Contact Us
@@ -17,6 +17,11 @@ footer.footer(:class="{solid: $route.name !== 'index' && $route.name !== 'ai', w
 import inViewportDirective from 'vue-in-viewport-directive'
 export default {
   directives: { 'in-viewport': inViewportDirective },
+  data () {
+    return {
+      'fixed': ['index','ai','error'],
+    }
+  },
 }
 </script>
 
