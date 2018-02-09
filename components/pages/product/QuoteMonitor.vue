@@ -56,7 +56,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@import '../../../assets/stylus/guide/*'
+@import '../../../assets/stylus/guide/includes/*'
 #QuoteMonitor
   background-color white
   text-align center

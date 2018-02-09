@@ -46,7 +46,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@import '../../../assets/stylus/guide/*'
+@import '../../../assets/stylus/guide/includes/*'
 #HumanRace
   padding 60px 0
   background-color blue-charcoal

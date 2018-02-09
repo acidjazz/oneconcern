@@ -93,7 +93,7 @@ export default {
 
 
 <style lang="stylus">
-@import '../assets/stylus/guide/*'
+@import '../assets/stylus/guide/includes/*'
 .quote
   background-color fire-bush
   padding 60px 0

@@ -20,9 +20,8 @@ export default {
 }
 </script>
 
-
 <style lang="stylus">
-@import '../../assets/stylus/guide/*'
+@import '../../assets/stylus/guide/includes/*'
 footer.footer
   position fixed
   bottom 20px
@@ -95,6 +94,5 @@ footer.footer.solid .footer-item
     display none
   .footer-item
     margin-right 10px
-
 
 </style>

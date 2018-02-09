@@ -56,7 +56,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@import '../../assets/stylus/guide/*'
+@import '../../assets/stylus/guide/includes/*'
 
 #Carousel
   width 100vw
@@ -147,9 +147,9 @@ export default {
     transition opacity 0.6s ease 0.4s
 
 .carousel-enter
+  opacity 0
   > .carousel-background
     transform scale(1.2)
-  opacity 0
   > .carousel-copy > .carousel-title,
   > .carousel-copy > .carousel-description,
   > .carousel-copy > .carousel-cta,
@@ -161,7 +161,7 @@ export default {
     opacity 0
   > .carousel-copy > .carousel-title,
   > .carousel-copy > .carousel-description,
-  > .carousel-copy > .carousel-cta,
+  > .carousel-copy > .carousel-cta
     opacity 0
 
 .carousel-enter, .carousel-leave, .carousel-leave-to
