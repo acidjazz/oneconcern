@@ -92,9 +92,21 @@ module.exports = {
 
   generate: { routes },
   build: {
+    vendor: [
+      'babel',
+    ],
     /*
     ** Run ESLint on save
     */
+    babel: {
+      presets: [
+        ['vue-app', {
+          useBuiltIns: true,
+          targets: { ie: 9, uglify: true }
+          }
+        ]
+      ]
+    },
     extend (config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({
