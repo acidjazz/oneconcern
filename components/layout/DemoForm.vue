@@ -2,9 +2,9 @@
 transition(name="animodal")
   .demo
     .demo-background(@click="$store.commit('demo', false)")
-    .demo-close(@click="$store.commit('demo', false)")
-      .fa.fa-times
     .demo-content
+      .demo-close(@click="$store.commit('demo', false)")
+        .fa.fa-times
 
       .title Request a Demonstration
       form#form(action="https://oneconcern.us17.list-manage.com/subscribe/post?u=8058a1203b676d0c0e54b5e4e&amp;id=69ae0b1ba8",method="post")
@@ -39,7 +39,7 @@ export default {
     if (process.browser) {
       setTimeout(() => {
         document.getElementById('Name').focus()
-      }, 400)
+      }, 800)
     }
   },
 }
@@ -65,12 +65,13 @@ export default {
 
 .demo-close
   cursor pointer
-  position fixed
+  position absolute
   top 20px
   right 20px
   width 40px
   height 40px
   color white
+  z-index 130
 
 .demo-content
   z-index 120
@@ -78,7 +79,7 @@ export default {
   max-height calc(100vh - 160px)
   width 500px
   overflow auto
-  posiiton relative
+  position relative
   padding 30px
   border-radius 5px
   background-color blue-charcoal
