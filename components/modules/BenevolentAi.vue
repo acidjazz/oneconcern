@@ -105,9 +105,10 @@ export default {
     height auto
     overflow auto
     margin auto
+    .ai-description, .ai-label, .ai-body
+      font-s5()
     transform translateX(-50%) translateY(-50%)
     .ai-label
-      font-s3()
       width 60px
     .ai-title
       padding-bottom 10px
@@ -115,5 +116,4 @@ export default {
       padding-top 10px
     .ai-cursor
       display none
-
 </style>

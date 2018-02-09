@@ -79,8 +79,6 @@ export default {
 
 <style lang="stylus">
 @import '../../assets/stylus/guide/includes/*'
-.import-from-CtaButton
-  border 1px solid red
 
 .cta-button
   cursor pointer
