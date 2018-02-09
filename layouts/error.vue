@@ -2,7 +2,7 @@
 #ErrorPage
   .error-page(v-if="error.statusCode === 404")
     .error-title {{ error.message }}
-    CtaButton(link="",name="Home Page")
+    CtaButton(link="",name="Home")
   .error-page(v-else)
     pre.error-pre
       code.json {{ error }}
