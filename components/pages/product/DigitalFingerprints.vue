@@ -37,20 +37,20 @@ export default {
   bottom 0
   background linear-gradient(90deg, rgba(black, 0.5), transparent)
 .fingerprints
-  width 800px
+  width 900px
   margin auto
   padding 120px 0
   position relative
 .fingerprints-inner
-  width 240px
+  width 340px
   float right
 .fingerprints-title
   color fire-bush
   padding 0 0 20px 0
+  font-h4()
   inViewportBottom(0)
 .fingerprints-copy
   color white
-  font-s2()
   inViewportBottom(0.1)
 @media all and (min-width: 1px) and (max-width: 1000px)
   #DigitalFingerprints

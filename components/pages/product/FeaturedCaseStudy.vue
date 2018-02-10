@@ -92,7 +92,8 @@ export default {
       padding 20px
       text-align center
     .case-study-quote
-      font-s2()
+      font-s2b()
+      line-height 16px
     .case-study-cta
       padding 30px 0 0 0
 

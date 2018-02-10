@@ -53,16 +53,15 @@ export default {
   text-align center
   color white
   .title
-    font-c4()
+    font-h4()
     inViewportBottom()
   .labels
     padding 30px
     .label
       inViewportBottom(0.1)
-      font-s2()
       display inline-block
       cursor pointer
-      width 160px
+      width 210px
       transition color 0.5s ease
       &:nth-child(1)
         border-right 1px solid white
@@ -74,18 +73,20 @@ export default {
   .content
     margin 30px auto 0 auto
     width 900px
-    height 340px
+    height 380px
     overflow hidden
     .body
       width 900px
-      height 340px
+      height 380px
       overflow hidden
       margin auto
+      font-s1()
       display flex
       .image
         inViewportBottom(0.2)
         width 470px
         height 340px
+        margin-top 30px
         &.image-0
           img
             width 470px
@@ -95,14 +96,14 @@ export default {
             margin-right 30px
             float right
       .copy
-        width 300px
+        width 400px
         text-align left
         .subtitle
           color fire-bush
           inViewportBottom(0.3)
-          font-s6b()
+          font-h4()
         p
-          font-s6()
+          font-s1()
           inViewportBottom(0.4)
 
 .humanrace-enter-active
