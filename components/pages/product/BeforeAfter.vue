@@ -42,7 +42,7 @@ export default {
 #BeforeAfter
   background-color fire-bush
   padding 60px 0
-  height 502px
+  height 330px
 
 .before-after
   width 700px
@@ -107,6 +107,7 @@ export default {
 
 .ba-content
   color white
+  font-s2()
   p
     for i in 1..6
       &:nth-child({i})
