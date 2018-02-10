@@ -106,6 +106,7 @@ export default {
     fill blue-charcoal
 
 .ba-content
+  color white
   p
     for i in 1..6
       &:nth-child({i})
