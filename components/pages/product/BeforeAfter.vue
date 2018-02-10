@@ -10,8 +10,12 @@
         .ba-selection-vector(v-html="item.vector")
         .ba-selection-title {{ item.title }}
     .ba-line(:class="`ba-line-${active}`",v-in-viewport)
-    .ba-content
-      p(v-for="p in par(items[active].copy)",v-in-viewport) {{ p }}
+    transition(name="fade")
+      .ba-content(
+        v-for="item, index in items",
+        :key="index",
+        v-if="index === active")
+        p(v-for="p in par(item.copy)",v-in-viewport) {{ p }}
 </template>
 
 <script>
@@ -106,6 +110,7 @@ export default {
     fill blue-charcoal
 
 .ba-content
+  width 700px
   color white
   font-s1()
   p
@@ -128,6 +133,7 @@ export default {
       .ba-selection-title
         border-bottom 1px solid blue-charcoal
     .ba-content
+      width auto
       font-s2()
       padding 20px
 

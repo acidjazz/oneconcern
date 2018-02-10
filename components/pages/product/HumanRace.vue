@@ -10,7 +10,7 @@
       :class="{active: index === active}"
       @click="active = index") {{ entry.title }}
     .content
-      transition(name="humanrace")
+      transition(name="fade")
         .body(
           v-for="entry, index in copy",
           v-if="index === active",
@@ -105,19 +105,6 @@ export default {
         p
           font-s1()
           inViewportBottom(0.4)
-
-.humanrace-enter-active
-  transition 0.4s ease 0.4s
-
-.humanrace-leave-active
-  transition 0.4s ease 0s
-
-.humanrace-enter, .humanrace-leave-to
-  opacity 0
-
-.humanrace-leave, .humanrace-enter-to
-  opacity 1
-
 
 @media all and (min-width: 1px) and (max-width: 1000px)
   #HumanRace
