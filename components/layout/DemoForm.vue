@@ -67,7 +67,7 @@ export default {
   cursor pointer
   position absolute
   top 20px
-  right 20px
+  right 0px
   width 40px
   height 40px
   color white
