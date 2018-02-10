@@ -6,7 +6,7 @@
   CtaButton(
     v-in-viewport
     name="VIEW OPENINGS",
-    theme="white-border-black",
+    theme="white-border",
     link="careers"
   )
 </template>

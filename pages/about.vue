@@ -93,7 +93,7 @@ export default {
 
 <style lang="stylus">
 
-@import '../assets/stylus/guide/*'
+@import '../assets/stylus/guide/includes/*'
 
 .subsections
   display flex

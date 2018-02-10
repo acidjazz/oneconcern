@@ -8,6 +8,8 @@ let config = {
   keywords: 'key, words'
 }
 
+let routes = require('./static/cache/routes.json')
+
 module.exports = {
 
   env: {
@@ -24,7 +26,7 @@ module.exports = {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'Artificial Intelligence platform for Disasters' },
-      { name: 'theme-color', content: '#212733' },
+      { name: 'theme-color', content: '#f29220' },
 
       // Schema.org
       { hid: 'itemprop:name', itemprop: 'name', content: config.title },
@@ -70,7 +72,7 @@ module.exports = {
   /* 
   ** css frameowrk
   */
-  css: [{ src: '~assets/stylus/main.styl', lang: 'stylus' }],
+  // css: [{ src: '~assets/stylus/main.styl', lang: 'stylus' }],
   plugins: [
     '~/plugins/contentful.js',
     {src: '~plugins/ga.js', ssr: false},
@@ -81,9 +83,18 @@ module.exports = {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/proxy',
+    '@nuxtjs/markdownit',
     '@nuxtjs/component-cache',
   ],
+  markdownit: {
+    injected: true,
+  },
+
+  generate: { routes },
   build: {
+    vendor: [
+      'babel-polyfill',
+    ],
     /*
     ** Run ESLint on save
     */

@@ -1,7 +1,15 @@
 <template lang="pug">
+.cta-button(
+  v-if="callback",
+  @click="callback()",
+  :class="`theme-${theme}`",
+  :style="`width: ${width}px`",
+  :data-text="name")
+    .before: .copy {{ name }}
+    .after: .copy {{ name }}
 router-link.cta-button(
-  v-if="link.indexOf(':') === -1",
-  :to="link",
+  v-else-if="link.indexOf(':') === -1",
+  :to="`/${link}`",
   :class="`theme-${theme}`",
   :style="`width: ${width}px`",
   :data-text="name")
@@ -12,6 +20,7 @@ a.cta-button(
   :href="link",
   :target="target"
   :class="`theme-${theme}`",
+  :style="`width: ${width}px`",
   :data-text="name")
     .before: .copy {{ name }}
     .after: .copy {{ name }}
@@ -20,6 +29,10 @@ a.cta-button(
 <script>
 export default {
   props: {
+    callback: {
+      required: false,
+      type: Function,
+    },
     link: {
       required: false,
       type: String,
@@ -56,6 +69,7 @@ export default {
         'white-border',
         'white-border-black',
         'orange-border',
+        'dark-border',
       ]
     }
   },
@@ -64,15 +78,16 @@ export default {
 </script>
 
 <style lang="stylus">
-@import '../../assets/stylus/guide/*'
+@import '../../assets/stylus/guide/includes/*'
 
 .cta-button
-  display inline-block
-  text-align center
+  cursor pointer
   position relative
+  text-align center
+  display inline-block
   width 200px
   height 33px
-  line-height 33px
+  line-height 36px
   border-radius 33px
   text-decoration none
   text-transform uppercase
@@ -130,6 +145,14 @@ export default {
     > .after
       color white
       background-color fire-bush
+  &.theme-dark-border
+    border 3px solid blue-charcoal
+    > .before
+      color blue-charcoal
+    > .after
+      color white
+      background-color fire-bush
+
 
   /*
   &.theme-orange-border

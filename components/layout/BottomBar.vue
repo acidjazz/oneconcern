@@ -1,5 +1,5 @@
 <template lang="pug">
-footer.footer(:class="{solid: $route.name !== 'index', white: $route.name === 'careers'}")
+footer.footer(:class="{solid: $route.name !== 'index' && $route.name !== 'ai', white: $route.name === 'careers'}")
   .footer-left &copy;2018 One Concern, Inc.  All Rights Reserved
   .footer-right
     a.footer-item.footer-item-contact(href="mailto:contact@oneconcern.com") Contact Us
@@ -20,9 +20,8 @@ export default {
 }
 </script>
 
-
 <style lang="stylus">
-@import '../../assets/stylus/guide/*'
+@import '../../assets/stylus/guide/includes/*'
 footer.footer
   position fixed
   bottom 20px
@@ -95,6 +94,5 @@ footer.footer.solid .footer-item
     display none
   .footer-item
     margin-right 10px
-
 
 </style>

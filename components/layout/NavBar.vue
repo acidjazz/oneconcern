@@ -10,12 +10,13 @@ nav.navbar(:class="{dark: darken}")
     router-link.navbar-item(
       v-for="item, route in menu"
       :key="route"
-      :class="{active: $route.name === route, loading: route !== 'index' && menu[route].loading}"
-      @click.native="burger = false; load(route)"
+      :class="{active: $route.name === route}"
+      @click.native="burger = false"
       :to="`/${route}`")
       span {{ item.copy }} 
       .line
-    CtaButton(link="mailto:contact@oneconcern.com",name="REQUEST A DEMO",theme="white")
+    CtaButton(name="REQUEST A DEMO",theme="white",:width=160,link="mailto:contact@oneconcern.com")
+    //CtaButton(name="REQUEST A DEMO",theme="white",:width=160,:callback="demo")
   .clear
 </template>
 
@@ -37,11 +38,8 @@ export default {
     }
   },
   methods: {
-
-    load (route) {
-      if (route !== 'index') {
-        this.menu[route].loading = true
-      }
+    demo () {
+      this.$store.commit('demo', true)
     },
     scroll (event) {
       if (window.scrollY >= 100 && this.darken == false) {
@@ -57,9 +55,6 @@ export default {
       if (to.name === 'index') {
         return true
       }
-      setTimeout(() => {
-        this.menu[to.name].loading = false
-      }, 200)
     }
   },
   data () {
@@ -67,10 +62,11 @@ export default {
       burger: false,
       darken: false,
       menu: {
-        about: { copy: 'Who We Are', loading: false, },
-        mission: { copy: 'What We Believe', loading: false, },
-        careers: { copy: 'Join the Team', loading: false, },
-        blog: { copy: 'Recent Updates', loading: false, },
+        about: { copy: 'Who We Are', },
+        mission: { copy: 'What We Believe', },
+        careers: { copy: 'Join the Team', },
+        blog: { copy: 'Recent Updates' },
+        product: { copy: 'Become a Customer' },
       },
     }
   },
@@ -79,7 +75,7 @@ export default {
 
 <style lang="stylus">
 
-@import '../../assets/stylus/guide/*'
+@import '../../assets/stylus/guide/includes/*'
 
 nav.navbar
   z-index 100
@@ -89,6 +85,8 @@ nav.navbar
   left 0px
   right 0px
   transition 0.6s linear
+  display flex
+  justify-content flex-start
   &.dark
     padding 20px 45px 20px 45px
     background-color cinder
@@ -102,7 +100,6 @@ nav.navbar
   background-repeat no-repeat
   width 200px
   height 85px
-  float left
   transition 0.6s ease
 
 .navbar-logo-mobile
@@ -115,23 +112,26 @@ nav.navbar
   height 50px
 
 .navbar-menu
-  float right
   border 1px solid right
   margin 10px 0 10px 0
   transition margin 0.6s linear
+  display flex
+  justify-content space-around
+  max-width 900px
+  margin-left auto
+  align-items center
+  flex-grow 1
+
+.cta-button
+  margin-top -5px
 
 .navbar-item
   text-decoration none
-  margin-right 25px
   font-s2()
   color white
   position relative
-  display inline-block
   padding 8px
   transition color 0.2s ease, color 0.1s ease
-  &.loading
-    background-color rgba(white, 0.2)
-    transition background 0.1s ease-in
   &.active > .line
     left 0
     right 0
@@ -140,21 +140,18 @@ nav.navbar
   .line
     position absolute
     height 1px
-    left 50%
-    right 50%
+    left 51%
+    right 51%
     bottom 0
     background-color white
     transition all 0.2s ease-in-out 0.3s
-
-.navbar-menu .cta-button
-  margin-bottom -10px
 
 .navbar-burger
   display none
   cursor pointer
   position relative
-  float right
   margin 10px 0 10px 0
+  margin-left auto
   width 40px
   height 40px
   transition transform 0.6s ease-in-out 0s
@@ -184,6 +181,13 @@ nav.navbar
     &:nth-child(3)
       transform translateY(-6px) rotate(-45deg)
 
+@media all and (min-width: 1001px) and (max-width: 1155px)
+  .navbar-logo
+    width 118px
+    height 50px
+  .navbar-item
+    font-s5()
+
 @media all and (min-width: 1px) and (max-width: 1000px)
   .navbar-logo
     width 118px
@@ -209,7 +213,7 @@ nav.navbar
   .navbar-item
     display none
     margin 30px 60px 30px 45px
-    width 140px
+    width 150px
     animation fadeInLeft 0.3s ease 0s alternate both
     for i in 1..10
       &:nth-child({i})

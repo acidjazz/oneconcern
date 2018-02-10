@@ -4,10 +4,13 @@
   .featured-posts
     .featured-post(v-for="post in posts")
       a.featured-post-image(
-        v-in-viewport
+        v-if="post.type === 'link'",
         :style="`background-image: url(${post.image})`",
-        :href="post.link",
-        target="_new")
+        v-in-viewport,:href="post.link",target="_new")
+      router-link.featured-post-image(
+        v-else,
+        :style="`background-image: url(${post.image})`",
+        v-in-viewport,:to="`/blog/${slug(post.title)}-${post.id}`")
       .featured-post-copy
         .featured-post-title(v-in-viewport) {{ post.title }}
         .featured-post-author(v-in-viewport) by {{ post.author.name }}, {{ post.author.position }}
@@ -16,6 +19,7 @@
 
 <script>
 import inViewportDirective from 'vue-in-viewport-directive'
+const getSlug = require('speakingurl')
 export default {
   directives: { 'in-viewport': inViewportDirective },
   props: {
@@ -24,6 +28,11 @@ export default {
       type: Array,
     }
   },
+  methods: {
+    slug (title) {
+      return getSlug(title)
+    },
+  },
   filters: {
     moment: function(date, format) {
       if (process.browser) {
@@ -31,13 +40,16 @@ export default {
       }
       return date
     },
+    slug: function(title) {
+      return getSlug(title)
+    },
   },
 }
 </script>
 
 <style lang="stylus">
 
-@import '../../../assets/stylus/guide/*'
+@import '../../../assets/stylus/guide/includes/*'
 
 .featured
   padding 60px 0
