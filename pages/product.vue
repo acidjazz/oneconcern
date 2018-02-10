@@ -99,6 +99,7 @@ export default {
   padding 60px 0
   color white
   .copy
+    font-h4()
     text-align center
     width 700px
     margin auto
