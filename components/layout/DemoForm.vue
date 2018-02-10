@@ -6,8 +6,9 @@ transition(name="animodal")
       .demo-close(@click="$store.commit('demo', false)")
         .fa.fa-times
 
-      .title Request a Demonstration
-      form#form(action="https://oneconcern.us17.list-manage.com/subscribe/post?u=8058a1203b676d0c0e54b5e4e&amp;id=69ae0b1ba8",method="post")
+      //.title Request a Demonstration
+      iframe.demo-frame(src="http://eepurl.com/dkcE09")
+      //form#form(action="https://oneconcern.us17.list-manage.com/subscribe/post?u=8058a1203b676d0c0e54b5e4e&amp;id=69ae0b1ba8",method="post")
         .field
           input.input#Name(type="text",name="NAME",placeholder="First and last name")
         .field
@@ -113,6 +114,12 @@ input.input
   color mountain-mist
   &:active
     color white
+
+.demo-frame
+  overflow hidden
+  border none
+  width 100%
+  height 710px
 
 @media all and (min-width: 1px) and (max-width: 1000px)
   .demo-content
