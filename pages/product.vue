@@ -16,7 +16,7 @@
   .demo-cta
     .cta(v-in-viewport)
       CtaButton(name="REQUEST A DEMO",theme="white",link="mailto:contact@oneconcern.com")
-      // CtaButton(name="REQUEST A DEMO",theme="white",:callback="demo")
+      //CtaButton(name="REQUEST A DEMO",theme="white",:callback="demo")
 </template>
 
 <script>
