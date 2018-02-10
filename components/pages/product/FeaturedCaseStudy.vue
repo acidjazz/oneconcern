@@ -52,7 +52,7 @@ export default {
   inViewportBottom(0)
 
 .case-study-case
-  width 620px
+  width 780px
   margin auto
 
 .case-study-image
@@ -69,11 +69,11 @@ export default {
   padding 20px 0 0 180px
 
 .case-study-quote
-  font-s2b()
+  font-h4()
   inViewportBottom(0.2)
 .case-study-author
   padding 10px 0 0 0
-  font-s5()
+  font-s2()
   inViewportBottom(0.3)
 
 .case-study-cta
