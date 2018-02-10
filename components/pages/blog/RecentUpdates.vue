@@ -17,7 +17,7 @@
           CtaButton(v-if="post.type === 'link'",
             :link="post.link",name="view article",theme="orange-border", :width=140)
           CtaButton(v-else,
-            :link="`/blog/${slug(post.title)}-${post.id}`",name="view article",theme="orange-border", :width=140)
+            :link="`blog/${slug(post.title)}-${post.id}`",name="view article",theme="orange-border", :width=140)
       .recent-update-border(v-in-viewport)
 
 </template>
