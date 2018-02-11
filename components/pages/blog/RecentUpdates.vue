@@ -1,9 +1,8 @@
 <template lang="pug">
 .recent-updates
   .title(v-in-viewport) Recent Updates
-
   .recent-updates-list
-    .recent-update(v-for="post, index in posts",v-if="index < 4",v-in-viewport)
+    .recent-update(v-for="post, index in posts",v-if="index < 4",:key="index",v-in-viewport)
       .recent-update-inner
         .recent-update-image(
           v-in-viewport
@@ -19,7 +18,6 @@
           CtaButton(v-else,
             :link="`blog/${slug(post.title)}-${post.id}`",name="view article",theme="orange-border", :width=140)
       .recent-update-border(v-in-viewport)
-
 </template>
 
 <script>
