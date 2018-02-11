@@ -2,7 +2,7 @@
 .featured
   .title(v-in-viewport) Featured
   .featured-posts
-    .featured-post(v-for="post in posts")
+    .featured-post(v-for="post, index in posts",:key="index")
       a.featured-post-image(
         v-if="post.type === 'link'",
         :style="`background-image: url(${post.image})`",

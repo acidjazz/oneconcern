@@ -6,12 +6,11 @@
         .blog-post-author-image(:style="`background-image: url(${post.author.image});`",v-in-viewport)
         .blog-post-author-name(v-in-viewport) {{ post.author.name }}
         .blog-post-author-position(v-in-viewport) {{ post.author.position }}
-
       .blog-post-date(v-in-viewport) {{ post.date | moment("dddd, MMM Do, YYYY") }}
       .blog-post-tags(v-in-viewport)
-        span.blog-post-tag(v-for="tag in post.tags") 
-          span {{ tag }}
-          | ,&nbsp;
+        span.blog-post-tag(v-for="tag, index in post.tags") 
+          nuxt-link.blog-post-tag-link(:to="`/blog/#${tag}`") {{ tag }}
+          span(v-if="index+1 !== post.tags.length") ,&nbsp;
     .blog-post-content(v-html="$md.render(post.body)")
 </template>
 
@@ -72,10 +71,14 @@ export default {
   padding 10px 0
 .blog-post-tags
   inViewport(0.3)
-  font-s3()
+  font-s5()
   color mountain-mist
-.blog-post-tag span
+
+.blog-post-tag-link
   color orange
+  text-decoration none
+  &:hover
+    text-decoration underline
 .blog-post-content
   margin 0 0 0 200px
   overflow hidden
