@@ -8,8 +8,8 @@
       nuxt-link.close(to="/blog")
         .fa.fa-times
     .hero-title(v-else) {{ copy }}
-  FeaturedPosts(:posts="featured")
-  RecentUpdates(:posts="posts")
+  FeaturedPosts(:posts="featured",v-if="tag === ''")
+  RecentUpdates(:posts="posts",:title="tag === ''")
   ViewOpenings(:image="dimage",v-if="dimage")
 </template>
 
