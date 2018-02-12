@@ -31,7 +31,7 @@ export default {
     posts: {
       required: true,
       type: Array,
-    }
+    },
   },
   methods: {
     slug (title) {
@@ -74,13 +74,13 @@ export default {
   for i in 1..4
     &:nth-child({i})
       .recent-update-image
-        inViewportBottom((i*0.1) + 0.1)
+        inViewportBottom((i*0.1) + 0)
       .recent-update-title
-        inViewportBottom((i*0.1) + 0.2)
+        inViewportBottom((i*0.1) + 0.5)
       .recent-update-author
-        inViewportBottom((i*0.1) + 0.3)
+        inViewportBottom((i*0.1) + 1)
       .recent-update-date
-        inViewportBottom((i*0.1) + 0.4)
+        inViewportBottom((i*0.1) + 1.5)
       .recent-update-cta
         inViewportRight((i*0.1) + 0.5)
       .recent-update-border

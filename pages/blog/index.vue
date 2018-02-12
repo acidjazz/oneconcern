@@ -97,7 +97,7 @@ export default {
 
   },
 
-  created () {
+  mounted () {
     this.tag = this.$route.hash.replace('#', '')
   },
 
