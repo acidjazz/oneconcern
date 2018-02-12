@@ -9,19 +9,18 @@
       v-for="entry, index in copy",
       :class="{active: index === active}"
       @click="active = index") {{ entry.title }}
-    .content
+    .content(v-in-viewport)
       transition(name="fade")
         .body(
           v-for="entry, index in copy",
           v-if="index === active",
           :key="index")
           .image(
-            v-in-viewport,
             :class="`image-${index}`")
             img(:src="entry.image")
           .copy
-            .subtitle(v-in-viewport) {{ entry.title }}
-            p(v-in-viewport) {{ entry.body }}
+            .subtitle {{ entry.title }}
+            p {{ entry.body }}
 </template>
 
 <script>
@@ -75,6 +74,7 @@ export default {
     width 900px
     height 380px
     overflow hidden
+    inViewportBottom()
     .body
       width 900px
       height 380px
