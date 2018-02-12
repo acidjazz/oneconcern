@@ -25,7 +25,6 @@ import CtaButton from '~/components/buttons/CtaButton'
 export default {
   components: { CtaButton },
   created () {
-
     if (process.browser) {
       window.addEventListener('scroll', this.scroll)
       this.scroll()
