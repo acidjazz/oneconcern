@@ -65,7 +65,7 @@ export default {
         mission: { copy: 'What We Believe', },
         careers: { copy: 'Join the Team', },
         blog: { copy: 'Recent Updates' },
-        product: { copy: 'Become a Customer' },
+        product: { copy: 'What We Do' },
       },
     }
   },
