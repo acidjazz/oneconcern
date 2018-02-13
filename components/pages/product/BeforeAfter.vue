@@ -15,7 +15,7 @@
         v-for="item, index in items",
         :key="index",
         v-if="index === active")
-        p(v-for="p in par(item.copy)",v-in-viewport) {{ p }}
+        p(v-for="p in par(item.copy)") {{ p }}
 </template>
 
 <script>
@@ -113,10 +113,6 @@ export default {
   width 700px
   color white
   font-s1()
-  p
-    for i in 1..6
-      &:nth-child({i})
-        inViewportBottom((i * 0.1) + 0.4)
 
 @media all and (min-width: 1px) and (max-width: 1000px)
   #BeforeAfter
