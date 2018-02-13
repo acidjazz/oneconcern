@@ -3,8 +3,7 @@
   .title(v-if="title") Recent Updates
   .recent-updates-list
     .recent-update(
-      v-for="post, index in posts",
-      v-if="index < 4",
+      v-for="post, index in listing",
       :key="index",
       :class="{vp: title}",
       v-in-viewport)
@@ -23,6 +22,8 @@
           CtaButton(v-else,
             :link="`blog/${slug(post.title)}-${post.id}`",name="view article",theme="orange-border", :width=140)
       .recent-update-border(v-in-viewport)
+  .recent-updates-more(v-in-viewport,v-if="posts.length > 4")
+    CtaButton(v-if="!more", :callback="showmore",name="show more",theme="orange-border")
 </template>
 
 <script>
@@ -46,6 +47,9 @@ export default {
     slug (title) {
       return getSlug(title)
     },
+    showmore () {
+      this.more = true
+    },
   },
   filters: {
     moment: function(date, format) {
@@ -55,6 +59,20 @@ export default {
       return date
     },
   },
+
+  computed: {
+    listing () {
+      if (this.more === true) {
+        return this.posts
+      }
+      return this.posts.slice(0, 4)
+    },
+  },
+  data () {
+    return {
+      more: false,
+    }
+  }
 }
 </script>
 
@@ -85,13 +103,13 @@ export default {
       .recent-update-image
         inViewportBottom((i*0.1) + 0)
       .recent-update-title
-        inViewportBottom((i*0.1) + 0.5)
+        inViewportBottom((i*0.1) + 0.25)
       .recent-update-author
-        inViewportBottom((i*0.1) + 1)
+        inViewportBottom((i*0.1) + 0.5)
       .recent-update-date
-        inViewportBottom((i*0.1) + 1.5)
+        inViewportBottom((i*0.1) + 0.75)
       .recent-update-cta
-        inViewportRight((i*0.1) + 0.5)
+        inViewportRight((i*0.1) + 1)
       .recent-update-border
         inViewportWidth((i*0.1) + 0.6, 0.5)
 
@@ -130,6 +148,11 @@ export default {
 
 .recent-update:nth-child(even) .recent-update-border
   margin-left auto
+
+.recent-updates-more
+  text-align center
+  margin 60px 0 0 0
+  inViewportBottom()
 
 @media all and (min-width: 1px) and (max-width: 1000px)
   .recent-update
