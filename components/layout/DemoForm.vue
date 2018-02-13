@@ -7,7 +7,7 @@ transition(name="animodal")
         .fa.fa-times
 
       //.title Request a Demonstration
-      iframe.demo-frame(src="https://eepurl.com/dkcE09")
+      iframe.demo-frame#frame(src="https://eepurl.com/dkcE09")
       //form#form(action="https://oneconcern.us17.list-manage.com/subscribe/post?u=8058a1203b676d0c0e54b5e4e&amp;id=69ae0b1ba8",method="post")
         .field
           input.input#Name(type="text",name="NAME",placeholder="First and last name")
@@ -31,18 +31,33 @@ export default {
   components: { CtaButton },
   methods: {
     submit () {
-      console.log('we submittin yo')
       document.getElementById('form').submit()
     },
   },
 
   created () {
     if (process.browser) {
-      setTimeout(() => {
-        document.getElementById('Name').focus()
-      }, 800)
+      this.loop = setInterval(() => {
+        let frame = document.getElementById('frame')
+        try {
+          console.log(frame.contentWindow.location.href)
+          console.log('success')
+        } catch (e) {
+          console.log('not allowed')
+        }
+      }, 200)
     }
   },
+
+  destroyed () {
+    clearInterval(this.loop)
+  },
+
+  data () {
+    return {
+      loop: false,
+    }
+  }
 }
 </script>
 
