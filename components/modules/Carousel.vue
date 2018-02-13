@@ -74,6 +74,9 @@ export default {
     this.timer = setInterval(() => { 
       (this.index === this.data.length - 1) ? this.index = 0 : this.index++ 
     }, this.interval*1000)
+  },
+
+  mounted () {
 
     if (process.browser) {
       this.element = document.getElementById('Carousel')
@@ -85,7 +88,7 @@ export default {
   },
   destroyed () {
     this.timer = false
-    if (process.browser && this.element !== false) {
+    if (process.browser && this.element !== false && this.element !== null) {
       this.element.removeEventListener('wheel', this.wheel)
       this.hammer.off('swipe', this.swipe)
     }

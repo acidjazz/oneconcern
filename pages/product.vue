@@ -3,6 +3,7 @@
   .hero(:style="`background-image: url(${lowres})`")
     img.hero-background(:src="image")
     .hero-title {{ copy }}
+  ScrollDown
   .quote
     .copy(v-in-viewport) {{ copys.quoteTop }}
   HumanRace(:title="copys.titleHumanRace",:copy="copys.HumanRace")
@@ -27,6 +28,7 @@ import FeaturedCaseStudy from '~/components/pages/product/FeaturedCaseStudy'
 import DigitalFingerprints from '~/components/pages/product/DigitalFingerprints'
 import QuoteMonitor from '~/components/pages/product/QuoteMonitor'
 import BeforeAfter from '~/components/pages/product/BeforeAfter'
+import ScrollDown from '~/components/modules/ScrollDown'
 import CtaButton from '~/components/buttons/CtaButton'
 const client = createClient()
 export default {
@@ -37,6 +39,7 @@ export default {
     QuoteMonitor,
     BeforeAfter,
     CtaButton,
+    ScrollDown,
   },
   directives: { 'in-viewport': inViewportDirective },
   async asyncData () {
