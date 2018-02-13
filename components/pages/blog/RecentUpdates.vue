@@ -1,6 +1,6 @@
 <template lang="pug">
 .recent-updates
-  .title(v-in-viewport,v-if="title") Recent Updates
+  .title(v-if="title") Recent Updates
   .recent-updates-list
     .recent-update(
       v-for="post, index in posts",

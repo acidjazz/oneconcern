@@ -9,7 +9,8 @@
         .fa.fa-times
     .hero-title(v-else) {{ copy }}
   FeaturedPosts(:posts="featured",v-if="tag === ''")
-  RecentUpdates(:posts="posts",:title="tag === ''")
+  RecentUpdates(:posts="posts",:title="tag === ''",v-if="tag !== ''")
+  RecentUpdates(:posts="allposts",:title="true")
   ViewOpenings(:image="dimage",v-if="dimage")
 </template>
 
