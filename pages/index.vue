@@ -39,7 +39,15 @@ export default {
       carousel: carousel,
     }
 
-  }
+  },
+
+  head () {
+    return {
+      script: [
+        { src: 'https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js' },
+      ]
+    }
+  },
 
 }
 </script>
