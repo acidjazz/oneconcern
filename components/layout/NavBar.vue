@@ -63,9 +63,9 @@ export default {
       menu: {
         about: { copy: 'Who We Are', },
         mission: { copy: 'What We Believe', },
+        product: { copy: 'What We Do' },
         careers: { copy: 'Join the Team', },
         blog: { copy: 'Recent Updates' },
-        product: { copy: 'What We Do' },
       },
     }
   },

@@ -3,6 +3,7 @@
   .hero(:style="`background-image: url(${lowres})`")
     img.hero-background(:src="image")
     .hero-title {{ copy }}
+  ScrollDown
   ContentBlock(
     v-for="content, index in contents",
     :key="index",
@@ -20,9 +21,10 @@ import { createClient } from '~/plugins/contentful.js'
 const client = createClient()
 import ContentBlock from '~/components/modules/ContentBlock'
 import CtaButton from '~/components/buttons/CtaButton'
+import ScrollDown from '~/components/modules/ScrollDown'
 import ViewOpenings from '~/components/modules/ViewOpenings'
 export default {
-  components: { ContentBlock, CtaButton, ViewOpenings },
+  components: { ContentBlock, CtaButton, ViewOpenings, ScrollDown },
   async asyncData () {
     const dhero = await client.getEntries({'content_type': 'hero','fields.page': 'about'})
     const hero = await client.getEntries({

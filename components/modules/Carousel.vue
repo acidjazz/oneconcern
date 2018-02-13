@@ -36,20 +36,71 @@ export default {
       this.index = index
       clearInterval(this.timer)
     },
+    next () {
+      if (this.scrolling) return true
+      this.index = (this.index === this.data.length - 1) ? 0 : this.index+1 
+      this.pause()
+    },
+    prev () {
+      if (this.scrolling) return true
+      this.index = (this.index === 0) ? this.data.length-1 : this.index-1 
+      this.pause()
+    },
+    pause () {
+      this.scrolling = true
+      setTimeout(() => this.scrolling = false, 2000)
+    },
+
+    wheel (event) {
+      clearInterval(this.timer)
+      if (event.deltaY > 0) {
+        this.next()
+      } else {
+        this.prev()
+      }
+      event.preventDefault()
+      return false
+    },
+    swipe (event) {
+      clearInterval(this.timer)
+      if (event.direction === 2 || event.direction === 8)
+        return this.next()
+      if (event.direction === 4 || event.direction === 16)
+        return this.prev()
+    },
   },
   created () {
+
     this.timer = setInterval(() => { 
       (this.index === this.data.length - 1) ? this.index = 0 : this.index++ 
     }, this.interval*1000)
   },
+
+  mounted () {
+
+    if (process.browser) {
+      this.element = document.getElementById('Carousel')
+      this.element.addEventListener('wheel', this.wheel)
+      this.hammer = new window.Hammer.Manager(this.element)
+      this.hammer.add(new window.Hammer.Swipe())
+      this.hammer.on('swipe', this.swipe)
+    }
+  },
   destroyed () {
     this.timer = false
+    if (process.browser && this.element !== false && this.element !== null) {
+      this.element.removeEventListener('wheel', this.wheel)
+      this.hammer.off('swipe', this.swipe)
+    }
   },
   data () {
     return {
+      scrolling: false,
       index: 0,
       timer: false,
       interval: 6,
+      element: false,
+      hammer: false,
     }
   }
 }
@@ -61,6 +112,8 @@ export default {
 #Carousel
   width 100vw
   height 100vh
+  overflow hidden
+  position fixed
 
 .carousel
   width 100vw
