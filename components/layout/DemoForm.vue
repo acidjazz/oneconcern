@@ -2,7 +2,16 @@
 transition(name="animodal")
   .demo
     .demo-background(@click="$store.commit('demo', false)")
-    .demo-content
+
+    .demo-content(v-if="success")
+      .demo-close(@click="$store.commit('demo', false)")
+        .fa.fa-times
+      p Thank you for requesting a demo.
+      p Please allow three business days for a response.
+      p
+        CtaButton(name="close",:callback="close")
+
+    .demo-content(v-else)
       .demo-close(@click="$store.commit('demo', false)")
         .fa.fa-times
 
@@ -33,18 +42,26 @@ export default {
     submit () {
       document.getElementById('form').submit()
     },
+    close () {
+      this.$store.commit('demo', false)
+    },
   },
 
   created () {
     if (process.browser) {
       this.loop = setInterval(() => {
-        let frame = document.getElementById('frame')
-        try {
-          console.log(frame.contentWindow.location.href)
-          console.log('success')
-        } catch (e) {
-          console.log('not allowed')
-        }
+
+        setTimeout(() => {
+          let frame = document.getElementById('frame')
+          try {
+            console.log(frame.contentWindow.location.href)
+            console.log('success')
+            this.success = true
+          } catch (e) {
+            console.log('not allowed')
+          }
+        }, 2000)
+
       }, 200)
     }
   },
@@ -56,6 +73,7 @@ export default {
   data () {
     return {
       loop: false,
+      success: false,
     }
   }
 }
@@ -99,6 +117,11 @@ export default {
   padding 30px
   border-radius 5px
   background-color blue-charcoal
+  color white
+  p
+    text-align center
+  .cta-button
+    margin 20px 0 0 0
 
 .title
   color white
