@@ -107,7 +107,7 @@ export default {
     text-align center
     width 700px
     margin auto
-    inViewportBottom()
+    inViewportBottom(0, 0.5)
 .demo-cta
   background-color blue-charcoal
   padding 60px 0
