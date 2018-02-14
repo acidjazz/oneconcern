@@ -126,7 +126,9 @@ export default {
   background-position 50% 50%
 
 .recent-update-copy
-  padding 0 0 0 30px
+  padding 0 30px
+  width 60%
+  flex auto
 
 .recent-update-title
   color white
@@ -166,6 +168,7 @@ export default {
     width calc(100% - 60px)
   .recent-update-copy
     padding 10px 0 0 30px
+    width auto
   .recent-update-cta
     margin 20px auto
 

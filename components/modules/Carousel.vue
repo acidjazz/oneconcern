@@ -1,5 +1,5 @@
 <template lang="pug">
-#Carousel
+#Carousel(tabindex="1",@keyup.down="next",@keyup.up="prev")
   transition(name="carousel")
     .carousel(
       v-for="carousel, cindex in data",
@@ -47,6 +47,7 @@ export default {
       this.pause()
     },
     pause () {
+      clearInterval(this.timer)
       this.scrolling = true
       setTimeout(() => this.scrolling = false, 2000)
     },
@@ -78,7 +79,7 @@ export default {
 
   mounted () {
 
-    if (process.browser) {
+    if (process.browser && window.Hammer) {
       this.element = document.getElementById('Carousel')
       this.element.addEventListener('wheel', this.wheel)
       this.hammer = new window.Hammer.Manager(this.element)
@@ -90,7 +91,9 @@ export default {
     this.timer = false
     if (process.browser && this.element !== false && this.element !== null) {
       this.element.removeEventListener('wheel', this.wheel)
-      this.hammer.off('swipe', this.swipe)
+      if (this.hammer) {
+        this.hammer.off('swipe', this.swipe)
+      }
     }
   },
   data () {

@@ -114,7 +114,8 @@ export default {
   width 500px
   overflow auto
   position relative
-  padding 30px
+  overflow hidden
+  padding 0 30px 30px 30px
   border-radius 5px
   background-color blue-charcoal
   color white

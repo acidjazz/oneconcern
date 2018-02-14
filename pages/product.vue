@@ -15,7 +15,7 @@
     :people="copys.monitorPeople")
   BeforeAfter(:items="copys.BeforeAfter")
   .demo-cta
-    .cta(v-in-viewport)
+    .cta
       //CtaButton(name="REQUEST A DEMO",theme="white",link="mailto:contact@oneconcern.com")
       CtaButton(name="REQUEST A DEMO",theme="white",:callback="demo")
 </template>
@@ -113,7 +113,6 @@ export default {
   padding 60px 0
   .cta
     text-align center
-    inViewportBottom(0.1)
 @media all and (min-width: 1px) and (max-width: 1000px)
   .quote > .copy
     width auto
