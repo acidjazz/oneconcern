@@ -1,5 +1,5 @@
 <template lang="pug">
-.scrolldown(:class="{visible: visible}")
+//.scrolldown(:class="{visible: visible}")
   .scrolldown-chevron
   .scrolldown-chevron
   .scrolldown-chevron
@@ -74,7 +74,7 @@ export default {
   top 0
   height 100%
   width 51%
-  background fire-bush
+  background rgba(fire-bush, 0.8)
 
 .scrolldown-chevron:before 
   left 0
