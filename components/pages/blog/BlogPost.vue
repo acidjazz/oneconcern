@@ -11,7 +11,7 @@
         span.blog-post-tag(v-for="tag, index in post.tags") 
           nuxt-link.blog-post-tag-link(:to="`/blog/#${tag}`") {{ tag }}
           span(v-if="index+1 !== post.tags.length") ,&nbsp;
-    .blog-post-content(v-html="$md.render(post.body)")
+    .blog-post-content#blog-post-content(v-html="content")
 </template>
 
 <script>
@@ -30,6 +30,30 @@ export default {
       }
       return date
     },
+  },
+
+  mounted () {
+    if (process.browser && window.markdownit) {
+      if (this.md === false) {
+        this.md = new window.markdownit({html: true})
+      }
+      this.content = this.md.render(this.post.body, {html: true})
+    }
+  },
+
+  head () {
+    return {
+      script: [
+        { src: '//cdnjs.cloudflare.com/ajax/libs/markdown-it/8.4.1/markdown-it.js' },
+      ]
+    }
+  },
+
+  data () {
+    return {
+      md: false,
+      content: 'Loading..',
+    }
   },
 }
 </script>
@@ -80,10 +104,16 @@ export default {
   &:hover
     text-decoration underline
 .blog-post-content
+  min-height 200px
   margin 0 0 0 200px
   overflow hidden
   font-s2()
+  iframe
+    display block
+    margin auto
   img
+    display block
+    margin auto
     max-width 100%
 
 @media all and (min-width: 1px) and (max-width: 1000px)
