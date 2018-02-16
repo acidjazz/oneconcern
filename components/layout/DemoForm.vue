@@ -110,13 +110,13 @@ export default {
 .demo-content
   z-index 120
   margin 0 20px
-  max-height calc(100vh - 160px)
   width 500px
-  overflow auto
   position relative
   overflow hidden
   padding 0 30px 30px 30px
   border-radius 5px
+  max-height calc(100% - 80px)
+  overflow-y scroll
   background-color blue-charcoal
   color white
   p
@@ -158,7 +158,7 @@ input.input
   overflow hidden
   border none
   width 100%
-  height 710px
+  height 780px
 
 @media all and (min-width: 1px) and (max-width: 1000px)
   .demo-content

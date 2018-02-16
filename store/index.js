@@ -1,7 +1,7 @@
 import Vuex from 'vuex'
 const store = () => new Vuex.Store({
   state: {
-    demo: false,
+    demo: true,
   },
   mutations: {
     demo (state, toggle) {
