@@ -103,7 +103,7 @@ nav.navbar
 
 .navbar-logo-mobile
   display none
-  margin 20px 0 0 45px
+  margin 20px 0 0 20px
   background-image url(/logo.png)
   background-size cover
   background-repeat no-repeat
@@ -149,7 +149,6 @@ nav.navbar
   display none
   cursor pointer
   position relative
-  margin 10px 0 10px 0
   margin-left auto
   width 40px
   height 40px
@@ -188,6 +187,8 @@ nav.navbar
     font-s5()
 
 @media all and (min-width: 1px) and (max-width: 1000px)
+  nav.navbar
+    padding 20px
   .navbar-logo
     width 118px
     height 50px
