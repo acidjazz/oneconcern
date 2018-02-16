@@ -4,6 +4,7 @@
     img.hero-background(:src="image")
     .hero-title {{ copy }}
 
+  ScrollDown
   .section.section-story(v-if="story")
 
     .title(v-in-viewport) Our Story
@@ -33,11 +34,12 @@ import { createClient } from '~/plugins/contentful.js'
 import inViewportDirective from 'vue-in-viewport-directive'
 import ViewOpenings from '~/components/modules/ViewOpenings'
 import CtaButton from '~/components/buttons/CtaButton'
+import ScrollDown from '~/components/modules/ScrollDown'
 import OurTeam from '~/components/pages/about/OurTeam'
 const client = createClient()
 export default {
 
-  components: { CtaButton, OurTeam, ViewOpenings },
+  components: { CtaButton, OurTeam, ViewOpenings, ScrollDown },
   directives: { 'in-viewport': inViewportDirective },
   async asyncData () {
 

@@ -1,16 +1,19 @@
 <template lang="pug">
 .recent-updates
-  .title(v-in-viewport) Recent Updates
-
+  .title(v-if="title") Recent Updates
   .recent-updates-list
-    .recent-update(v-for="post, index in posts",v-if="index < 4",v-in-viewport)
+    .recent-update(
+      v-for="post, index in listing",
+      :key="index",
+      :class="{vp: title}",
+      v-in-viewport)
       .recent-update-inner
         .recent-update-image(
           v-in-viewport
           v-if="post.image",
           :style="`background-image: url(${post.image})`")
         .recent-update-copy
-          .recent-update-title(v-in-viewport) {{ post.title }}
+          .recent-update-title(v-in-viewport,v-if="title") {{ post.title }}
           .recent-update-author(v-in-viewport) by {{ post.author.name }}, {{ post.author.position }}
           .recent-update-date(v-in-viewport) {{ post.date | moment("dddd, MMM Do, YYYY") }}
         .recent-update-cta(v-in-viewport)
@@ -19,7 +22,8 @@
           CtaButton(v-else,
             :link="`blog/${slug(post.title)}-${post.id}`",name="view article",theme="orange-border", :width=140)
       .recent-update-border(v-in-viewport)
-
+  .recent-updates-more(v-in-viewport,v-if="posts.length > 4")
+    CtaButton(v-if="!more", :callback="showmore",name="show more",theme="orange-border")
 </template>
 
 <script>
@@ -33,11 +37,18 @@ export default {
     posts: {
       required: true,
       type: Array,
-    }
+    },
+    title: {
+      required: true,
+      type: Boolean,
+    },
   },
   methods: {
     slug (title) {
       return getSlug(title)
+    },
+    showmore () {
+      this.more = true
     },
   },
   filters: {
@@ -48,6 +59,20 @@ export default {
       return date
     },
   },
+
+  computed: {
+    listing () {
+      if (this.more === true) {
+        return this.posts
+      }
+      return this.posts.slice(0, 4)
+    },
+  },
+  data () {
+    return {
+      more: false,
+    }
+  }
 }
 </script>
 
@@ -74,17 +99,17 @@ export default {
 .recent-update
   height 122px
   for i in 1..4
-    &:nth-child({i})
+    &.vp:nth-child({i})
       .recent-update-image
-        inViewportBottom((i*0.1) + 0.1)
+        inViewportBottom((i*0.1) + 0)
       .recent-update-title
-        inViewportBottom((i*0.1) + 0.2)
+        inViewportBottom((i*0.1) + 0.25)
       .recent-update-author
-        inViewportBottom((i*0.1) + 0.3)
+        inViewportBottom((i*0.1) + 0.5)
       .recent-update-date
-        inViewportBottom((i*0.1) + 0.4)
+        inViewportBottom((i*0.1) + 0.75)
       .recent-update-cta
-        inViewportRight((i*0.1) + 0.5)
+        inViewportRight((i*0.1) + 1)
       .recent-update-border
         inViewportWidth((i*0.1) + 0.6, 0.5)
 
@@ -101,7 +126,9 @@ export default {
   background-position 50% 50%
 
 .recent-update-copy
-  padding 0 0 0 30px
+  padding 0 30px
+  width 60%
+  flex auto
 
 .recent-update-title
   color white
@@ -124,6 +151,11 @@ export default {
 .recent-update:nth-child(even) .recent-update-border
   margin-left auto
 
+.recent-updates-more
+  text-align center
+  margin 60px 0 0 0
+  inViewportBottom()
+
 @media all and (min-width: 1px) and (max-width: 1000px)
   .recent-update
     height auto
@@ -136,6 +168,7 @@ export default {
     width calc(100% - 60px)
   .recent-update-copy
     padding 10px 0 0 30px
+    width auto
   .recent-update-cta
     margin 20px auto
 

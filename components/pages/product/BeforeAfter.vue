@@ -9,7 +9,7 @@
         :class="{active: active === index }")
         .ba-selection-vector(v-html="item.vector")
         .ba-selection-title {{ item.title }}
-    .ba-line(:class="`ba-line-${active}`",v-in-viewport)
+    .ba-line(:class="`ba-line-${active}`")
     transition(name="fade")
       .ba-content(
         v-for="item, index in items",

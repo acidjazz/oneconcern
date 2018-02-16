@@ -57,11 +57,11 @@ module.exports = {
       { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
       { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
 
-      { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' },
+      { rel: 'stylesheet', href: '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' },
     ],
 
     script: [
-      { src: 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js' },
+      { src: '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js' },
     ],
 
   },
@@ -83,12 +83,8 @@ module.exports = {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/proxy',
-    '@nuxtjs/markdownit',
     '@nuxtjs/component-cache',
   ],
-  markdownit: {
-    injected: true,
-  },
 
   generate: { routes },
   build: {

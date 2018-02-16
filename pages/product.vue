@@ -3,6 +3,7 @@
   .hero(:style="`background-image: url(${lowres})`")
     img.hero-background(:src="image")
     .hero-title {{ copy }}
+  ScrollDown
   .quote
     .copy(v-in-viewport) {{ copys.quoteTop }}
   HumanRace(:title="copys.titleHumanRace",:copy="copys.HumanRace")
@@ -14,9 +15,9 @@
     :people="copys.monitorPeople")
   BeforeAfter(:items="copys.BeforeAfter")
   .demo-cta
-    .cta(v-in-viewport)
-      CtaButton(name="REQUEST A DEMO",theme="white",link="mailto:contact@oneconcern.com")
-      //CtaButton(name="REQUEST A DEMO",theme="white",:callback="demo")
+    .cta
+      //CtaButton(name="REQUEST A DEMO",theme="white",link="mailto:contact@oneconcern.com")
+      CtaButton(name="REQUEST A DEMO",theme="white",:callback="demo")
 </template>
 
 <script>
@@ -27,6 +28,7 @@ import FeaturedCaseStudy from '~/components/pages/product/FeaturedCaseStudy'
 import DigitalFingerprints from '~/components/pages/product/DigitalFingerprints'
 import QuoteMonitor from '~/components/pages/product/QuoteMonitor'
 import BeforeAfter from '~/components/pages/product/BeforeAfter'
+import ScrollDown from '~/components/modules/ScrollDown'
 import CtaButton from '~/components/buttons/CtaButton'
 const client = createClient()
 export default {
@@ -37,6 +39,7 @@ export default {
     QuoteMonitor,
     BeforeAfter,
     CtaButton,
+    ScrollDown,
   },
   directives: { 'in-viewport': inViewportDirective },
   async asyncData () {
@@ -104,13 +107,12 @@ export default {
     text-align center
     width 700px
     margin auto
-    inViewportBottom()
+    inViewportBottom(0, 0.5)
 .demo-cta
   background-color blue-charcoal
   padding 60px 0
   .cta
     text-align center
-    inViewportBottom(0.1)
 @media all and (min-width: 1px) and (max-width: 1000px)
   .quote > .copy
     width auto

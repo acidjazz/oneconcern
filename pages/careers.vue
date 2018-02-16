@@ -10,6 +10,7 @@
         name="SEE OPPORTUNITIES",
         theme="orange-border")
 
+  ScrollDown
   CareersGallery
 
   PerksBenefits(:perks="perks",v-if="perks")
@@ -23,11 +24,12 @@ import inViewportDirective from 'vue-in-viewport-directive'
 import CareersGallery from '~/components/pages/careers/CareersGallery'
 import PerksBenefits from '~/components/pages/careers/PerksBenefits'
 import OpenPositions from '~/components/pages/careers/OpenPositions'
+import ScrollDown from '~/components/modules/ScrollDown'
 import CtaButton from '~/components/buttons/CtaButton'
 const client = createClient()
 import jobs from '~/static/cache/lever.json'
 export default {
-  components: { CareersGallery, PerksBenefits, OpenPositions, CtaButton },
+  components: { CareersGallery, PerksBenefits, OpenPositions, CtaButton, ScrollDown },
   directives: { 'in-viewport': inViewportDirective },
   async asyncData ({ app }) {
 

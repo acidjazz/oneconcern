@@ -15,8 +15,8 @@ nav.navbar(:class="{dark: darken}")
       :to="`/${route}`")
       span {{ item.copy }} 
       .line
-    CtaButton(name="REQUEST A DEMO",theme="white",:width=160,link="mailto:contact@oneconcern.com")
-    //CtaButton(name="REQUEST A DEMO",theme="white",:width=160,:callback="demo")
+    //CtaButton(name="REQUEST A DEMO",theme="white",:width=160,link="mailto:contact@oneconcern.com")
+    CtaButton(name="REQUEST A DEMO",theme="white",:width=160,:callback="demo")
   .clear
 </template>
 
@@ -25,7 +25,6 @@ import CtaButton from '~/components/buttons/CtaButton'
 export default {
   components: { CtaButton },
   created () {
-
     if (process.browser) {
       window.addEventListener('scroll', this.scroll)
       this.scroll()
@@ -64,9 +63,9 @@ export default {
       menu: {
         about: { copy: 'Who We Are', },
         mission: { copy: 'What We Believe', },
+        product: { copy: 'What We Do' },
         careers: { copy: 'Join the Team', },
         blog: { copy: 'Recent Updates' },
-        product: { copy: 'Become a Customer' },
       },
     }
   },

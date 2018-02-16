@@ -1,20 +1,20 @@
 <template lang="pug">
 .featured
-  .title(v-in-viewport) Featured
+  .title Featured
   .featured-posts
-    .featured-post(v-for="post in posts")
+    .featured-post(v-for="post, index in posts",:key="index")
       a.featured-post-image(
         v-if="post.type === 'link'",
         :style="`background-image: url(${post.image})`",
-        v-in-viewport,:href="post.link",target="_new")
+        :href="post.link",target="_new")
       router-link.featured-post-image(
         v-else,
         :style="`background-image: url(${post.image})`",
-        v-in-viewport,:to="`/blog/${slug(post.title)}-${post.id}`")
+        :to="`/blog/${slug(post.title)}-${post.id}`")
       .featured-post-copy
-        .featured-post-title(v-in-viewport) {{ post.title }}
-        .featured-post-author(v-in-viewport) by {{ post.author.name }}, {{ post.author.position }}
-        .featured-post-date(v-in-viewport) {{ post.date | moment("dddd, MMM Do, YYYY") }}
+        .featured-post-title {{ post.title }}
+        .featured-post-author by {{ post.author.name }}, {{ post.author.position }}
+        .featured-post-date {{ post.date | moment("dddd, MMM Do, YYYY") }}
 </template>
 
 <script>
@@ -78,35 +78,20 @@ export default {
   height 220px
   background-size cover
   background-position 50% 50%
-  inViewportBottom()
 
 .featured-post-copy
   padding-top 30px
 .featured-post-title
   font-h4()
   padding 0 30px 0 30px
-  inViewportBottom(0.1)
 .featured-post-author,
 .featured-post-date
   font-s2()
   color mountain-mist
 .featured-post-author
   padding 10px 0 0 30px
-  inViewportBottom(0.2)
 .featured-post-date
   padding 0 0 0 30px
-  inViewportBottom(0.3)
-
-.featured-post:nth-child(even)
-  .featured-post-image
-    inViewportBottom(0.1)
-  .featured-post-title
-    inViewportBottom(0.2)
-  .featured-post-author
-    inViewportBottom(0.3)
-  .featured-post-date
-    inViewportBottom(0.4)
-
 
 @media all and (min-width: 1px) and (max-width: 1000px)
   .featured-post

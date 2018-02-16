@@ -2,12 +2,21 @@
 transition(name="animodal")
   .demo
     .demo-background(@click="$store.commit('demo', false)")
-    .demo-content
+
+    .demo-content(v-if="success")
+      .demo-close(@click="$store.commit('demo', false)")
+        .fa.fa-times
+      p Thank you for requesting a demo.
+      p Please allow three business days for a response.
+      p
+        CtaButton(name="close",:callback="close")
+
+    .demo-content(v-else)
       .demo-close(@click="$store.commit('demo', false)")
         .fa.fa-times
 
       //.title Request a Demonstration
-      iframe.demo-frame(src="https://eepurl.com/dkcE09")
+      iframe.demo-frame#frame(src="https://eepurl.com/dkcE09")
       //form#form(action="https://oneconcern.us17.list-manage.com/subscribe/post?u=8058a1203b676d0c0e54b5e4e&amp;id=69ae0b1ba8",method="post")
         .field
           input.input#Name(type="text",name="NAME",placeholder="First and last name")
@@ -31,18 +40,42 @@ export default {
   components: { CtaButton },
   methods: {
     submit () {
-      console.log('we submittin yo')
       document.getElementById('form').submit()
+    },
+    close () {
+      this.$store.commit('demo', false)
     },
   },
 
   created () {
     if (process.browser) {
-      setTimeout(() => {
-        document.getElementById('Name').focus()
-      }, 800)
+      this.loop = setInterval(() => {
+
+        setTimeout(() => {
+          let frame = document.getElementById('frame')
+          try {
+            console.log(frame.contentWindow.location.href)
+            console.log('success')
+            this.success = true
+          } catch (e) {
+            console.log('not allowed')
+          }
+        }, 2000)
+
+      }, 200)
     }
   },
+
+  destroyed () {
+    clearInterval(this.loop)
+  },
+
+  data () {
+    return {
+      loop: false,
+      success: false,
+    }
+  }
 }
 </script>
 
@@ -77,13 +110,19 @@ export default {
 .demo-content
   z-index 120
   margin 0 20px
-  max-height calc(100vh - 160px)
   width 500px
-  overflow auto
   position relative
-  padding 30px
+  overflow hidden
+  padding 0 30px 30px 30px
   border-radius 5px
+  max-height calc(100% - 80px)
+  overflow-y scroll
   background-color blue-charcoal
+  color white
+  p
+    text-align center
+  .cta-button
+    margin 20px 0 0 0
 
 .title
   color white
@@ -119,7 +158,7 @@ input.input
   overflow hidden
   border none
   width 100%
-  height 710px
+  height 780px
 
 @media all and (min-width: 1px) and (max-width: 1000px)
   .demo-content
