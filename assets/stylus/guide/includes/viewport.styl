@@ -1,4 +1,4 @@
-inViewport(delay = 0, speed = 1)
+inViewport(delay = 0, speed = .5)
   &.below-viewport
     opacity 0
   &.above-viewport
@@ -7,7 +7,7 @@ inViewport(delay = 0, speed = 1)
     transition opacity unit(speed, 's') ease-in-out unit(delay, 's')
     opacity 1
 
-inViewportBottom(delay = 0, speed = 1)
+inViewportBottom(delay = 0, speed = )
   &.below-viewport
     opacity 0
     transform translate(0, 20px) 
@@ -19,7 +19,7 @@ inViewportBottom(delay = 0, speed = 1)
     opacity 1
     transform translate(0, 0)
 
-inViewportLeft(delay = 0, speed = 1)
+inViewportLeft(delay = 0, speed = .5)
   &.below-viewport
     opacity 0
     transform translate(-20px, 0px) 
@@ -31,7 +31,7 @@ inViewportLeft(delay = 0, speed = 1)
     transform translate(0, 0)
     transition opacity unit(speed, 's') ease-in-out unit(delay, 's'), transform unit(speed, 's') ease-in-out unit(delay, 's')
 
-inViewportRight(delay = 0, speed = 1)
+inViewportRight(delay = 0, speed = .5)
   &.below-viewport
     opacity 0
     transform translate(20px, 0px) 
@@ -43,7 +43,7 @@ inViewportRight(delay = 0, speed = 1)
     transform translate(0, 0)
     transition opacity unit(speed, 's') ease-in-out unit(delay, 's'), transform unit(speed, 's') ease-in-out unit(delay, 's')
 
-inViewportScale(delay = 0, speed = 1)
+inViewportScale(delay = 0, speed = .5)
   &.below-viewport
     opacity 0
     transform scale(1.1)
@@ -55,7 +55,7 @@ inViewportScale(delay = 0, speed = 1)
     transform scale(1)
     transition opacity unit(speed, 's') ease-in-out unit(delay, 's'), transform unit(speed, 's') ease-in-out unit(delay, 's')
 
-inViewportBlurBottom(delay = 0, speed = 1)
+inViewportBlurBottom(delay = 0, speed = .5)
   &.below-viewport
     filter blur(10px)
     transform translate(0, 20px) 
@@ -67,7 +67,7 @@ inViewportBlurBottom(delay = 0, speed = 1)
     transform translate(0, 0)
     transition filter unit(speed, 's') ease-in-out unit(delay, 's'), transform unit(speed, 's') ease-in-out unit(delay, 's')
 
-inViewportWidth(delay = 0, speed = 1,from = 0%, to = 100%)
+inViewportWidth(delay = 0, speed = .5,from = 0%, to = 100%)
   &.below-viewport
     width from
     opacity 0
