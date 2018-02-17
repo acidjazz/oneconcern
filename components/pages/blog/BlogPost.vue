@@ -32,13 +32,20 @@ export default {
     },
   },
 
-  mounted () {
-    if (process.browser && window.markdownit) {
-      if (this.md === false) {
-        this.md = new window.markdownit({html: true})
+  methods: {
+    mdit () {
+      if (process.browser && window.markdownit && this.content === 'Loading..') {
+        if (this.md === false) {
+          this.md = new window.markdownit({html: true})
+        }
+        this.content = this.md.render(this.post.body, {html: true})
       }
-      this.content = this.md.render(this.post.body, {html: true})
-    }
+    },
+  },
+
+  mounted () {
+    this.mdit()
+    setInterval(this.mdit, 400)
   },
 
   head () {
