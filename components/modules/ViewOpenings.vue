@@ -1,10 +1,10 @@
 <template lang="pug">
 .section.section-openings(:style="`background-image: url(${image});`")
-  .title(v-in-viewport) We’re assembling a team
-  .title(v-in-viewport) of world class individuals.
-  .title(v-in-viewport) Interested in joining us? 
+  .title(v-in-viewport.once) We’re assembling a team
+  .title(v-in-viewport.once) of world class individuals.
+  .title(v-in-viewport.once) Interested in joining us? 
   CtaButton(
-    v-in-viewport
+    v-in-viewport.once
     name="VIEW OPENINGS",
     theme="white-border",
     link="careers"

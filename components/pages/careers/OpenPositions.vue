@@ -1,15 +1,15 @@
 <template lang="pug">
 .open-positions
-  .title(v-in-viewport) Open Positions
+  .title(v-in-viewport.once) Open Positions
   .open-positions-teams
-    .open-positions-team(v-for="count, name in teams",v-in-viewport)
+    .open-positions-team(v-for="count, name in teams",v-in-viewport.once)
       .title {{ name }}
       CtaButton(
         :link="`https://jobs.lever.co/oneconcern?team=${name}`",
         name="VIEW OPENINGS",
         theme="orange-border")
-  .title(v-in-viewport) Don't see the position you're looking for? We'd still love to hear from you!
-  .copy(v-in-viewport) 
+  .title(v-in-viewport.once) Don't see the position you're looking for? We'd still love to hear from you!
+  .copy(v-in-viewport.once) 
     | Contact us at 
     a(href="mailto:careers@oneconcern.com") careers@oneconcern.com. 
     | We are always on the look out for amazing people.

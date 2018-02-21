@@ -2,7 +2,7 @@
 .team
   .team-filters
     .team-filter(
-      v-in-viewport,
+      v-in-viewport.once,
       :class="{active: option === filter}"
       @click="filter = option",
       v-for="option in filters") {{ option }}
@@ -11,7 +11,7 @@
     .team-member(
       v-for="member, index in team"
       v-if="member.types.indexOf(filter) !== -1"
-      v-in-viewport
+      v-in-viewport.once
       :key="index")
       .team-member-image(:style="`background-image: url(${member.image})`")
         .team-member-link

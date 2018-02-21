@@ -1,6 +1,6 @@
 <template lang="pug">
 .content-block(
-  v-in-viewport
+  v-in-viewport.once
   :class="`content-block-theme-${theme} content-block-direction-${direction}`")
   .content-block-image(:style="`background-image: url(${image})`")
   .content-block-copy
