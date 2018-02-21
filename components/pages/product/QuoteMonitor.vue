@@ -30,10 +30,14 @@ export default {
   },
   watch: {
     'inViewport.now' (visible) {
+      if (this.numbered) {
+        return true
+      }
       if (visible && this.numbers.residential === 0) {
         this.numbers.residential = parseInt(this.residential)
         this.numbers.commercial = parseInt(this.commercial)
         this.numbers.people = parseInt(this.people)
+        this.numbered = true
       }
       if (!visible && this.numbers.residential !== 0) {
         this.numbers.residential = 0
@@ -44,6 +48,7 @@ export default {
   },
   data () {
     return {
+      numbered: false,
       numbers: {
         residential: 0,
         commercial: 0,
