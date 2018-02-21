@@ -1,8 +1,5 @@
 <template lang="pug">
-//.scrolldown(:class="{visible: visible}")
-  .scrolldown-chevron
-  .scrolldown-chevron
-  .scrolldown-chevron
+.scroll-down(:class="{visible: visible}")
 </template>
 
 <script>
@@ -20,10 +17,10 @@ export default {
   },
   methods: {
     scroll (event) {
-      if (window.scrollY >= 100 && this.visible == true) {
+      if (window.scrollY >= 100 && this.visible === true) {
         this.visible = false
       }
-      if (window.scrollY <= 60 && this.visible == false) {
+      if (window.scrollY <= 60 && this.visible === false) {
         this.visible = true
       }
     },
@@ -41,60 +38,32 @@ export default {
 <style lang="stylus">
 @import '../../assets/stylus/guide/includes/*'
 
-.scrolldown
+.scroll-down
   position absolute
-  bottom 60px
+  bottom 30px
   left 50%
-  margin-left -12px
-  width 24px
-  height 24px
-  transition opacity 1s ease
+  text-align center
+  font-size 20px
+  z-index 20
+  width 13px
+  height 13px
+  border-bottom 2px solid transparent
+  border-right 2px solid transparent
+  transform translate(-50%, 0%) rotate(45deg)
+  animation scrolldown 4s ease-in-out infinite
+  transition border 0.5s ease
   opacity 0
   &.visible
-    opacity 1
+    border-bottom 2px solid white
+    border-right 2px solid white
 
-.scrolldown-chevron
-  position absolute
-  width 28px
-  height 8px
-  opacity 0
-  transform scale3d(0.5, 0.5, 0.5)
-  animation move 6s ease-out infinite
-
-.scrolldown-chevron:first-child
-  animation: move 6s ease-out 2s infinite
-
-.scrolldown-chevron:nth-child(2)
-  animation: move 6s ease-out 4s infinite
-
-.scrolldown-chevron:before,
-.scrolldown-chevron:after 
-  content ' '
-  position absolute
-  top 0
-  height 100%
-  width 51%
-  background rgba(fire-bush, 0.8)
-
-.scrolldown-chevron:before 
-  left 0
-  transform skew(0deg, 30deg)
-
-.scrolldown-chevron:after
-  right 0
-  width 50%
-  transform skew(0deg, -30deg)
-
-@keyframes move
-  25% 
-    opacity 1
-  33% 
-    opacity 1
-    transform translateY(30px)
-  67%
-    opacity 1
-    transform translateY(40px)
-  100% 
+@keyframes scrolldown
+  0%
+    transform translate(0, -10px) rotate(45deg)
     opacity 0
-    transform translateY(55px) scale3d(0.5, 0.5, 0.5)
+  50%
+    opacity 1
+  100%
+    transform translate(0, 10px) rotate(45deg)
+    opacity 0
 </style>
