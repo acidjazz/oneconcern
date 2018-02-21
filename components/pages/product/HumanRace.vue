@@ -1,15 +1,15 @@
 <template lang="pug">
 #HumanRace
 
-  .title(v-in-viewport) {{ title }}
+  .title(v-in-viewport.once) {{ title }}
 
   .labels
     .label(
-      v-in-viewport
+      v-in-viewport.once
       v-for="entry, index in copy",
       :class="{active: index === active}"
       @click="active = index") {{ entry.title }}
-    .content(v-in-viewport)
+    .content(v-in-viewport.once)
       transition(name="fade")
         .body(
           v-for="entry, index in copy",

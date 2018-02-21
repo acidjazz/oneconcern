@@ -3,11 +3,11 @@
   .blog-post-inner
     .blog-post-left
       .blog-post-author
-        .blog-post-author-image(:style="`background-image: url(${post.author.image});`",v-in-viewport)
-        .blog-post-author-name(v-in-viewport) {{ post.author.name }}
-        .blog-post-author-position(v-in-viewport) {{ post.author.position }}
-      .blog-post-date(v-in-viewport) {{ post.date | moment("dddd, MMM Do, YYYY") }}
-      .blog-post-tags(v-in-viewport)
+        .blog-post-author-image(:style="`background-image: url(${post.author.image});`",v-in-viewport.once)
+        .blog-post-author-name(v-in-viewport.once) {{ post.author.name }}
+        .blog-post-author-position(v-in-viewport.once) {{ post.author.position }}
+      .blog-post-date(v-in-viewport.once) {{ post.date | moment("dddd, MMM Do, YYYY") }}
+      .blog-post-tags(v-in-viewport.once)
         span.blog-post-tag(v-for="tag, index in post.tags") 
           nuxt-link.blog-post-tag-link(:to="`/blog/#${tag}`") {{ tag }}
           span(v-if="index+1 !== post.tags.length") ,&nbsp;

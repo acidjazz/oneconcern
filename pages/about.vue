@@ -7,21 +7,21 @@
   ScrollDown
   .section.section-story(v-if="story")
 
-    .title(v-in-viewport) Our Story
+    .title(v-in-viewport.once) Our Story
     .subsections
-      .subsection(v-in-viewport)
+      .subsection(v-in-viewport.once)
         video(controls,:poster="story.poster")
           source(:src="story.video",type="video/mp4")
-      .subsection(v-in-viewport)
+      .subsection(v-in-viewport.once)
         p(v-for="block in storyCopy") {{ block }}
 
   .section.section-team
-    .title(v-in-viewport) Meet Our Team
+    .title(v-in-viewport.once) Meet Our Team
 
     OurTeam(:team="team",v-if="team")
-    .title(v-in-viewport) Get to know the team
+    .title(v-in-viewport.once) Get to know the team
     CtaButton(
-      v-in-viewport
+      v-in-viewport.once
       name="LinkedIn",
       theme="white-border",
       link="https://www.linkedin.com/search/results/people/?facetCurrentCompany=%5B%226441806%22%5D")

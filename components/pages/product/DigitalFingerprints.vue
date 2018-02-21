@@ -3,8 +3,8 @@
   .fingerprints-gradient
   .fingerprints
     .fingerprints-inner
-      .fingerprints-title(v-in-viewport) {{ title }}
-      .fingerprints-copy(v-in-viewport) {{ copy }}
+      .fingerprints-title(v-in-viewport.once) {{ title }}
+      .fingerprints-copy(v-in-viewport.once) {{ copy }}
     .clear
 </template>
 <script>

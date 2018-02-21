@@ -6,23 +6,23 @@
       v-for="post, index in listing",
       :key="index",
       :class="{vp: title}",
-      v-in-viewport)
+      v-in-viewport.once)
       .recent-update-inner
         .recent-update-image(
-          v-in-viewport
+          v-in-viewport.once
           v-if="post.image",
           :style="`background-image: url(${post.image})`")
         .recent-update-copy
-          .recent-update-title(v-in-viewport,v-if="title") {{ post.title }}
-          .recent-update-author(v-in-viewport) by {{ post.author.name }}, {{ post.author.position }}
-          .recent-update-date(v-in-viewport) {{ post.date | moment("dddd, MMM Do, YYYY") }}
-        .recent-update-cta(v-in-viewport)
+          .recent-update-title(v-in-viewport.once,v-if="title") {{ post.title }}
+          .recent-update-author(v-in-viewport.once) by {{ post.author.name }}, {{ post.author.position }}
+          .recent-update-date(v-in-viewport.once) {{ post.date | moment("dddd, MMM Do, YYYY") }}
+        .recent-update-cta(v-in-viewport.once)
           CtaButton(v-if="post.type === 'link'",
             :link="post.link",name="view article",theme="orange-border", :width=140)
           CtaButton(v-else,
             :link="`blog/${slug(post.title)}-${post.id}`",name="view article",theme="orange-border", :width=140)
-      .recent-update-border(v-in-viewport)
-  .recent-updates-more(v-in-viewport,v-if="posts.length > 4")
+      .recent-update-border(v-in-viewport.once)
+  .recent-updates-more(v-in-viewport.once,v-if="posts.length > 4")
     CtaButton(v-if="!more", :callback="showmore",name="show more",theme="orange-border")
 </template>
 

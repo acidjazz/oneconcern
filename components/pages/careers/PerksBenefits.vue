@@ -2,7 +2,7 @@
 .perks-benefits
   .title Perks and Benefits
   .perks-benefits-list
-    .perks-benefits-item(v-for="perk in perks",v-in-viewport)
+    .perks-benefits-item(v-for="perk in perks",v-in-viewport.once)
       .perks-benefits-inner
         .perks-benefits-icon(:style="`background-image: url(${perk.icon})`")
         .perks-benefits-title {{ perk.title }}

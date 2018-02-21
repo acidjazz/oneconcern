@@ -1,12 +1,12 @@
 <template lang="pug">
 #QuoteMonitor
-  .copy(v-in-viewport)
+  .copy(v-in-viewport.once)
     | One Concern currently monitors
-    i-count-up.value(:startVal=0,:endVal="numbers.residential",:duration="3")
+    i-count-up.value(:startVal=0,:endVal="numbers.residential",:duration="2.5")
     | residential and
-    i-count-up.value(:startVal=0,:endVal="numbers.commercial",:duration="3")
+    i-count-up.value(:startVal=0,:endVal="numbers.commercial",:duration="2.5")
     | commercial buildings. We monitor earthquakes for 
-    i-count-up.value(:startVal=0,:endVal="numbers.people/1000000",:duration="3",:options="{suffix: 'M'}")
+    i-count-up.value(:startVal=0,:endVal="numbers.people/1000000",:duration="2.5",:options="{suffix: 'M'}")
     |  people.
 </template>
 <script>

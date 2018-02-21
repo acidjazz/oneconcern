@@ -5,7 +5,7 @@
     .hero-title {{ copy }}
   ScrollDown
   .quote
-    .copy(v-in-viewport) {{ copys.quoteTop }}
+    .copy(v-in-viewport.once) {{ copys.quoteTop }}
   HumanRace(:title="copys.titleHumanRace",:copy="copys.HumanRace")
   FeaturedCaseStudy(:copy="copys.CaseStudy")
   DigitalFingerprints(:title="copys.fingerprintsTitle",:copy="copys.fingerprintsCopy")
@@ -17,7 +17,7 @@
   .demo-cta
     .cta
       //CtaButton(name="REQUEST A DEMO",theme="white",link="mailto:contact@oneconcern.com")
-      CtaButton(name="REQUEST A DEMO",theme="white",:callback="demo")
+      CtaButton(name="REQUEST A DEMO",theme="white",:callback="demo",v-in-viewport.once)
 </template>
 
 <script>
@@ -113,6 +113,8 @@ export default {
   padding 60px 0
   .cta
     text-align center
+    .cta-button
+      inViewportBottom()
 @media all and (min-width: 1px) and (max-width: 1000px)
   .quote > .copy
     width auto

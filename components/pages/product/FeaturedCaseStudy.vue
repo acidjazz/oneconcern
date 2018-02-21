@@ -1,12 +1,12 @@
 <template lang="pug">
 #FeaturedCaseStudy
-  .case-study-title(v-in-viewport) {{ copy.title }}
+  .case-study-title(v-in-viewport.once) {{ copy.title }}
   .case-study-case
-    .case-study-image(v-in-viewport,:style="`background-image: url(${copy.image})`")
+    .case-study-image(v-in-viewport.once,:style="`background-image: url(${copy.image})`")
     .case-study-copy
-      .case-study-quote(v-in-viewport) "{{ copy.quote }}"
-      .case-study-author(v-in-viewport) {{ copy.author }}
-  .case-study-cta(v-in-viewport)
+      .case-study-quote(v-in-viewport.once) "{{ copy.quote }}"
+      .case-study-author(v-in-viewport.once) {{ copy.author }}
+  .case-study-cta(v-in-viewport.once)
     CtaButton(
       :link="`blog/${slug(copy.blog.title)}-${copy.blog.id}`",
       name="see full case study",

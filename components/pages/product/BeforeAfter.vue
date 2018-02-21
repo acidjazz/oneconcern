@@ -3,7 +3,7 @@
   .before-after
     .ba-selections
       .ba-selection(
-        v-in-viewport,
+        v-in-viewport.once,
         @click="active = index",
         v-for="item, index in items",
         :class="{active: active === index }")

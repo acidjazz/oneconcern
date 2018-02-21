@@ -2,20 +2,20 @@
 .careers-gallery
   .careers-gallery-inner
     .careers-block.is-half
-      .careers-copy.careers-copy-1(v-in-viewport)
+      .careers-copy.careers-copy-1(v-in-viewport.once)
         .title We strive to create an environment where employees can thrive and grow professionally and personally. 
     .careers-block.is-half
-      .careers-image.careers-image-1(v-in-viewport)
+      .careers-image.careers-image-1(v-in-viewport.once)
     .careers-block.is-full
-      .careers-image.careers-image-2(v-in-viewport)
-      .careers-image.careers-image-3(v-in-viewport)
-      .careers-image.careers-image-4(v-in-viewport)
-      .careers-image.careers-image-5(v-in-viewport)
+      .careers-image.careers-image-2(v-in-viewport.once)
+      .careers-image.careers-image-3(v-in-viewport.once)
+      .careers-image.careers-image-4(v-in-viewport.once)
+      .careers-image.careers-image-5(v-in-viewport.once)
     .careers-block.is-half
-      .careers-image.careers-image-6(v-in-viewport)
-      .careers-image.careers-image-7(v-in-viewport)
+      .careers-image.careers-image-6(v-in-viewport.once)
+      .careers-image.careers-image-7(v-in-viewport.once)
     .careers-block.is-half.is-end
-      .careers-copy.careers-copy-2(v-in-viewport)
+      .careers-copy.careers-copy-2(v-in-viewport.once)
         .title At the end of every day, we feel like we are doing something significant to make the world a better place.
         .copy Our amazingly talented team is working to build and scale a global AI disaster intelligence platform to save lives. We work on complex issues of building highly available disaster resilient cloud infrastructure, creating a real-time spatio-temporal big data pipeline, scaling mapping systems and combining traditional hazard models with machine learning to provide high-resolution pre and post-disaster insights.
 </template>
