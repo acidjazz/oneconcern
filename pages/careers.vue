@@ -11,7 +11,7 @@
         theme="orange-border")
 
   ScrollDown
-  CareersGallery
+  CareersGallery(:images="gallery")
 
   PerksBenefits(:perks="perks",v-if="perks")
   OpenPositions(:jobs="jobs",v-if="jobs")
@@ -35,8 +35,10 @@ export default {
 
     const hero = await client.getEntries({'content_type': 'hero','fields.page': 'careers'})
     const perksBenefits = await client.getEntries({'content_type': 'perksBenefits'})
+    const careersGallery = await client.getEntries({'content_type': 'careersGallery', order: 'fields.number'})
 
     let perks = []
+    let gallery = []
 
     for (let perk of perksBenefits.items) {
       perks.push({
@@ -46,10 +48,16 @@ export default {
       })
     }
 
+
+    for (let item of careersGallery.items) {
+      gallery[parseInt(item.fields.number)] = item.fields.image.fields.file.url
+    }
+
     return {
       image: hero.items[0].fields.image.fields.file.url,
       lowres: hero.items[0].fields.lowres.fields.file.url,
       copy: hero.items[0].fields.copy,
+      gallery: gallery,
       perks: perks,
     }
 
