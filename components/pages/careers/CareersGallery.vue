@@ -5,15 +5,15 @@
       .careers-copy.careers-copy-1(v-in-viewport.once)
         .title We strive to create an environment where employees can thrive and grow professionally and personally. 
     .careers-block.is-half
-      .careers-image.careers-image-1(v-in-viewport.once)
+      .careers-image.careers-image-1(v-in-viewport.once,:style="`background-image: url(${images[1]})`")
     .careers-block.is-full
-      .careers-image.careers-image-2(v-in-viewport.once)
-      .careers-image.careers-image-3(v-in-viewport.once)
-      .careers-image.careers-image-4(v-in-viewport.once)
-      .careers-image.careers-image-5(v-in-viewport.once)
+      .careers-image.careers-image-2(v-in-viewport.once,:style="`background-image: url(${images[2]})`")
+      .careers-image.careers-image-3(v-in-viewport.once,:style="`background-image: url(${images[3]})`")
+      .careers-image.careers-image-4(v-in-viewport.once,:style="`background-image: url(${images[4]})`")
+      .careers-image.careers-image-5(v-in-viewport.once,:style="`background-image: url(${images[5]})`")
     .careers-block.is-half
-      .careers-image.careers-image-6(v-in-viewport.once)
-      .careers-image.careers-image-7(v-in-viewport.once)
+      .careers-image.careers-image-6(v-in-viewport.once,:style="`background-image: url(${images[6]})`")
+      .careers-image.careers-image-7(v-in-viewport.once,:style="`background-image: url(${images[7]})`")
     .careers-block.is-half.is-end
       .careers-copy.careers-copy-2(v-in-viewport.once)
         .title At the end of every day, we feel like we are doing something significant to make the world a better place.
@@ -23,6 +23,11 @@
 <script>
 import inViewportDirective from 'vue-in-viewport-directive'
 export default {
+  props: { 
+    images: {
+      type: Array
+    }
+  },
   directives: { 'in-viewport': inViewportDirective },
 }
 </script>
@@ -96,32 +101,25 @@ export default {
   margin-top 40px
   margin-right 40px
   &.careers-image-1
-    background-image url(/careers/1.jpg)
     width 540px
     height 225px
   &.careers-image-2
-    background-image url(/careers/2.jpg)
     width 150px
     height 113px
     align-self flex-end
   &.careers-image-3
-    background-image url(/careers/3.jpg)
     width 300px
     height 220px
   &.careers-image-4
-    background-image url(/careers/4.jpg)
     width 250px
     height 175px
   &.careers-image-5
-    background-image url(/careers/5.jpg)
     width 150px
     height 107px
   &.careers-image-6
-    background-image url(/careers/6.jpg)
     width 210px
     height 313px
   &.careers-image-7
-    background-image url(/careers/7.jpg)
     width 190px
     height 130px
 
