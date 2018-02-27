@@ -74,7 +74,7 @@ export default {
       if (this.tag !== '') {
         let posts = []
         for (let index in this.allposts) {
-          if (this.allposts[index].tags.indexOf(this.tag) !== -1) {
+          if (this.allposts[index].tags && this.allposts[index].tags.indexOf(this.tag) !== -1) {
             posts.push(this.allposts[index])
           }
         }
@@ -87,7 +87,7 @@ export default {
       if (this.tag !== '') {
         let posts = []
         for (let index in this.allfeatured) {
-          if (this.allfeatured[index].tags.indexOf(this.tag) !== -1) {
+          if (this.allfeatured[index].tags && this.allfeatured[index].tags.indexOf(this.tag) !== -1) {
             posts.push(this.allfeatured[index])
           }
         }
