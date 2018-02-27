@@ -5,13 +5,14 @@
   NavBar
   BottomBar
   DemoForm(v-if="$store.state.demo")
+  IEWarning
 </template>
 
 <script>
-import { NavBar, BottomBar, DemoForm } from '~/components/layout'
+import { NavBar, BottomBar, DemoForm, IEWarning } from '~/components/layout'
 
 export default {
-  components: { NavBar, BottomBar, DemoForm }
+  components: { NavBar, BottomBar, DemoForm, IEWarning }
 }
 </script>
 
