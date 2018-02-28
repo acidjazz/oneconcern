@@ -56,6 +56,6 @@ export default {
         color blue-charcoal
       for i in 1..12
         &:nth-child({i})
-          inViewportBottom(0.1*i)
+          inViewportBottom(0.03*i)
 
 </style>
