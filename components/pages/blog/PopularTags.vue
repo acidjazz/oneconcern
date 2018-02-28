@@ -2,8 +2,8 @@
 .popular-tags
   .title(v-in-viewport.once) Popular Tags
   .tags
-    nuxt-link.tag(
-      :to="`/blog/#${tag[0]}`",
+    a.tag(
+      :href="`/blog/#${tag[0]}`",
       v-for="tag, index in tags",
       :key="index",
       v-if="index < limit",
