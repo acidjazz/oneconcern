@@ -13,7 +13,7 @@
           v-if="post.image",
           :style="`background-image: url(${post.image})`")
         .recent-update-copy
-          .recent-update-title(v-in-viewport.once,v-if="title") {{ post.title }}
+          .recent-update-title(v-in-viewport.once) {{ post.title }}
           .recent-update-author(v-in-viewport.once) by {{ post.author.name }}, {{ post.author.position }}
           .recent-update-date(v-in-viewport.once) {{ post.date | moment("dddd, MMM Do, YYYY") }}
         .recent-update-cta(v-in-viewport.once)
