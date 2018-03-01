@@ -6,7 +6,7 @@
     .hero-title {{ post.title }}
 
   BlogPost(:post="post")
-  ViewOpenings(:image="dimage",v-if="dimage")
+  ViewOpenings
 
 </template>
 
@@ -20,10 +20,8 @@ export default {
   async asyncData (context) {
     let params = context.route.params.post.split('-')
     let id = params[params.length-1]
-    const dhero = await client.getEntries({'content_type': 'hero','fields.page': 'about'})
     const post = (await client.getEntries({'content_type': 'blog', 'sys.id': id})).items[0]
     return {
-      dimage: dhero.items[0].fields.image.fields.file.url,
       post: {
         title: post.fields.title,
         description: post.fields.description,

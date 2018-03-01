@@ -26,7 +26,7 @@
       theme="white-border",
       link="https://www.linkedin.com/search/results/people/?facetCurrentCompany=%5B%226441806%22%5D")
 
-  ViewOpenings(:image="image",v-if="image")
+  ViewOpenings
 </template>
 
 <script>
