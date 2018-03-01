@@ -67,6 +67,7 @@ export default {
       themes: [
         'white',
         'white-border',
+        'white-border-hoverblack',
         'white-border-black',
         'orange-border',
         'dark-border',
@@ -121,6 +122,7 @@ export default {
     > .after
       color white
       background-color fire-bush
+
   &.theme-white-border
     border 3px solid white
     > .before
@@ -129,6 +131,17 @@ export default {
     > .after
       color white
       background-color fire-bush
+
+  &.theme-white-border-hoverblack
+    border 3px solid white
+    > .before
+      color white
+      background-color transparent
+    > .after
+      color white
+      background-color blue-charcoal
+
+
   &.theme-white-border-black
     border 3px solid white
     > .before

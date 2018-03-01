@@ -12,7 +12,7 @@
   RecentUpdates(:posts="posts",:title="tag === ''",v-if="tag !== ''")
   RecentUpdates(:posts="allposts",:title="true")
   PopularTags(:tags="tags",v-if="tags")
-  ViewOpenings(:image="dimage",v-if="dimage")
+  ViewOpenings
 </template>
 
 <script>
@@ -27,8 +27,6 @@ export default {
   components: { FeaturedPosts, RecentUpdates, ViewOpenings, PopularTags },
 
   async asyncData ( context ) {
-
-    const dhero = await client.getEntries({'content_type': 'hero','fields.page': 'about'})
 
     const hero = await client.getEntries({'content_type': 'hero','fields.page': 'blog'})
     const entries = await client.getEntries({'content_type': 'blog', order: '-fields.created'})
@@ -72,7 +70,6 @@ export default {
     }
 
     return {
-      dimage: dhero.items[0].fields.image.fields.file.url,
       copy: hero.items[0].fields.copy,
       allposts: posts,
       allfeatured: featured,
