@@ -13,7 +13,7 @@
         :to="`/blog/${slug(post.title)}-${post.id}`")
       .featured-post-copy
         .featured-post-title {{ post.title }}
-        .featured-post-author by {{ post.author.name }}, {{ post.author.position }}
+        .featured-post-author(v-if="post.author.name") by {{ post.author.name }}, {{ post.author.position }}
         .featured-post-date {{ post.date | moment("dddd, MMM Do, YYYY") }}
 </template>
 
