@@ -11,22 +11,22 @@
   FeaturedPosts(:posts="featured",v-if="tag === ''")
   RecentUpdates(:posts="posts",:title="tag === ''",v-if="tag !== ''")
   RecentUpdates(:posts="allposts",:title="true")
-  ViewOpenings(:image="dimage",v-if="dimage")
+  PopularTags(:tags="tags",v-if="tags")
+  ViewOpenings
 </template>
 
 <script>
 import { createClient } from '~/plugins/contentful.js'
 import FeaturedPosts from '~/components/pages/blog/FeaturedPosts'
 import RecentUpdates from '~/components/pages/blog/RecentUpdates'
+import PopularTags from '~/components/pages/blog/PopularTags'
 import ViewOpenings from '~/components/modules/ViewOpenings'
 const client = createClient()
 export default {
 
-  components: { FeaturedPosts, RecentUpdates, ViewOpenings },
+  components: { FeaturedPosts, RecentUpdates, ViewOpenings, PopularTags },
 
   async asyncData ( context ) {
-
-    const dhero = await client.getEntries({'content_type': 'hero','fields.page': 'about'})
 
     const hero = await client.getEntries({'content_type': 'hero','fields.page': 'blog'})
     const entries = await client.getEntries({'content_type': 'blog', order: '-fields.created'})
@@ -58,17 +58,39 @@ export default {
       if (entry.fields.featured) {
         featured.push(post)
       }
+
+      for (let tag in post.tags) {
+        if (post.tags[tag] in tags) {
+          tags[post.tags[tag]]++
+        } else {
+          tags[post.tags[tag]] = 1
+        }
+      }
+
     }
 
     return {
-      dimage: dhero.items[0].fields.image.fields.file.url,
       copy: hero.items[0].fields.copy,
       allposts: posts,
       allfeatured: featured,
+      unsortedTags: tags,
     }
   },
 
   computed: {
+
+    tags () {
+
+      let sortable = []
+      for (let tag in this.unsortedTags) {
+        sortable.push([tag, this.unsortedTags[tag]])
+      }
+      sortable.sort( (a,b) => {
+        return b[1] - a[1]
+      })
+
+      return sortable
+    },
 
     posts () {
       if (this.tag !== '') {

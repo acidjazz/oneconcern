@@ -13,7 +13,7 @@
     :image="content.image",
     :ctaName="content.ctaName",
     :ctaLink="content.ctaLink")
-  ViewOpenings(:image="dimage",v-if="dimage")
+  ViewOpenings
 </template>
 
 <script>
@@ -26,7 +26,6 @@ import ViewOpenings from '~/components/modules/ViewOpenings'
 export default {
   components: { ContentBlock, CtaButton, ViewOpenings, ScrollDown },
   async asyncData () {
-    const dhero = await client.getEntries({'content_type': 'hero','fields.page': 'about'})
     const hero = await client.getEntries({
       'content_type': 'hero',
       'fields.page': 'mission'
@@ -52,7 +51,6 @@ export default {
     return {
       lowres: hero.items[0].fields.lowres.fields.file.url,
       image: hero.items[0].fields.image.fields.file.url,
-      dimage: dhero.items[0].fields.image.fields.file.url,
       copy: hero.items[0].fields.copy,
       contents: contents,
     }
