@@ -29,15 +29,42 @@ export default {
   async asyncData ( context ) {
 
     const hero = await client.getEntries({'content_type': 'hero','fields.page': 'blog'})
-    const entries = await client.getEntries({'content_type': 'blog', order: '-fields.created'})
+    const entriesCreated = await client.getEntries({'content_type': 'blog', order: '-fields.created'})
+    const entriesFeatured = await client.getEntries({'content_type': 'blog', order: '-fields.featured'})
 
     let posts = []
     let featured = []
     let tags = {}
 
-    for (let entry of entries.items) {
+    for (let entry of entriesCreated.items) {
 
-      let post = {
+      let post = entryPost(entry)
+
+      posts.push(post)
+
+      for (let tag in post.tags) {
+        if (post.tags[tag] in tags) {
+          tags[post.tags[tag]]++
+        } else {
+          tags[post.tags[tag]] = 1
+        }
+      }
+
+    }
+
+    for (let entry of entriesFeatured.items) {
+
+      let post = entryPost(entry)
+
+      if (entry.fields.featured > 0) {
+        featured.push(post)
+      }
+
+    }
+
+    function entryPost(entry) {
+
+      return {
         id: entry.sys.id,
         featured: entry.fields.featured,
         type: entry.fields.type,
@@ -51,20 +78,6 @@ export default {
           position: entry.fields.author ? entry.fields.author.fields.position : false,
         },
         link: entry.fields.link,
-      }
-
-      posts.push(post)
-
-      if (entry.fields.featured) {
-        featured.push(post)
-      }
-
-      for (let tag in post.tags) {
-        if (post.tags[tag] in tags) {
-          tags[post.tags[tag]]++
-        } else {
-          tags[post.tags[tag]] = 1
-        }
       }
 
     }
