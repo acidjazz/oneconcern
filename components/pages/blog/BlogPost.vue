@@ -2,7 +2,7 @@
 .blog-post
   .blog-post-inner
     .blog-post-left
-      .blog-post-author
+      .blog-post-author(v-if="post.author.name")
         .blog-post-author-image(:style="`background-image: url(${post.author.image});`",v-in-viewport.once)
         .blog-post-author-name(v-in-viewport.once) {{ post.author.name }}
         .blog-post-author-position(v-in-viewport.once) {{ post.author.position }}
