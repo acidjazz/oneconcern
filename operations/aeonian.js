@@ -4,8 +4,8 @@ require('aeonian').config({
     prefix: '1c-'
   },
   environments: {
-    production: 'E26T22R6AY0TYO',
-    staging: 'E1C7VZR7WZRWBN',
+    production: 'E1Z577RFAY2GSN',
+    staging: 'E1OCUBYNGDRQHE',
     development: 'CLOUDFRONTID',
   }
 }).deploy(process.argv[2])
