@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/onecnocern/oneconcern/blob/master/static/logo.png" width="300" alt="1C PNG"/>
+  <img src="https://github.com/oneconcern/oneconcern/blob/master/static/logo.png" width="300" alt="1C PNG"/>
 </p>
 
 > Artificial Intelligence platform for Disasters
