@@ -17,7 +17,7 @@
     .careers-block.is-half.is-end
       .careers-copy.careers-copy-2(v-in-viewport.once)
         .title At the end of every day, we feel like we are doing something significant to make the world a better place.
-        .copy Our amazingly talented team is working to build and scale a global AI disaster intelligence platform to save lives. We work on complex issues of building highly available disaster resilient cloud infrastructure, creating a real-time spatio-temporal big data pipeline, scaling mapping systems and combining traditional hazard models with machine learning to provide high-resolution pre and post-disaster insights.
+        .copy We’re building a global disaster-intelligence platform with one concern in mind: saving lives. We’re using AI and machine learning to (1) create a robust, disaster-resilient cloud infrastructure, (2) create a real-time big data pipeline to inform disaster response and modeling, and (3) combine traditional hazard models with machine learning to provide clear pre-disaster insights, and while capturing post-disaster data to continuously improve response and recovery.
 </template>
 
 <script>
