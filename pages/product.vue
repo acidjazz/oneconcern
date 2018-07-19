@@ -53,7 +53,7 @@ export default {
   directives: { 'in-viewport': inViewportDirective },
   async asyncData () {
     const hero = await client.getEntries({ 'content_type': 'hero', 'fields.page': 'product'})
-    const story = await client.getEntries({'content_type': 'ProductVideo'})
+    const story = await client.getEntries({'content_type': 'productVideo'})
     const text = await client.getEntries({ 'content_type': 'productCopy'})
     const HumanRaceEntries = await client.getEntries({ 'content_type': 'humanRace'})
     const BeforeAfterEntries = await client.getEntries({ 'content_type': 'beforeAfter', order: 'fields.order'})
