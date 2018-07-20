@@ -6,7 +6,7 @@
   ScrollDown
   .section.section-story(v-if="story")
 
-    .title(v-in-viewport.once) Our Story
+    .title(v-in-viewport.once) What Makes One Concern Different
     .subsections
       .subsection(v-in-viewport.once)
         video(controls,:poster="story.poster")
