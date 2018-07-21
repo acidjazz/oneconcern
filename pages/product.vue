@@ -119,6 +119,33 @@ export default {
 
 <style lang="stylus">
 @import '../assets/stylus/guide/includes/*'
+
+.subsections
+  display flex
+  flex-direction row
+  align-items center
+  justify-content center
+  max-width 1000px
+  margin auto
+  .subsection
+    align-self flex-start
+    width 50%
+    font-s2()
+    line-height 18px
+    p:not(:last-child)
+      margin 0 0 20px 0
+    letter-spacing 1px
+    &:first-child
+      margin-right 30px
+      inViewport(0.2)
+    &:last-child
+      margin-left 30px
+      inViewport(0.4)
+
+    video
+      width 100%
+      height 100%
+
 .quote
   background-color fire-bush
   padding 60px 0
@@ -141,4 +168,11 @@ export default {
     width auto
     padding 0 20px
     font-s2()
+  .subsections
+    flex-direction column
+    .subsection
+      align-self flex-start
+      width calc(100% - 40px)
+      padding 20px
+      margin-left 0px !important
 </style>
