@@ -6,6 +6,7 @@
   ScrollDown
 
   UserStories(v-if="stories.length > 0",:stories="stories")
+  ProductAllow(:allows="allows")
 
   .quote
     .copy(v-in-viewport.once) {{ copys.quoteTop }}
@@ -27,6 +28,7 @@
 import { createClient } from '~/plugins/contentful.js'
 import inViewportDirective from 'vue-in-viewport-directive'
 import UserStories from '~/components/pages/product/UserStories'
+import ProductAllow from '~/components/pages/product/ProductAllow'
 import HumanRace from '~/components/pages/product/HumanRace'
 import FeaturedCaseStudy from '~/components/pages/product/FeaturedCaseStudy'
 import DigitalFingerprints from '~/components/pages/product/DigitalFingerprints'
@@ -45,6 +47,7 @@ export default {
     CtaButton,
     ScrollDown,
     UserStories,
+    ProductAllow,
   },
   directives: { 'in-viewport': inViewportDirective },
   async asyncData () {
@@ -57,6 +60,7 @@ export default {
     const CaseStudyBlogEntry = await client.getEntry(CaseStudyEntry.items[0].fields.blog.sys.id)
 
     const userStory = await client.getEntries({'content_type': 'userStory'})
+    const productAllow = await client.getEntries({'content_type': 'productAllow', order: 'fields.order'})
 
     let copys = {}
     for (let entry of text.items) {
@@ -100,6 +104,14 @@ export default {
       })
     }
 
+    let allows = []
+    for (let entry of productAllow.items) {
+      allows.push({
+        icon: entry.fields.icon,
+        copy: entry.fields.copy,
+      })
+    }
+
     return {
       lowres: hero.items[0].fields.lowres.fields.file.url,
       image: hero.items[0].fields.image.fields.file.url,
@@ -110,6 +122,7 @@ export default {
         poster: story.items[0].fields.storyPoster.fields.file.url,
       },
       stories: stories,
+      allows: allows,
       copys: copys,
     }
   },

@@ -60,8 +60,8 @@ export default {
 <style lang="stylus">
 @import '../../../assets/stylus/guide/includes/*'
 .section-stories
-  margin auto
   max-width 1600px
+  margin auto
   padding 30px 0
   .stories
     width 100%
