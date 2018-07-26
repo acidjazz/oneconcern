@@ -4,7 +4,7 @@ jobs:
     parallelism: 1
     docker:
       # specify the version you desire here
-      - image: circleci/node:9.4
+      - image: circleci/node:10.7.0-browsers
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
