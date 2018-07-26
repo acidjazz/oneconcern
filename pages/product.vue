@@ -4,15 +4,9 @@
     img.hero-background(:src="image")
     .hero-title {{ copy }}
   ScrollDown
-  .section.section-story(v-if="story")
 
-    .title(v-in-viewport.once) What Makes One Concern Different
-    .subsections
-      .subsection(v-in-viewport.once)
-        video(controls,:poster="story.poster")
-          source(:src="story.video",type="video/mp4")
-      .subsection(v-in-viewport.once)
-        p(v-for="block in storyCopy") {{ block }}
+  UserStories(v-if="stories.length > 0",:stories="stories")
+
   .quote
     .copy(v-in-viewport.once) {{ copys.quoteTop }}
   HumanRace(:title="copys.titleHumanRace",:copy="copys.HumanRace")
@@ -32,6 +26,7 @@
 <script>
 import { createClient } from '~/plugins/contentful.js'
 import inViewportDirective from 'vue-in-viewport-directive'
+import UserStories from '~/components/pages/product/UserStories'
 import HumanRace from '~/components/pages/product/HumanRace'
 import FeaturedCaseStudy from '~/components/pages/product/FeaturedCaseStudy'
 import DigitalFingerprints from '~/components/pages/product/DigitalFingerprints'
@@ -49,6 +44,7 @@ export default {
     BeforeAfter,
     CtaButton,
     ScrollDown,
+    UserStories,
   },
   directives: { 'in-viewport': inViewportDirective },
   async asyncData () {
@@ -59,6 +55,8 @@ export default {
     const BeforeAfterEntries = await client.getEntries({ 'content_type': 'beforeAfter', order: 'fields.order'})
     const CaseStudyEntry = await client.getEntries({ 'content_type': 'caseStudy'})
     const CaseStudyBlogEntry = await client.getEntry(CaseStudyEntry.items[0].fields.blog.sys.id)
+
+    const userStory = await client.getEntries({'content_type': 'userStory'})
 
     let copys = {}
     for (let entry of text.items) {
@@ -90,6 +88,18 @@ export default {
         id: CaseStudyBlogEntry.sys.id,
       }
     }
+
+    let stories = []
+    for (let entry of userStory.items) {
+      stories.push({
+        quote: entry.fields.quote,
+        author: entry.fields.author,
+        title: entry.fields.title,
+        youtubeId: entry.fields.youtubeId,
+        thumbnail: entry.fields.thumbnail.fields.file.url,
+      })
+    }
+
     return {
       lowres: hero.items[0].fields.lowres.fields.file.url,
       image: hero.items[0].fields.image.fields.file.url,
@@ -99,6 +109,7 @@ export default {
         video: story.items[0].fields.storyVideo.fields.file.url,
         poster: story.items[0].fields.storyPoster.fields.file.url,
       },
+      stories: stories,
       copys: copys,
     }
   },
@@ -118,6 +129,7 @@ export default {
 
 
 <style lang="stylus">
+
 @import '../assets/stylus/guide/includes/*'
 
 .subsections
@@ -163,6 +175,7 @@ export default {
     text-align center
     .cta-button
       inViewportBottom()
+
 @media all and (min-width: 1px) and (max-width: 1000px)
   .quote > .copy
     width auto

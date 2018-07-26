@@ -7014,6 +7014,10 @@ void-elements@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/void-elements/-/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
 
+vue-carousel@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/vue-carousel/-/vue-carousel-0.10.0.tgz#d87581caab65040b59962cb4833a59ec190265d8"
+
 vue-countup-v2@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/vue-countup-v2/-/vue-countup-v2-1.0.3.tgz#8e64d9be34dbe16e2dafe694a6973005251de362"
