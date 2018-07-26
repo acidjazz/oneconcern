@@ -46,15 +46,16 @@ export default {
 .allow-copy
   flex-align center
   color white
-  font-s2()
+  font-s6()
   margin 0 40px
   text-align left
 
 .title
   color white
 
-
 @media all and (min-width: 1px) and (max-width: 1000px)
+  .section-ProductAllow > .title
+    font-s1()
   .allow
     width 100%
     padding 10px

@@ -7,6 +7,7 @@
 
   UserStories(v-if="stories.length > 0",:stories="stories")
   ProductAllow(:allows="allows")
+  SeismicFlood(:data="seismicFlood")
 
   .quote
     .copy(v-in-viewport.once) {{ copys.quoteTop }}
@@ -29,6 +30,7 @@ import { createClient } from '~/plugins/contentful.js'
 import inViewportDirective from 'vue-in-viewport-directive'
 import UserStories from '~/components/pages/product/UserStories'
 import ProductAllow from '~/components/pages/product/ProductAllow'
+import SeismicFlood from '~/components/pages/product/SeismicFlood'
 import HumanRace from '~/components/pages/product/HumanRace'
 import FeaturedCaseStudy from '~/components/pages/product/FeaturedCaseStudy'
 import DigitalFingerprints from '~/components/pages/product/DigitalFingerprints'
@@ -48,6 +50,7 @@ export default {
     ScrollDown,
     UserStories,
     ProductAllow,
+    SeismicFlood,
   },
   directives: { 'in-viewport': inViewportDirective },
   async asyncData () {
@@ -61,6 +64,7 @@ export default {
 
     const userStory = await client.getEntries({'content_type': 'userStory'})
     const productAllow = await client.getEntries({'content_type': 'productAllow', order: 'fields.order'})
+    const seismicFlood = await client.getEntries({'content_type': 'seismicFlood'})
 
     let copys = {}
     for (let entry of text.items) {
@@ -124,6 +128,7 @@ export default {
       stories: stories,
       allows: allows,
       copys: copys,
+      seismicFlood: seismicFlood,
     }
   },
   methods: {

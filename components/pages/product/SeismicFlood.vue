@@ -1,0 +1,112 @@
+
+<template lang="pug">
+.section.section-SeismicFlood
+  .sf-menu
+    a.sf-item(:class="{'is-active': selection == 'seismic'}",@click="selection = 'seismic'") Seismic
+    a.sf-item(:class="{'is-active': selection == 'flood'}",@click="selection = 'flood'") Flood
+
+  .sf-content
+    .sf-image
+      img(:src="`${selected.image}`")
+    .sf-list
+      ul
+        li(v-for="item in selected.list") {{ item }}
+
+</template>
+
+<script>
+export default {
+
+  props: {
+    data: {
+      type: Object,
+    }
+  },
+
+  created () {
+    console.log(this.data.items[0])
+    for (let entry of this.data.items) {
+      console.log(entry.fields.type)
+      this[entry.fields.type].image = entry.fields.image.fields.file.url
+      this[entry.fields.type].list = entry.fields.list.split("\n")    }
+  },
+
+  computed: {
+    selected () {
+      return this[this.selection]
+    }
+  },
+
+  data () {
+    return {
+      selection: 'seismic',
+      seismic: { image: false, list: [],},
+      flood: { image: false, list: [],},
+    }
+  },
+
+}
+</script>
+
+<style lang="stylus">
+@import '../../../assets/stylus/guide/includes/*'
+
+.section-SeismicFlood
+  max-width 1200px
+  margin auto
+  padding 0 0 60px 0
+
+.sf-menu
+  width 400px
+  margin auto
+  border-bottom 1px solid mountain-mist
+  display flex
+  justify-content center
+  margin-bottom 30px
+
+.sf-item
+  cursor pointer
+  width 100px
+  margin 0 20px
+  padding 10px
+  color white
+  border-bottom 3px solid transparent
+  margin-bottom -2px
+  transition all 0.3s ease-in
+
+.sf-content
+  padding 30px
+  display flex
+  align-items center
+
+.sf-image
+  width 50%
+  > img
+    width 100%
+
+.sf-item.is-active
+  color fire-bush
+  border-bottom 3px solid white
+
+.sf-list
+  padding-left 50px
+  ul
+    padding 0
+    max-width 400px
+    li
+      padding 5px 0
+      color white
+      text-align left
+      font-s6()
+
+@media all and (min-width: 1px) and (max-width: 1000px)
+  .sf-menu
+    width 100%
+  .sf-content
+    flex-direction column
+  .sf-image
+    width 100%
+  .sf-list
+    padding 10px
+
+</style>
