@@ -4,6 +4,15 @@
     img.hero-background(:src="image")
     .hero-title {{ copy }}
   ScrollDown
+  .section.section-story(v-if="story")
+
+    .title(v-in-viewport.once) What Makes One Concern Different
+    .subsections
+      .subsection(v-in-viewport.once)
+        video(controls,:poster="story.poster")
+          source(:src="story.video",type="video/mp4")
+      .subsection(v-in-viewport.once)
+        p(v-for="block in storyCopy") {{ block }}
   .quote
     .copy(v-in-viewport.once) {{ copys.quoteTop }}
   HumanRace(:title="copys.titleHumanRace",:copy="copys.HumanRace")
@@ -44,6 +53,7 @@ export default {
   directives: { 'in-viewport': inViewportDirective },
   async asyncData () {
     const hero = await client.getEntries({ 'content_type': 'hero', 'fields.page': 'product'})
+    const story = await client.getEntries({'content_type': 'productVideo'})
     const text = await client.getEntries({ 'content_type': 'productCopy'})
     const HumanRaceEntries = await client.getEntries({ 'content_type': 'humanRace'})
     const BeforeAfterEntries = await client.getEntries({ 'content_type': 'beforeAfter', order: 'fields.order'})
@@ -84,6 +94,11 @@ export default {
       lowres: hero.items[0].fields.lowres.fields.file.url,
       image: hero.items[0].fields.image.fields.file.url,
       copy: hero.items[0].fields.copy,
+      story: {
+        copy: story.items[0].fields.storyCopy,
+        video: story.items[0].fields.storyVideo.fields.file.url,
+        poster: story.items[0].fields.storyPoster.fields.file.url,
+      },
       copys: copys,
     }
   },
@@ -92,12 +107,45 @@ export default {
       this.$store.commit('demo', true)
     },
   },
+
+  computed: {
+    storyCopy () {
+      return this.story.copy.split("\n")
+    },
+  },
 }
 </script>
 
 
 <style lang="stylus">
 @import '../assets/stylus/guide/includes/*'
+
+.subsections
+  display flex
+  flex-direction row
+  align-items center
+  justify-content center
+  max-width 1000px
+  margin auto
+  .subsection
+    align-self flex-start
+    width 50%
+    font-s2()
+    line-height 18px
+    p:not(:last-child)
+      margin 0 0 20px 0
+    letter-spacing 1px
+    &:first-child
+      margin-right 30px
+      inViewport(0.2)
+    &:last-child
+      margin-left 30px
+      inViewport(0.4)
+
+    video
+      width 100%
+      height 100%
+
 .quote
   background-color fire-bush
   padding 60px 0
@@ -120,4 +168,11 @@ export default {
     width auto
     padding 0 20px
     font-s2()
+  .subsections
+    flex-direction column
+    .subsection
+      align-self flex-start
+      width calc(100% - 40px)
+      padding 20px
+      margin-left 0px !important
 </style>

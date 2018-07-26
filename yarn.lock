@@ -146,9 +146,9 @@ acorn@^5.0.0, acorn@^5.3.0, acorn@^5.4.0:
   version "5.4.1"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.4.1.tgz#fdc58d9d17f4a4e98d102ded826a9b9759125102"
 
-aeonian@^1.0.9:
+"aeonian@git://github.com/zivagolee/aeonian.git#master":
   version "1.0.9"
-  resolved "https://registry.yarnpkg.com/aeonian/-/aeonian-1.0.9.tgz#a3be6838e2b3d143217980cde33c2e39d6e80f99"
+  resolved "git://github.com/zivagolee/aeonian.git#33fffcec3d8847465d631177bb50c6710490cec7"
   dependencies:
     "@faceleg/s3" "^4.5.0"
     aws-sdk "^2.75.0"
