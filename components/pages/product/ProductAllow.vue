@@ -29,6 +29,7 @@ export default {
   margin auto
   flex-direction row
   flex-wrap wrap
+  padding-top 30px
 .allow
   width 50%
   display flex
@@ -51,4 +52,15 @@ export default {
 
 .title
   color white
+
+
+@media all and (min-width: 1px) and (max-width: 1000px)
+  .allow
+    width 100%
+    padding 10px
+  .allow-copy
+    margin 0 20px
+
+
+
 </style>
