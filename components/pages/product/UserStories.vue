@@ -1,6 +1,6 @@
 <template lang="pug">
 .section.section-stories
-  .section-stories-title(v-in-viewport) User Testimonials
+  .section-stories-title(v-in-viewport) Why One Concern is Different
   no-ssr
     flickity.carousel#UserStories(:options="flickityOptions")
       .story.carousel-cell(

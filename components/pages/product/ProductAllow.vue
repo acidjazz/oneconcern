@@ -1,6 +1,6 @@
 <template lang="pug">
 .section.section-ProductAllow
-  .title One Concern's product allow you to:
+  .title One Concern's product allows you to:
 
   .allows
     .allow(v-for="allow in allows")
