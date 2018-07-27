@@ -24,6 +24,9 @@ export default {
 <style lang="stylus">
 @import '../../../assets/stylus/guide/includes/*'
 
+.section-ProductAllow
+  padding 20px
+
 .allows
   display flex
   flex-grow 1
