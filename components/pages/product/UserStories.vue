@@ -10,7 +10,7 @@
         iframe(
           v-if="playing === story.youtubeId",
           width="98%", 
-          height="540",
+          height="440",
           :src="`https://www.youtube.com/embed/${story.youtubeId}?autoplay=1`",
           frameborder="0",
           allow="autoplay; encrypted-media",
@@ -68,22 +68,23 @@ export default {
   inViewportBottom(0, 0.5)
 
 .carousel
-  height 540px
+  height 440px
   .carousel-cell.is-selected
     inViewportBottom(0.2, 0.5)
 
 .story
   background-size cover
+  margin auto
   position relative
-  width 80%
-  height 540px
+  width 70%
+  height 440px
 
 .carousel-cell
   transform-style preserve-3d
 
 .carousel-cell.is-selected
   > .story-inner
-    height 560px
+    height 460px
     margin-top 0px
 
 .carousel-cell:not(.is-selected)
@@ -98,7 +99,7 @@ export default {
   background-position 50% 50%
   background-repeat no-repeat
   position relative
-  height 500px
+  height 400px
   transition all 0.4s ease-in
 
 .story-gradient
@@ -151,6 +152,9 @@ export default {
   font-s2()
 
 @media all and (min-width: 1px) and (max-width: 1000px)
+
+  .story
+    width 90%
 
   .story-inner
     margin 10px 20px
