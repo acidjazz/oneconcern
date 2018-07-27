@@ -27,7 +27,6 @@ export default {
   mounted () {
     if (process.browser && window.hljs) {
       window.hljs.initHighlightingOnLoad()
-      console.log('we highlighting')
     }
   },
 }

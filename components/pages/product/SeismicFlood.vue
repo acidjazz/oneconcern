@@ -27,9 +27,7 @@ export default {
   },
 
   created () {
-    console.log(this.data.items[0])
     for (let entry of this.data.items) {
-      console.log(entry.fields.type)
       this[entry.fields.type].image = entry.fields.image.fields.file.url
       this[entry.fields.type].list = entry.fields.list.split("\n")    }
   },

@@ -9,8 +9,6 @@
       .ss-copy(v-in-viewport.once) With One Concern, our clients take an integrated approach to building lasting resilience.  We integrate AI, machine learning, and deep learning with expertise ion natural science phenomena, emergency management, and our clients' own institutional knowledge.  By doing so, we enable clients to improve the robustness of their approach and the speed at which they're able to achieve success.
       .ss-title(v-in-viewport.once) Join the Movement
       .ss-copy(v-in-viewport.once) Together, we're leading the global resilience movement by taking a benevolent approach to technology and society.
-
-
 </template>
 
 <script>
@@ -51,6 +49,4 @@ export default {
     font-s6()
     line-height 20px
     inViewportBottom(0.4, 0.5)
-
-
 </style>
