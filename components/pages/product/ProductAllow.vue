@@ -4,7 +4,7 @@
 
   .allows
     .allow(v-for="allow in allows")
-      .allow-svg(v-in-viewport.once)(v-html="allow.icon")
+      .allow-svg(v-in-viewport.once,v-html="allow.icon")
       .allow-copy(v-in-viewport.once) {{ allow.copy }}
 </template>
 

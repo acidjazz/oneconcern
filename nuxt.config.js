@@ -63,7 +63,8 @@ module.exports = {
 
     script: [
       { src: '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js' },
-      { src: "https://cdnjs.cloudflare.com/ajax/libs/flickity/2.1.2/flickity.pkgd.min.js", integrity: "sha256-jBJrwTqJhvGprAz9HNZygKWuDspS1FGf5wK3z4XHakM=", crossorigin: "anonymous" },
+      { src: '//cdnjs.cloudflare.com/ajax/libs/flickity/2.1.2/flickity.pkgd.js' },
+      // { src: "https://cdnjs.cloudflare.com/ajax/libs/flickity/2.1.2/flickity.pkgd.min.js", integrity: "sha256-jBJrwTqJhvGprAz9HNZygKWuDspS1FGf5wK3z4XHakM=", crossorigin: "anonymous" },
     ],
 
   },
