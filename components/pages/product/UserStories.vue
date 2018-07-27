@@ -76,7 +76,7 @@ export default {
   background-size cover
   margin auto
   position relative
-  width 70%
+  width 800px
   height 440px
 
 .carousel-cell
