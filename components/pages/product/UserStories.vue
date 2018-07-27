@@ -44,7 +44,7 @@ export default {
           wrapAround: true,
         });
       }
-    }, 100)
+    }, 200)
   },
 
   data () {
