@@ -1,9 +1,10 @@
 <template lang="pug">
 .section.section-stories
-  .section-stories-title(v-in-viewport.once) User Testimonials
+  .section-stories-title(v-in-viewport) User Testimonials
   no-ssr
     flickity.carousel#UserStories(:options="flickityOptions")
       .story.carousel-cell(
+        v-in-viewport,
         v-for="story in stories",
         :key="story.youtubId")
         iframe(
@@ -64,10 +65,12 @@ export default {
 .section-stories-title
   color white
   padding 0 0 30px 0
-
+  inViewportBottom(0, 0.5)
 
 .carousel
   height 540px
+  .carousel-cell.is-selected
+    inViewportBottom(0.2, 0.5)
 
 .story
   background-size cover
@@ -75,10 +78,19 @@ export default {
   width 80%
   height 540px
 
+.carousel-cell
+  transform-style preserve-3d
+
 .carousel-cell.is-selected
   > .story-inner
     height 560px
     margin-top 0px
+
+.carousel-cell:not(.is-selected)
+  inViewportLeft(0.6, 0.5)
+
+.carousel-cell.is-selected + .carousel-cell
+  inViewportRight(0.6, 0.5)
 
 .story-inner
   margin 20px 40px

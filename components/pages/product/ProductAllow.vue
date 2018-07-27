@@ -31,7 +31,8 @@ export default {
   margin auto
   flex-direction row
   flex-wrap wrap
-  padding-top 30px
+  padding 30px
+  padding-bottom 0px
 .allow
   width 50%
   display flex
@@ -62,6 +63,8 @@ export default {
   color white
 
 @media all and (min-width: 1px) and (max-width: 1000px)
+  .allows
+    padding 10px
   .section-ProductAllow > .title
     font-s1()
   .allow
