@@ -2,7 +2,7 @@
 .section.section-stories
   .section-stories-title(v-in-viewport.once) User Testimonials
   no-ssr
-    .carousel#UserStories(data-flickity,ref="stories")
+    flickity.carousel#UserStories(:options="flickityOptions")
       .story.carousel-cell(
         v-for="story in stories",
         :key="story.youtubId")
@@ -38,6 +38,7 @@ export default {
   },
 
   mounted () {
+    /*
     setTimeout( () => {
       if (process.browser && !this.flkty && window.Flickity) {
         this.flkty = new window.Flickity(this.$refs.stories, {
@@ -45,12 +46,16 @@ export default {
         });
       }
     }, 200)
+    */
   },
 
   data () {
     return {
       flkty: false,
       playing: false,
+      flickityOptions: {
+        wrapAround: true,
+      },
     }
   }
 

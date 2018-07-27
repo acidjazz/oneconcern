@@ -58,12 +58,12 @@ module.exports = {
       { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
 
       { rel: 'stylesheet', href: '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' },
-      { rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/flickity/2.1.2/flickity.min.css", integrity: "sha256-R7F2N1AOmvTM5vdSjlUU+Uij6rwjyLuGezvu4lU+5cI=", crossorigin: "anonymous" },
+      // { rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/flickity/2.1.2/flickity.min.css", integrity: "sha256-R7F2N1AOmvTM5vdSjlUU+Uij6rwjyLuGezvu4lU+5cI=", crossorigin: "anonymous" },
     ],
 
     script: [
       { src: '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js' },
-      { src: '//cdnjs.cloudflare.com/ajax/libs/flickity/2.1.2/flickity.pkgd.js' },
+      // { src: '//cdnjs.cloudflare.com/ajax/libs/flickity/2.1.2/flickity.pkgd.js' },
       // { src: "https://cdnjs.cloudflare.com/ajax/libs/flickity/2.1.2/flickity.pkgd.min.js", integrity: "sha256-jBJrwTqJhvGprAz9HNZygKWuDspS1FGf5wK3z4XHakM=", crossorigin: "anonymous" },
     ],
 
@@ -79,6 +79,7 @@ module.exports = {
   plugins: [
     '~/plugins/contentful.js',
     {src: '~plugins/ga.js', ssr: false},
+    {src: '~/plugins/flickity.js', ssr: false},
   ],
   /*
   ** Build configuration

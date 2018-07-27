@@ -33,6 +33,7 @@
     "stylus-loader": "^3.0.2",
     "vue-carousel": "^0.10.0",
     "vue-countup-v2": "^1.0.3",
+    "vue-flickity": "^1.1.2",
     "vue-in-viewport-directive": "^1.1.4",
     "vue-in-viewport-mixin": "^1.0.4"
   },
