@@ -28,6 +28,7 @@
 <script>
 import inViewportDirective from 'vue-in-viewport-directive'
 export default {
+
   directives: { 'in-viewport': inViewportDirective },
 
   props: {
@@ -35,18 +36,6 @@ export default {
       type: Array,
       required: true,
     },
-  },
-
-  mounted () {
-    /*
-    setTimeout( () => {
-      if (process.browser && !this.flkty && window.Flickity) {
-        this.flkty = new window.Flickity(this.$refs.stories, {
-          wrapAround: true,
-        });
-      }
-    }, 200)
-    */
   },
 
   data () {
