@@ -4,12 +4,14 @@
 
   .allows
     .allow(v-for="allow in allows")
-      .allow-svg(v-html="allow.icon")
-      .allow-copy {{ allow.copy }}
+      .allow-svg(v-in-viewport.once)(v-html="allow.icon")
+      .allow-copy(v-in-viewport.once) {{ allow.copy }}
 </template>
 
 <script>
+import inViewportDirective from 'vue-in-viewport-directive'
 export default {
+  directives: { 'in-viewport': inViewportDirective },
   props: {
     allows: {
       type: Array,
@@ -35,6 +37,12 @@ export default {
   display flex
   padding 30px 0
   align-items center
+  for i in 1..4
+    &:nth-child({i})
+      .allow-svg
+        inViewportBottom((0.1 * i), 0.5)
+      .allow-copy
+        inViewportBottom((0.1 * i + 0.2), 0.5)
 
 .allow-svg
   width 100px

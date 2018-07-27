@@ -6,16 +6,19 @@
     a.sf-item(:class="{'is-active': selection == 'flood'}",@click="selection = 'flood'") Flood
 
   .sf-content
-    .sf-image
+    .sf-image(v-in-viewport.once)
       img(:src="`${selected.image}`")
     .sf-list
       ul
-        li(v-for="item in selected.list") {{ item }}
+        li(v-in-viewport.once,v-for="item in selected.list") {{ item }}
 
 </template>
 
 <script>
+import inViewportDirective from 'vue-in-viewport-directive'
 export default {
+
+  directives: { 'in-viewport': inViewportDirective },
 
   props: {
     data: {
@@ -81,6 +84,7 @@ export default {
 
 .sf-image
   width 50%
+  inViewportBottom(0.1, 0.5)
   > img
     width 100%
 
@@ -94,6 +98,7 @@ export default {
     padding 0
     max-width 400px
     li
+      inViewportBottom(0.1, 0.5)
       padding 5px 0
       color white
       text-align left

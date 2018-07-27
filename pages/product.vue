@@ -8,8 +8,9 @@
   UserStories(v-if="stories.length > 0",:stories="stories")
   ProductAllow(:allows="allows")
   SeismicFlood(:data="seismicFlood")
+  OrangeBlock
 
-  .quote
+  //.quote
     .copy(v-in-viewport.once) {{ copys.quoteTop }}
   HumanRace(:title="copys.titleHumanRace",:copy="copys.HumanRace")
   FeaturedCaseStudy(:copy="copys.CaseStudy")
@@ -31,6 +32,7 @@ import inViewportDirective from 'vue-in-viewport-directive'
 import UserStories from '~/components/pages/product/UserStories'
 import ProductAllow from '~/components/pages/product/ProductAllow'
 import SeismicFlood from '~/components/pages/product/SeismicFlood'
+import OrangeBlock from '~/components/pages/product/OrangeBlock'
 import HumanRace from '~/components/pages/product/HumanRace'
 import FeaturedCaseStudy from '~/components/pages/product/FeaturedCaseStudy'
 import DigitalFingerprints from '~/components/pages/product/DigitalFingerprints'
@@ -51,6 +53,7 @@ export default {
     UserStories,
     ProductAllow,
     SeismicFlood,
+    OrangeBlock,
   },
   directives: { 'in-viewport': inViewportDirective },
   async asyncData () {
