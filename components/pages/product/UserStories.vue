@@ -39,7 +39,7 @@ export default {
 
   mounted () {
     setTimeout( () => {
-      if (process.browser && !this.flkty && window.Flickity) {
+      if (process.browser && window.Flickity) {
         this.flkty = new window.Flickity(this.$refs.stories, {
           wrapAround: true,
         });
