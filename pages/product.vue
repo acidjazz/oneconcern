@@ -65,7 +65,7 @@ export default {
     const CaseStudyEntry = await client.getEntries({ 'content_type': 'caseStudy'})
     const CaseStudyBlogEntry = await client.getEntry(CaseStudyEntry.items[0].fields.blog.sys.id)
 
-    const userStory = await client.getEntries({'content_type': 'userStory'})
+    const userStory = await client.getEntries({'content_type': 'userStory', order: 'fields.order'})
     const productAllow = await client.getEntries({'content_type': 'productAllow', order: 'fields.order'})
     const seismicFlood = await client.getEntries({'content_type': 'seismicFlood'})
 
