@@ -61,9 +61,9 @@ export default {
       burger: false,
       darken: false,
       menu: {
-        about: { copy: 'Who We Are', },
-        mission: { copy: 'What We Believe', },
         product: { copy: 'What We Do' },
+        mission: { copy: 'What We Believe', },
+        about: { copy: 'Who We Are', },
         careers: { copy: 'Join the Team', },
         blog: { copy: 'Recent Updates' },
       },

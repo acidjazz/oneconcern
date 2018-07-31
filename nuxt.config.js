@@ -76,6 +76,7 @@ module.exports = {
   plugins: [
     '~/plugins/contentful.js',
     {src: '~plugins/ga.js', ssr: false},
+    {src: '~/plugins/flickity.js', ssr: false},
   ],
   /*
   ** Build configuration
@@ -89,7 +90,7 @@ module.exports = {
   generate: { routes },
   build: {
     vendor: [
-      'babel-polyfill',
+      // 'babel-polyfill',
     ],
     /*
     ** Run ESLint on save
