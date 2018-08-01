@@ -187,8 +187,8 @@ acorn@^5.0.0, acorn@^5.0.3, acorn@^5.3.0, acorn@^5.5.0, acorn@^5.6.0:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.1.tgz#f095829297706a7c9776958c0afc8930a9b9d9d8"
 
 aeonian@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/aeonian/-/aeonian-1.1.1.tgz#58f8c6bfe748ddd67a609a7f50765ab6126f30d3"
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/aeonian/-/aeonian-1.1.2.tgz#6d5c5e879c9d6b36021527ad6c8e9a0fce7e7137"
   dependencies:
     "@faceleg/s3" "^4.5.0"
     aws-sdk "^2.285.1"

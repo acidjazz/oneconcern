@@ -21,7 +21,7 @@
     "@nuxtjs/axios": "^5.0.0-rc.2",
     "@nuxtjs/component-cache": "^1.1.2",
     "@nuxtjs/proxy": "^1.2.4",
-    "aeonian": "^1.1.1",
+    "aeonian": "^1.1.2",
     "babel": "^6.23.0",
     "contentful": "^6.1.2",
     "countup.js": "^1.9.3",
