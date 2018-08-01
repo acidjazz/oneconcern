@@ -12,23 +12,21 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
     "cash": "node operations/cache.js",
-
-    "production": "yarn cash; yarn generate; clear; node operations/aeonian.js production",
-    "staging": "yarn cash; yarn generate; clear; node operations/aeonian.js staging",
-    "development": "yarn cash; yarn generate; clear; node operations/aeonian.js dev",
-
+    "production": "yarn cash; yarn generate; node operations/aeonian.js production",
+    "staging": "yarn cash; yarn generate; node operations/aeonian.js staging",
+    "development": "yarn cash; yarn generate; node operations/aeonian.js dev",
     "test": "echo No tests yet"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.0.0-rc.2",
     "@nuxtjs/component-cache": "^1.1.2",
     "@nuxtjs/proxy": "^1.2.4",
-    "aeonian": "git://github.com/zivagolee/aeonian.git#master",
+    "aeonian": "^1.1.1",
     "babel": "^6.23.0",
     "contentful": "^6.1.2",
     "countup.js": "^1.9.3",
     "dotenv": "^6.0.0",
-    "nuxt": "^1.4.1",
+    "nuxt": "^1.4.2",
     "pug": "^2.0.3",
     "speakingurl": "^14.0.1",
     "stylus": "^0.54.5",
