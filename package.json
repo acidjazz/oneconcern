@@ -12,9 +12,11 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
     "cash": "node operations/cache.js",
-    "production": "yarn cash; yarn generate; node operations/aeonian.js production",
-    "staging": "yarn cash; yarn generate; node operations/aeonian.js staging",
-    "development": "yarn cash; yarn generate; node operations/aeonian.js dev",
+
+    "production": "yarn cash; yarn generate; clear; node operations/aeonian.js production",
+    "staging": "yarn cash; yarn generate; clear; node operations/aeonian.js staging",
+    "development": "yarn cash; yarn generate; clear; node operations/aeonian.js dev",
+
     "test": "echo No tests yet"
   },
   "dependencies": {
