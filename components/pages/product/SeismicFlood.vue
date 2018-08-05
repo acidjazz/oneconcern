@@ -6,11 +6,22 @@
     a.sf-item(:class="{'is-active': selection == 'flood'}",@click="selection = 'flood'") Flood
 
   .sf-content
-    .sf-image(v-in-viewport.once)
-      img(:src="`${selected.image}`")
-    .sf-list
-      ul
-        li(v-in-viewport.once,v-for="item in selected.list") {{ item }}
+    transition(name="fade")
+      .sf-body(v-if="selection == 'seismic'",key="seismic")
+
+        .sf-image(v-in-viewport.once)
+          img(:src="`${seismic.image}`")
+        .sf-list
+          ul
+            li(v-in-viewport.once,v-for="item in seismic.list") {{ item }}
+
+      .sf-body(v-if="selection == 'flood'",key="flood")
+
+        .sf-image(v-in-viewport.once)
+          img(:src="`${flood.image}`")
+        .sf-list
+          ul
+            li(v-in-viewport.once,v-for="item in flood.list") {{ item }}
 
 </template>
 
@@ -76,6 +87,13 @@ export default {
   transition all 0.3s ease-in
 
 .sf-content
+  position relative
+  width 900px
+  height 400px
+  margin auto
+
+.sf-body
+  width 100%
   padding 30px
   display flex
   align-items center

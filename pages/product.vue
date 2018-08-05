@@ -5,8 +5,8 @@
     .hero-title {{ copy }}
   ScrollDown
 
-  UserStories(v-if="stories.length > 0",:stories="stories")
-  ProductAllow(:allows="allows")
+  UserStories(v-if="stories.length > 0",:stories="stories",:title="titles[1]")
+  ProductAllow(:allows="allows",:title="titles[2]")
   SeismicFlood(:data="seismicFlood")
   OrangeBlock
 
@@ -68,6 +68,7 @@ export default {
     const userStory = await client.getEntries({'content_type': 'userStory', order: 'fields.order'})
     const productAllow = await client.getEntries({'content_type': 'productAllow', order: 'fields.order'})
     const seismicFlood = await client.getEntries({'content_type': 'seismicFlood'})
+    const productTitle = await client.getEntries({'content_type': 'productTitle'})
 
     let copys = {}
     for (let entry of text.items) {
@@ -111,6 +112,11 @@ export default {
       })
     }
 
+    let titles = {}
+    for (let entry of productTitle.items) {
+      titles[entry.fields.num] = entry.fields.title
+    }
+
     let allows = []
     for (let entry of productAllow.items) {
       allows.push({
@@ -132,6 +138,7 @@ export default {
       allows: allows,
       copys: copys,
       seismicFlood: seismicFlood,
+      titles: titles,
     }
   },
   methods: {
