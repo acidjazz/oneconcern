@@ -1,6 +1,6 @@
 <template lang="pug">
 .section.section-ProductAllow
-  .title One Concern's product allows you to:
+  .title {{ title }}
 
   .allows
     .allow(v-for="allow in allows")
@@ -13,6 +13,10 @@ import inViewportDirective from 'vue-in-viewport-directive'
 export default {
   directives: { 'in-viewport': inViewportDirective },
   props: {
+    title: {
+      type: String,
+      required: true,
+    },
     allows: {
       type: Array,
       required: true,
