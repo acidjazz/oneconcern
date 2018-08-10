@@ -1,6 +1,6 @@
 <template lang="pug">
 .section.section-stories
-  .section-stories-title(v-in-viewport) Why One Concern is Different
+  .section-stories-title(v-in-viewport) {{ title }}
   no-ssr
     flickity.carousel#UserStories(:options="flickityOptions")
       .story.carousel-cell(
@@ -33,6 +33,10 @@ export default {
   directives: { 'in-viewport': inViewportDirective },
 
   props: {
+    title: {
+      type: String,
+      required: true,
+    },
     stories: {
       type: Array,
       required: true,
