@@ -1,6 +1,6 @@
 <template lang="pug">
 footer.footer(:class="{solid: fixed.indexOf($route.name) === -1, white: $route.name === 'careers'}")
-  .footer-left &copy;2018 One Concern, Inc.  All Rights Reserved
+  .footer-left &copy;2019 One Concern, Inc.  All Rights Reserved
   .footer-right
     a.footer-item.footer-item-contact(href="mailto:contact@oneconcern.com") Contact Us
     a.footer-item(href="https://www.facebook.com/oneconcern",target="_new")
