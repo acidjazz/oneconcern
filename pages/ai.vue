@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import BenevolentAi from '~/components/modules/BenevolentAi'
-import { createClient } from '~/plugins/contentful.js'
+import BenevolentAi from '@/components/modules/BenevolentAi'
+import { createClient } from '@/plugins/contentful.js'
 const client = createClient()
 export default {
   components: {  BenevolentAi },

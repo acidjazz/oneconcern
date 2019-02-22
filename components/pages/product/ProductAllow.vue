@@ -79,7 +79,4 @@ export default {
     padding 10px
   .allow-copy
     margin 0 20px
-
-
-
 </style>

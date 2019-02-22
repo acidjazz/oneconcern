@@ -5,9 +5,9 @@
 
 <script>
 
-import Carousel from '~/components/modules/Carousel.vue'
+import Carousel from '@/components/modules/Carousel.vue'
 
-import { createClient } from '~/plugins/contentful.js'
+import { createClient } from '@/plugins/contentful.js'
 const client = createClient()
 
 export default {
@@ -21,7 +21,7 @@ export default {
     })
 
     let carousel = []
-    for (let item of entries.items) { 
+    for (let item of entries.items) {
       carousel.push({
         lowres: item.fields.lowres.fields.file.url,
         image: item.fields.image.fields.file.url,

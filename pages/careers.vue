@@ -19,15 +19,15 @@
 </template>
 
 <script>
-import { createClient } from '~/plugins/contentful.js'
+import { createClient } from '@/plugins/contentful.js'
 import inViewportDirective from 'vue-in-viewport-directive'
-import CareersGallery from '~/components/pages/careers/CareersGallery'
-import PerksBenefits from '~/components/pages/careers/PerksBenefits'
-import OpenPositions from '~/components/pages/careers/OpenPositions'
-import ScrollDown from '~/components/modules/ScrollDown'
-import CtaButton from '~/components/buttons/CtaButton'
+import CareersGallery from '@/components/pages/careers/CareersGallery'
+import PerksBenefits from '@/components/pages/careers/PerksBenefits'
+import OpenPositions from '@/components/pages/careers/OpenPositions'
+import ScrollDown from '@/components/modules/ScrollDown'
+import CtaButton from '@/components/buttons/CtaButton'
 const client = createClient()
-import jobs from '~/static/cache/lever.json'
+import jobs from '@/static/cache/lever.json'
 export default {
   components: { CareersGallery, PerksBenefits, OpenPositions, CtaButton, ScrollDown },
   directives: { 'in-viewport': inViewportDirective },

@@ -30,12 +30,12 @@
 </template>
 
 <script>
-import { createClient } from '~/plugins/contentful.js'
+import { createClient } from '@/plugins/contentful.js'
 import inViewportDirective from 'vue-in-viewport-directive'
-import ViewOpenings from '~/components/modules/ViewOpenings'
-import CtaButton from '~/components/buttons/CtaButton'
-import ScrollDown from '~/components/modules/ScrollDown'
-import OurTeam from '~/components/pages/about/OurTeam'
+import ViewOpenings from '@/components/modules/ViewOpenings'
+import CtaButton from '@/components/buttons/CtaButton'
+import ScrollDown from '@/components/modules/ScrollDown'
+import OurTeam from '@/components/pages/about/OurTeam'
 const client = createClient()
 export default {
 
@@ -89,7 +89,7 @@ export default {
       filter: false,
     }
   },
-        
+
 }
 </script>
 

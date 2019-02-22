@@ -25,7 +25,6 @@ export default {
       }
     },
   },
-
   data () {
     return {
       visible: false,
@@ -33,7 +32,6 @@ export default {
   }
 }
 </script>
-
 
 <style lang="stylus">
 @import '../../assets/stylus/guide/includes/*'

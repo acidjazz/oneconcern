@@ -2,19 +2,22 @@
 #QuoteMonitor
   .copy(v-in-viewport.once)
     | One Concern currently monitors
-    i-count-up.value(:startVal=0,:endVal="numbers.residential",:duration="2.5")
+    // i-count-up.value(:startVal=0,:endVal="numbers.residential",:duration="2.5")
+    span.value {{ numbers.residential }}
     | residential and
-    i-count-up.value(:startVal=0,:endVal="numbers.commercial",:duration="2.5")
-    | commercial buildings. We monitor earthquakes for 
-    i-count-up.value(:startVal=0,:endVal="numbers.people/1000000",:duration="2.5",:options="{suffix: 'M'}")
+    // i-count-up.value(:startVal=0,:endVal="numbers.commercial",:duration="2.5")
+    span.value {{ numbers.commercial }}
+    | commercial buildings. We monitor earthquakes for
+    // i-count-up.value(:startVal=0,:endVal="numbers.people/1000000",:duration="2.5",:options="{suffix: 'M'}")
+    span.value {{ numbers.people }}
     |  people.
 </template>
 <script>
-import ICountUp from 'vue-countup-v2'
+// import ICountUp from 'vue-countup-v2'
 import inViewportDirective from 'vue-in-viewport-directive'
 import inViewport from 'vue-in-viewport-mixin'
 export default {
-  components: { ICountUp },
+  // components: { ICountUp },
   directives: { 'in-viewport': inViewportDirective },
   mixins: [ inViewport ],
   props: {

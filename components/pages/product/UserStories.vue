@@ -9,7 +9,7 @@
         :key="story.youtubId")
         iframe(
           v-if="playing === story.youtubeId",
-          width="98%", 
+          width="98%",
           height="440",
           :src="`https://www.youtube.com/embed/${story.youtubeId}?autoplay=1`",
           frameborder="0",

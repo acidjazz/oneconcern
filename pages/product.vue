@@ -1,5 +1,5 @@
 <template lang="pug">
-#Product 
+#Product
   .hero(:style="`background-image: url(${lowres})`")
     img.hero-background(:src="image")
     .hero-title {{ copy }}
@@ -7,7 +7,7 @@
 
   UserStories(v-if="stories.length > 0",:stories="stories",:title="titles[1]")
   ProductAllow(:allows="allows",:title="titles[2]")
-  SeismicFlood(:data="seismicFlood")
+  SeismicFlood(:data="seismicFlood",:copy="seismicFloodCopy")
   OrangeBlock
 
   //.quote
@@ -27,22 +27,22 @@
 </template>
 
 <script>
-import { createClient } from '~/plugins/contentful.js'
+import { createClient } from '@/plugins/contentful.js'
 import inViewportDirective from 'vue-in-viewport-directive'
-import UserStories from '~/components/pages/product/UserStories'
-import ProductAllow from '~/components/pages/product/ProductAllow'
-import SeismicFlood from '~/components/pages/product/SeismicFlood'
-import OrangeBlock from '~/components/pages/product/OrangeBlock'
-import HumanRace from '~/components/pages/product/HumanRace'
-import FeaturedCaseStudy from '~/components/pages/product/FeaturedCaseStudy'
-import DigitalFingerprints from '~/components/pages/product/DigitalFingerprints'
-import QuoteMonitor from '~/components/pages/product/QuoteMonitor'
-import BeforeAfter from '~/components/pages/product/BeforeAfter'
-import ScrollDown from '~/components/modules/ScrollDown'
-import CtaButton from '~/components/buttons/CtaButton'
+import UserStories from '@/components/pages/product/UserStories'
+import ProductAllow from '@/components/pages/product/ProductAllow'
+import SeismicFlood from '@/components/pages/product/SeismicFlood'
+import OrangeBlock from '@/components/pages/product/OrangeBlock'
+import HumanRace from '@/components/pages/product/HumanRace'
+import FeaturedCaseStudy from '@/components/pages/product/FeaturedCaseStudy'
+import DigitalFingerprints from '@/components/pages/product/DigitalFingerprints'
+import QuoteMonitor from '@/components/pages/product/QuoteMonitor'
+import BeforeAfter from '@/components/pages/product/BeforeAfter'
+import ScrollDown from '@/components/modules/ScrollDown'
+import CtaButton from '@/components/buttons/CtaButton'
 const client = createClient()
 export default {
-  components: { 
+  components: {
     HumanRace,
     FeaturedCaseStudy,
     DigitalFingerprints,
@@ -138,6 +138,10 @@ export default {
       allows: allows,
       copys: copys,
       seismicFlood: seismicFlood,
+      seismicFloodCopy: {
+        buttonFlood: copys.buttonFlood,
+        buttonSeismic: copys.buttonSeismic,
+      },
       titles: titles,
     }
   },

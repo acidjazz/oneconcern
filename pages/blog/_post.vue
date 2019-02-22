@@ -11,9 +11,9 @@
 </template>
 
 <script>
-import { createClient } from '~/plugins/contentful.js'
-import BlogPost from '~/components/pages/blog/BlogPost'
-import ViewOpenings from '~/components/modules/ViewOpenings'
+import { createClient } from '@/plugins/contentful.js'
+import BlogPost from '@/components/pages/blog/BlogPost'
+import ViewOpenings from '@/components/modules/ViewOpenings'
 const client = createClient()
 export default {
   components: { BlogPost, ViewOpenings },

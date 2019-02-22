@@ -16,11 +16,11 @@
 </template>
 
 <script>
-import { createClient } from '~/plugins/contentful.js'
-import FeaturedPosts from '~/components/pages/blog/FeaturedPosts'
-import RecentUpdates from '~/components/pages/blog/RecentUpdates'
-import PopularTags from '~/components/pages/blog/PopularTags'
-import ViewOpenings from '~/components/modules/ViewOpenings'
+import { createClient } from '@/plugins/contentful.js'
+import FeaturedPosts from '@/components/pages/blog/FeaturedPosts'
+import RecentUpdates from '@/components/pages/blog/RecentUpdates'
+import PopularTags from '@/components/pages/blog/PopularTags'
+import ViewOpenings from '@/components/modules/ViewOpenings'
 const client = createClient()
 export default {
 
@@ -144,6 +144,6 @@ export default {
       tag: '',
     }
   },
-    
+
 }
 </script>

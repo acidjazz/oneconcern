@@ -1,5 +1,5 @@
 <template lang="pug">
-#What 
+#What
   .hero(:style="`background-image: url(${lowres})`")
     img.hero-background(:src="image")
     .hero-title {{ copy }}
@@ -17,12 +17,12 @@
 </template>
 
 <script>
-import { createClient } from '~/plugins/contentful.js'
+import { createClient } from '@/plugins/contentful.js'
 const client = createClient()
-import ContentBlock from '~/components/modules/ContentBlock'
-import CtaButton from '~/components/buttons/CtaButton'
-import ScrollDown from '~/components/modules/ScrollDown'
-import ViewOpenings from '~/components/modules/ViewOpenings'
+import ContentBlock from '@/components/modules/ContentBlock'
+import CtaButton from '@/components/buttons/CtaButton'
+import ScrollDown from '@/components/modules/ScrollDown'
+import ViewOpenings from '@/components/modules/ViewOpenings'
 export default {
   components: { ContentBlock, CtaButton, ViewOpenings, ScrollDown },
   async asyncData () {
@@ -54,7 +54,7 @@ export default {
       copy: hero.items[0].fields.copy,
       contents: contents,
     }
- 
+
   }
 }
 </script>
