@@ -2,19 +2,25 @@
 .section.section-OrangeBlock
   .subsections
     .subsection.subsection-one
-      .ss-title(v-in-viewport.once) Shifting The Paradigm
-      .ss-copy(v-in-viewport.once) We lead innovators to change the paradigm by going "all in" on an AI enabled resilience strategy that strengthens communities, protects people, places and assets, and rewards smarter infrastructure investments.
+      .ss-title(v-in-viewport.once) {{ copys.paradigmTitle }}
+      .ss-copy(v-in-viewport.once) {{ copys.paradigmCopy }}
     .subsection.subsection-two
-      .ss-title(v-in-viewport.once) Building Lasting Resilience
-      .ss-copy(v-in-viewport.once) With One Concern, our clients take an integrated approach to building lasting resilience.  We integrate AI, machine learning, and deep learning with expertise ion natural science phenomena, emergency management, and our clients' own institutional knowledge.  By doing so, we enable clients to improve the robustness of their approach and the speed at which they're able to achieve success.
-      .ss-title(v-in-viewport.once) Join the Movement
-      .ss-copy(v-in-viewport.once) Together, we're leading the global resilience movement by taking a benevolent approach to technology and society.
+      .ss-title(v-in-viewport.once) {{ copys.resilienceTitle }}
+      .ss-copy(v-in-viewport.once) {{ copys.resilienceCopy }}
+      .ss-title(v-in-viewport.once) {{ copys.movementTitle }}
+      .ss-copy(v-in-viewport.once) {{ copys.movementCopy }}
 </template>
 
 <script>
 import inViewportDirective from 'vue-in-viewport-directive'
 export default {
   directives: { 'in-viewport': inViewportDirective },
+  props: {
+    copys: {
+      type: Object,
+      required: true,
+    },
+  },
 }
 </script>
 

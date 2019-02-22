@@ -8,7 +8,7 @@
   UserStories(v-if="stories.length > 0",:stories="stories",:title="titles[1]")
   ProductAllow(:allows="allows",:title="titles[2]")
   SeismicFlood(:data="seismicFlood",:copy="seismicFloodCopy")
-  OrangeBlock
+  OrangeBlock(:copys="copys")
 
   //.quote
     .copy(v-in-viewport.once) {{ copys.quoteTop }}
