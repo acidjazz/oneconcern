@@ -9,7 +9,7 @@
   .case-study-cta(v-in-viewport.once)
     CtaButton(
       :link="`blog/${slug(copy.blog.title)}-${copy.blog.id}`",
-      name="see full case study",
+      :name="buttonCopy",
       theme="dark-border")
 </template>
 <script>
@@ -21,6 +21,10 @@ export default {
   directives: { 'in-viewport': inViewportDirective },
 
   props: {
+    buttonCopy: {
+      type: String,
+      required: true,
+    },
     copy: {
       type: Object,
     },
