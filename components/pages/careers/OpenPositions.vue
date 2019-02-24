@@ -1,18 +1,18 @@
 <template lang="pug">
 .open-positions
-  .title(v-in-viewport.once) Open Positions
+  .title(v-in-viewport.once)  {{ copys.openTitle }}
   .open-positions-teams
     .open-positions-team(v-for="count, name in teams",v-in-viewport.once)
       .title {{ name }}
       CtaButton(
         :link="`https://jobs.lever.co/oneconcern?team=${name}`",
-        name="VIEW OPENINGS",
+        :name="copys.openButton",
         theme="orange-border")
-  .title(v-in-viewport.once) Don't see the position you're looking for? We'd still love to hear from you!
-  .copy(v-in-viewport.once) 
-    | Contact us at 
-    a(href="mailto:careers@oneconcern.com") careers@oneconcern.com. 
-    | We are always on the look out for amazing people.
+  .title(v-in-viewport.once) {{ copys.openTitleB }}
+  .copy(v-in-viewport.once)
+    | {{ copys.contactUs1 }} &nbsp;
+    a(:href="`mailto:${copys.contactEmail}`") {{ copys.contactEmail }}.
+    | {{ copys.contactus2 }}
 </template>
 
 <script>
@@ -21,6 +21,10 @@ import CtaButton from '~/components/buttons/CtaButton'
 export default {
 
   props: {
+    copys: {
+      type: Object,
+      required: true,
+    },
     jobs: {
       type: Array,
       required: true,

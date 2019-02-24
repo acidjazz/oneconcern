@@ -7,14 +7,14 @@
     .hero-cta
       CtaButton(
         link="https://jobs.lever.co/oneconcern",
-        name="SEE OPPORTUNITIES",
+        :name="copys.oppButton",
         theme="orange-border")
 
   ScrollDown
-  CareersGallery(:images="gallery")
+  CareersGallery(:images="gallery",:copys="copys")
 
-  PerksBenefits(:perks="perks",v-if="perks")
-  OpenPositions(:jobs="jobs",v-if="jobs")
+  PerksBenefits(:perks="perks",v-if="perks",:copys="copys")
+  OpenPositions(:jobs="jobs",v-if="jobs",:copys="copys")
 
 </template>
 
@@ -33,9 +33,15 @@ export default {
   directives: { 'in-viewport': inViewportDirective },
   async asyncData ({ app }) {
 
+    const copy = await client.getEntries({'content_type': 'careersCopy'})
     const hero = await client.getEntries({'content_type': 'hero','fields.page': 'careers'})
     const perksBenefits = await client.getEntries({'content_type': 'perksBenefits'})
     const careersGallery = await client.getEntries({'content_type': 'careersGallery', order: 'fields.number'})
+
+    let copys = {}
+    for (let entry of copy.items) {
+      copys[entry.fields.name] = entry.fields.copy
+    }
 
     let perks = []
     let gallery = []
@@ -59,6 +65,7 @@ export default {
       copy: hero.items[0].fields.copy,
       gallery: gallery,
       perks: perks,
+      copys: copys,
     }
 
   },

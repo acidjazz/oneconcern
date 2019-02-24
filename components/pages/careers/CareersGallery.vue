@@ -3,7 +3,7 @@
   .careers-gallery-inner
     .careers-block.is-half
       .careers-copy.careers-copy-1(v-in-viewport.once)
-        .title We strive to create an environment where employees can thrive and grow professionally and personally. 
+        .title {{ copys.careersGallery1 }}
     .careers-block.is-half
       .careers-image.careers-image-1(v-in-viewport.once,:style="`background-image: url(${images[1]})`")
     .careers-block.is-full
@@ -16,17 +16,21 @@
       .careers-image.careers-image-7(v-in-viewport.once,:style="`background-image: url(${images[7]})`")
     .careers-block.is-half.is-end
       .careers-copy.careers-copy-2(v-in-viewport.once)
-        .title At the end of every day, we feel like we are doing something significant to make the world a better place.
-        .copy We’re building a global disaster-intelligence platform with one concern in mind: saving lives. We’re using AI and machine learning to (1) create a robust, disaster-resilient cloud infrastructure, (2) create a real-time big data pipeline to inform disaster response and modeling, and (3) combine traditional hazard models with machine learning to provide clear pre-disaster insights, while capturing post-disaster data to continuously improve response and recovery.
+        .title {{ copys.careersGallery2 }}
+        .copy {{ copys.careersGallery3 }}
 </template>
 
 <script>
 import inViewportDirective from 'vue-in-viewport-directive'
 export default {
-  props: { 
+  props: {
     images: {
       type: Array
-    }
+    },
+    copys: {
+      type: Object,
+      required: true,
+    },
   },
   directives: { 'in-viewport': inViewportDirective },
 }
@@ -125,7 +129,7 @@ export default {
 
 @media all and (min-width: 1px) and (max-width: 1000px)
   .careers-gallery
-    padding 60px 20px 
+    padding 60px 20px
 
   .careers-block
     flex-direction column
