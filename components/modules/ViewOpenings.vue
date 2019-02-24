@@ -1,11 +1,11 @@
 <template lang="pug">
 .section.section-openings
-  .title(v-in-viewport.once) We’re assembling a team
-  .title(v-in-viewport.once) of world class individuals.
-  .title(v-in-viewport.once) Interested in joining us? 
+  .title(v-in-viewport.once) We’re assembling a team {{ copys.openingsTitle1 }}
+  .title(v-in-viewport.once) of world class individuals. {{ copys.openingsTitle2 }}
+  .title(v-in-viewport.once) Interested in joining us?  {{ copys.openingTitle3 }}
   CtaButton(
     v-in-viewport.once
-    name="VIEW OPENINGS",
+    :name="copy.openingsButton",
     theme="white-border-hoverblack",
     link="careers"
   )
@@ -18,6 +18,10 @@ export default {
   components: { CtaButton },
   directives: { 'in-viewport': inViewportDirective },
   props: {
+    copys: {
+      type: Object,
+      required: true,
+    },
     image: {
       type: String
     }

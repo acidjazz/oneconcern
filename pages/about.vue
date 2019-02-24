@@ -7,7 +7,7 @@
   ScrollDown
   .section.section-story(v-if="story")
 
-    .title(v-in-viewport.once) Our Story
+    .title(v-in-viewport.once) {{ copys.ourStoryTitle }}
     .subsections
       .subsection(v-in-viewport.once)
         video(controls,:poster="story.poster")
@@ -16,17 +16,17 @@
         p(v-for="block in storyCopy") {{ block }}
 
   .section.section-team
-    .title(v-in-viewport.once) Meet Our Team
+    .title(v-in-viewport.once) {{ copys.ourTeamTitle }}
 
     OurTeam(:team="team",v-if="team")
-    .title(v-in-viewport.once) Get to know the team
+    .title(v-in-viewport.once) {{ copys.knowTeamTitle }}
     CtaButton(
       v-in-viewport.once
       name="LinkedIn",
       theme="white-border",
       link="https://www.linkedin.com/search/results/people/?facetCurrentCompany=%5B%226441806%22%5D")
 
-  ViewOpenings
+  ViewOpenings(:copys="copys")
 </template>
 
 <script>
@@ -43,10 +43,15 @@ export default {
   directives: { 'in-viewport': inViewportDirective },
   async asyncData () {
 
+    const copy = await client.getEntries({'content_type': 'aboutCopy'})
     const hero = await client.getEntries({'content_type': 'hero','fields.page': 'about'})
     const story = await client.getEntries({'content_type': 'aboutContent'})
     const members = await client.getEntries({ 'content_type': 'team', order: 'fields.order'})
 
+    let copys = {}
+    for (let entry of copy.items) {
+      copys[entry.fields.name] = entry.fields.copy
+    }
     let team = []
     for (let member of members.items) {
       team.push({
@@ -68,6 +73,7 @@ export default {
         poster: story.items[0].fields.storyPoster.fields.file.url,
       },
       team: team,
+      copys: copys,
     }
   },
 
