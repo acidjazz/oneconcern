@@ -22,7 +22,7 @@
     .title(v-in-viewport.once) {{ copys.knowTeamTitle }}
     CtaButton(
       v-in-viewport.once
-      name="LinkedIn",
+      :name="copys.linkedInButton",
       theme="white-border",
       link="https://www.linkedin.com/search/results/people/?facetCurrentCompany=%5B%226441806%22%5D")
 

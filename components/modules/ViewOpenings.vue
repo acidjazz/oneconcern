@@ -5,7 +5,7 @@
   .title(v-in-viewport.once) Interested in joining us?  {{ copys.openingTitle3 }}
   CtaButton(
     v-in-viewport.once
-    :name="copy.openingsButton",
+    :name="copys.openingsButton",
     theme="white-border-hoverblack",
     link="careers"
   )
