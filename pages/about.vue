@@ -49,9 +49,9 @@ export default {
     const members = await client.getEntries({ 'content_type': 'team', order: 'fields.order'})
 
     let copys = {}
-    for (let entry of copy.items) {
+    for (let entry of copy.items)
       copys[entry.fields.name] = entry.fields.copy
-    }
+
     let team = []
     for (let member of members.items) {
       team.push({

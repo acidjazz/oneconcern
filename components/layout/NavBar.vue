@@ -13,10 +13,9 @@ nav.navbar(:class="{dark: darken}")
       :class="{active: $route.name === route}"
       @click.native="burger = false"
       :to="`/${route}`")
-      span {{ item.copy }} 
+      span {{ item.copy }}
       .line
-    //CtaButton(name="REQUEST A DEMO",theme="white",:width=160,link="mailto:contact@oneconcern.com")
-    CtaButton(name="REQUEST A DEMO",theme="white",:width=160,:callback="demo")
+    CtaButton(:name="$store.state.layoutCopy.ctaDemo",theme="white",:width=160,:callback="demo")
   .clear
 </template>
 
@@ -29,7 +28,6 @@ export default {
       window.addEventListener('scroll', this.scroll)
       this.scroll()
    }
-
   },
   destroyed () {
     if (process.browser) {
@@ -61,11 +59,11 @@ export default {
       burger: false,
       darken: false,
       menu: {
-        product: { copy: 'What We Do' },
-        mission: { copy: 'What We Believe', },
-        about: { copy: 'Who We Are', },
-        careers: { copy: 'Join the Team', },
-        blog: { copy: 'Recent Updates' },
+        product: { copy: this.$store.state.layoutCopy.menuProduct },
+        mission: { copy: this.$store.state.layoutCopy.menuMission },
+        about: { copy: this.$store.state.layoutCopy.menuAbout },
+        careers: { copy: this.$store.state.layoutCopy.menuCareers },
+        blog: { copy: this.$store.state.layoutCopy.menuBlog },
       },
     }
   },
@@ -173,7 +171,7 @@ nav.navbar
   &.is-active span
     &:nth-child(2)
       opacity 0
-  &.is-active 
+  &.is-active
     transform rotate(90deg)
   &.is-active span
     &:nth-child(3)

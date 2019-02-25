@@ -10,12 +10,10 @@
 
 <script>
 import { NavBar, BottomBar, DemoForm, IEWarning } from '~/components/layout'
-
 export default {
-  components: { NavBar, BottomBar, DemoForm, IEWarning }
+  components: { NavBar, BottomBar, DemoForm, IEWarning },
 }
 </script>
-
 
 <style lang="stylus">
 @import '../assets/stylus/guide/*'
