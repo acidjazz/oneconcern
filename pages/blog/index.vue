@@ -12,7 +12,7 @@
   RecentUpdates(:posts="posts",:title="tag === ''",v-if="tag !== ''")
   RecentUpdates(:posts="allposts",:title="true")
   PopularTags(:tags="tags",v-if="tags")
-  ViewOpenings
+  ViewOpenings(:copys="aboutCopys")
 </template>
 
 <script>
@@ -31,6 +31,12 @@ export default {
     const hero = await client.getEntries({'content_type': 'hero','fields.page': 'blog'})
     const entriesCreated = await client.getEntries({'content_type': 'blog', order: '-fields.created'})
     const entriesFeatured = await client.getEntries({'content_type': 'blog', order: '-fields.featured'})
+
+    const aboutCopy = await client.getEntries({'content_type': 'aboutCopy'})
+
+    let aboutCopys = {}
+    for (let entry of aboutCopy.items)
+      aboutCopys[entry.fields.name] = entry.fields.copy
 
     let posts = []
     let featured = []
@@ -87,6 +93,7 @@ export default {
       allposts: posts,
       allfeatured: featured,
       unsortedTags: tags,
+      aboutCopys: aboutCopys,
     }
   },
 

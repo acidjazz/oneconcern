@@ -13,7 +13,7 @@
     :image="content.image",
     :ctaName="content.ctaName",
     :ctaLink="content.ctaLink")
-  ViewOpenings
+  ViewOpenings(:copys="aboutCopys")
 </template>
 
 <script>
@@ -26,6 +26,9 @@ import ViewOpenings from '@/components/modules/ViewOpenings'
 export default {
   components: { ContentBlock, CtaButton, ViewOpenings, ScrollDown },
   async asyncData () {
+
+    const aboutCopy = await client.getEntries({'content_type': 'aboutCopy'})
+
     const hero = await client.getEntries({
       'content_type': 'hero',
       'fields.page': 'mission'
@@ -48,11 +51,17 @@ export default {
       })
     }
 
+    let aboutCopys = {}
+    for (let entry of aboutCopy.items) {
+      aboutCopys[entry.fields.name] = entry.fields.copy
+    }
+
     return {
       lowres: hero.items[0].fields.lowres.fields.file.url,
       image: hero.items[0].fields.image.fields.file.url,
       copy: hero.items[0].fields.copy,
       contents: contents,
+      aboutCopys: aboutCopys,
     }
 
   }

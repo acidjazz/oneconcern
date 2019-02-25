@@ -6,8 +6,7 @@
     .hero-title {{ post.title }}
 
   BlogPost(:post="post")
-  ViewOpenings
-
+  ViewOpenings(:copys="aboutCopys")
 </template>
 
 <script>
@@ -21,6 +20,12 @@ export default {
     let params = context.route.params.post.split('-')
     let id = params[params.length-1]
     const post = (await client.getEntries({'content_type': 'blog', 'sys.id': id})).items[0]
+    const aboutCopy = await client.getEntries({'content_type': 'aboutCopy'})
+
+    let aboutCopys = {}
+    for (let entry of aboutCopy.items)
+      aboutCopys[entry.fields.name] = entry.fields.copy
+
     return {
       post: {
         title: post.fields.title,
@@ -34,6 +39,7 @@ export default {
           name: post.fields.author ? post.fields.author.fields.name : false,
           position: post.fields.author ? post.fields.author.fields.position : false,
         },
+        aboutCopys: aboutCopys,
       }
     }
   },
