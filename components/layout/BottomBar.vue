@@ -1,6 +1,7 @@
 <template lang="pug">
 footer.footer(:class="{solid: fixed.indexOf($route.name) === -1, white: $route.name === 'careers'}")
   .footer-left(v-html="$store.state.layoutCopy.footerCopyright")
+
   .footer-right
     a.footer-item.footer-item-contact(href="mailto:contact@oneconcern.com") {{ this.$store.state.layoutCopy.ctaContact }}
     a.footer-item(href="https://www.facebook.com/oneconcern",target="_new")
