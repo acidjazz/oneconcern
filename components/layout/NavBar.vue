@@ -12,7 +12,7 @@ nav.navbar(:class="{dark: darken}")
       :key="route"
       :class="{active: $route.name === route}"
       @click.native="burger = false"
-      :to="`/${route}`")
+      :to="`/${$store.state.i18n.locale}/${route}`")
       span {{ item.copy }}
       .line
     CtaButton(:name="$store.state.layoutCopy.ctaDemo",theme="white",:width=160,:callback="demo")

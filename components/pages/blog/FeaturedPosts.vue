@@ -10,7 +10,7 @@
       router-link.featured-post-image(
         v-else,
         :style="`background-image: url(${post.image})`",
-        :to="`/blog/${slug(post.title)}-${post.id}`")
+        :to="`/${$store.state.i18n.locale}/blog/${slug(post.title)}-${post.id}`")
       .featured-post-copy
         .featured-post-title {{ post.title }}
         .featured-post-author(v-if="post.author.name") by {{ post.author.name }}, {{ post.author.position }}

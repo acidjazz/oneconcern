@@ -56,19 +56,22 @@ export default {
     OrangeBlock,
   },
   directives: { 'in-viewport': inViewportDirective },
-  async asyncData () {
-    const hero = await client.getEntries({ 'content_type': 'hero', 'fields.page': 'product'})
-    const story = await client.getEntries({'content_type': 'productVideo'})
-    const text = await client.getEntries({ 'content_type': 'productCopy'})
-    const HumanRaceEntries = await client.getEntries({ 'content_type': 'humanRace'})
-    const BeforeAfterEntries = await client.getEntries({ 'content_type': 'beforeAfter', order: 'fields.order'})
-    const CaseStudyEntry = await client.getEntries({ 'content_type': 'caseStudy'})
+  async asyncData ({ app, params, store }) {
+    let iso = { en: 'en-US', jp: 'ja' }
+    let locale = iso[store.state.i18n.locale]
+
+    const hero = await client.getEntries({locale: locale, content_type: 'hero', 'fields.page': 'product'})
+    const story = await client.getEntries({locale: locale, 'content_type': 'productVideo'})
+    const text = await client.getEntries({locale: locale, 'content_type': 'productCopy'})
+    const HumanRaceEntries = await client.getEntries({locale: locale, 'content_type': 'humanRace'})
+    const BeforeAfterEntries = await client.getEntries({locale: locale, 'content_type': 'beforeAfter', order: 'fields.order'})
+    const CaseStudyEntry = await client.getEntries({locale: locale, 'content_type': 'caseStudy'})
     const CaseStudyBlogEntry = await client.getEntry(CaseStudyEntry.items[0].fields.blog.sys.id)
 
-    const userStory = await client.getEntries({'content_type': 'userStory', order: 'fields.order'})
-    const productAllow = await client.getEntries({'content_type': 'productAllow', order: 'fields.order'})
-    const seismicFlood = await client.getEntries({'content_type': 'seismicFlood'})
-    const productTitle = await client.getEntries({'content_type': 'productTitle'})
+    const userStory = await client.getEntries({locale: locale, 'content_type': 'userStory', order: 'fields.order'})
+    const productAllow = await client.getEntries({locale: locale, 'content_type': 'productAllow', order: 'fields.order'})
+    const seismicFlood = await client.getEntries({locale: locale, 'content_type': 'seismicFlood'})
+    const productTitle = await client.getEntries({locale: locale, 'content_type': 'productTitle'})
 
     let copys = {}
     for (let entry of text.items) {

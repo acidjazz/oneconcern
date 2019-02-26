@@ -86,13 +86,39 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/proxy',
     '@nuxtjs/component-cache',
+    ['nuxt-i18n', {
+      strategy: 'prefix_and_default',
+      deafultLocale: 'en',
+      fallbackLocale: 'en',
+      noPrefixDefaultLocale: true,
+      locales: [
+        {
+          code: 'en',
+          iso: 'en-US',
+          name: 'English',
+        },
+        {
+          code: 'jp',
+          iso: 'ja',
+          name: 'Japanese',
+        },
+      ],
+      rootRedirect: 'en',
+      vueI18n: { fallbackLocale: 'en' },
+      seo: true,
+    }],
+    '@nuxtjs/redirect-module',
+  ],
+  redirect: [
+    { from: '^/product', to: '/en/product' },
+    { from: '^/mission', to: '/en/mission' },
+    { from: '^/about', to: '/en/about' },
+    { from: '^/careers', to: '/en/careers' },
+    { from: '^/blog', to: '/en/blog' },
   ],
 
   generate: { routes },
   build: {
-    vendor: [
-      // 'babel-polyfill',
-    ],
     /*
     ** Run ESLint on save
     */

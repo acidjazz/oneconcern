@@ -27,6 +27,7 @@ export default {
       aboutCopys[entry.fields.name] = entry.fields.copy
 
     return {
+      aboutCopys: aboutCopys,
       post: {
         title: post.fields.title,
         description: post.fields.description,
@@ -39,7 +40,6 @@ export default {
           name: post.fields.author ? post.fields.author.fields.name : false,
           position: post.fields.author ? post.fields.author.fields.position : false,
         },
-        aboutCopys: aboutCopys,
       }
     }
   },

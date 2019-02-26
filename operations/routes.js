@@ -9,7 +9,7 @@ exports.store = function (results) {
 
   let routes = []
   for (let entry of results.items) {
-    routes.push(`/blog/${slug(entry.fields.title)}-${entry.sys.id}`)
+    routes.push(`/en/blog/${slug(entry.fields.title)}-${entry.sys.id}`)
   }
   routes.push('/error')
 
