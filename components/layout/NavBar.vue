@@ -1,6 +1,6 @@
 <template lang="pug">
 nav.navbar(:class="{dark: darken}")
-  router-link.navbar-logo(to="/")
+  router-link.navbar-logo(:to="`/${$store.state.i18n.locale}`")
   .navbar-burger(:class="{'is-active': burger}",@click="burger = !burger")
     span
     span
@@ -16,6 +16,10 @@ nav.navbar(:class="{dark: darken}")
       span {{ item.copy }}
       .line
     CtaButton(:name="$store.state.layoutCopy.ctaDemo",theme="white",:width=160,:callback="demo")
+    .navbar-item
+      nuxt-link(:to="switchLocalePath('en')") en
+      span &nbsp;
+      nuxt-link(:to="switchLocalePath('jp')") jp
   .clear
 </template>
 
@@ -129,6 +133,9 @@ nav.navbar
   position relative
   padding 8px
   transition color 0.2s ease, color 0.1s ease
+  a
+    color white
+    text-decoration none
   &.active > .line
     left 0
     right 0
