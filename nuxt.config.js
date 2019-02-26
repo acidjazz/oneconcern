@@ -106,7 +106,7 @@ module.exports = {
       vueI18n: { fallbackLocale: 'en' },
       seo: false,
     }],
-    '@nuxtjs/redirect-module',
+    // '@nuxtjs/redirect-module',
   ],
   redirect: [
     { from: '^/product', to: '/en/product' },
