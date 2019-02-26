@@ -28,6 +28,8 @@
 
 <script>
 import { createClient } from '@/plugins/contentful.js'
+const client = createClient()
+
 import inViewportDirective from 'vue-in-viewport-directive'
 import UserStories from '@/components/pages/product/UserStories'
 import ProductAllow from '@/components/pages/product/ProductAllow'
@@ -40,7 +42,7 @@ import QuoteMonitor from '@/components/pages/product/QuoteMonitor'
 import BeforeAfter from '@/components/pages/product/BeforeAfter'
 import ScrollDown from '@/components/modules/ScrollDown'
 import CtaButton from '@/components/buttons/CtaButton'
-const client = createClient()
+
 export default {
   components: {
     HumanRace,
