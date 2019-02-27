@@ -22,10 +22,6 @@ export default {
       type: Object,
       required: true,
     },
-    image: {
-      type: String,
-      required: true,
-    }
   }
 }
 </script>
