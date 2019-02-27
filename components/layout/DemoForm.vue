@@ -15,27 +15,14 @@ transition(name="animodal")
       .demo-close(@click="$store.commit('demo', false)")
         .fa.fa-times
 
-      //.title Request a Demonstration
-      iframe.demo-frame#frame(src="https://eepurl.com/dkcE09")
-      //form#form(action="https://oneconcern.us17.list-manage.com/subscribe/post?u=8058a1203b676d0c0e54b5e4e&amp;id=69ae0b1ba8",method="post")
-        .field
-          input.input#Name(type="text",name="NAME",placeholder="First and last name")
-        .field
-          input.input(type="email",name="EMAIL",placeholder="E-mail")
-        .field
-          input.input(type="tel",name="PHONE",placeholder="Phone number")
-        .field
-          input.input(type="text",name="TITLE",placeholder="Title")
-        .field
-          input.input(type="text",name="COMPANY",placeholder="Company")
-        .field
-          input.input(type="text",name="ORIGIN",placeholder="How did you hear about One Concern?")
-        .field.is-right
-          CtaButton(name="Submit",:callback="submit")
+      iframe.demo-frame#frame(v-if="is_en",src="https://eepurl.com/dkcE09")
+      iframe.demo-frame#frame(v-if="is_jp",src=" https://eepurl.com/giG0TD")
+
 </template>
 
 <script>
 import CtaButton from '~/components/buttons/CtaButton'
+import { mapGetters } from 'vuex'
 export default {
   components: { CtaButton },
   data () {
@@ -44,6 +31,7 @@ export default {
       success: false,
     }
   },
+  computed: { ...mapGetters(['is_en', 'is_not_en', 'is_jp']), },
   created () {
     if (process.browser) {
       this.loop = setInterval(() => {
