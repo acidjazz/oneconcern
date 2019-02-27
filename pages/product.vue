@@ -1,8 +1,6 @@
 <template lang="pug">
 #Product
-  .hero(:style="`background-image: url(${lowres})`")
-    img.hero-background(:src="image")
-    .hero-title {{ copy }}
+  PageHero(:lowres="lowres",:image="image",:copy="copy")
   ScrollDown
 
   UserStories(v-if="stories.length > 0",:stories="stories",:title="titles[1]")
@@ -41,6 +39,7 @@ import DigitalFingerprints from '@/components/pages/product/DigitalFingerprints'
 import QuoteMonitor from '@/components/pages/product/QuoteMonitor'
 import BeforeAfter from '@/components/pages/product/BeforeAfter'
 import ScrollDown from '@/components/modules/ScrollDown'
+import PageHero from '@/components/modules/PageHero'
 import CtaButton from '@/components/buttons/CtaButton'
 
 export default {
@@ -52,6 +51,7 @@ export default {
     BeforeAfter,
     CtaButton,
     ScrollDown,
+    PageHero,
     UserStories,
     ProductAllow,
     SeismicFlood,

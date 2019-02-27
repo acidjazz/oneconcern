@@ -1,9 +1,8 @@
 <template lang="pug">
 #Careers.page
-  .hero(:style="`background-image: url(${lowres})`")
+  PageHero(:lowres="lowres",:image="image",:copy="copy")
     img.hero-background(:src="image")
     .hero-gradient
-    .hero-title  {{ copy }}
     .hero-cta
       CtaButton(
         link="https://jobs.lever.co/oneconcern",
@@ -28,8 +27,9 @@ import ScrollDown from '@/components/modules/ScrollDown'
 import CtaButton from '@/components/buttons/CtaButton'
 const client = createClient()
 import jobs from '@/static/cache/lever.json'
+import PageHero from '@/components/modules/PageHero'
 export default {
-  components: { CareersGallery, PerksBenefits, OpenPositions, CtaButton, ScrollDown },
+  components: { CareersGallery, PerksBenefits, OpenPositions, CtaButton, ScrollDown, PageHero },
   directives: { 'in-viewport': inViewportDirective },
   data () {
     return {

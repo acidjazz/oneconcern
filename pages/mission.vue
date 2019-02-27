@@ -1,8 +1,6 @@
 <template lang="pug">
 #What
-  .hero(:style="`background-image: url(${lowres})`")
-    img.hero-background(:src="image")
-    .hero-title {{ copy }}
+  PageHero(:lowres="lowres",:image="image",:copy="copy")
   ScrollDown
   ContentBlock(
     v-for="content, index in contents",
@@ -23,8 +21,9 @@ import ContentBlock from '@/components/modules/ContentBlock'
 import CtaButton from '@/components/buttons/CtaButton'
 import ScrollDown from '@/components/modules/ScrollDown'
 import ViewOpenings from '@/components/modules/ViewOpenings'
+import PageHero from '@/components/modules/PageHero'
 export default {
-  components: { ContentBlock, CtaButton, ViewOpenings, ScrollDown },
+  components: { ContentBlock, CtaButton, ViewOpenings, ScrollDown, PageHero, },
   async asyncData () {
 
     const aboutCopy = await client.getEntries({'content_type': 'aboutCopy'})
