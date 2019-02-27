@@ -25,6 +25,56 @@ const client = createClient()
 export default {
 
   components: { FeaturedPosts, RecentUpdates, ViewOpenings, PopularTags },
+  data () {
+    return {
+      allposts: [],
+      allfeatured: [],
+      tag: '',
+    }
+  },
+  computed: {
+
+    tags () {
+
+      let sortable = []
+      for (let tag in this.unsortedTags) {
+        sortable.push([tag, this.unsortedTags[tag]])
+      }
+      sortable.sort( (a,b) => {
+        return b[1] - a[1]
+      })
+
+      return sortable
+    },
+
+    posts () {
+      if (this.tag !== '') {
+        let posts = []
+        for (let index in this.allposts) {
+          if (this.allposts[index].tags && this.allposts[index].tags.indexOf(this.tag) !== -1) {
+            posts.push(this.allposts[index])
+          }
+        }
+        return posts
+      }
+      return this.allposts
+    },
+
+    featured () {
+      if (this.tag !== '') {
+        let posts = []
+        for (let index in this.allfeatured) {
+          if (this.allfeatured[index].tags && this.allfeatured[index].tags.indexOf(this.tag) !== -1) {
+            posts.push(this.allfeatured[index])
+          }
+        }
+        return posts
+      }
+      return this.allfeatured
+    },
+
+  },
+
 
   async asyncData ( context ) {
 
@@ -97,60 +147,12 @@ export default {
     }
   },
 
-  computed: {
 
-    tags () {
-
-      let sortable = []
-      for (let tag in this.unsortedTags) {
-        sortable.push([tag, this.unsortedTags[tag]])
-      }
-      sortable.sort( (a,b) => {
-        return b[1] - a[1]
-      })
-
-      return sortable
-    },
-
-    posts () {
-      if (this.tag !== '') {
-        let posts = []
-        for (let index in this.allposts) {
-          if (this.allposts[index].tags && this.allposts[index].tags.indexOf(this.tag) !== -1) {
-            posts.push(this.allposts[index])
-          }
-        }
-        return posts
-      }
-      return this.allposts
-    },
-
-    featured () {
-      if (this.tag !== '') {
-        let posts = []
-        for (let index in this.allfeatured) {
-          if (this.allfeatured[index].tags && this.allfeatured[index].tags.indexOf(this.tag) !== -1) {
-            posts.push(this.allfeatured[index])
-          }
-        }
-        return posts
-      }
-      return this.allfeatured
-    },
-
-  },
 
   mounted () {
     this.tag = this.$route.hash.replace('#', '')
   },
 
-  data () {
-    return {
-      allposts: [],
-      allfeatured: [],
-      tag: '',
-    }
-  },
 
 }
 </script>

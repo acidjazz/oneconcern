@@ -34,16 +34,19 @@ export default {
   props: {
     data: {
       type: Object,
+      required: true,
     },
     copy: {
       type: Object,
+      required: true,
     },
   },
 
-  created () {
-    for (let entry of this.data.items) {
-      this[entry.fields.type].image = entry.fields.image.fields.file.url
-      this[entry.fields.type].list = entry.fields.list.split("\n")
+  data () {
+    return {
+      selection: 'seismic',
+      seismic: { image: false, list: [],},
+      flood: { image: false, list: [],},
     }
   },
 
@@ -53,11 +56,10 @@ export default {
     }
   },
 
-  data () {
-    return {
-      selection: 'seismic',
-      seismic: { image: false, list: [],},
-      flood: { image: false, list: [],},
+  created () {
+    for (let entry of this.data.items) {
+      this[entry.fields.type].image = entry.fields.image.fields.file.url
+      this[entry.fields.type].list = entry.fields.list.split("\n")
     }
   },
 

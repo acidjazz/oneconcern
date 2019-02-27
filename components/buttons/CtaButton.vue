@@ -32,6 +32,7 @@ export default {
     callback: {
       required: false,
       type: Function,
+      default: () => {},
     },
     link: {
       required: false,
@@ -55,13 +56,6 @@ export default {
       default: 200,
     },
   },
-
-  computed: {
-    target () {
-      return this.link.indexOf('mailto') === -1 ? '_new' : '_self'
-    },
-  },
-
   data () {
     return {
       themes: [
@@ -74,7 +68,11 @@ export default {
       ]
     }
   },
-
+  computed: {
+    target () {
+      return this.link.indexOf('mailto') === -1 ? '_new' : '_self'
+    },
+  },
 }
 </script>
 

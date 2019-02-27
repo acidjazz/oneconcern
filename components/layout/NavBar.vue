@@ -10,16 +10,22 @@ nav.navbar(:class="{dark: darken}")
     router-link.navbar-item(
       v-for="item, route in menu"
       :key="route"
-      :class="{active: $route.name === route}"
+      :class="{active: $route.name.indexOf(route) !== -1}"
       @click.native="burger = false"
       :to="`/${$store.state.i18n.locale}/${route}`")
       span {{ item.copy }}
       .line
     CtaButton(:name="$store.state.layoutCopy.ctaDemo",theme="white",:width=160,:callback="demo")
     .navbar-item
-      nuxt-link(:to="switchLocalePath('en')") en
+      nuxt-link(
+        :to="switchLocalePath('en')",
+        :class="{'is-active': $store.state.i18n.locale === 'en'}").flag
+        img(src="/flag_en.jpg")
       span &nbsp;
-      nuxt-link(:to="switchLocalePath('jp')") jp
+      nuxt-link(
+        :to="switchLocalePath('jp')",
+        :class="{'is-active': $store.state.i18n.locale === 'jp'}").flag
+        img(src="/flag_jp.jpg")
   .clear
 </template>
 
@@ -27,6 +33,28 @@ nav.navbar(:class="{dark: darken}")
 import CtaButton from '~/components/buttons/CtaButton'
 export default {
   components: { CtaButton },
+  data () {
+    return {
+      burger: false,
+      darken: false,
+      menu: {
+        product: { copy: this.$store.state.layoutCopy.menuProduct },
+        mission: { copy: this.$store.state.layoutCopy.menuMission },
+        about: { copy: this.$store.state.layoutCopy.menuAbout },
+        careers: { copy: this.$store.state.layoutCopy.menuCareers },
+        blog: { copy: this.$store.state.layoutCopy.menuBlog },
+      },
+    }
+  },
+
+  watch: {
+    '$route' (to, from) {
+      if (to.name === 'index') {
+        return true
+      }
+    }
+  },
+
   created () {
     if (process.browser) {
       window.addEventListener('scroll', this.scroll)
@@ -51,32 +79,14 @@ export default {
       }
     },
   },
-  watch: {
-    '$route' (to, from) {
-      if (to.name === 'index') {
-        return true
-      }
-    }
-  },
-  data () {
-    return {
-      burger: false,
-      darken: false,
-      menu: {
-        product: { copy: this.$store.state.layoutCopy.menuProduct },
-        mission: { copy: this.$store.state.layoutCopy.menuMission },
-        about: { copy: this.$store.state.layoutCopy.menuAbout },
-        careers: { copy: this.$store.state.layoutCopy.menuCareers },
-        blog: { copy: this.$store.state.layoutCopy.menuBlog },
-      },
-    }
-  },
 }
 </script>
 
 <style lang="stylus">
 
 @import '../../assets/stylus/guide/includes/*'
+
+
 
 nav.navbar
   z-index 100
@@ -149,6 +159,11 @@ nav.navbar
     bottom 0
     background-color white
     transition all 0.2s ease-in-out 0.3s
+  .flag
+    img
+      width 16px
+    &.is-active
+      border-bottom 1px solid white
 
 .navbar-burger
   display none

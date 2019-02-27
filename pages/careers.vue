@@ -31,6 +31,11 @@ import jobs from '@/static/cache/lever.json'
 export default {
   components: { CareersGallery, PerksBenefits, OpenPositions, CtaButton, ScrollDown },
   directives: { 'in-viewport': inViewportDirective },
+  data () {
+    return {
+      jobs: jobs,
+    }
+  },
   async asyncData ({ app }) {
 
     const copy = await client.getEntries({'content_type': 'careersCopy'})
@@ -68,11 +73,6 @@ export default {
       copys: copys,
     }
 
-  },
-  data () {
-    return {
-      jobs: jobs,
-    }
   },
 }
 </script>

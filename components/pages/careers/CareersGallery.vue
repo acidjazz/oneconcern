@@ -23,16 +23,17 @@
 <script>
 import inViewportDirective from 'vue-in-viewport-directive'
 export default {
+  directives: { 'in-viewport': inViewportDirective },
   props: {
     images: {
-      type: Array
+      type: Array,
+      required: true,
     },
     copys: {
       type: Object,
       required: true,
     },
   },
-  directives: { 'in-viewport': inViewportDirective },
 }
 </script>
 

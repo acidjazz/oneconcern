@@ -33,6 +33,14 @@ import CtaButton from '~/components/buttons/CtaButton'
 export default {
   components: { CtaButton },
   directives: { 'in-viewport': inViewportDirective },
+  filters: {
+    moment: function(date, format) {
+      if (process.browser) {
+        return window.moment(date).format(format)
+      }
+      return date
+    },
+  },
   props: {
     posts: {
       required: true,
@@ -43,23 +51,11 @@ export default {
       type: Boolean,
     },
   },
-  methods: {
-    slug (title) {
-      return getSlug(title)
-    },
-    showmore () {
-      this.more = true
-    },
+    data () {
+    return {
+      more: false,
+    }
   },
-  filters: {
-    moment: function(date, format) {
-      if (process.browser) {
-        return window.moment(date).format(format)
-      }
-      return date
-    },
-  },
-
   computed: {
     listing () {
       if (this.more === true) {
@@ -68,11 +64,15 @@ export default {
       return this.posts.slice(0, 4)
     },
   },
-  data () {
-    return {
-      more: false,
-    }
-  }
+
+  methods: {
+    slug (title) {
+      return getSlug(title)
+    },
+    showmore () {
+      this.more = true
+    },
+  },
 }
 </script>
 

@@ -12,7 +12,12 @@
 import CtaButton from '~/components/buttons/CtaButton'
 export default {
   components: { CtaButton },
-  props: ['error'],
+  props: {
+    error: {
+      type: Object,
+      required: true,
+    }
+  },
   layout: 'default',
   head () {
     return  {

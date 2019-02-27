@@ -37,10 +37,12 @@ export default {
     ctaName: {
       required: false,
       type: String,
+      default: '',
     },
     ctaLink: {
       required: false,
       type: String,
+      default: '',
     },
   },
 }
@@ -83,7 +85,7 @@ export default {
       .content-block-cta
         opacity 0.5
 
-  &.in-viewport 
+  &.in-viewport
     .content-block-image
       width 60%
     .content-block-copy

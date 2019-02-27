@@ -38,15 +38,12 @@ transition(name="animodal")
 import CtaButton from '~/components/buttons/CtaButton'
 export default {
   components: { CtaButton },
-  methods: {
-    submit () {
-      document.getElementById('form').submit()
-    },
-    close () {
-      this.$store.commit('demo', false)
-    },
+  data () {
+    return {
+      loop: false,
+      success: false,
+    }
   },
-
   created () {
     if (process.browser) {
       this.loop = setInterval(() => {
@@ -65,17 +62,15 @@ export default {
       }, 200)
     }
   },
-
-  destroyed () {
-    clearInterval(this.loop)
+  destroyed () { clearInterval(this.loop) },
+  methods: {
+    submit () {
+      document.getElementById('form').submit()
+    },
+    close () {
+      this.$store.commit('demo', false)
+    },
   },
-
-  data () {
-    return {
-      loop: false,
-      success: false,
-    }
-  }
 }
 </script>
 

@@ -22,9 +22,11 @@ export default {
   props: {
     copy: {
       type: Object,
+      required: true,
     },
     carousel: {
       type: Array,
+      required: true,
     },
   },
 
@@ -90,7 +92,7 @@ export default {
 .ai-body
   font-s2()
 
-.fade-enter-active, .fade-leave-active 
+.fade-enter-active, .fade-leave-active
   transition opacity .5s
 
 .fade-enter, .fade-leave-to

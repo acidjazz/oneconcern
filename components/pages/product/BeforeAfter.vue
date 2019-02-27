@@ -25,17 +25,18 @@ export default {
   props: {
     items: {
       type: Array,
+      required: true,
+    }
+  },
+  data () {
+    return {
+      active: 0,
     }
   },
   methods: {
     par (copy) {
       return copy.split("\n")
     },
-  },
-  data () {
-    return {
-      active: 0,
-    }
   },
 }
 </script>
@@ -136,4 +137,4 @@ export default {
 
 
 </style>
- 
+

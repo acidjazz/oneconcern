@@ -41,6 +41,16 @@ export default {
 
   components: { CtaButton, OurTeam, ViewOpenings, ScrollDown },
   directives: { 'in-viewport': inViewportDirective },
+  data () {
+    return {
+      filter: false,
+    }
+  },
+  computed: {
+    storyCopy () {
+      return this.story.copy.split("\n")
+    },
+  },
   async asyncData () {
 
     const copy = await client.getEntries({'content_type': 'aboutCopy'})
@@ -83,18 +93,6 @@ export default {
     },
   },
 
-  computed: {
-    storyCopy () {
-      return this.story.copy.split("\n")
-    },
-
-  },
-
-  data () {
-    return {
-      filter: false,
-    }
-  },
 
 }
 </script>

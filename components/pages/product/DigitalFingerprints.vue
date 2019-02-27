@@ -14,9 +14,11 @@ export default {
   props: {
     title: {
       type: String,
+      required: true,
     },
     copy: {
       type: String,
+      required: true,
     },
   },
 }

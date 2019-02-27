@@ -23,13 +23,26 @@ export default {
   props: {
     residential: {
       type: String,
+      required: true,
     },
     commercial: {
       type: String,
+      required: true,
     },
     people: {
       type: String,
+      required: true,
     },
+  },
+  data () {
+    return {
+      numbered: false,
+      numbers: {
+        residential: 0,
+        commercial: 0,
+        people: 0,
+      }
+    }
   },
   watch: {
     'inViewport.now' (visible) {
@@ -49,16 +62,6 @@ export default {
       }
     }
   },
-  data () {
-    return {
-      numbered: false,
-      numbers: {
-        residential: 0,
-        commercial: 0,
-        people: 0,
-      }
-    }
-  }
 
 }
 </script>

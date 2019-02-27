@@ -19,7 +19,8 @@
 import inViewportDirective from 'vue-in-viewport-directive'
 import CtaButton from '~/components/buttons/CtaButton'
 export default {
-
+  directives: { 'in-viewport': inViewportDirective },
+  components: { CtaButton },
   props: {
     copys: {
       type: Object,
@@ -31,8 +32,11 @@ export default {
     }
   },
 
-  directives: { 'in-viewport': inViewportDirective },
-  components: { CtaButton },
+  data () {
+    return {
+      teams: {}
+    }
+  },
 
   created () {
 
@@ -44,11 +48,6 @@ export default {
     }
   },
 
-  data () {
-    return {
-      teams: {}
-    }
-  },
 }
 </script>
 

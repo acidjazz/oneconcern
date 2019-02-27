@@ -58,6 +58,13 @@ export default {
     OrangeBlock,
   },
   directives: { 'in-viewport': inViewportDirective },
+
+  computed: {
+    storyCopy () {
+      return this.story.copy.split("\n")
+    },
+  },
+
   async asyncData ({ app, params, store }) {
     let iso = { en: 'en-US', jp: 'ja' }
     let locale = iso[store.state.i18n.locale]
@@ -156,11 +163,7 @@ export default {
     },
   },
 
-  computed: {
-    storyCopy () {
-      return this.story.copy.split("\n")
-    },
-  },
+
 }
 </script>
 

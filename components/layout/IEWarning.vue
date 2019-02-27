@@ -1,5 +1,5 @@
 <template lang="pug">
-#IEWarning(v-if="show") 
+#IEWarning(v-if="show")
   .close(@click="show = false")
     .fa.fa-times
   .copy To ensure you have the best possible experience using One Concern’s website, please download and install the latest version of one of the following supported browsers:
@@ -46,19 +46,16 @@
 
 <script>
 export default {
-
+  data () {
+    return {
+      show: false,
+    }
+  },
   mounted () {
     if (process.browser) {
       const isIE11 = !!window.MSInputMethodContext && !!document.documentMode
       this.show = isIE11
     }
   },
-
-  data () {
-    return {
-      show: false,
-    }
-  },
-
 }
 </script>

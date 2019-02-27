@@ -20,6 +20,7 @@ export default {
     },
     perks: {
       type: Array,
+      required: true,
     },
   }
 }

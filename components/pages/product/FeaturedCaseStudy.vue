@@ -19,7 +19,6 @@ const getSlug = require('speakingurl')
 export default {
   components: { CtaButton },
   directives: { 'in-viewport': inViewportDirective },
-
   props: {
     buttonCopy: {
       type: String,
@@ -27,18 +26,18 @@ export default {
     },
     copy: {
       type: Object,
+      required: true,
     },
+  },
+  data () {
+    return {
+    }
   },
   methods: {
     slug (title) {
       return getSlug(title)
     },
   },
-
-  data () {
-    return {
-    }
-  }
 }
 </script>
 

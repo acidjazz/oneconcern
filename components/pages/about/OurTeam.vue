@@ -31,7 +31,17 @@ export default {
       type: Array,
     }
   },
-
+  data () {
+    return {
+      filter: 'Team',
+      types: ['Team', 'Board of Directors', 'Advisors & Investors'],
+    }
+  },
+  computed: {
+    filters () {
+      return this.types.filter( this.unique )
+    },
+  },
   created () {
     for (let member of this.team) {
       for (let type of member.types) {
@@ -39,27 +49,11 @@ export default {
       }
     }
   },
-
   methods: {
     unique (value, index, self) {
       return self.indexOf(value) === index
     },
   },
-
-  computed: {
-    filters () {
-      return this.types.filter( this.unique )
-    },
-  },
-
-  data () {
-    return {
-      filter: 'Team',
-      types: ['Team', 'Board of Directors', 'Advisors & Investors'],
-    }
-  },
-
-
 }
 </script>
 

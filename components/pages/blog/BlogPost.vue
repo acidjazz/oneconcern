@@ -8,7 +8,7 @@
         .blog-post-author-position(v-in-viewport.once) {{ post.author.position }}
       .blog-post-date(v-in-viewport.once) {{ post.date | moment("dddd, MMM Do, YYYY") }}
       .blog-post-tags(v-in-viewport.once)
-        span.blog-post-tag(v-for="tag, index in post.tags") 
+        span.blog-post-tag(v-for="tag, index in post.tags")
           nuxt-link.blog-post-tag-link(:to="`/blog/#${tag}`") {{ tag }}
           span(v-if="index+1 !== post.tags.length") ,&nbsp;
     .blog-post-content#blog-post-content(v-html="content")
@@ -17,11 +17,6 @@
 <script>
 import inViewportDirective from 'vue-in-viewport-directive'
 export default {
-  props: {
-    post: {
-      type: Object,
-    },
-  },
   directives: { 'in-viewport': inViewportDirective },
   filters: {
     moment: function(date, format) {
@@ -30,6 +25,22 @@ export default {
       }
       return date
     },
+  },
+  props: {
+    post: {
+      type: Object,
+      required: true,
+    },
+  },
+  data () {
+    return {
+      md: false,
+      content: 'Loading..',
+    }
+  },
+  mounted () {
+    this.mdit()
+    setInterval(this.mdit, 400)
   },
   methods: {
     mdit () {
@@ -42,11 +53,6 @@ export default {
     },
   },
 
-  mounted () {
-    this.mdit()
-    setInterval(this.mdit, 400)
-  },
-
   head () {
     return {
       script: [
@@ -55,12 +61,6 @@ export default {
     }
   },
 
-  data () {
-    return {
-      md: false,
-      content: 'Loading..',
-    }
-  },
 }
 </script>
 

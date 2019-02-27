@@ -31,6 +31,42 @@ export default {
       type: Array,
     }
   },
+  data () {
+    return {
+      scrolling: false,
+      index: 0,
+      timer: false,
+      interval: 6,
+      element: false,
+      hammer: false,
+    }
+  },
+  created () {
+
+    this.timer = setInterval(() => {
+      (this.index === this.data.length - 1) ? this.index = 0 : this.index++
+    }, this.interval*1000)
+  },
+
+  mounted () {
+
+    if (process.browser && window.Hammer) {
+      this.element = document.getElementById('Carousel')
+      this.element.addEventListener('wheel', this.wheel)
+      this.hammer = new window.Hammer.Manager(this.element)
+      this.hammer.add(new window.Hammer.Swipe())
+      this.hammer.on('swipe', this.swipe)
+    }
+  },
+  destroyed () {
+    this.timer = false
+    if (process.browser && this.element !== false && this.element !== null) {
+      this.element.removeEventListener('wheel', this.wheel)
+      if (this.hammer) {
+        this.hammer.off('swipe', this.swipe)
+      }
+    }
+  },
   methods: {
     dot (index) {
       this.index = index
@@ -70,42 +106,7 @@ export default {
         return this.prev()
     },
   },
-  created () {
 
-    this.timer = setInterval(() => {
-      (this.index === this.data.length - 1) ? this.index = 0 : this.index++
-    }, this.interval*1000)
-  },
-
-  mounted () {
-
-    if (process.browser && window.Hammer) {
-      this.element = document.getElementById('Carousel')
-      this.element.addEventListener('wheel', this.wheel)
-      this.hammer = new window.Hammer.Manager(this.element)
-      this.hammer.add(new window.Hammer.Swipe())
-      this.hammer.on('swipe', this.swipe)
-    }
-  },
-  destroyed () {
-    this.timer = false
-    if (process.browser && this.element !== false && this.element !== null) {
-      this.element.removeEventListener('wheel', this.wheel)
-      if (this.hammer) {
-        this.hammer.off('swipe', this.swipe)
-      }
-    }
-  },
-  data () {
-    return {
-      scrolling: false,
-      index: 0,
-      timer: false,
-      interval: 6,
-      element: false,
-      hammer: false,
-    }
-  }
 }
 </script>
 

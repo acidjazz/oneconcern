@@ -87,7 +87,7 @@ module.exports = {
     '@nuxtjs/component-cache',
     ['nuxt-i18n', {
       strategy: 'prefix_and_default',
-      deafultLocale: 'en',
+      defaultLocale: 'en',
       fallbackLocale: 'en',
       noPrefixDefaultLocale: true,
       locales: [
@@ -106,16 +106,7 @@ module.exports = {
       vueI18n: { fallbackLocale: 'en' },
       seo: false,
     }],
-    // '@nuxtjs/redirect-module',
   ],
-  redirect: [
-    { from: '^/product', to: '/en/product' },
-    { from: '^/mission', to: '/en/mission' },
-    { from: '^/about', to: '/en/about' },
-    { from: '^/careers', to: '/en/careers' },
-    { from: '^/blog', to: '/en/blog' },
-  ],
-
   generate: { routes },
   build: {
     /*

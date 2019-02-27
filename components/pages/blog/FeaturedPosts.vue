@@ -22,17 +22,6 @@ import inViewportDirective from 'vue-in-viewport-directive'
 const getSlug = require('speakingurl')
 export default {
   directives: { 'in-viewport': inViewportDirective },
-  props: {
-    posts: {
-      required: true,
-      type: Array,
-    }
-  },
-  methods: {
-    slug (title) {
-      return getSlug(title)
-    },
-  },
   filters: {
     moment: function(date, format) {
       if (process.browser) {
@@ -41,6 +30,17 @@ export default {
       return date
     },
     slug: function(title) {
+      return getSlug(title)
+    },
+  },
+  props: {
+    posts: {
+      required: true,
+      type: Array,
+    }
+  },
+  methods: {
+    slug (title) {
       return getSlug(title)
     },
   },
