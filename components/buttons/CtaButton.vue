@@ -7,9 +7,9 @@
   :data-text="name")
     .before: .copy {{ name }}
     .after: .copy {{ name }}
-router-link.cta-button(
+nuxt-link.cta-button(
   v-else-if="link.indexOf(':') === -1",
-  :to="`/${link}`",
+  :to="localePath(link)",
   :class="`theme-${theme}`",
   :style="`width: ${width}px`",
   :data-text="name")
@@ -31,8 +31,8 @@ export default {
   props: {
     callback: {
       required: false,
-      type: Function,
-      default: () => {},
+      type: [Boolean,Function],
+      default: false,
     },
     link: {
       required: false,
@@ -72,6 +72,9 @@ export default {
     target () {
       return this.link.indexOf('mailto') === -1 ? '_new' : '_self'
     },
+  },
+  created () {
+    console.log('link is', this.link)
   },
 }
 </script>

@@ -86,7 +86,7 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/component-cache',
     ['nuxt-i18n', {
-      strategy: 'prefix_and_default',
+      strategy: 'prefix_except_default',
       defaultLocale: 'en',
       fallbackLocale: 'en',
       noPrefixDefaultLocale: true,
@@ -102,7 +102,6 @@ module.exports = {
           name: 'Japanese',
         },
       ],
-      rootRedirect: 'en',
       vueI18n: { fallbackLocale: 'en' },
       seo: false,
     }],

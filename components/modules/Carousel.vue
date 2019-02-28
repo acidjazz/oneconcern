@@ -13,7 +13,7 @@
         .carousel-title {{ carousel.title }}
         .carousel-description {{ carousel.description }}
         .carousel-cta
-          CtaButton(:link="`${$store.state.i18n.locale}/${carousel.cta.link}`",:name="carousel.cta.name",theme="orange-border")
+          CtaButton(:link="carousel.cta.link",:name="carousel.cta.name",theme="orange-border")
   .carousel-dots
     .carousel-dot(
       @click="dot(cindex)",
@@ -42,7 +42,6 @@ export default {
     }
   },
   created () {
-
     this.timer = setInterval(() => {
       (this.index === this.data.length - 1) ? this.index = 0 : this.index++
     }, this.interval*1000)

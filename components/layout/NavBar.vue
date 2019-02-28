@@ -1,18 +1,19 @@
 <template lang="pug">
 nav.navbar(:class="{dark: darken}")
-  router-link.navbar-logo(:to="`/${$store.state.i18n.locale}`")
+  nuxt-link.navbar-logo(:to="localePath('index')")
   .navbar-burger(:class="{'is-active': burger}",@click="burger = !burger")
     span
     span
     span
   .navbar-menu
-    router-link.navbar-logo-mobile(to="/")
-    router-link.navbar-item(
+    nuxt-link.navbar-logo-mobile(:to="localePath('index')")
+    nuxt-link.navbar-item(
       v-for="item, route in menu"
+      v-if="is_en || is_not_en && locale_support.includes(route)",
       :key="route"
-      :class="{active: $route.name.indexOf(route) !== -1}"
+      :class="{active: $route.name && $route.name.indexOf(route) !== -1}"
       @click.native="burger = false"
-      :to="`/${$store.state.i18n.locale}/${route}`")
+      :to="localePath(route)")
       span {{ item.copy }}
       .line
     CtaButton(:name="$store.state.layoutCopy.ctaDemo",theme="white",:width=160,:callback="demo")
@@ -31,6 +32,7 @@ nav.navbar(:class="{dark: darken}")
 
 <script>
 import CtaButton from '~/components/buttons/CtaButton'
+import { mapGetters } from 'vuex'
 export default {
   components: { CtaButton },
   data () {
@@ -44,9 +46,11 @@ export default {
         careers: { copy: this.$store.state.layoutCopy.menuCareers },
         blog: { copy: this.$store.state.layoutCopy.menuBlog },
       },
+
+      locale_support: [ 'product','about'],
     }
   },
-
+  computed: { ...mapGetters(['is_en', 'is_not_en', 'is_jp']), },
   watch: {
     '$route' (to, from) {
       if (to.name === 'index') {
@@ -85,8 +89,6 @@ export default {
 <style lang="stylus">
 
 @import '../../assets/stylus/guide/includes/*'
-
-
 
 nav.navbar
   z-index 100

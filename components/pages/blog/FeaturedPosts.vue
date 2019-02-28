@@ -7,10 +7,10 @@
         v-if="post.type === 'link'",
         :style="`background-image: url(${post.image})`",
         :href="post.link",target="_new")
-      router-link.featured-post-image(
+      nuxt-link.featured-post-image(
         v-else,
         :style="`background-image: url(${post.image})`",
-        :to="`/${$store.state.i18n.locale}/blog/${slug(post.title)}-${post.id}`")
+        :to="localePath(`${slug(post.title)}-${post.id}`)")
       .featured-post-copy
         .featured-post-title {{ post.title }}
         .featured-post-author(v-if="post.author.name") by {{ post.author.name }}, {{ post.author.position }}

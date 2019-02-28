@@ -5,7 +5,7 @@
       include ../../static/watermark.svg
     .hero-title(v-if="tag !== ''")
       span Matching "{{ tag }}"
-      nuxt-link.close(:to="`/${$store.state.i18n.locale}/blog`")
+      nuxt-link.close(:to="localePath('blog')")
         .fa.fa-times
     .hero-title(v-else) {{ copy }}
   FeaturedPosts(:posts="featured",v-if="tag === ''")
