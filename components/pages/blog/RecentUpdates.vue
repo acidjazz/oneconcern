@@ -17,9 +17,9 @@
           .recent-update-author(v-in-viewport.once,v-if="post.author.name") by {{ post.author.name }}, {{ post.author.position }}
           .recent-update-date(v-in-viewport.once) {{ post.date | moment("dddd, MMM Do, YYYY") }}
         .recent-update-cta(v-in-viewport.once)
-          CtaButton(v-if="post.type === 'link'",
+          CtaButton(v-if="post.type === 'link'",:locale="false",
             :link="post.link",name="view article",theme="orange-border", :width=140)
-          CtaButton(v-else,
+          CtaButton(v-else,:locale="false",
             :link="`blog/${slug(post.title)}-${post.id}`",name="view article",theme="orange-border", :width=140)
       .recent-update-border(v-in-viewport.once)
   .recent-updates-more(v-in-viewport.once,v-if="posts.length > 4")

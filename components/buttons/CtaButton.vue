@@ -8,8 +8,16 @@
     .before: .copy {{ name }}
     .after: .copy {{ name }}
 nuxt-link.cta-button(
-  v-else-if="link.indexOf(':') === -1",
+  v-else-if="locale && link.indexOf(':') === -1",
   :to="localePath(link)",
+  :class="`theme-${theme}`",
+  :style="`width: ${width}px`",
+  :data-text="name")
+    .before: .copy {{ name }}
+    .after: .copy {{ name }}
+nuxt-link.cta-button(
+  v-else-if="!locale && link.indexOf(':') === -1",
+  :to="link",
   :class="`theme-${theme}`",
   :style="`width: ${width}px`",
   :data-text="name")
@@ -29,6 +37,11 @@ a.cta-button(
 <script>
 export default {
   props: {
+    locale: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     callback: {
       required: false,
       type: [Boolean,Function],
@@ -72,9 +85,6 @@ export default {
     target () {
       return this.link.indexOf('mailto') === -1 ? '_new' : '_self'
     },
-  },
-  created () {
-    console.log('link is', this.link)
   },
 }
 </script>

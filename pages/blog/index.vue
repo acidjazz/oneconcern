@@ -1,5 +1,5 @@
 <template lang="pug">
-#Blog.page
+#Blog.page(v-if="is_en")
   .hero.hero-above-fold
     .hero-svg
       include ../../static/watermark.svg
@@ -21,6 +21,7 @@ import FeaturedPosts from '@/components/pages/blog/FeaturedPosts'
 import RecentUpdates from '@/components/pages/blog/RecentUpdates'
 import PopularTags from '@/components/pages/blog/PopularTags'
 import ViewOpenings from '@/components/modules/ViewOpenings'
+import { mapGetters } from 'vuex'
 const client = createClient()
 export default {
 
@@ -33,6 +34,7 @@ export default {
     }
   },
   computed: {
+    ...mapGetters(['is_en', 'is_not_en', 'is_jp']),
 
     tags () {
 
