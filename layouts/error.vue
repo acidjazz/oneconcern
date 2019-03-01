@@ -14,7 +14,7 @@ export default {
   components: { CtaButton },
   props: {
     error: {
-      type: Object,
+      type: [Error,Object],
       required: true,
     }
   },
