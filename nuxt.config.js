@@ -76,7 +76,6 @@ module.exports = {
   // css: [{ src: '~assets/stylus/main.styl', lang: 'stylus' }],
   plugins: [
     '~/plugins/contentful.js',
-    // {src: '~plugins/ga.js', ssr: false},
     {src: '~/plugins/flickity.js', ssr: false},
   ],
   /*
@@ -85,6 +84,7 @@ module.exports = {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/component-cache',
+    ['@nuxtjs/google-tag-maanger', { id: 'GTM-K59VVGC' }],
     ['nuxt-i18n', {
       strategy: 'prefix_except_default',
       defaultLocale: 'en',
