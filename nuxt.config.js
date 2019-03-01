@@ -84,7 +84,7 @@ module.exports = {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/component-cache',
-    ['@nuxtjs/google-tag-maanger', { id: 'GTM-K59VVGC' }],
+    ['@nuxtjs/google-tag-manager', { id: 'GTM-K59VVGC' }],
     ['nuxt-i18n', {
       strategy: 'prefix_except_default',
       defaultLocale: 'en',
