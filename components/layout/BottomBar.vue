@@ -3,10 +3,10 @@ footer.footer(:class="{solid: fixed.indexOf($route.name) === -1, white: $route.n
   .footer-left(v-html="$store.state.layoutCopy.footerCopyright")
 
   .footer-right
-    a.footer-item.footer-item-contact(href="mailto:contact@oneconcern.com") {{ this.$store.state.layoutCopy.ctaContact }}
-    a.footer-item(href="https://www.facebook.com/oneconcern",target="_new")
+    a.footer-item.footer-item-contact(:href="copy.footerEmail") {{ this.$store.state.layoutCopy.ctaContact }}
+    a.footer-item(:href="copy.footerFacebook",target="_new")
       span.fa.fa-facebook
-    a.footer-item(href="https://twitter.com/oneconcerninc",target="_new")
+    a.footer-item(:href="copy.footerTwtiter",target="_new")
       span.fa.fa-twitter
     a.footer-item(href="https://www.linkedin.com/company/oneconcern/",target="_new")
       span.fa.fa-linkedin
@@ -22,6 +22,9 @@ export default {
     return {
       'fixed': ['index','ai','error'],
     }
+  },
+  computed: {
+    copy () { return this.$store.state.layoutCopy },
   },
 }
 </script>
