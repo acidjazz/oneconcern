@@ -115,13 +115,15 @@ export default {
 
     let stories = []
     for (let entry of userStory.items) {
-      stories.push({
-        quote: entry.fields.quote,
-        author: entry.fields.author,
-        title: entry.fields.title,
-        youtubeId: entry.fields.youtubeId,
-        thumbnail: entry.fields.thumbnail.fields.file.url,
-      })
+      if (entry.fields.title) {
+        stories.push({
+          quote: entry.fields.quote,
+          author: entry.fields.author,
+          title: entry.fields.title,
+          youtubeId: entry.fields.youtubeId,
+          thumbnail: entry.fields.thumbnail.fields.file.url,
+        })
+      }
     }
 
     let titles = {}
