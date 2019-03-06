@@ -7,8 +7,17 @@
   :data-text="name")
     .before: .copy {{ name }}
     .after: .copy {{ name }}
+a.cta-button(
+  v-else-if="link.indexOf(':') !== -1",
+  :href="link",
+  :target="target"
+  :class="`theme-${theme}`",
+  :style="`width: ${width}px`",
+  :data-text="name")
+    .before: .copy {{ name }}
+    .after: .copy {{ name }}
 nuxt-link.cta-button(
-  v-else-if="locale && link.indexOf(':') === -1",
+  v-else-if="locale",
   :to="localePath(link)",
   :class="`theme-${theme}`",
   :style="`width: ${width}px`",
@@ -16,17 +25,8 @@ nuxt-link.cta-button(
     .before: .copy {{ name }}
     .after: .copy {{ name }}
 nuxt-link.cta-button(
-  v-else-if="!locale && link.indexOf(':') === -1",
-  :to="link",
-  :class="`theme-${theme}`",
-  :style="`width: ${width}px`",
-  :data-text="name")
-    .before: .copy {{ name }}
-    .after: .copy {{ name }}
-a.cta-button(
   v-else,
-  :href="link",
-  :target="target"
+  :to="link",
   :class="`theme-${theme}`",
   :style="`width: ${width}px`",
   :data-text="name")
@@ -40,7 +40,7 @@ export default {
     locale: {
       type: Boolean,
       required: false,
-      default: true,
+      default: false,
     },
     callback: {
       required: false,
@@ -176,8 +176,6 @@ export default {
     > .after
       color white
       background-color fire-bush
-
-
   /*
   &.theme-orange-border
     background-image linear-gradient(-75deg, transparent 50%, fire-bush 50%)
