@@ -47,7 +47,7 @@ export default {
         blog: { copy: this.$store.state.layoutCopy.menuBlog },
       },
 
-      locale_support: [ 'product','mission' ],
+      locale_support: [ 'product', 'mission' ],
     }
   },
   computed: { ...mapGetters(['is_en', 'is_not_en', 'is_jp']), },

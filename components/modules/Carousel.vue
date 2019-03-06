@@ -2,7 +2,7 @@
 #Carousel(tabindex="1",@keyup.down="next",@keyup.up="prev")
   transition(name="carousel")
     .carousel(
-      v-for="carousel, cindex in data",
+      v-for="carousel, cindex in data_filtered",
       :key="cindex",
       v-if="cindex === index")
       img.carousel-background(
@@ -17,12 +17,13 @@
   .carousel-dots
     .carousel-dot(
       @click="dot(cindex)",
-      v-for="carousel, cindex in data"
+      v-for="carousel, cindex in data_filtered"
       :class="{filled: cindex === index}")
       .carousel-dot-inner
 </template>
 <script>
 import CtaButton from '~/components/buttons/CtaButton.vue'
+import { mapGetters } from 'vuex'
 export default {
   components: { CtaButton },
   props: {
@@ -39,11 +40,20 @@ export default {
       interval: 6,
       element: false,
       hammer: false,
+      locale_support: [ 'What We Do', 'What We Believe' ],
     }
+  },
+  computed: {
+    ...mapGetters(['is_en', 'is_not_en', 'is_jp']),
+    data_filtered () {
+      if (this.is_en)
+        return this.data
+      return this.data.filter( entry => this.locale_support.includes(entry.title) )
+    },
   },
   created () {
     this.timer = setInterval(() => {
-      (this.index === this.data.length - 1) ? this.index = 0 : this.index++
+      (this.index === this.data_filtered.length - 1) ? this.index = 0 : this.index++
     }, this.interval*1000)
   },
 
@@ -73,12 +83,12 @@ export default {
     },
     next () {
       if (this.scrolling) return true
-      this.index = (this.index === this.data.length - 1) ? 0 : this.index+1
+      this.index = (this.index === this.data_filtered.length - 1) ? 0 : this.index+1
       this.pause()
     },
     prev () {
       if (this.scrolling) return true
-      this.index = (this.index === 0) ? this.data.length-1 : this.index-1
+      this.index = (this.index === 0) ? this.data_filtered.length-1 : this.index-1
       this.pause()
     },
     pause () {

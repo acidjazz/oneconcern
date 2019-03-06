@@ -8,6 +8,8 @@
       .case-study-author(v-in-viewport.once) {{ copy.author }}
   .case-study-cta(v-in-viewport.once)
     CtaButton(
+      v-if="is_en",
+      :locale="false",
       :link="`blog/${slug(copy.blog.title)}-${copy.blog.id}`",
       :name="buttonCopy",
       theme="dark-border")
@@ -15,6 +17,7 @@
 <script>
 import CtaButton from '~/components/buttons/CtaButton'
 import inViewportDirective from 'vue-in-viewport-directive'
+import { mapGetters } from 'vuex'
 const getSlug = require('speakingurl')
 export default {
   components: { CtaButton },
@@ -33,6 +36,7 @@ export default {
     return {
     }
   },
+  computed: { ...mapGetters(['is_en', 'is_not_en', 'is_jp']), },
   methods: {
     slug (title) {
       return getSlug(title)

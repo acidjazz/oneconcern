@@ -7,7 +7,7 @@
     .content-block-title
       | {{ copy }}
     .content-block-cta(v-if="ctaName")
-      CtaButton(:link="ctaLink",:name="ctaName",theme="white-border")
+      CtaButton(:link="ctaLink",:name="ctaName",:locale="false",theme="white-border")
 </template>
 
 <script>
