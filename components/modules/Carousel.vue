@@ -40,7 +40,7 @@ export default {
       interval: 6,
       element: false,
       hammer: false,
-      locale_support: [ 'What We Do', 'What We Believe' ],
+      locale_support: [ 'product', 'mission' ],
     }
   },
   computed: {
@@ -48,7 +48,7 @@ export default {
     data_filtered () {
       if (this.is_en)
         return this.data
-      return this.data.filter( entry => this.locale_support.includes(entry.title) )
+      return this.data.filter( entry => this.locale_support.includes(entry.cta.link) )
     },
   },
   created () {

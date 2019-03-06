@@ -13,9 +13,13 @@ const client = createClient()
 export default {
   components: { Carousel },
 
-  async asyncData () {
+  async asyncData ({ app, params, store }) {
+
+    let iso = { en: 'en-US', jp: 'ja' }
+    let locale = iso[store.state.i18n.locale]
 
     let entries = await client.getEntries({
+      locale: locale,
       'content_type': 'carousel',
       order: 'fields.order',
     })

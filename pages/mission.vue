@@ -24,15 +24,19 @@ import ViewOpenings from '@/components/modules/ViewOpenings'
 import PageHero from '@/components/modules/PageHero'
 export default {
   components: { ContentBlock, CtaButton, ViewOpenings, ScrollDown, PageHero, },
-  async asyncData () {
+  async asyncData ({ app, params, store }) {
 
-    const aboutCopy = await client.getEntries({'content_type': 'aboutCopy'})
+    let iso = { en: 'en-US', jp: 'ja' }
+    let locale = iso[store.state.i18n.locale]
+
+    const aboutCopy = await client.getEntries({locale: locale, 'content_type': 'aboutCopy'})
 
     const hero = await client.getEntries({
       'content_type': 'hero',
       'fields.page': 'mission'
     })
     const contentEntries = await client.getEntries({
+      locale: locale,
       'content_type': 'contentBlock',
       'fields.page': 'mission',
       order: 'fields.order',
