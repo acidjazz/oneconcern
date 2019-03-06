@@ -46,7 +46,6 @@ export default {
         careers: { copy: this.$store.state.layoutCopy.menuCareers },
         blog: { copy: this.$store.state.layoutCopy.menuBlog },
       },
-
       locale_support: [ 'product', 'mission' ],
     }
   },
