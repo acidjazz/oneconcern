@@ -4,7 +4,9 @@
   .fingerprints
     .fingerprints-inner
       .fingerprints-title(v-in-viewport.once) {{ title }}
-      .fingerprints-copy(v-in-viewport.once) {{ copy }}
+      .fingerprints-copy(
+        v-in-viewport.once,
+        :class="{'fingerprints-copy-jp': $store.state.i18n.locale === 'jp'}") {{ copy }}
     .clear
 </template>
 <script>
@@ -54,6 +56,8 @@ export default {
 .fingerprints-copy
   color white
   inViewportBottom(0.1)
+  &.fingerprints-copy-jp
+    font-size 20px
 @media all and (min-width: 1px) and (max-width: 1000px)
   #DigitalFingerprints
     .fingerprints
