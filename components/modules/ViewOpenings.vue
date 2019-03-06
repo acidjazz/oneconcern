@@ -1,8 +1,8 @@
 <template lang="pug">
 .section.section-openings
-  .title(v-in-viewport.once) We’re assembling a team {{ copys.openingsTitle1 }}
-  .title(v-in-viewport.once) of world class individuals. {{ copys.openingsTitle2 }}
-  .title(v-in-viewport.once) Interested in joining us?  {{ copys.openingTitle3 }}
+  .title(v-in-viewport.once) {{ copys.openingsTitle1 }}
+  .title(v-in-viewport.once) {{ copys.openingsTitle2 }}
+  .title(v-in-viewport.once) {{ copys.openingsTitle3 }}
   CtaButton(
     v-in-viewport.once
     :name="copys.openingsButton",
