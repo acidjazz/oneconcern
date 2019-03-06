@@ -29,7 +29,10 @@ export default {
     let iso = { en: 'en-US', jp: 'ja' }
     let locale = iso[store.state.i18n.locale]
 
-    const aboutCopy = await client.getEntries({locale: locale, 'content_type': 'aboutCopy'})
+    const aboutCopy = await client.getEntries({
+      locale: locale,
+      'content_type': 'aboutCopy'
+    })
 
     const hero = await client.getEntries({
       locale: locale,

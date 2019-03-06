@@ -1,8 +1,6 @@
 <template lang="pug">
 .section.section-openings
-  .title(v-in-viewport.once) {{ copys.openingsTitle1 }}
-  .title(v-in-viewport.once) {{ copys.openingsTitle2 }}
-  .title(v-in-viewport.once) {{ copys.openingsTitle3 }}
+  .title(v-in-viewport.once,v-html="copys.openingsTitle")
   CtaButton(
     v-in-viewport.once
     :name="copys.openingsButton",
