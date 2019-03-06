@@ -13,10 +13,7 @@
   HumanRace(:title="copys.titleHumanRace",:copy="copys.HumanRace")
   FeaturedCaseStudy(:copy="copys.CaseStudy",:buttonCopy="copys.featuredCaseStudyButton")
   DigitalFingerprints(:title="copys.fingerprintsTitle",:copy="copys.fingerprintsCopy")
-  QuoteMonitor(
-    :residential="copys.monitorResidential"
-    :commercial="copys.monitorCommercial"
-    :people="copys.monitorPeople")
+  QuoteMonitor(:copy="copys.quoteMonitor")
   BeforeAfter(:items="copys.BeforeAfter")
   .demo-cta
     .cta
@@ -115,7 +112,7 @@ export default {
 
     let stories = []
     for (let entry of userStory.items) {
-      if (entry.fields.title) {
+      if (entry.fields.order >= 0) {
         stories.push({
           quote: entry.fields.quote,
           author: entry.fields.author,

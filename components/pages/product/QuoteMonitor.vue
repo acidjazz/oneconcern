@@ -1,6 +1,7 @@
 <template lang="pug">
 #QuoteMonitor
-  .copy(v-in-viewport.once)
+  .copy(v-in-viewport.once,v-html="copy_processed")
+  //
     | One Concern currently monitors
     // i-count-up.value(:startVal=0,:endVal="numbers.residential",:duration="2.5")
     span.value {{ numbers.residential }}
@@ -13,56 +14,38 @@
     |  people.
 </template>
 <script>
-// import ICountUp from 'vue-countup-v2'
 import inViewportDirective from 'vue-in-viewport-directive'
 import inViewport from 'vue-in-viewport-mixin'
 export default {
-  // components: { ICountUp },
   directives: { 'in-viewport': inViewportDirective },
   mixins: [ inViewport ],
   props: {
-    residential: {
+    copy: {
       type: String,
       required: true,
     },
-    commercial: {
-      type: String,
-      required: true,
-    },
-    people: {
-      type: String,
-      required: true,
-    },
-  },
-  data () {
-    return {
-      numbered: false,
-      numbers: {
-        residential: 0,
-        commercial: 0,
-        people: 0,
-      }
-    }
-  },
-  watch: {
-    'inViewport.now' (visible) {
-      if (this.numbered) {
-        return true
-      }
-      if (visible && this.numbers.residential === 0) {
-        this.numbers.residential = parseInt(this.residential)
-        this.numbers.commercial = parseInt(this.commercial)
-        this.numbers.people = parseInt(this.people)
-        this.numbered = true
-      }
-      if (!visible && this.numbers.residential !== 0) {
-        this.numbers.residential = 0
-        this.numbers.commercial = 0
-        this.numbers.people = 0
-      }
-    }
   },
 
+  computed: {
+
+    copy_processed () {
+      let processed = '', words = this.copy.split(' ')
+      for (let word of words) {
+        if (isNaN(word)) {
+          processed = `${processed} ${word}`
+          continue
+        }
+        if (process.browser) {
+          processed = `${processed} <span class="value">${window.numeral(word).format(0,0)}</span>`
+        } else {
+          processed = `${processed} <span class="value">${word}</span>`
+        }
+      }
+
+      return processed
+
+    },
+  },
 }
 </script>
 
