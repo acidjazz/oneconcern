@@ -12,6 +12,7 @@
     .ba-line(:class="`ba-line-${active}`")
     transition(name="fade")
       .ba-content(
+        :class="{'ba-content-jp': $store.state.i18n.locale === 'jp'}"
         v-for="item, index in items",
         :key="index",
         v-if="index === active")
@@ -114,6 +115,8 @@ export default {
   width 700px
   color white
   font-s1()
+  &.ba-content-jp
+    font-size 20px
 
 @media all and (min-width: 1px) and (max-width: 1000px)
   #BeforeAfter
