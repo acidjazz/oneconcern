@@ -6,11 +6,11 @@ footer.footer(:class="{solid: fixed.indexOf($route.name) === -1, white: $route.n
     a.footer-item.footer-item-contact(:href="copy.footerEmail") {{ this.$store.state.layoutCopy.ctaContact }}
     a.footer-item(:href="copy.footerFacebook",target="_new")
       span.fa.fa-facebook
-    a.footer-item(:href="copy.footerTwtiter",target="_new")
+    a.footer-item(:href="copy.footerTwitter",target="_new")
       span.fa.fa-twitter
-    a.footer-item(href="https://www.linkedin.com/company/oneconcern/",target="_new")
+    a.footer-item(:href="copy.footerLinkedIn",target="_new")
       span.fa.fa-linkedin
-    a.footer-item(href="https://angel.co/one-concern",target="_new")
+    a.footer-item(:href="copy.footerAngel",target="_new")
       span.fa.fa-angellist
 </template>
 

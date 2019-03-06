@@ -32,6 +32,7 @@ export default {
     const aboutCopy = await client.getEntries({locale: locale, 'content_type': 'aboutCopy'})
 
     const hero = await client.getEntries({
+      locale: locale,
       'content_type': 'hero',
       'fields.page': 'mission'
     })
