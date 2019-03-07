@@ -10,13 +10,20 @@
 </template>
 
 <script>
+import locale from '@/mixins/locale'
 export default {
+  mixins: [ locale ],
   props: {
     story: {
       type: Object,
       required: true,
     }
-  }
+  },
+  computed: {
+    story_filtered () {
+      return this.story.filter( entry => entry.locale.includes(this.locale) )
+    },
+  },
 }
 </script>
 

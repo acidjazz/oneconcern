@@ -22,10 +22,11 @@
       .carousel-dot-inner
 </template>
 <script>
-import CtaButton from '~/components/buttons/CtaButton.vue'
-import { mapGetters } from 'vuex'
+import CtaButton from '@/components/buttons/CtaButton'
+import locale from '@/mixins/locale'
 export default {
   components: { CtaButton },
+  mixins: [ locale ],
   props: {
     data: {
       required: true,
@@ -40,15 +41,11 @@ export default {
       interval: 6,
       element: false,
       hammer: false,
-      locale_support: [ 'product', 'mission' ],
     }
   },
   computed: {
-    ...mapGetters(['is_en', 'is_not_en', 'is_jp']),
     data_filtered () {
-      if (this.is_en)
-        return this.data
-      return this.data.filter( entry => this.locale_support.includes(entry.cta.link) )
+      return this.data.filter( entry => entry.locale.includes(this.locale) )
     },
   },
   created () {

@@ -114,6 +114,7 @@ export default {
     for (let entry of userStory.items) {
       if (entry.fields.order >= 0) {
         stories.push({
+          locale: entry.fields.locale,
           quote: entry.fields.quote,
           author: entry.fields.author,
           title: entry.fields.title,

@@ -1,17 +1,6 @@
 <template lang="pug">
 #QuoteMonitor
   .copy(v-in-viewport.once,v-html="copy_processed")
-  //
-    | One Concern currently monitors
-    // i-count-up.value(:startVal=0,:endVal="numbers.residential",:duration="2.5")
-    span.value {{ numbers.residential }}
-    | residential and
-    // i-count-up.value(:startVal=0,:endVal="numbers.commercial",:duration="2.5")
-    span.value {{ numbers.commercial }}
-    | commercial buildings. We monitor earthquakes for
-    // i-count-up.value(:startVal=0,:endVal="numbers.people/1000000",:duration="2.5",:options="{suffix: 'M'}")
-    span.value {{ numbers.people }}
-    |  people.
 </template>
 <script>
 import inViewportDirective from 'vue-in-viewport-directive'
