@@ -38,10 +38,13 @@ export default {
   },
   async asyncData ({ app }) {
 
-    const copy = await client.getEntries({'content_type': 'careersCopy'})
-    const hero = await client.getEntries({'content_type': 'hero','fields.page': 'careers'})
-    const perksBenefits = await client.getEntries({'content_type': 'perksBenefits'})
-    const careersGallery = await client.getEntries({'content_type': 'careersGallery', order: 'fields.number'})
+    let iso = { en: 'en-US', jp: 'ja' }
+    let locale = iso[store.state.i18n.locale]
+
+    const copy = await client.getEntries({locale: locale, 'content_type': 'careersCopy'})
+    const hero = await client.getEntries({locale: locale, 'content_type': 'hero','fields.page': 'careers'})
+    const perksBenefits = await client.getEntries({locale: locale, 'content_type': 'perksBenefits'})
+    const careersGallery = await client.getEntries({locale: locale, 'content_type': 'careersGallery', order: 'fields.number'})
 
     let copys = {}
     for (let entry of copy.items) {
