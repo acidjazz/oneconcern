@@ -36,7 +36,7 @@ export default {
       jobs: jobs,
     }
   },
-  async asyncData ({ app }) {
+  async asyncData ({ app, params, store }) {
 
     let iso = { en: 'en-US', jp: 'ja' }
     let locale = iso[store.state.i18n.locale]

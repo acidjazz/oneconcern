@@ -50,7 +50,7 @@ export default {
       return this.story.copy.split("\n")
     },
   },
-  async asyncData () {
+  async asyncData ({ app, params, store }) {
     let iso = { en: 'en-US', jp: 'ja' }
     let locale = iso[store.state.i18n.locale]
 
