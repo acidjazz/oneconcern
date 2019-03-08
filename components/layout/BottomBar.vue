@@ -3,7 +3,7 @@ footer.footer(:class="{solid: fixed.indexOf($route.name) === -1, white: $route.n
   .footer-left(v-html="$store.state.layoutCopy.footerCopyright")
 
   .footer-right
-    a.footer-item.footer-item-contact(:href="copy.footerEmail") {{ this.$store.state.layoutCopy.ctaContact }}
+    a.footer-item.footer-item-contact(:href="`mailto:${copy.footerEmail}`") {{ this.$store.state.layoutCopy.ctaContact }}
     a.footer-item(:href="copy.footerFacebook",target="_new")
       span.fa.fa-facebook
     a.footer-item(:href="copy.footerTwitter",target="_new")
