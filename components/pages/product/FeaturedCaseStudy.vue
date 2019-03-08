@@ -8,7 +8,7 @@
       .case-study-author(v-in-viewport.once) {{ copy.author }}
   .case-study-cta(v-in-viewport.once)
     CtaButton(
-      v-if="is_en",
+      v-if="buttonCopy !== 'DISABLED'",
       :locale="false",
       :link="`blog/${slug(copy.blog.title)}-${copy.blog.id}`",
       :name="buttonCopy",
