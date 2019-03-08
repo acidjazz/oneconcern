@@ -5,7 +5,7 @@
     flickity.carousel#UserStories(:options="flickityOptions")
       .story.carousel-cell(
         v-in-viewport,
-        v-for="story in stories",
+        v-for="story in stories_filtered",
         :key="story.youtubId")
         iframe(
           v-if="playing === story.youtubeId",
@@ -27,10 +27,11 @@
 </template>
 
 <script>
+import locale from '@/mixins/locale'
 import inViewportDirective from 'vue-in-viewport-directive'
 export default {
-
   directives: { 'in-viewport': inViewportDirective },
+  mixins: [ locale ],
 
   props: {
     title: {
@@ -51,8 +52,16 @@ export default {
         wrapAround: true,
       },
     }
-  }
+  },
+  computed: {
+    stories_filtered () {
+      return this.stories.filter( entry => entry.locale.includes(this.locale) )
+    },
+  },
 
+  mounted () {
+    console.log(this.stories_filtered)
+  },
 }
 </script>
 
