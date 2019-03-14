@@ -13,4 +13,9 @@ export default {
     },
     locale () { return this.$store.state.i18n.locale },
   },
+  methods: {
+    blog_path (post) {
+      return `${this.locale === 'en' ? '/' : '/' + this.locale + '/'}blog/${this.slug(post.title)}-${post.id}`
+    }
+  },
 }

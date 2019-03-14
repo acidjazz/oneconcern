@@ -1,5 +1,5 @@
 <template lang="pug">
-#Blog.page(v-if="is_en")
+#Blog.page
   .hero.hero-above-fold
     .hero-svg
       include ../../static/watermark.svg
@@ -21,10 +21,8 @@ import FeaturedPosts from '@/components/pages/blog/FeaturedPosts'
 import RecentUpdates from '@/components/pages/blog/RecentUpdates'
 import PopularTags from '@/components/pages/blog/PopularTags'
 import ViewOpenings from '@/components/modules/ViewOpenings'
-import { mapGetters } from 'vuex'
 const client = createClient()
 export default {
-
   components: { FeaturedPosts, RecentUpdates, ViewOpenings, PopularTags },
   data () {
     return {
@@ -34,7 +32,6 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['is_en', 'is_not_en', 'is_jp']),
 
     tags () {
 
@@ -78,13 +75,16 @@ export default {
   },
 
 
-  async asyncData ( context ) {
+  async asyncData ({ app, params, store }) {
 
-    const hero = await client.getEntries({'content_type': 'hero','fields.page': 'blog'})
-    const entriesCreated = await client.getEntries({'content_type': 'blog', order: '-fields.created'})
-    const entriesFeatured = await client.getEntries({'content_type': 'blog', order: '-fields.featured'})
+    let iso = { en: 'en-US', jp: 'ja' }
+    let locale = iso[store.state.i18n.locale]
 
-    const aboutCopy = await client.getEntries({'content_type': 'aboutCopy'})
+    const hero = await client.getEntries({locale: locale, 'content_type': 'hero','fields.page': 'blog'})
+    const entriesCreated = await client.getEntries({locale: locale, 'content_type': 'blog', order: '-fields.created'})
+    const entriesFeatured = await client.getEntries({locale: locale, 'content_type': 'blog', order: '-fields.featured'})
+
+    const aboutCopy = await client.getEntries({locale: locale, 'content_type': 'aboutCopy'})
 
     let aboutCopys = {}
     for (let entry of aboutCopy.items)
@@ -130,6 +130,7 @@ export default {
         image: entry.fields.image ? entry.fields.image.fields.file.url : false,
         title: entry.fields.title,
         tags: entry.fields.tags,
+        locale: entry.fields.locale,
         author: {
           image: entry.fields.author ? entry.fields.author.fields.image.fields.file.url : false,
           name: entry.fields.author ? entry.fields.author.fields.name : false,
@@ -149,12 +150,9 @@ export default {
     }
   },
 
-
-
   mounted () {
     this.tag = this.$route.hash.replace('#', '')
   },
-
 
 }
 </script>

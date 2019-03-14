@@ -58,10 +58,6 @@ export default {
       return this.stories.filter( entry => entry.locale.includes(this.locale) )
     },
   },
-
-  mounted () {
-    console.log(this.stories_filtered)
-  },
 }
 </script>
 

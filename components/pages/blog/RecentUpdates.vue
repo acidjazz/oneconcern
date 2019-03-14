@@ -24,7 +24,7 @@
             theme="orange-border",
             :width=140)
           CtaButton(v-else,
-            :link="`/blog/${slug(post.title)}-${post.id}`",
+            :link="blog_path(post)",
             name="view article",
             theme="orange-border",
             :width=140)
@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import locale from '@/mixins/locale'
 import inViewportDirective from 'vue-in-viewport-directive'
 const getSlug = require('speakingurl')
 import CtaButton from '~/components/buttons/CtaButton'
@@ -48,6 +49,7 @@ export default {
       return date
     },
   },
+  mixins: [ locale ],
   props: {
     posts: {
       required: true,
@@ -66,9 +68,12 @@ export default {
   computed: {
     listing () {
       if (this.more === true) {
-        return this.posts
+        return this.posts_filtered
       }
-      return this.posts.slice(0, 4)
+      return this.posts_filtered.slice(0, 4)
+    },
+    posts_filtered () {
+      return this.posts.filter( entry => entry.locale && entry.locale.includes(this.locale) )
     },
   },
 
