@@ -11,14 +11,14 @@
 
 ## Branch Status
 
-master | staging | dev
---- | --- | ---
-[![CircleCI](https://circleci.com/gh/oneconcern/oneconcern/tree/master.svg?style=shield)](https://circleci.com/gh/oneconcern/oneconcern/tree/master) | [![CircleCI](https://circleci.com/gh/oneconcern/oneconcern/tree/staging.svg?style=shield)](https://circleci.com/gh/oneconcern/oneconcern/tree/staging) | [![CircleCI](https://circleci.com/gh/oneconcern/oneconcern/tree/dev.svg?style=shield)](https://circleci.com/gh/oneconcern/oneconcern/tree/dev)
+master | staging
+--- | ---
+[![CircleCI](https://circleci.com/gh/oneconcern/oneconcern/tree/master.svg?style=shield)](https://circleci.com/gh/oneconcern/oneconcern/tree/master) | [![CircleCI](https://circleci.com/gh/oneconcern/oneconcern/tree/staging.svg?style=shield)](https://circleci.com/gh/oneconcern/oneconcern/tree/staging)
 
 ## Local Build Setup
 * Clone this repository 
 ```bash
-git clone git@github.com:oneconcern/oneconcern.git
+git clone git@github.com:acidjazz/oneconcern.git
 ```
 * Install dependencies
 ```bash
