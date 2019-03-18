@@ -1261,10 +1261,10 @@ acorn@^6.0.2, acorn@^6.0.5, acorn@^6.0.7, acorn@^6.1.1:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.1.1.tgz#7d25ae05bb8ad1f9b699108e1094ecd7884adc1f"
   integrity sha512-jPTiwtOxaHNaAPg/dmrJ/beuzLRnXtB0kQPQ8JpotKJgTB6rX6c8mlf315941pyjBSaPg8NHXS9fhP4u17DpGA==
 
-aeonian@^1.1.4:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/aeonian/-/aeonian-1.1.4.tgz#8247ea5c7d88f50acf971a78e679a666835b65d7"
-  integrity sha512-TlN9rLdGYgoYGav+Ql1jhdB9jbqHi1TB6iWF2+ydCX4A48i5TQDMmognXRnPadbNhr8X/7zGJJWOCd4cMWqtOA==
+aeonian@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/aeonian/-/aeonian-1.1.5.tgz#63ac646fdb1a832b963020ba9d23de9a3b731e12"
+  integrity sha512-1q13VUZehfslRVwpBz5PJiT07AxOVIlORKlqXb3Gcsh8dTWQkQoJQ2y6KCsXFpAZaH73YbVLrwUVS1c3FJ7oTg==
   dependencies:
     "@faceleg/s3" "^4.5.0"
     aws-sdk "^2.415.0"
@@ -1492,9 +1492,9 @@ autoprefixer@^9.4.3, autoprefixer@^9.4.9:
     postcss-value-parser "^3.3.1"
 
 aws-sdk@^2.415.0:
-  version "2.422.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.422.0.tgz#d875ca4098ced6f47d466f4c7addf8a79332651f"
-  integrity sha512-t/hUQcRVhbw3EPS84d7YqwIAMSXHT5V/s6m0ivgLjIXnzRng0qRD1KGTkoLkXnY+X/o/NdvVIIfLfO4VF8xqMw==
+  version "2.423.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.423.0.tgz#bc67427fb602b88a652143fafd2febde94a8141d"
+  integrity sha512-BgsqrCMeJuE+gyWbqzDXvwzdEOyl5f9VIy0tgh78vqPI/09j9s4TKC9McMr6I4uTifVUpOxxultPS39PcTjQeA==
   dependencies:
     buffer "4.9.1"
     events "1.1.1"
@@ -2114,7 +2114,7 @@ component-emitter@^1.2.1:
   resolved "https://registry.yarnpkg.com/component-emitter/-/component-emitter-1.2.1.tgz#137918d6d78283f7df7a6b7c5a63e140e69425e6"
   integrity sha1-E3kY1teCg/ffemt8WmPhQOaUJeY=
 
-compressible@~2.0.14:
+compressible@~2.0.16:
   version "2.0.16"
   resolved "https://registry.yarnpkg.com/compressible/-/compressible-2.0.16.tgz#a49bf9858f3821b64ce1be0296afc7380466a77f"
   integrity sha512-JQfEOdnI7dASwCuSPWIeVYwc/zMsu/+tRhoUvEfXz2gxOA2DNjmG5vhtFdBlhWPPGo+RdT9S3tgc/uH5qgDiiA==
@@ -2122,15 +2122,15 @@ compressible@~2.0.14:
     mime-db ">= 1.38.0 < 2"
 
 compression@^1.7.3:
-  version "1.7.3"
-  resolved "https://registry.yarnpkg.com/compression/-/compression-1.7.3.tgz#27e0e176aaf260f7f2c2813c3e440adb9f1993db"
-  integrity sha512-HSjyBG5N1Nnz7tF2+O7A9XUhyjru71/fwgNb7oIsEVHR0WShfs2tIS/EySLgiTe98aOK18YDlMXpzjCXY/n9mg==
+  version "1.7.4"
+  resolved "https://registry.yarnpkg.com/compression/-/compression-1.7.4.tgz#95523eff170ca57c29a0ca41e6fe131f41e5bb8f"
+  integrity sha512-jaSIDzP9pZVS4ZfQ+TzvtiWhdpFhE2RDHz8QJkpX9SIpLq88VueF5jJw6t+6CUQcAoA6t+x89MLrWAqpfDE8iQ==
   dependencies:
     accepts "~1.3.5"
     bytes "3.0.0"
-    compressible "~2.0.14"
+    compressible "~2.0.16"
     debug "2.6.9"
-    on-headers "~1.0.1"
+    on-headers "~1.0.2"
     safe-buffer "5.1.2"
     vary "~1.1.2"
 
@@ -5040,7 +5040,7 @@ on-finished@~2.3.0:
   dependencies:
     ee-first "1.1.1"
 
-on-headers@^1.0.1, on-headers@~1.0.1:
+on-headers@^1.0.1, on-headers@~1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/on-headers/-/on-headers-1.0.2.tgz#772b0ae6aaa525c399e489adfad90c403eb3c28f"
   integrity sha512-pZAE+FJLoyITytdqK0U5s+FIpjN0JP3OzFi/u8Rx+EV5/W+JTWGXG8xFzevE7AjBfDqHv/8vL8qQsIhHnqRkrA==
@@ -5139,9 +5139,9 @@ p-locate@^3.0.0:
     p-limit "^2.0.0"
 
 p-try@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/p-try/-/p-try-2.0.0.tgz#85080bb87c64688fa47996fe8f7dfbe8211760b1"
-  integrity sha512-hMp0onDKIajHfIkdRk3P4CdCmErkYAxxDtP3Wx/4nZ3aGlau2VKh3mZpcuFkH27WQkL/3WBCPOktzA9ZOAnMQQ==
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/p-try/-/p-try-2.1.0.tgz#c1a0f1030e97de018bb2c718929d2af59463e505"
+  integrity sha512-H2RyIJ7+A3rjkwKC2l5GGtU4H1vkxKCAGsWasNVd0Set+6i4znxbWy6/j16YDPJDWxhsgZiKAstMEP8wCdSpjA==
 
 pako@~1.0.5:
   version "1.0.10"

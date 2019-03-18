@@ -21,7 +21,7 @@
     "@nuxtjs/axios": "^5.0.0-rc.2",
     "@nuxtjs/component-cache": "^1.1.2",
     "@nuxtjs/google-tag-manager": "^2.1.4",
-    "aeonian": "^1.1.4",
+    "aeonian": "^1.1.5",
     "contentful": "^7.3.0",
     "dotenv": "^7.0.0",
     "nuxt": "2.4.5",
