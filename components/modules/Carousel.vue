@@ -53,6 +53,10 @@ export default {
       (this.index === this.data_filtered.length - 1) ? this.index = 0 : this.index++
     }, this.interval*1000)
   },
+  destroyed () {
+    clearInterval(this.timer)
+    this.timer = false
+  },
 
   mounted () {
 
