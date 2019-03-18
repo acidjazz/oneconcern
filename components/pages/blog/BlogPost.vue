@@ -41,11 +41,15 @@ export default {
   },
   mounted () {
     this.mdit()
-    this.timer = setInterval(this.mdit, 400)
+    if (process.browser && window.markdownit && this.content === 'Loading..') {
+      this.timer = setInterval(this.mdit, 400)
+    }
   },
   beforeDestroy () {
-    clearInterval(this.timer)
-    this.timer = false
+    if (this.timer) {
+      clearInterval(this.timer)
+      this.timer = false
+    }
   },
   methods: {
     mdit () {

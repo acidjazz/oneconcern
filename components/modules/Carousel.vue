@@ -48,19 +48,19 @@ export default {
       return this.data.filter( entry => entry.locale.includes(this.locale) )
     },
   },
-  created () {
-    this.timer = setInterval(() => {
-      (this.index === this.data_filtered.length - 1) ? this.index = 0 : this.index++
-    }, this.interval*1000)
-  },
   beforeDestroy () {
-    clearInterval(this.timer)
-    this.timer = false
+    if (this.timer) {
+      clearInterval(this.timer)
+      this.timer = false
+    }
   },
 
   mounted () {
 
     if (process.browser && window.Hammer) {
+      this.timer = setInterval(() => {
+        (this.index === this.data_filtered.length - 1) ? this.index = 0 : this.index++
+      }, this.interval*1000)
       this.element = document.getElementById('Carousel')
       this.element.addEventListener('wheel', this.wheel)
       this.hammer = new window.Hammer.Manager(this.element)
