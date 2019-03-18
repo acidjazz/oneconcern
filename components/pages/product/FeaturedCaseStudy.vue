@@ -4,7 +4,7 @@
   .case-study-case
     .case-study-image(v-in-viewport.once,:style="`background-image: url(${copy.image})`")
     .case-study-copy
-      .case-study-quote(v-in-viewport.once) "{{ copy.quote }}"
+      .case-study-quote(v-in-viewport.once) {{ copy.quote }}
       .case-study-author(v-in-viewport.once) {{ copy.author }}
   .case-study-cta(v-in-viewport.once)
     CtaButton(

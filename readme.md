@@ -7,7 +7,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/oneconcern/oneconcern.svg)](https://github.com/oneconcern/oneconcern/issues)
 [![CircleCI](https://img.shields.io/circleci/project/github/oneconcern/oneconcern.svg)](https://circleci.com/gh/oneconcern/oneconcern/)
 [![aeonian status](https://img.shields.io/badge/%C3%A6onian-deployed-green.svg)](https://github.com/acidjazz/aeonian)
-<a href="https://github.com/nuxt/nuxt.js/"><img src="https://img.shields.io/badge/nuxt.js-v1.4.0-800080.svg?style=flat-square" alt=""/></a>
+<a href="https://github.com/nuxt/nuxt.js/"><img src="https://img.shields.io/badge/nuxt.js-v2.4.5-800080.svg?style=flat-square" alt=""/></a>
 
 ## Branch Status
 
@@ -24,6 +24,11 @@ git clone git@github.com:oneconcern/oneconcern.git
 ```bash
 yarn install
 ```
+* Generate routes and lever job listings
+```bash
+yarn cash
+```
+
 * Serve your dev environment with [HMR](https://webpack.github.io/docs/hot-module-replacement.html) at http://localhost:3000
 ```bash
 yarn dev
@@ -32,5 +37,3 @@ yarn dev
 
 ## Deployment
 Continuous Deployment is setup using the [git-flow](http://nvie.com/posts/a-successful-git-branching-model/) workflow with [aeonian](https://github.com/acidjazz/aeonian) via [Circle-CI](https://circleci.com/gh/oneconcern/oneconcern)
-
-*** Edited 06/01/2018 by @zivagolee
