@@ -36,11 +36,16 @@ export default {
     return {
       md: false,
       content: 'Loading..',
+      timer: false,
     }
   },
   mounted () {
     this.mdit()
-    setInterval(this.mdit, 400)
+    this.timer = setInterval(this.mdit, 400)
+  },
+  beforeDestroy () {
+    clearInterval(this.timer)
+    this.timer = false
   },
   methods: {
     mdit () {
