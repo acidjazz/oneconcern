@@ -11,7 +11,7 @@
   FeaturedPosts(:posts="featured",v-if="tag === ''",:copys="copys")
   RecentUpdates(:posts="posts",:title="tag === ''",v-if="tag !== ''",:copys="copys")
   RecentUpdates(:posts="allposts",:title="true",:copys="copys")
-  PopularTags(:tags="tags",v-if="tags",:copys="copys")
+  PopularTags(v-if="tags && is_en",:tags="tags",:copys="copys")
   ViewOpenings(:copys="aboutCopys")
 </template>
 
@@ -22,6 +22,7 @@ import RecentUpdates from '@/components/pages/blog/RecentUpdates'
 import PopularTags from '@/components/pages/blog/PopularTags'
 import ViewOpenings from '@/components/modules/ViewOpenings'
 const client = createClient()
+import { mapGetters } from 'vuex'
 export default {
   components: { FeaturedPosts, RecentUpdates, ViewOpenings, PopularTags },
   data () {
@@ -32,6 +33,7 @@ export default {
     }
   },
   computed: {
+    ...mapGetters(['is_en', 'is_not_en', 'is_jp']),
 
     tags () {
 
