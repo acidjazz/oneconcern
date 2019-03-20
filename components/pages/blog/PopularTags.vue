@@ -1,6 +1,6 @@
 <template lang="pug">
 .popular-tags
-  .title(v-in-viewport.once) Popular Tags
+  .title(v-in-viewport.once) {{ copy.popularTags }}
   .tags
     a.tag(
       :href="`${locale === 'en' ? '/' : '/jp'}/blog/?tag=${tag[0]}#${tag[0]}`",
@@ -9,7 +9,7 @@
       v-if="index < limit",
       v-in-viewport.once)
       span.copy {{ tag[0] }}
-      span.comma(v-if="index !== limit-1") ,
+      span.comma(v-if="index !== limit-1") ,&nbsp;
 </template>
 
 <script>

@@ -1,6 +1,6 @@
 <template lang="pug">
 .recent-updates
-  .title(v-if="title") Recent Updates
+  .title(v-if="title") {{ copys.title }}
   .recent-updates-list
     .recent-update(
       v-for="post, index in listing",
@@ -20,17 +20,17 @@
           CtaButton(
             v-if="post.type === 'link'",
             :link="post.link",
-            name="view article",
+            :name="copys.viewArticle",
             theme="orange-border",
             :width=140)
           CtaButton(v-else,
             :link="blog_path(post)",
-            name="view article",
+            :name="copys.viewArticle",
             theme="orange-border",
             :width=140)
       .recent-update-border(v-in-viewport.once)
   .recent-updates-more(v-in-viewport.once,v-if="posts.length > 4")
-    CtaButton(v-if="!more", :callback="showmore",name="show more",theme="orange-border")
+    CtaButton(v-if="!more", :callback="showmore",:name="showMore",theme="orange-border")
 </template>
 
 <script>
@@ -50,6 +50,10 @@ export default {
     title: {
       required: true,
       type: Boolean,
+    },
+    copys: {
+      type: Object,
+      required: true,
     },
   },
     data () {

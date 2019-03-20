@@ -9,9 +9,9 @@
         .fa.fa-times
     .hero-title(v-else) {{ copy }}
   FeaturedPosts(:posts="featured",v-if="tag === ''")
-  RecentUpdates(:posts="posts",:title="tag === ''",v-if="tag !== ''")
-  RecentUpdates(:posts="allposts",:title="true")
-  PopularTags(:tags="tags",v-if="tags")
+  RecentUpdates(:posts="posts",:title="tag === ''",v-if="tag !== ''",:copys="copys")
+  RecentUpdates(:posts="allposts",:title="true",:copys="copys")
+  PopularTags(:tags="tags",v-if="tags",:copy="copy")
   ViewOpenings(:copys="aboutCopys")
 </template>
 
@@ -85,6 +85,11 @@ export default {
     const entriesFeatured = await client.getEntries({locale: locale, 'content_type': 'blog', order: '-fields.featured'})
 
     const aboutCopy = await client.getEntries({locale: locale, 'content_type': 'aboutCopy'})
+    const blogCopy = await client.getEntries({locale: locale, 'content_type': 'blogCopy'})
+
+    let copys = {}
+    for (let entry of blogCopy.items)
+      copys[entry.fields.name] = entry.fields.copy
 
     let aboutCopys = {}
     for (let entry of aboutCopy.items)
@@ -147,6 +152,7 @@ export default {
       allfeatured: featured,
       unsortedTags: tags,
       aboutCopys: aboutCopys,
+      copys: copys,
     }
   },
 
