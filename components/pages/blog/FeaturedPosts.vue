@@ -1,6 +1,6 @@
 <template lang="pug">
 .featured
-  .title Featured
+  .title {{ copys.featured }}
   .featured-posts
     .featured-post(v-for="post, index in posts_filtered",:key="index")
       a.featured-post-image(
@@ -33,7 +33,11 @@ export default {
     posts: {
       required: true,
       type: Array,
-    }
+    },
+    copys: {
+      type: Object,
+      required: true,
+    },
   },
   computed: {
     posts_filtered () {

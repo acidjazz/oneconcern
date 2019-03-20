@@ -30,7 +30,7 @@
             :width=140)
       .recent-update-border(v-in-viewport.once)
   .recent-updates-more(v-in-viewport.once,v-if="posts.length > 4")
-    CtaButton(v-if="!more", :callback="showmore",:name="showMore",theme="orange-border")
+    CtaButton(v-if="!more", :callback="showmore",:name="copys.showMore",theme="orange-border")
 </template>
 
 <script>

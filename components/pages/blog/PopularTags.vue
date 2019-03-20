@@ -1,6 +1,6 @@
 <template lang="pug">
 .popular-tags
-  .title(v-in-viewport.once) {{ copy.popularTags }}
+  .title(v-in-viewport.once) {{ copys.popularTags }}
   .tags
     a.tag(
       :href="`${locale === 'en' ? '/' : '/jp'}/blog/?tag=${tag[0]}#${tag[0]}`",
@@ -19,6 +19,10 @@ export default {
   directives: { 'in-viewport': inViewportDirective },
   mixins: [ locale ],
   props: {
+    copys: {
+      type: Object,
+      required: true,
+    },
     limit: {
       type: Number,
       required: false,
