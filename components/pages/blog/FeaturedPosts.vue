@@ -13,8 +13,8 @@
         :to="blog_path(post)")
       .featured-post-copy
         .featured-post-title {{ post.title }}
-        .featured-post-author(v-if="post.author.name") by {{ post.author.name }}, {{ post.author.position }}
-        .featured-post-date {{ post.date | moment("dddd, MMM Do, YYYY") }}
+        .featured-post-author(v-if="post.author.name") {{ post.author.name }} - {{ post.author.position }}
+        .featured-post-date {{ date(post.date) }}
 </template>
 
 <script>
@@ -24,12 +24,6 @@ const getSlug = require('speakingurl')
 export default {
   directives: { 'in-viewport': inViewportDirective },
   filters: {
-    moment: function(date, format) {
-      if (process.browser) {
-        return window.moment(date).format(format)
-      }
-      return date
-    },
     slug: function(title) {
       return getSlug(title)
     },
@@ -45,12 +39,12 @@ export default {
     posts_filtered () {
       return this.posts.filter( entry => entry.locale && entry.locale.includes(this.locale) )
     },
+
   },
   methods: {
     slug (title) {
       return getSlug(title)
     },
-
   },
 }
 </script>

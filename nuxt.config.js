@@ -63,6 +63,7 @@ module.exports = {
     script: [
       { src: 'https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js', integrity: 'sha256-LlHVI5rUauudM5ZcZaD6hHPHKrA7CSefHHnKgq+/AZc=', crossorigin: 'anonymous' },
       { src: '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js' },
+      { src: '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/ja.js' },
     ],
 
   },
@@ -84,6 +85,7 @@ module.exports = {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/component-cache',
+    ['@nuxtjs/moment', ['ja']],
     ['@nuxtjs/google-tag-manager', { id: 'GTM-K59VVGC' }],
     ['nuxt-i18n', {
       strategy: 'prefix_except_default',

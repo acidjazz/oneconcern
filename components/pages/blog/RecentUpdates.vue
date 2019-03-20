@@ -14,8 +14,8 @@
           :style="`background-image: url(${post.image})`")
         .recent-update-copy
           .recent-update-title(v-in-viewport.once) {{ post.title }}
-          .recent-update-author(v-in-viewport.once,v-if="post.author.name") by {{ post.author.name }}, {{ post.author.position }}
-          .recent-update-date(v-in-viewport.once) {{ post.date | moment("dddd, MMM Do, YYYY") }}
+          .recent-update-author(v-in-viewport.once,v-if="post.author.name") {{ post.author.name }} - {{ post.author.position }}
+          .recent-update-date(v-in-viewport.once) {{ date(post.date)}}
         .recent-update-cta(v-in-viewport.once)
           CtaButton(
             v-if="post.type === 'link'",
@@ -41,14 +41,6 @@ import CtaButton from '~/components/buttons/CtaButton'
 export default {
   components: { CtaButton },
   directives: { 'in-viewport': inViewportDirective },
-  filters: {
-    moment: function(date, format) {
-      if (process.browser) {
-        return window.moment(date).format(format)
-      }
-      return date
-    },
-  },
   mixins: [ locale ],
   props: {
     posts: {
