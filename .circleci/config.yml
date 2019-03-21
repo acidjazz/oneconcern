@@ -15,31 +15,24 @@ jobs:
 
     steps:
       - checkout
-
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies-
-
-      - run: yarn install
-
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-
-      # run tests!
-      - run: yarn test
+      - run:
+          name: Install modules
+          command: yarn install
+      - run:
+          name: Run tests
+          command: yarn tests
+      - run:
+          name: Generate routes
+          command: yarn cash
+      - run:
+          name: Generate static files
+          command: yarn generate
 
       - deploy:
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              yarn run production
+              yarn production
             fi
             if [ "${CIRCLE_BRANCH}" == "staging" ]; then
-              yarn run staging
+              yarn staging
             fi
-            #if [ "${CIRCLE_BRANCH}" == "dev" ]; then
-            #  yarn run development
-            #fi
