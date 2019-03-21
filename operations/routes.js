@@ -11,6 +11,7 @@ exports.store = function (results) {
   for (let entry of results.items) {
     if (entry.fields.type !== 'link')
       routes.push(`/blog/${slug(entry.fields.title)}-${entry.sys.id}`)
+      routes.push(`/jp/blog/${slug(entry.fields.title)}-${entry.sys.id}`)
   }
   // routes.push('/error')
 
