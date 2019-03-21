@@ -17,7 +17,7 @@
           allowfullscreen)
         .story-inner(:style="`background-image: url(${story.thumbnail});`",v-else)
           .story-gradient
-          .story-quote(:class="{'story-quote-jp': $store.state.i18n.locale === 'jp'}") "{{ story.quote }}"
+          .story-quote(:class="{'story-quote-jp': $store.state.i18n.locale === 'jp'}") {{ story.quote }}
           .story-play(@click="playing = story.youtubeId")
             .story-play-triangle
           .story-creds
