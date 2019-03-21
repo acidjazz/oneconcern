@@ -29,6 +29,7 @@ jobs:
           command: yarn generate --no-lock
 
       - deploy:
+          name: Deploy to staging or production
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               yarn production
