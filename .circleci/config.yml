@@ -20,7 +20,7 @@ jobs:
           command: yarn install
       - run:
           name: Run tests
-          command: yarn tests
+          command: yarn test
       - run:
           name: Generate routes
           command: yarn cash
