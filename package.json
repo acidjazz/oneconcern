@@ -18,6 +18,7 @@
     "test": "echo No tests yet"
   },
   "dependencies": {
+    "@contentful/rich-text-html-renderer": "^13.1.0",
     "@nuxtjs/axios": "^5.0.0-rc.2",
     "@nuxtjs/component-cache": "^1.1.2",
     "@nuxtjs/google-tag-manager": "^2.1.4",

@@ -1,6 +1,10 @@
 <template lang="pug">
 footer.footer(:class="{solid: fixed.indexOf($route.name) === -1, white: $route.name === 'careers'}")
-  .footer-left(v-html="$store.state.layoutCopy.footerCopyright")
+  .footer-left
+    span(v-html="$store.state.layoutCopy.footerCopyright")
+    .footer-item
+    nuxt-link.footer-item(:to="localePath('privacy')") Privacy Policy
+    nuxt-link.footer-item(:to="localePath('terms')") Terms & Services
 
   .footer-right
     a.footer-item.footer-item-contact(:href="`mailto:${copy.footerEmail}`") {{ this.$store.state.layoutCopy.ctaContact }}
@@ -58,7 +62,6 @@ footer.footer
 .footer-right
   float right
   font-s2()
-
 
 .footer-item
   display inline-block
