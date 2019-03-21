@@ -7,7 +7,7 @@
         .blog-post-author-name(v-in-viewport.once) {{ post.author.name }}
         .blog-post-author-position(v-in-viewport.once) {{ post.author.position }}
       .blog-post-date(v-in-viewport.once) {{ date(post.date) }}
-      .blog-post-tags(v-in-viewport.once)
+      .blog-post-tags(v-in-viewport.once,v-if="is_en")
         span.blog-post-tag(v-for="tag, index in post.tags")
           nuxt-link.blog-post-tag-link(:to="`/blog/#${tag}`") {{ tag }}
           span(v-if="index+1 !== post.tags.length") ,&nbsp;
@@ -17,6 +17,7 @@
 <script>
 import inViewportDirective from 'vue-in-viewport-directive'
 import locale from '@/mixins/locale'
+import { mapGetters } from 'vuex'
 export default {
   directives: { 'in-viewport': inViewportDirective },
   mixins: [ locale ],
@@ -32,6 +33,9 @@ export default {
       content: 'Loading..',
       timer: false,
     }
+  },
+  computed: {
+    ...mapGetters(['is_en', 'is_not_en', 'is_jp']),
   },
   mounted () {
     this.mdit()
