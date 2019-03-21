@@ -12,7 +12,7 @@ exports.store = function (results) {
     if (entry.fields.type !== 'link')
       routes.push(`/blog/${slug(entry.fields.title)}-${entry.sys.id}`)
   }
-  routes.push('/error')
+  // routes.push('/error')
 
   fs.writeFileSync('./static/cache/routes.json', JSON.stringify(routes, null, 2))
 
