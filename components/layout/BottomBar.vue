@@ -3,8 +3,8 @@ footer.footer(:class="{solid: fixed.indexOf($route.name) === -1, white: $route.n
   .footer-left
     span(v-html="$store.state.layoutCopy.footerCopyright")
     .footer-item
-    nuxt-link.footer-item(:to="localePath('privacy')") Privacy Policy
-    nuxt-link.footer-item(:to="localePath('terms')") Terms & Services
+    nuxt-link.footer-item(:to="localePath('privacy')") {{ this.$store.state.layoutCopy.ctaPrivacy }}
+    nuxt-link.footer-item(:to="localePath('terms')") {{ this.$store.state.layoutCopy.ctaTerms }}
 
   .footer-right
     a.footer-item.footer-item-contact(:href="`mailto:${copy.footerEmail}`") {{ this.$store.state.layoutCopy.ctaContact }}
