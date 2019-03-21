@@ -39,7 +39,7 @@ export default {
   },
   mounted () {
     this.mdit()
-    if (process.browser && window.markdownit && this.content === 'Loading..') {
+    if (process.browser && this.content === 'Loading..') {
       this.timer = setInterval(this.mdit, 400)
     }
   },
