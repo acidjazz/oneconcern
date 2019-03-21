@@ -26,7 +26,7 @@ jobs:
           command: yarn cash
       - run:
           name: Generate static files
-          command: yarn generate --no-lock
+          command: yarn generate --no-lock --fail-on-page-error
 
       - deploy:
           name: Deploy to staging or production
