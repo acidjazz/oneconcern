@@ -1299,9 +1299,9 @@ acorn@^6.0.2, acorn@^6.0.5, acorn@^6.0.7, acorn@^6.1.1:
   integrity sha512-jPTiwtOxaHNaAPg/dmrJ/beuzLRnXtB0kQPQ8JpotKJgTB6rX6c8mlf315941pyjBSaPg8NHXS9fhP4u17DpGA==
 
 aeonian@^1.1.5:
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/aeonian/-/aeonian-1.1.5.tgz#63ac646fdb1a832b963020ba9d23de9a3b731e12"
-  integrity sha512-1q13VUZehfslRVwpBz5PJiT07AxOVIlORKlqXb3Gcsh8dTWQkQoJQ2y6KCsXFpAZaH73YbVLrwUVS1c3FJ7oTg==
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/aeonian/-/aeonian-1.1.6.tgz#32c33394d8067f94bcca842f5ec79df73aa4f6a6"
+  integrity sha512-PinhlikR/LKQkrlh6haE9Gbx4931IfMvnZuND4sJWwJQH0lwoM79Issk+3zLLBl4u5wmY9Yq0UJWfj0HCr3d1g==
   dependencies:
     "@faceleg/s3" "^4.5.0"
     aws-sdk "^2.415.0"
