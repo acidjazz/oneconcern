@@ -1299,9 +1299,9 @@ acorn@^6.0.2, acorn@^6.0.5, acorn@^6.0.7, acorn@^6.1.1:
   integrity sha512-jPTiwtOxaHNaAPg/dmrJ/beuzLRnXtB0kQPQ8JpotKJgTB6rX6c8mlf315941pyjBSaPg8NHXS9fhP4u17DpGA==
 
 aeonian@^1.1.5:
-  version "1.1.6"
-  resolved "https://registry.yarnpkg.com/aeonian/-/aeonian-1.1.6.tgz#32c33394d8067f94bcca842f5ec79df73aa4f6a6"
-  integrity sha512-PinhlikR/LKQkrlh6haE9Gbx4931IfMvnZuND4sJWwJQH0lwoM79Issk+3zLLBl4u5wmY9Yq0UJWfj0HCr3d1g==
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/aeonian/-/aeonian-1.1.7.tgz#db6e8509b248578b72d6cb847c46c119ec5001d4"
+  integrity sha512-tzooOEyd/4L64c0bQvPEQ7d67oAm19ZKnb1VtPOMkJh/Y2KVPMiSerydSlqKpJd2hldBheT//qIjOJU0v6epRw==
   dependencies:
     "@faceleg/s3" "^4.5.0"
     aws-sdk "^2.415.0"
@@ -1529,9 +1529,9 @@ autoprefixer@^9.4.3, autoprefixer@^9.4.9:
     postcss-value-parser "^3.3.1"
 
 aws-sdk@^2.415.0:
-  version "2.425.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.425.0.tgz#8f125e5783646b54658b91c80881a3b14955f11c"
-  integrity sha512-SM2qZJPlZUKVzSSqNuCvONOhJ2kcFvU+hAwutjQeje2VKpSAbUbFCFWl6cki2FjiyGZYEPfl0Q+3ANJO8gx9BA==
+  version "2.426.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.426.0.tgz#cf17361c987daf518f945218f06135fbc1a3690d"
+  integrity sha512-S4nmIhF/6iYeVEmKUWVG03zo1sw3zELoAPGqBKIZ3isrXbxkFXdP2cgIQxqi37zwWXSqaxt0xjeXVOMLzN6vSg==
   dependencies:
     buffer "4.9.1"
     events "1.1.1"
