@@ -7,7 +7,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/oneconcern/oneconcern.svg)](https://github.com/oneconcern/oneconcern/issues)
 [![CircleCI](https://img.shields.io/circleci/project/github/oneconcern/oneconcern.svg)](https://circleci.com/gh/oneconcern/oneconcern/)
 [![aeonian status](https://img.shields.io/badge/%C3%A6onian-deployed-green.svg)](https://github.com/acidjazz/aeonian)
-<a href="https://github.com/nuxt/nuxt.js/"><img src="https://img.shields.io/badge/nuxt.js-v2.5.0-800080.svg?style=flat-square" alt=""/></a>
+<a href="https://github.com/nuxt/nuxt.js/"><img src="https://img.shields.io/badge/nuxt.js-v2.5.1-800080.svg?style=flat-square" alt=""/></a>
 
 ## Branch Status
 
