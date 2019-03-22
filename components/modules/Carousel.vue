@@ -13,7 +13,7 @@
         .carousel-title {{ carousel.title }}
         .carousel-description {{ carousel.description }}
         .carousel-cta
-          CtaButton(:link="carousel.cta.link",:name="carousel.cta.name",theme="orange-border")
+          CtaButton(:link="localePath(carousel.cta.link)",:name="carousel.cta.name",theme="orange-border")
   .carousel-dots
     .carousel-dot(
       @click="dot(cindex)",
