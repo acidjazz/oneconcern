@@ -77,6 +77,8 @@ export default {
   .allow
     width 100%
     padding 10px
+  .allow-svg
+    display none
   .allow-copy
     margin 0 20px
 </style>

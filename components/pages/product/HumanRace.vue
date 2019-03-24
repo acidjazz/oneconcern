@@ -120,6 +120,7 @@ export default {
       height auto
       .body
         width auto
+        height 400px
         .image
           display none
           width 50%
