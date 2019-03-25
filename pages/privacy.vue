@@ -32,7 +32,9 @@ export default {
 </script>
 
 <style lang="stylus">
+@import '../assets/stylus/guide/includes/*'
 .page-content
   background-color white
   padding 60px
+  font-s2()
 </style>

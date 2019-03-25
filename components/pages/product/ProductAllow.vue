@@ -25,7 +25,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
 @import '../../../assets/stylus/guide/includes/*'
 
 .section-ProductAllow
@@ -52,12 +52,20 @@ export default {
       .allow-copy
         inViewportBottom((0.1 * i + 0.2), 0.5)
 
-.allow-svg
-  width 100px
-  height 100px
-  > svg
-    width inherit
-    height inherit
+.allow
+  &:nth-child(1) .allow-svg svg
+    width 100px
+    height 100px
+  &:nth-child(2) .allow-svg svg
+    width 134px
+    height 99px
+  &:nth-child(3) .allow-svg svg
+    width 98px
+    height 97px
+  &:nth-child(4) .allow-svg svg
+    width 127px
+    height 96px
+
 
 .allow-copy
   flex-align center
@@ -78,7 +86,11 @@ export default {
     width 100%
     padding 10px
   .allow-svg
-    display none
+    width 60px
+    height 60px
+    > svg
+      width inherit !important
+      height inherit !important
   .allow-copy
     margin 0 20px
 </style>
