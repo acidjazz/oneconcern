@@ -4,7 +4,7 @@
   .title(v-in-viewport.once) {{ title }}
 
   .labels
-    .label(
+    //.label(
       v-in-viewport.once
       v-for="entry, index in copy",
       :class="{active: index === active}"
@@ -57,7 +57,7 @@ export default {
     font-h4()
     inViewportBottom()
   .labels
-    padding 30px
+    //padding 30px
     .label
       inViewportBottom(0.1)
       display inline-block
@@ -72,7 +72,8 @@ export default {
       &.active
         color fire-bush
   .content
-    margin 30px auto 0 auto
+    margin 0 auto
+    //margin 30px auto 0 auto
     width 900px
     height 380px
     overflow hidden

@@ -4,7 +4,7 @@
   ScrollDown
 
   UserStories(v-if="stories.length > 0",:stories="stories",:title="titles[1]")
-  ProductAllow(:allows="allows",:title="titles[2]")
+  ProductAllow(:allows="allows",:title="titles[2]",:subtitle="titles[3]")
   SeismicFlood(:data="seismicFlood",:copy="seismicFloodCopy")
   OrangeBlock(:copys="copys")
 
@@ -13,7 +13,7 @@
   HumanRace(:title="copys.titleHumanRace",:copy="copys.HumanRace")
   FeaturedCaseStudy(:copy="copys.CaseStudy",:buttonCopy="copys.featuredCaseStudyButton")
   DigitalFingerprints(:title="copys.fingerprintsTitle",:copy="copys.fingerprintsCopy")
-  QuoteMonitor(:copy="copys.quoteMonitor")
+  QuoteMonitor(v-if="copys.quoteMonitor",:copy="copys.quoteMonitor")
   BeforeAfter(:items="copys.BeforeAfter")
   .demo-cta
     .cta

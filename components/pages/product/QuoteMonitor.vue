@@ -18,6 +18,7 @@ export default {
   computed: {
 
     copy_processed () {
+      if (!this.copy) return ' '
       let processed = '', words = this.copy.split(' ')
       for (let word of words) {
         if (isNaN(word)) {

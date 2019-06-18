@@ -1,6 +1,7 @@
 <template lang="pug">
 .section.section-ProductAllow
   .title {{ title }}
+  .subtitle {{ subtitle }}
 
   .allows
     .allow(v-for="allow in allows")
@@ -14,6 +15,10 @@ export default {
   directives: { 'in-viewport': inViewportDirective },
   props: {
     title: {
+      type: String,
+      required: true,
+    },
+    subtitle: {
       type: String,
       required: true,
     },
@@ -52,19 +57,10 @@ export default {
       .allow-copy
         inViewportBottom((0.1 * i + 0.2), 0.5)
 
-.allow
-  &:nth-child(1) .allow-svg svg
-    width 100px
-    height 100px
-  &:nth-child(2) .allow-svg svg
-    width 134px
-    height 99px
-  &:nth-child(3) .allow-svg svg
-    width 98px
-    height 97px
-  &:nth-child(4) .allow-svg svg
-    width 127px
-    height 96px
+.allow .allow-svg svg
+  fill white
+  width 60px
+  height 60px
 
 
 .allow-copy
@@ -76,6 +72,12 @@ export default {
 
 .title
   color white
+  margin 0 0 40px 0
+.subtitle
+  max-width 700px
+  margin auto
+  color white
+  font-s6()
 
 @media all and (min-width: 1px) and (max-width: 1000px)
   .allows
