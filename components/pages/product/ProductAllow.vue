@@ -46,26 +46,6 @@ export default {
 <style lang="stylus">
 @import '../../../assets/stylus/guide/includes/*'
 
-.fil-enter-active
-  transition opacity 0.6s ease-in-out 0.2s
-  .allow-title
-    transition transform 0.4s ease-in-out 0.2s
-  .allow-copy
-    transition transform 0.4s ease-in-out 0.25s
-.fil-leave-active
-  transition opacity 0.2s ease-in-out 0s
-  .allow-title, .allow-copy
-    transition transform 0.2s ease-in-out 0s
-
-.fil-enter, .fil-leave-to
-  opacity 0
-
-.fil-enter .allow-title, .fil-enter .allow-copy
-  transform translate(10px, 0)
-
-.fil-leave-to .allow-title, .fil-leave-to .allow-copy
-  transform translate(-4px, 0)
-
 .section-ProductAllow
   padding 20px
   margin 60px 0

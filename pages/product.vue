@@ -10,7 +10,8 @@
 
   //.quote
     .copy(v-in-viewport.once) {{ copys.quoteTop }}
-  FeaturedCaseStudy(:copy="copys.CaseStudy",:buttonCopy="copys.featuredCaseStudyButton")
+  //FeaturedCaseStudy(:copy="copys.CaseStudy",:buttonCopy="copys.featuredCaseStudyButton")
+  ProductAwards(:awards="awards",:title="titles[4]")
   HumanRace(:title="copys.titleHumanRace",:copy="copys.HumanRace")
   //DigitalFingerprints(:title="copys.fingerprintsTitle",:copy="copys.fingerprintsCopy")
   QuoteMonitor(v-if="copys.quoteMonitor",:copy="copys.quoteMonitor")
@@ -28,6 +29,7 @@ const client = createClient()
 import inViewportDirective from 'vue-in-viewport-directive'
 import UserStories from '@/components/pages/product/UserStories'
 import ProductAllow from '@/components/pages/product/ProductAllow'
+import ProductAwards from '@/components/pages/product/ProductAwards'
 import SeismicFlood from '@/components/pages/product/SeismicFlood'
 import OrangeBlock from '@/components/pages/product/OrangeBlock'
 import HumanRace from '@/components/pages/product/HumanRace'
@@ -51,6 +53,7 @@ export default {
     PageHero,
     UserStories,
     ProductAllow,
+    ProductAwards,
     SeismicFlood,
     OrangeBlock,
   },
@@ -76,6 +79,7 @@ export default {
 
     const userStory = await client.getEntries({locale: locale, 'content_type': 'userStory', order: 'fields.order'})
     const productAllow = await client.getEntries({locale: locale, 'content_type': 'productAllow', order: 'fields.order'})
+    const productAwards = await client.getEntries({locale: locale, 'content_type': 'productAwards', order: 'fields.order'})
     const seismicFlood = await client.getEntries({locale: locale, 'content_type': 'seismicFlood'})
     const productTitle = await client.getEntries({locale: locale, 'content_type': 'productTitle'})
 
@@ -138,6 +142,17 @@ export default {
       })
     }
 
+    let awards = []
+    for (let entry of productAwards.items) {
+      awards.push({
+        icon: entry.fields.icon,
+        title: entry.fields.title,
+        copy: entry.fields.copy,
+      })
+    }
+
+
+
     return {
       lowres: hero.items[0].fields.lowres.fields.file.url,
       image: hero.items[0].fields.image.fields.file.url,
@@ -149,6 +164,7 @@ export default {
       },
       stories: stories,
       allows: allows,
+      awards: awards,
       copys: copys,
       seismicFlood: seismicFlood,
       seismicFloodCopy: {
