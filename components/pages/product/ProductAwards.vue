@@ -102,5 +102,7 @@ export default {
     max-width auto
     margin 60px auto 10px auto
   .award-icon
-    margin 0 20px
+    margin 0 10px
+    width 100%
+    height 100%
 </style>
