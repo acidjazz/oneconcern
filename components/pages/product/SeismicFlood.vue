@@ -3,7 +3,7 @@
 .section.section-SeismicFlood
   .sf-menu
     a.sf-item(:class="{'is-active': selection == 'seismic'}",@click="selection = 'seismic'") {{ copy.buttonSeismic }}
-    a.sf-item(:class="{'is-active': selection == 'flood'}",@click="selection = 'flood'") {{ copy.buttonFlood }}
+    //a.sf-item(:class="{'is-active': selection == 'flood'}",@click="selection = 'flood'") {{ copy.buttonFlood }}
 
   .sf-content
     transition(name="fade",mode="out-in")
@@ -83,7 +83,7 @@ export default {
 
 .sf-item
   cursor pointer
-  width 100px
+  width 200px
   margin 0 20px
   padding 10px
   color white

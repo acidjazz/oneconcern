@@ -120,6 +120,7 @@ export default {
 .allow-body
   min-height 140px
 .allow-title
+  color fire-bush
   font-s7()
   margin 20px 0
 .allow-copy

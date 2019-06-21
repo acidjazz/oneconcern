@@ -48,6 +48,7 @@ export default {
 #BeforeAfter
   background-color fire-bush
   background carrot-fire
+  background-size 200% 200%
   padding 60px 0
   height 500px
 
