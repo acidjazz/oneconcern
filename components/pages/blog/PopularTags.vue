@@ -43,7 +43,7 @@ export default {
   background-color white
   .title
     font-h4()
-    color blue-charcoal
+    color midnight-express
     text-align center
     padding 0 0 30px 0
     inViewportBottom()
@@ -59,7 +59,7 @@ export default {
       .copy
         color fire-bush
       .comma
-        color blue-charcoal
+        color midnight-express
       for i in 1..12
         &:nth-child({i})
           inViewportBottom(0.03*i)

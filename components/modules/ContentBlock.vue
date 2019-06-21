@@ -62,7 +62,7 @@ export default {
     flex-direction row-reverse
   &.content-block-theme-charcoal,
   &.content-block-theme-charcoal .content-block-copy,
-    background-color blue-charcoal
+    background-color midnight-express
   &.content-block-theme-fire,
   &.content-block-theme-fire .content-block-copy
     background-color fire-bush

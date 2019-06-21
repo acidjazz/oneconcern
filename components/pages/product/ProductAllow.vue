@@ -3,10 +3,18 @@
   .title {{ title }}
   .subtitle {{ subtitle }}
 
-  .allows
-    .allow(v-for="allow in allows")
-      .allow-svg(v-in-viewport.once,v-html="allow.icon")
-      .allow-copy(v-in-viewport.once) {{ allow.copy }}
+  .allow-icons
+    .allow-icon(
+      v-for="allow, index in allows"
+      @click="active = index"
+      :class="{'allow-icon-active': index === active}"
+      v-html="allow.icon")
+
+  .allow
+    transition(name="fil")
+      .allow-body(v-for="allow, index in allows",:key="index",v-if="index === active")
+        .allow-title(v-in-viewport.once) {{ allow.title }}
+        .allow-copy(v-in-viewport.once) {{ allow.copy }}
 </template>
 
 <script>
@@ -26,15 +34,105 @@ export default {
       type: Array,
       required: true,
     }
-  }
+  },
+  data () {
+    return {
+      active: 0,
+    }
+  },
 }
 </script>
 
 <style lang="stylus">
 @import '../../../assets/stylus/guide/includes/*'
 
+.fil-enter-active
+  transition opacity 0.6s ease-in-out 0.2s
+  .allow-title
+    transition transform 0.4s ease-in-out 0.2s
+  .allow-copy
+    transition transform 0.4s ease-in-out 0.25s
+.fil-leave-active
+  transition opacity 0.2s ease-in-out 0s
+  .allow-title, .allow-copy
+    transition transform 0.2s ease-in-out 0s
+
+.fil-enter, .fil-leave-to
+  opacity 0
+
+.fil-enter .allow-title, .fil-enter .allow-copy
+  transform translate(10px, 0)
+
+.fil-leave-to .allow-title, .fil-leave-to .allow-copy
+  transform translate(-4px, 0)
+
 .section-ProductAllow
   padding 20px
+  margin 60px 0
+
+  .title
+    color white
+    margin 0 0 20px 0
+  .subtitle
+    max-width 700px
+    margin auto
+    color white
+    font-s6()
+
+.allow-icons
+  display flex
+  flex-direction row
+  justify-content center
+  align-items center
+  max-width 1000px
+  border-bottom 3px solid transparent
+  margin 60px auto 20px auto
+
+.allow-icon
+  width 60px
+  height 60px
+  margin 0 40px
+  cursor pointer
+  border-bottom 3px solid transparent
+  transition all 0.3s ease-in
+  padding-bottom 20px
+  &:hover
+    svg fill not-white
+  svg
+    fill white
+
+.allow-icon-active
+  border-bottom 3px solid white
+  svg
+    fill fire-bush
+
+.allow
+  position relative
+  height 140px
+  color white
+  max-width 600px
+  margin auto
+  text-align left
+.allow-body
+  min-height 140px
+.allow-title
+  font-s7()
+  margin 20px 0
+.allow-copy
+  font-s6()
+
+.allow-body
+  height 140px
+  position absolute
+
+@media all and (min-width: 1px) and (max-width: 1000px)
+  .allow-icons
+    max-width auto
+    margin 60px auto 10px auto
+  .allow-icon
+    margin 0 20px
+
+/*
 
 .allows
   display flex
@@ -46,9 +144,10 @@ export default {
   padding 30px
   padding-bottom 0px
 .allow
-  width 50%
+  width 25%
   display flex
   padding 30px 0
+  flex-direction column
   align-items center
   for i in 1..4
     &:nth-child({i})
@@ -57,6 +156,8 @@ export default {
       .allow-copy
         inViewportBottom((0.1 * i + 0.2), 0.5)
 
+.allow .allow-svg
+  margin-bottom 20px
 .allow .allow-svg svg
   fill white
   width 60px
@@ -67,19 +168,10 @@ export default {
   flex-align center
   color white
   font-s6()
-  margin 0 40px
-  text-align left
+  margin 0 20px
+  text-align center
 
-.title
-  color white
-  margin 0 0 40px 0
-.subtitle
-  max-width 700px
-  margin auto
-  color white
-  font-s6()
 
-@media all and (min-width: 1px) and (max-width: 1000px)
   .allows
     padding 10px
   .section-ProductAllow > .title
@@ -95,4 +187,5 @@ export default {
       height inherit !important
   .allow-copy
     margin 0 20px
+*/
 </style>

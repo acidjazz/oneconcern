@@ -100,7 +100,7 @@ export default {
   border-radius 5px
   max-height calc(100% - 80px)
   overflow-y scroll
-  background-color blue-charcoal
+  background-color midnight-express
   color white
   p
     text-align center

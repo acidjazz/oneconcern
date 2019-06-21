@@ -49,13 +49,13 @@ footer.footer
     position static
     background-color not-white
     padding 60px 45px 200px 45px
-    color blue-charcoal
+    color midnight-express
     &.white
       background-color white
     .footer-item
       span
         color white
-        background-color blue-charcoal
+        background-color midnight-express
         &:hover
           background-color fire-bush
 
@@ -84,14 +84,14 @@ footer.footer
     line-height 20px
     border-radius 50%
     background-color white
-    color blue-charcoal
+    color midnight-express
     transition all 0.2s ease
     &:hover
       background-color fire-bush
       color white
 
 footer.footer.solid .footer-item
-  color blue-charcoal
+  color midnight-express
   &:hover
    color fire-bush
 

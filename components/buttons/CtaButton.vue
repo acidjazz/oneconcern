@@ -128,7 +128,7 @@ export default {
 
   &.theme-white
     > .before
-      color blue-charcoal
+      color midnight-express
       background-color white
     > .after
       color white
@@ -150,17 +150,17 @@ export default {
       background-color transparent
     > .after
       color white
-      background-color blue-charcoal
+      background-color midnight-express
 
 
   &.theme-white-border-black
     border 3px solid white
     > .before
-      color blue-charcoal
+      color midnight-express
       background-color transparent
     > .after
       color white
-      background-color blue-charcoal
+      background-color midnight-express
 
   &.theme-orange-border
     border 3px solid fire-bush
@@ -170,9 +170,9 @@ export default {
       color white
       background-color fire-bush
   &.theme-dark-border
-    border 3px solid blue-charcoal
+    border 3px solid midnight-express
     > .before
-      color blue-charcoal
+      color midnight-express
     > .after
       color white
       background-color fire-bush
@@ -186,7 +186,7 @@ export default {
     background-image linear-gradient(-75deg, transparent 50%, fire-bush 50%)
   &.theme-white-border-black
     color white
-    background-image linear-gradient(-75deg, transparent 50%, blue-charcoal 50%)
+    background-image linear-gradient(-75deg, transparent 50%, midnight-express 50%)
   &.theme-white
     border 0px solid transparent
     background-image linear-gradient(-75deg, white 50%, fire-bush 50%)
@@ -201,7 +201,7 @@ export default {
     background-image linear-gradient(-90deg, transparent 50%, fire-bush 50%)
     background-position 0% 0%
   &.theme-white-border-black:hover
-    background-image linear-gradient(-75deg, transparent 50%, blue-charcoal 50%)
+    background-image linear-gradient(-75deg, transparent 50%, midnight-express 50%)
   */
 
 </style>

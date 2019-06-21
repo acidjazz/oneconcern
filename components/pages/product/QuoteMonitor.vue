@@ -54,7 +54,7 @@ export default {
     font-h4()
     span
       padding 0 4px
-      color blue-charcoal
+      color midnight-express
 
 @media all and (min-width: 1px) and (max-width: 1000px)
   #QuoteMonitor

@@ -150,7 +150,7 @@ export default {
       left 50%
       margin-top -23px
       margin-left -23px
-      color blue-charcoal
+      color midnight-express
       background-color white
       padding 5px
       border-radius 50%

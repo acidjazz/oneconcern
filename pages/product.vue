@@ -12,7 +12,7 @@
     .copy(v-in-viewport.once) {{ copys.quoteTop }}
   HumanRace(:title="copys.titleHumanRace",:copy="copys.HumanRace")
   FeaturedCaseStudy(:copy="copys.CaseStudy",:buttonCopy="copys.featuredCaseStudyButton")
-  DigitalFingerprints(:title="copys.fingerprintsTitle",:copy="copys.fingerprintsCopy")
+  //DigitalFingerprints(:title="copys.fingerprintsTitle",:copy="copys.fingerprintsCopy")
   QuoteMonitor(v-if="copys.quoteMonitor",:copy="copys.quoteMonitor")
   BeforeAfter(:items="copys.BeforeAfter")
   .demo-cta
@@ -133,6 +133,7 @@ export default {
     for (let entry of productAllow.items) {
       allows.push({
         icon: entry.fields.icon,
+        title: entry.fields.title,
         copy: entry.fields.copy,
       })
     }
@@ -209,7 +210,7 @@ export default {
     margin auto
     inViewportBottom(0, 0.5)
 .demo-cta
-  background-color blue-charcoal
+  background-color midnight-express
   padding 60px 0
   .cta
     text-align center

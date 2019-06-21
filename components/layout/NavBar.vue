@@ -58,10 +58,10 @@ export default {
     }
   },
 
-  created () {
+  mounted () {
     if (process.browser) {
       window.addEventListener('scroll', this.scroll)
-      this.scroll()
+      setTimeout( () => this.scroll(), 1000)
    }
   },
   destroyed () {

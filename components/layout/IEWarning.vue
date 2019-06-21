@@ -19,7 +19,7 @@
 #IEWarning
   position absolute
   z-index 100
-  background-color blue-charcoal
+  background-color midnight-express
   color white
   top 0
   left 0
