@@ -1,16 +1,16 @@
 <template lang="pug">
 .section.section-ProductAllow
-  .title {{ title }}
-  .subtitle {{ subtitle }}
+  .title(v-in-viewport.once) {{ title }}
+  .subtitle(v-in-viewport.once) {{ subtitle }}
 
-  .allow-icons
+  .allow-icons(v-in-viewport.once)
     .allow-icon(
       v-for="allow, index in allows"
       @click="active = index"
       :class="{'allow-icon-active': index === active}"
       v-html="allow.icon")
 
-  .allow
+  .allow(v-in-viewport.once)
     transition(name="fil")
       .allow-body(v-for="allow, index in allows",:key="index",v-if="index === active")
         .allow-title(v-in-viewport.once) {{ allow.title }}
@@ -73,11 +73,13 @@ export default {
   .title
     color white
     margin 0 0 20px 0
+    inViewportBottom(0.1, 0.5)
   .subtitle
     max-width 700px
     margin auto
     color white
     font-s6()
+    inViewportBottom(0.2, 0.5)
 
 .allow-icons
   display flex
@@ -87,6 +89,7 @@ export default {
   max-width 1000px
   border-bottom 3px solid transparent
   margin 60px auto 20px auto
+  inViewportBottom(0.3, 0.5)
 
 .allow-icon
   width 60px
@@ -113,6 +116,7 @@ export default {
   max-width 600px
   margin auto
   text-align left
+  inViewportBottom(0.4, 0.5)
 .allow-body
   min-height 140px
 .allow-title

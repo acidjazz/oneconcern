@@ -10,7 +10,7 @@
         .ba-selection-vector(v-html="item.vector")
         .ba-selection-title {{ item.title }}
     .ba-line(:class="`ba-line-${active}`")
-    transition(name="fade")
+    transition(name="fade",mode="out-in")
       .ba-content(
         :class="{'ba-content-jp': $store.state.i18n.locale === 'jp'}"
         v-for="item, index in items",

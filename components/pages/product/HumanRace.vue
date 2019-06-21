@@ -56,6 +56,7 @@ export default {
   .title
     font-h4()
     inViewportBottom()
+    margin-bottom 30px
   .labels
     //padding 30px
     .label

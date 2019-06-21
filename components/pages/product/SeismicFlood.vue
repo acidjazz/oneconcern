@@ -6,7 +6,7 @@
     a.sf-item(:class="{'is-active': selection == 'flood'}",@click="selection = 'flood'") {{ copy.buttonFlood }}
 
   .sf-content
-    transition(name="fade")
+    transition(name="fade",mode="out-in")
       .sf-body(v-if="selection == 'seismic'",key="seismic")
 
         .sf-image(v-in-viewport.once)
@@ -71,7 +71,7 @@ export default {
 .section-SeismicFlood
   max-width 1200px
   margin auto
-  padding 0 0 60px 0
+  padding 60px 0
 
 .sf-menu
   width 400px
