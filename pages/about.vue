@@ -8,7 +8,8 @@
     .title(v-in-viewport.once) {{ copys.ourStoryTitle }}
     .subsections
       .subsection(v-in-viewport.once)
-        video(controls,:poster="story.poster")
+        img(:src="story.poster")
+        //video(controls,:poster="story.poster")
           source(:src="story.video",type="video/mp4")
       .subsection(v-in-viewport.once)
         p(v-for="block in storyCopy") {{ block }}
@@ -124,7 +125,7 @@ export default {
       margin-left 30px
       inViewport(0.4)
 
-    video
+    video, img
       width 100%
       height 100%
 
