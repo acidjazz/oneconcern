@@ -157,7 +157,8 @@ export default {
   width 480px
 
 .carousel-title
-  font-h1()
+  //font-h1()
+  font-size 46px
   margin-bottom 20px
 .carousel-description
   font-h2()
