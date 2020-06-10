@@ -14,7 +14,7 @@
         .carousel-description {{ carousel.description }}
         .carousel-cta
           CtaButton(:link="localePath(carousel.cta.link)",:name="carousel.cta.name",theme="orange-border")
-  .carousel-dots(v-if="data_filtered.length > 0")
+  .carousel-dots(v-if="data_filtered.length > 1")
     .carousel-dot(
       @click="dot(cindex)",
       v-for="(carousel, cindex) in data_filtered"
