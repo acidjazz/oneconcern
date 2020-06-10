@@ -28,7 +28,7 @@
     "moment": "^2.24.0",
     "momentjs": "^2.0.0",
     "nuxt": "^2.6.2",
-    "nuxt-i18n": "^5.8.4",
+    "nuxt-i18n": "^6.12",
     "speakingurl": "^14.0.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",

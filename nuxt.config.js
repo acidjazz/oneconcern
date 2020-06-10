@@ -91,17 +91,16 @@ module.exports = {
       strategy: 'prefix_except_default',
       defaultLocale: 'en',
       fallbackLocale: 'en',
-      noPrefixDefaultLocale: true,
       locales: [
-        {
-          code: 'en',
-          iso: 'en-US',
-          name: 'English',
-        },
         {
           code: 'jp',
           iso: 'ja',
           name: 'Japanese',
+        },
+        {
+          code: 'en',
+          iso: 'en-US',
+          name: 'English',
         },
       ],
       vueI18n: { fallbackLocale: 'en' },

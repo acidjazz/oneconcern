@@ -30,13 +30,21 @@ export default {
   },
 
   head () {
+    const i18nSeo = this.$nuxtI18nSeo()
     return {
-      title: this.meta[this.$store.state.i18n.locale].title,
+      htmlAttrs: {
+        ...i18nSeo.htmlAttrs,
+      },
+      title: this.meta[this.$i18n.locale].title,
       meta: [
         {
           hid: 'description', name: 'description',
-          content: this.meta[this.$store.state.i18n.locale].description
+          content: this.meta[this.$i18n.locale].description
         },
+        ...i18nSeo.meta,
+      ],
+      link: [
+        ...i18nSeo.link,
       ]
     }
   },

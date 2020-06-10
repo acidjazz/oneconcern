@@ -2,7 +2,7 @@
   .hero(:style="`background-image: url(${lowres})`")
     img.hero-background(:src="image")
     slot
-    .hero-title(:class="{'hero-title-jp': $store.state.i18n.locale === 'jp'}") {{ copy }}
+    .hero-title(:class="{'hero-title-jp': $i18n.locale === 'jp'}") {{ copy }}
 </template>
 
 <script>

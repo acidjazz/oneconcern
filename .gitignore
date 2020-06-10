@@ -16,3 +16,5 @@ dist
 
 .env
 static/cache/*.json
+
+.idea

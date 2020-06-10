@@ -1,7 +1,7 @@
 <template lang="pug">
 .section.section-stories
   .section-stories-title(v-in-viewport) {{ title }}
-  no-ssr
+  client-only
     flickity.carousel#UserStories(:options="flickityOptions")
       .story.carousel-cell(
         v-in-viewport,
@@ -17,7 +17,7 @@
           allowfullscreen)
         .story-inner(:style="`background-image: url(${story.thumbnail});`",v-else)
           .story-gradient
-          .story-quote(:class="{'story-quote-jp': $store.state.i18n.locale === 'jp'}") {{ story.quote }}
+          .story-quote(:class="{'story-quote-jp': $i18n.locale === 'jp'}") {{ story.quote }}
           .story-play(@click="playing = story.youtubeId")
             .story-play-triangle
           .story-creds

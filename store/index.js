@@ -21,10 +21,10 @@ export const mutations = {
 import { createClient } from '@/plugins/contentful.js'
 const client = createClient()
 export const actions = {
-  async nuxtServerInit ({ commit, state }, {req} ) {
+  async nuxtServerInit ({ commit }, { req, app } ) {
 
     let iso = { en: 'en-US', jp: 'ja' }
-    let locale = iso[state.i18n.locale]
+    let locale = iso[app.i18n.locale]
 
     const copy = await client.getEntries({locale: locale, 'content_type': 'layoutCopy'})
     let copys = {}

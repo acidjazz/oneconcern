@@ -16,9 +16,9 @@ export default {
   computed: {
     rfc () {
       let iso = { en: 'en-US', jp: 'ja' }
-      return iso[this.$store.state.i18n.locale]
+      return iso[this.$i18n.locale]
     },
-    locale () { return this.$store.state.i18n.locale },
+    locale () { return this.$i18n.locale },
     date_format () { return this.date_formats[this.locale] },
 
   },

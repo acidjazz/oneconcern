@@ -6,7 +6,7 @@
       .fingerprints-title(v-in-viewport.once) {{ title }}
       .fingerprints-copy(
         v-in-viewport.once,
-        :class="{'fingerprints-copy-jp': $store.state.i18n.locale === 'jp'}") {{ copy }}
+        :class="{'fingerprints-copy-jp': $i18n.locale === 'jp'}") {{ copy }}
     .clear
 </template>
 <script>

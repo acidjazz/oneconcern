@@ -67,7 +67,7 @@ export default {
 
   async asyncData ({ app, params, store }) {
     let iso = { en: 'en-US', jp: 'ja' }
-    let locale = iso[store.state.i18n.locale]
+    let locale = iso[app.i18n.locale]
 
     const hero = await client.getEntries({locale: locale, content_type: 'hero', 'fields.page': 'product'})
     const story = await client.getEntries({locale: locale, 'content_type': 'productVideo'})

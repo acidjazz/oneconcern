@@ -16,7 +16,7 @@ export default {
   async asyncData ({ app, params, store }) {
 
     let iso = { en: 'en-US', jp: 'ja' }
-    let locale = iso[store.state.i18n.locale]
+    let locale = iso[app.i18n.locale]
 
     const AiCopy = await client.getEntries({locale: locale, 'content_type': 'aiCopy'})
     const AiCarousel = await client.getEntries({locale: locale, 'content_type': 'aiCarousel'})
