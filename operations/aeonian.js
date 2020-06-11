@@ -9,8 +9,7 @@ require('aeonian').config({
 
     // - official 1c id's
     production: 'E1Z577RFAY2GSN',
-    staging: 'E1OCUBYNGDRQHE',
-    development: 'CLOUDFRONTID',
+    staging: 'E18565489EWS6U',
 
     /* - dev id's
     production: 'E26T22R6AY0TYO',

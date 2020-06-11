@@ -2,7 +2,7 @@
 #Carousel(tabindex="1",@keyup.down="next",@keyup.up="prev")
   transition(name="carousel")
     .carousel(
-      v-for="carousel, cindex in data_filtered",
+      v-for="(carousel, cindex) in data_filtered",
       :key="cindex",
       v-if="cindex === index")
       img.carousel-background(
