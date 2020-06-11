@@ -19,11 +19,11 @@ export default {
       meta: {
         en: {
           title: 'One Concern',
-          description: 'Artificial Intelligence platform for Disasters',
+          description: 'Artificial Intelligence Platform for Disasters',
         },
         jp: {
-          title: 'jp title placeholder',
-          description: 'jp description placeholder',
+          title: 'One Concern (ワン・コンサーン)',
+          description: '「災害の発生前・発生時・発生後に人命と暮らしを守ること」をミッションに、AIなどの最先端のテクノロジーを活用した災害予測と防災・減災システムを提供',
         },
       }
     }
