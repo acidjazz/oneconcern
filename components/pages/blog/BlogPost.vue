@@ -17,10 +17,10 @@
 <script>
 import inViewportDirective from 'vue-in-viewport-directive'
 import locale from '@/mixins/locale'
-import { mapGetters } from 'vuex'
+import i18n from '@/mixins/i18n'
 export default {
   directives: { 'in-viewport': inViewportDirective },
-  mixins: [ locale ],
+  mixins: [ locale, i18n ],
   props: {
     post: {
       type: Object,

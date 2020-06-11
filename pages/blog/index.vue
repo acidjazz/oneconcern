@@ -22,9 +22,10 @@ import RecentUpdates from '@/components/pages/blog/RecentUpdates'
 import PopularTags from '@/components/pages/blog/PopularTags'
 import ViewOpenings from '@/components/modules/ViewOpenings'
 const client = createClient()
-import { mapGetters } from 'vuex'
+import i18n from '@/mixins/i18n'
 export default {
   components: { FeaturedPosts, RecentUpdates, ViewOpenings, PopularTags },
+  mixins: [i18n],
   data () {
     return {
       allposts: [],
@@ -33,7 +34,6 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['is_en', 'is_not_en', 'is_jp']),
 
     tags () {
 

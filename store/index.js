@@ -34,8 +34,3 @@ export const actions = {
   }
 }
 
-export const getters = {
-  is_en (state) { return state.i18n && state.i18n.locale === 'en' },
-  is_not_en (state) { return state.i18n && state.i18n.locale !== 'en' },
-  is_jp (state) { return state.i18n && state.i18n.locale === 'jp' },
-}

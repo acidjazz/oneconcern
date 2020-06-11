@@ -15,23 +15,28 @@ transition(name="animodal")
       .demo-close(@click="$store.commit('demo', false)")
         .fa.fa-times
 
-      iframe.demo-frame#frame(v-if="is_en",src="https://eepurl.com/dkcE09")
-      iframe.demo-frame#frame(v-if="is_jp",src=" https://eepurl.com/giG0TD")
+      iframe.demo-frame#frame(v-if="is_en", src="https://eepurl.com/dkcE09")
+      iframe.demo-frame#frame(v-if="is_jp", src=" https://eepurl.com/giG0TD")
 
 </template>
 
 <script>
 import CtaButton from '~/components/buttons/CtaButton'
-import { mapGetters } from 'vuex'
+import i18n from '@/mixins/i18n'
 export default {
   components: { CtaButton },
+  mixins: [i18n],
   data () {
     return {
       loop: false,
       success: false,
     }
   },
-  computed: { ...mapGetters(['is_en', 'is_not_en', 'is_jp']), },
+  mounted () {
+    console.log(this.$i18n.locale)
+    console.log(this.is_en)
+    console.log(this.is_jp)
+  },
   created () {
     if (process.browser) {
       this.loop = setInterval(() => {

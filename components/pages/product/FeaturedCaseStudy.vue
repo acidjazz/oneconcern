@@ -17,11 +17,12 @@
 <script>
 import CtaButton from '~/components/buttons/CtaButton'
 import inViewportDirective from 'vue-in-viewport-directive'
-import { mapGetters } from 'vuex'
+import i18n from '@/mixins/i18n'
 const getSlug = require('speakingurl')
 export default {
   components: { CtaButton },
   directives: { 'in-viewport': inViewportDirective },
+  mixins: [i18n],
   props: {
     buttonCopy: {
       type: String,
@@ -36,7 +37,6 @@ export default {
     return {
     }
   },
-  computed: { ...mapGetters(['is_en', 'is_not_en', 'is_jp']), },
   methods: {
     slug (title) {
       return getSlug(title)

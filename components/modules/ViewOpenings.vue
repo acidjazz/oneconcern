@@ -12,17 +12,17 @@
 <script>
 import inViewportDirective from 'vue-in-viewport-directive'
 import CtaButton from '~/components/buttons/CtaButton'
-import { mapGetters } from 'vuex'
+import i18n from '@/mixins/i18n'
 export default {
   components: { CtaButton },
   directives: { 'in-viewport': inViewportDirective },
+  mixins: [i18n],
   props: {
     copys: {
       type: Object,
       required: true,
     },
   },
-  computed: { ...mapGetters(['is_en', 'is_not_en', 'is_jp']), },
 }
 </script>
 

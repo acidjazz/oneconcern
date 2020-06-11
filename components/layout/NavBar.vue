@@ -32,9 +32,10 @@ nav.navbar(:class="{dark: darken}")
 
 <script>
 import CtaButton from '~/components/buttons/CtaButton'
-import { mapGetters } from 'vuex'
+import i18n from '@/mixins/i18n'
 export default {
   components: { CtaButton },
+  mixins: [i18n],
   data () {
     return {
       burger: false,
@@ -49,7 +50,6 @@ export default {
       locale_support: [ 'product', 'mission', 'blog' ],
     }
   },
-  computed: { ...mapGetters(['is_en', 'is_not_en', 'is_jp']), },
   watch: {
     '$route' (to, from) {
       if (to.name === 'index') {
