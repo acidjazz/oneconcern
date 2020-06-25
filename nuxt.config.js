@@ -109,7 +109,11 @@ module.exports = {
       vueI18n: { fallbackLocale: 'en' },
       seo: false,
     }],
+    '@nuxtjs/sitemap',
   ],
+  sitemap: {
+    hostname: 'https://oneconcern.com',
+  },
   generate: { routes },
   build: {
     /*
