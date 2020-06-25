@@ -1,6 +1,7 @@
 <template lang="pug">
 nav.navbar(:class="{dark: darken}")
   nuxt-link.navbar-logo(:to="localePath('index')")
+    img(src="/logo.png", alt="logo")
   .navbar-burger(:class="{'is-active': burger}",@click="burger = !burger")
     span
     span
@@ -107,12 +108,14 @@ nav.navbar
       height 50px
 
 .navbar-logo
-  background-image url(/logo.png)
   background-size cover
   background-repeat no-repeat
   width 200px
   height 85px
   transition 0.6s ease
+  img
+    width inherit
+    height inherit
 
 .navbar-logo-mobile
   display none
