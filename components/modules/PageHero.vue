@@ -1,6 +1,6 @@
 <template lang="pug">
   .hero(:style="`background-image: url(${lowres})`")
-    img.hero-background(:src="image")
+    img.hero-background(:src="image", alt="hero")
     slot
     .hero-title(:class="{'hero-title-jp': $i18n.locale === 'jp'}") {{ copy }}
 </template>

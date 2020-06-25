@@ -8,7 +8,7 @@
     .title(v-in-viewport.once) {{ copys.ourStoryTitle }}
     .subsections
       .subsection(v-in-viewport.once)
-        img(:src="story.poster")
+        img(:src="story.poster" alt="poster")
         //video(controls,:poster="story.poster")
           source(:src="story.video",type="video/mp4")
       .subsection(v-in-viewport.once)

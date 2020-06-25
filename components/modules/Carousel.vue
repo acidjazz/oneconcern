@@ -1,11 +1,12 @@
 <template lang="pug">
-#Carousel(tabindex="1",@keyup.down="next",@keyup.up="prev")
+#Carousel(@keyup.down="next",@keyup.up="prev")
   transition(name="carousel")
     .carousel(
       v-for="(carousel, cindex) in data_filtered",
       :key="cindex",
       v-if="cindex === index")
       img.carousel-background(
+        alt="carousel",
         :src="carousel.image",
         :style="`background-image: url(${carousel.lowres})`")
       .carousel-gradient

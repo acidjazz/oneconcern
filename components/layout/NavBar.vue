@@ -21,12 +21,12 @@ nav.navbar(:class="{dark: darken}")
       a(
         href="/",
         :class="{'is-active': $i18n.locale === 'en'}").flag
-        img(src="/flag_en.jpg")
+        img(src="/flag_en.jpg", alt="english")
       span &nbsp;
       a(
         href="/jp",
         :class="{'is-active': $i18n.locale === 'jp'}").flag
-        img(src="/flag_jp.jpg")
+        img(src="/flag_jp.jpg", alt="japanese")
   .clear
 </template>
 

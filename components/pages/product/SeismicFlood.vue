@@ -10,14 +10,14 @@
       .sf-body(v-if="selection == 'seismic'",key="seismic")
 
         .sf-image(v-in-viewport.once)
-          img(:src="`${seismic.image}`")
+          img(:src="`${seismic.image}`" alt="seismic")
         .sf-list
             p(v-in-viewport.once,v-for="item in seismic.list") {{ item }}
 
       .sf-body(v-if="selection == 'flood'",key="flood")
 
         .sf-image(v-in-viewport.once)
-          img(:src="`${flood.image}`")
+          img(:src="`${flood.image}`" alt="flood")
         .sf-list
           ul
             li(v-in-viewport.once,v-for="item in flood.list") {{ item }}

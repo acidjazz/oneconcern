@@ -18,3 +18,5 @@ dist
 static/cache/*.json
 
 .idea
+
+sw.js

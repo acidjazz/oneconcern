@@ -17,7 +17,7 @@
           :key="index")
           .image(
             :class="`image-${index}`")
-            img(:src="entry.image")
+            img(:src="entry.image", alt="entry")
           .copy
             .subtitle {{ entry.title }}
             p {{ entry.body }}
