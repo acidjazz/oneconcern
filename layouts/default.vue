@@ -50,6 +50,12 @@ export default {
   },
 }
 </script>
+<style>
+body, html {
+  background-color: #222937;
+  color: white;
+}
+</style>
 
 <style lang="stylus">
 @import '../assets/stylus/guide/*'

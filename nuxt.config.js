@@ -83,7 +83,7 @@ module.exports = {
   ** Build configuration
   */
   buildModules: [
-    '@nuxtjs/pwa',
+    ['@nuxtjs/pwa', { manifest: false}],
   ],
   modules: [
     '@nuxtjs/axios',
