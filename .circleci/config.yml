@@ -22,6 +22,9 @@ jobs:
           name: Run tests
           command: yarn test
       - run:
+          name: Build cache
+          command: yarn cash
+      - run:
           name: Build static site
           command: yarn build
       - run:
