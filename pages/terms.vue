@@ -34,5 +34,6 @@ export default {
 <style lang="stylus">
 .page-content
   background-color white
+  color black
   padding 60px
 </style>
