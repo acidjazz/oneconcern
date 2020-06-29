@@ -1,5 +1,5 @@
 <template lang="pug">
-#Carousel(@keyup.down="next",@keyup.up="prev")
+#Carousel(@keyup.down="next", @keyup.up="prev")
   transition(name="carousel")
     .carousel(
       v-for="(carousel, cindex) in data_filtered",

@@ -88,6 +88,7 @@ export default {
 .featured-post-copy
   padding-top 30px
 .featured-post-title
+  color black
   font-h4()
   padding 0 30px 0 30px
 .featured-post-author,
