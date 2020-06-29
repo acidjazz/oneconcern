@@ -8,7 +8,7 @@ let config = {
   keywords: 'key, words'
 }
 
-// let routes = require('./static/cache/routes.json')
+let routes = require('./static/cache/routes.json')
 
 module.exports = {
 
@@ -114,7 +114,7 @@ module.exports = {
   sitemap: {
     hostname: 'https://oneconcern.com',
   },
-  // generate: { routes },
+  generate: { routes },
   build: {
     /*
     ** Run ESLint on save
