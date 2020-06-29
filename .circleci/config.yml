@@ -22,11 +22,11 @@ jobs:
           name: Run tests
           command: yarn test
       - run:
-          name: Generate routes
-          command: yarn cash
+          name: Build static site
+          command: yarn build
       - run:
-          name: Generate static files
-          command: yarn generate --no-lock --fail-on-page-error
+          name: Generate dyanmic links
+          command: yarn export
 
       - deploy:
           name: Deploy to staging or production

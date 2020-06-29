@@ -3,7 +3,7 @@
   .title(v-if="title") {{ copys.title }}
   .recent-updates-list
     .recent-update(
-      v-for="post, index in listing",
+      v-for="(post, index) in listing",
       :key="index",
       :class="{vp: title}",
       v-in-viewport.once)
@@ -29,8 +29,8 @@
             theme="orange-border",
             :width=140)
       .recent-update-border(v-in-viewport.once)
-  .recent-updates-more(v-in-viewport.once,v-if="posts.length > 4")
-    CtaButton(v-if="!more", :callback="showmore",:name="copys.showMore",theme="orange-border")
+  .recent-updates-more(v-in-viewport.once, v-if="posts.length > 4")
+    CtaButton(v-if="!more", :callback="showmore", :name="copys.showMore", theme="orange-border")
 </template>
 
 <script>
@@ -195,5 +195,4 @@ export default {
           inViewportBottom(0.5)
         .recent-update-border
           inViewportWidth(0.6, 0.5)
-
 </style>

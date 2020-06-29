@@ -34,9 +34,6 @@ export default {
       timer: false,
     }
   },
-  computed: {
-    ...mapGetters(['is_en', 'is_not_en', 'is_jp']),
-  },
   mounted () {
     this.mdit()
     if (process.browser && this.content === 'Loading..') {
@@ -77,6 +74,7 @@ export default {
 .blog-post
   background-color white
   padding 60px 0
+  color black
 .blog-post-inner
   max-width 1000px
   margin auto

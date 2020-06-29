@@ -9,9 +9,11 @@ exports.store = function (results) {
 
   let routes = []
   for (let entry of results.items) {
-    if (entry.fields.type !== 'link')
+    if (entry.fields.type !== 'link') {
+      console.log(`gen: /blog/${slug(entry.fields.title)}-${entry.sys.id}`)
       routes.push(`/blog/${slug(entry.fields.title)}-${entry.sys.id}`)
-      routes.push(`/jp/blog/one-concern-${entry.sys.id}`)
+      //routes.push(`/jp/blog/one-concern-${entry.sys.id}`)
+    }
   }
   // routes.push('/error')
 

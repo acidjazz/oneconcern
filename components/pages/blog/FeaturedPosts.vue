@@ -2,11 +2,11 @@
 .featured
   .title {{ copys.featured }}
   .featured-posts
-    .featured-post(v-for="post, index in posts_filtered",:key="index")
+    .featured-post(v-for="(post, index) in posts_filtered", :key="index")
       a.featured-post-image(
         v-if="post.type === 'link'",
         :style="`background-image: url(${post.image})`",
-        :href="post.link",target="_new")
+        :href="post.link", target="_new")
       nuxt-link.featured-post-image(
         v-else,
         :style="`background-image: url(${post.image})`",
