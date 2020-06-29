@@ -114,7 +114,7 @@ module.exports = {
   sitemap: {
     hostname: 'https://oneconcern.com',
   },
-  generate: { routes },
+  // generate: { routes },
   build: {
     /*
     ** Run ESLint on save
