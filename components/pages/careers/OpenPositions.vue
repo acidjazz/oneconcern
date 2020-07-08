@@ -59,6 +59,7 @@ export default {
   padding 60px 0
   text-align center
   background-color not-white
+  color blue-charcoal
   .title
     font-h4()
     inViewportBottom()

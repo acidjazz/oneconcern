@@ -102,6 +102,9 @@ export default {
 <style lang="stylus">
 
 @import '../assets/stylus/guide/includes/*'
+.section-story
+  background=color fire-bush
+  color blue-charcoal
 
 .subsections
   display flex

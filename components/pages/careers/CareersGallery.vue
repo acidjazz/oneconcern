@@ -42,6 +42,7 @@ export default {
 @import '../../../assets/stylus/guide/includes/*'
 
 .careers-gallery
+  color blue-charcoal
   background-color not-white
   padding 30px 60px 60px 60px
 
