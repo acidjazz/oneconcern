@@ -1,7 +1,6 @@
 <template lang="pug">
 #OneConcern
   main.pages
-    nuxt
   NavBar
   BottomBar
   DemoForm(v-if="$store.state.demo")
